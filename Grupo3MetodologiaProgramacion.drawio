@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="26.0.11">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15" version="26.0.11" pages="2">
   <diagram name="Diagrama de clases - general" id="c4acf3e9-155e-7222-9cf6-157b1a14988f">
     <mxGraphModel dx="1624" dy="1631" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -167,6 +167,26 @@
           <mxGeometry y="60" width="310" height="50" as="geometry" />
         </mxCell>
         <mxCell id="eYIMzX3WZNuhf6WXJO9W-18" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;fontSize=12;startSize=8;endSize=8;" parent="1" source="iEGUo1FkYtEQyHlQIwaH-1" target="iEGUo1FkYtEQyHlQIwaH-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="k705aFbDnbClGoiMdXsT" name="Diagrama de casos de uso">
+    <mxGraphModel dx="1178" dy="683" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Zwa9Atgk1kqcfCR8aMld-1" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="290" y="90" width="310" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="Zwa9Atgk1kqcfCR8aMld-2" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="180" y="125" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Zwa9Atgk1kqcfCR8aMld-3" value="Escribir y poner nuestra función" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="120" width="100" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Zwa9Atgk1kqcfCR8aMld-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;startFill=0;" edge="1" parent="1" source="Zwa9Atgk1kqcfCR8aMld-2" target="Zwa9Atgk1kqcfCR8aMld-3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
