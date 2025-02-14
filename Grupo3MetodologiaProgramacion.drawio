@@ -345,7 +345,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="k705aFbDnbClGoiMdXsT" name="Diagrama de casos de uso">
-    <mxGraphModel dx="1621" dy="1853" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="956" dy="1328" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -441,18 +441,6 @@
         <mxCell id="XZRkXZccxM3cvMw5or_g-2" value="Jugador" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" parent="1" vertex="1">
           <mxGeometry x="26" y="610" width="30" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="v27ZFQPXKkDA8YpKztSA-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.633;entryY=0.65;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="44.99000000000001" y="651" as="targetPoint" />
-            <mxPoint x="190" y="647" as="sourcePoint" />
-            <Array as="points">
-              <mxPoint x="190" y="648" />
-              <mxPoint x="118" y="648" />
-              <mxPoint x="118" y="640" />
-              <mxPoint x="46" y="640" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
         <mxCell id="XZRkXZccxM3cvMw5or_g-5" value="Agregar personaje" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="190" y="620" width="140" height="50" as="geometry" />
         </mxCell>
@@ -467,6 +455,13 @@
         </mxCell>
         <mxCell id="XZRkXZccxM3cvMw5or_g-18" value="Diagrama de Casos de Uso: Jugador, Manejar Personajes" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="80" y="890" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="v27ZFQPXKkDA8YpKztSA-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.009;exitY=0.38;exitDx=0;exitDy=0;exitPerimeter=0;endArrow=none;startFill=0;" edge="1" parent="1" source="XZRkXZccxM3cvMw5or_g-5" target="XZRkXZccxM3cvMw5or_g-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="130" y="639" />
+            </Array>
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
