@@ -436,7 +436,7 @@
           <mxGeometry x="60" y="-52.5" width="420" height="420" as="geometry" />
         </mxCell>
         <mxCell id="XZRkXZccxM3cvMw5or_g-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-25" y="440" width="515" height="490" as="geometry" />
+          <mxGeometry x="-25" y="440" width="765" height="490" as="geometry" />
         </mxCell>
         <mxCell id="XZRkXZccxM3cvMw5or_g-2" value="Jugador" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" parent="1" vertex="1">
           <mxGeometry x="26" y="610" width="30" height="60" as="geometry" />
