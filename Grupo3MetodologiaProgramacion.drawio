@@ -551,12 +551,12 @@
     </mxGraphModel>
   </diagram>
   <diagram id="CJECvoa5vaHMvUkRLNPM" name="Diagramas de Flujo">
-    <mxGraphModel dx="528" dy="1052" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1256" dy="855" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="NbouIzWj3wpBImz6SzTu-15" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=90;" vertex="1" parent="1">
-          <mxGeometry x="-85" y="285" width="670" height="290" as="geometry" />
+          <mxGeometry x="-3.13" y="11.87" width="670" height="836.25" as="geometry" />
         </mxCell>
         <mxCell id="NbouIzWj3wpBImz6SzTu-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NbouIzWj3wpBImz6SzTu-1" target="NbouIzWj3wpBImz6SzTu-5">
           <mxGeometry relative="1" as="geometry">
@@ -580,7 +580,7 @@
         <mxCell id="NbouIzWj3wpBImz6SzTu-6" value="operador" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NbouIzWj3wpBImz6SzTu-5" target="NbouIzWj3wpBImz6SzTu-4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="NbouIzWj3wpBImz6SzTu-5" value="El usuario selecciona&amp;nbsp;&lt;div&gt;tipo de login&lt;/div&gt;" style="rhombus;verticalAlign=middle;align=center;html=1;" vertex="1" parent="1">
+        <mxCell id="NbouIzWj3wpBImz6SzTu-5" value="El usuario selecciona&amp;nbsp;&lt;div&gt;&amp;nbsp;login o signup&lt;/div&gt;" style="rhombus;verticalAlign=middle;align=center;html=1;" vertex="1" parent="1">
           <mxGeometry x="166.25" y="220" width="167.5" height="100" as="geometry" />
         </mxCell>
         <mxCell id="NbouIzWj3wpBImz6SzTu-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NbouIzWj3wpBImz6SzTu-7" target="NbouIzWj3wpBImz6SzTu-8">
@@ -588,6 +588,22 @@
         </mxCell>
         <mxCell id="NbouIzWj3wpBImz6SzTu-13" value="correctamente" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="NbouIzWj3wpBImz6SzTu-12">
           <mxGeometry x="-0.1" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NbouIzWj3wpBImz6SzTu-7" target="NbouIzWj3wpBImz6SzTu-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-21" value="bad credentials" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="NbouIzWj3wpBImz6SzTu-20">
+          <mxGeometry x="-0.2924" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NbouIzWj3wpBImz6SzTu-7" target="NbouIzWj3wpBImz6SzTu-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-26" value="user not found" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="NbouIzWj3wpBImz6SzTu-23">
+          <mxGeometry x="0.0507" y="-2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
@@ -599,6 +615,22 @@
         </mxCell>
         <mxCell id="NbouIzWj3wpBImz6SzTu-16" value="Diagrama de Flujo: Login operador" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
           <mxGeometry x="166.25" y="730" width="190" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="NbouIzWj3wpBImz6SzTu-18" target="NbouIzWj3wpBImz6SzTu-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-18" value="Usuario o contraseña incorrecto" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="NbouIzWj3wpBImz6SzTu-22" target="NbouIzWj3wpBImz6SzTu-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="30" y="270" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-22" value="Ups, usuario no existente" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-30" y="500" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
