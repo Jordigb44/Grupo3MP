@@ -551,7 +551,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="CJECvoa5vaHMvUkRLNPM" name="Diagramas de Flujo">
-    <mxGraphModel dx="1441" dy="1852" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1556" dy="1980" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -843,7 +843,7 @@
           <mxGeometry x="181.14" y="650" width="139.24" height="80" as="geometry" />
         </mxCell>
         <mxCell id="wizwVoO-BXpd23Zx7Wx5-24" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-200" y="830" width="870" height="1660" as="geometry" />
+          <mxGeometry x="-205.18" y="840" width="870" height="1810" as="geometry" />
         </mxCell>
         <mxCell id="wizwVoO-BXpd23Zx7Wx5-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.964;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="wizwVoO-BXpd23Zx7Wx5-29" target="wizwVoO-BXpd23Zx7Wx5-28">
           <mxGeometry relative="1" as="geometry">
@@ -955,17 +955,17 @@
         <mxCell id="wizwVoO-BXpd23Zx7Wx5-51" value="Se muestra las opciones de manejo del personaje" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="192.34" y="2000" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="wizwVoO-BXpd23Zx7Wx5-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.713;exitY=0.757;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="wizwVoO-BXpd23Zx7Wx5-53" target="wizwVoO-BXpd23Zx7Wx5-72">
+        <mxCell id="wizwVoO-BXpd23Zx7Wx5-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.713;exitY=0.757;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="wizwVoO-BXpd23Zx7Wx5-53" target="a28AM9g5S5HrAZugJ_Ee-6">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="556.9999999999995" y="2250" as="targetPoint" />
+            <mxPoint x="323.83000000000015" y="2307.4999999999995" as="targetPoint" />
             <Array as="points">
-              <mxPoint x="324" y="2203" />
+              <mxPoint x="325" y="2203" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="a28AM9g5S5HrAZugJ_Ee-4" value="Eliminar personaje" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="wizwVoO-BXpd23Zx7Wx5-62">
           <mxGeometry x="0.5958" y="-3" relative="1" as="geometry">
-            <mxPoint as="offset" />
+            <mxPoint x="-1" y="-28" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="wizwVoO-BXpd23Zx7Wx5-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="wizwVoO-BXpd23Zx7Wx5-53">
@@ -982,13 +982,38 @@
           <mxGeometry x="138.12" y="2120" width="228.44" height="110" as="geometry" />
         </mxCell>
         <mxCell id="wizwVoO-BXpd23Zx7Wx5-67" value="Diagrama de flujo general de manejo de personajes" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;" vertex="1" parent="1">
-          <mxGeometry y="2440" width="464.42" height="40" as="geometry" />
-        </mxCell>
-        <mxCell id="wizwVoO-BXpd23Zx7Wx5-72" value="Se muestra la pantalla de selección de personaje a eliminar" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="235" y="2307.5" width="177.66" height="87.5" as="geometry" />
+          <mxGeometry x="-2.39" y="2590" width="464.42" height="40" as="geometry" />
         </mxCell>
         <mxCell id="a28AM9g5S5HrAZugJ_Ee-5" value="Agregar nuevo pe&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;rsonaje&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="51.56" y="2315" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="a28AM9g5S5HrAZugJ_Ee-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="a28AM9g5S5HrAZugJ_Ee-6" target="a28AM9g5S5HrAZugJ_Ee-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a28AM9g5S5HrAZugJ_Ee-9" value="correcto" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="a28AM9g5S5HrAZugJ_Ee-8">
+          <mxGeometry x="-0.1624" y="2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a28AM9g5S5HrAZugJ_Ee-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="a28AM9g5S5HrAZugJ_Ee-6" target="a28AM9g5S5HrAZugJ_Ee-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a28AM9g5S5HrAZugJ_Ee-16" value="incorrecto" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="a28AM9g5S5HrAZugJ_Ee-15">
+          <mxGeometry x="-0.1971" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a28AM9g5S5HrAZugJ_Ee-6" value="Selecciona el personaje a eliminar" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="223.06" y="2315" width="203.44" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="a28AM9g5S5HrAZugJ_Ee-7" value="Personaje eliminado correctamente" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="264.78" y="2460" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="a28AM9g5S5HrAZugJ_Ee-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="a28AM9g5S5HrAZugJ_Ee-13" target="a28AM9g5S5HrAZugJ_Ee-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a28AM9g5S5HrAZugJ_Ee-13" value="No se pudo eliminar el personaje" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="2325" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
