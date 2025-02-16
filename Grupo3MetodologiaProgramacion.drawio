@@ -350,7 +350,7 @@
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-3" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-70" y="-1110" width="780" height="470" as="geometry" />
+          <mxGeometry x="-130" y="-550" width="780" height="470" as="geometry" />
         </mxCell>
         <mxCell id="py3XGuUMO9sS74I0xUE9-2" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="-25" y="-30" width="350" height="350" as="geometry" />
@@ -391,30 +391,30 @@
           <mxGeometry x="56" y="283" width="210" height="30" as="geometry" />
         </mxCell>
         <mxCell id="XZRkXZccxM3cvMw5or_g-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-25" y="600" width="375" height="210" as="geometry" />
+          <mxGeometry x="-26.5" y="375" width="375" height="210" as="geometry" />
         </mxCell>
         <mxCell id="XZRkXZccxM3cvMw5or_g-2" value="Jugador" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" parent="1" vertex="1">
-          <mxGeometry x="26" y="610" width="30" height="60" as="geometry" />
+          <mxGeometry x="24.5" y="385" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="XZRkXZccxM3cvMw5or_g-5" value="Agregar personaje" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="190" y="620" width="140" height="50" as="geometry" />
+          <mxGeometry x="188.5" y="395" width="140" height="50" as="geometry" />
         </mxCell>
         <mxCell id="XZRkXZccxM3cvMw5or_g-6" value="Dar de baja a un personaje" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="200" y="680" width="140" height="60" as="geometry" />
+          <mxGeometry x="198.5" y="455" width="140" height="60" as="geometry" />
         </mxCell>
         <mxCell id="XZRkXZccxM3cvMw5or_g-12" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="XZRkXZccxM3cvMw5or_g-2" target="XZRkXZccxM3cvMw5or_g-6" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="70" y="640" as="sourcePoint" />
-            <mxPoint x="200" y="620" as="targetPoint" />
+            <mxPoint x="68.5" y="415" as="sourcePoint" />
+            <mxPoint x="198.5" y="395" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="XZRkXZccxM3cvMw5or_g-18" value="Diagrama de Casos de Uso: Jugador, Manejar Personajes" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="-7.5" y="770" width="340" height="30" as="geometry" />
+          <mxGeometry x="-9" y="545" width="340" height="30" as="geometry" />
         </mxCell>
         <mxCell id="v27ZFQPXKkDA8YpKztSA-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.009;exitY=0.38;exitDx=0;exitDy=0;exitPerimeter=0;endArrow=none;startFill=0;" parent="1" source="XZRkXZccxM3cvMw5or_g-5" target="XZRkXZccxM3cvMw5or_g-2" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="191" y="640" />
+              <mxPoint x="189.5" y="415" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -428,21 +428,21 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-6" value="Jugador 1&lt;div&gt;(Desafiante)&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
-          <mxGeometry x="-35" y="-990" width="30" height="60" as="geometry" />
+          <mxGeometry x="-95" y="-430" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-8" value="Desafiar a otros usuarios" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="46" y="-1000" width="120" height="80" as="geometry" />
+          <mxGeometry x="-14" y="-440" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-9" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="Dj7w6y1mkLYd36pRvy1_-6" target="Dj7w6y1mkLYd36pRvy1_-8" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="50" y="-850" as="sourcePoint" />
-            <mxPoint x="100" y="-900" as="targetPoint" />
+            <mxPoint x="-10" y="-290" as="sourcePoint" />
+            <mxPoint x="40" y="-340" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-10" value="" style="endArrow=open;html=1;rounded=0;exitX=0.908;exitY=0.235;exitDx=0;exitDy=0;endFill=0;dashed=1;dashPattern=8 8;exitPerimeter=0;" parent="1" source="Dj7w6y1mkLYd36pRvy1_-8" target="Dj7w6y1mkLYd36pRvy1_-11" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="140" y="-860" as="sourcePoint" />
-            <mxPoint x="190" y="-910" as="targetPoint" />
+            <mxPoint x="80" y="-300" as="sourcePoint" />
+            <mxPoint x="130" y="-350" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="09tUdZpG59J9mKALQhAm-1" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" vertex="1" connectable="0" parent="Dj7w6y1mkLYd36pRvy1_-10">
@@ -459,60 +459,60 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-11" value="Introduce el usuario a desafiar" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="190" y="-1090" width="130" height="80" as="geometry" />
+          <mxGeometry x="130" y="-530" width="130" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-12" value="Jugador 2&lt;div&gt;(Desafiado)&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
-          <mxGeometry x="650" y="-990" width="30" height="60" as="geometry" />
+          <mxGeometry x="590" y="-430" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-13" value="Recibir notificación del desafiante" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="480" y="-1000" width="120" height="80" as="geometry" />
+          <mxGeometry x="420" y="-440" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-14" value="" style="endArrow=none;html=1;rounded=0;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="Dj7w6y1mkLYd36pRvy1_-13" target="Dj7w6y1mkLYd36pRvy1_-12" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="610" y="-740" as="sourcePoint" />
-            <mxPoint x="660" y="-790" as="targetPoint" />
+            <mxPoint x="550" y="-180" as="sourcePoint" />
+            <mxPoint x="600" y="-230" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-15" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="Dj7w6y1mkLYd36pRvy1_-16" target="Dj7w6y1mkLYd36pRvy1_-13" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="610" y="-740" as="sourcePoint" />
-            <mxPoint x="490" y="-930" as="targetPoint" />
+            <mxPoint x="550" y="-180" as="sourcePoint" />
+            <mxPoint x="430" y="-370" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-16" value="Aceptar desafío" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="354" y="-910" width="120" height="80" as="geometry" />
+          <mxGeometry x="294" y="-350" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-17" value="Rechazar desafío" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="350" y="-1080" width="120" height="80" as="geometry" />
+          <mxGeometry x="290" y="-520" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-18" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="Dj7w6y1mkLYd36pRvy1_-17" target="Dj7w6y1mkLYd36pRvy1_-13" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="610" y="-740" as="sourcePoint" />
-            <mxPoint x="660" y="-790" as="targetPoint" />
+            <mxPoint x="550" y="-180" as="sourcePoint" />
+            <mxPoint x="600" y="-230" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-19" value="Cambiar arma al personaje" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="354" y="-770" width="120" height="80" as="geometry" />
+          <mxGeometry x="294" y="-210" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-22" value="Diagramas de casos de uso: Desafiar otro jugador" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="152" y="-680" width="278" height="30" as="geometry" />
+          <mxGeometry x="92" y="-120" width="278" height="30" as="geometry" />
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-24" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=none;html=1;rounded=0;dashed=1;dashPattern=8 8;endFill=0;startFill=0;startArrow=open;" parent="1" source="Dj7w6y1mkLYd36pRvy1_-19" target="Dj7w6y1mkLYd36pRvy1_-16" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="260" y="-930" as="sourcePoint" />
-            <mxPoint x="310" y="-980" as="targetPoint" />
+            <mxPoint x="200" y="-370" as="sourcePoint" />
+            <mxPoint x="250" y="-420" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="09tUdZpG59J9mKALQhAm-2" value="Selecciona la cantidad de oro a apostar" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="200" y="-950" width="120" height="80" as="geometry" />
+          <mxGeometry x="140" y="-390" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="09tUdZpG59J9mKALQhAm-5" value="Cambiar armadura al personaje" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="517.5" y="-770" width="120" height="80" as="geometry" />
+          <mxGeometry x="457.5" y="-210" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="09tUdZpG59J9mKALQhAm-6" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="endArrow=none;html=1;rounded=0;dashed=1;dashPattern=8 8;endFill=0;startFill=0;startArrow=open;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0.298;exitY=0.06;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="09tUdZpG59J9mKALQhAm-5" target="Dj7w6y1mkLYd36pRvy1_-16">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="522.5" y="-770" as="sourcePoint" />
-            <mxPoint x="522.5" y="-830" as="targetPoint" />
+            <mxPoint x="462.5" y="-210" as="sourcePoint" />
+            <mxPoint x="462.5" y="-270" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
