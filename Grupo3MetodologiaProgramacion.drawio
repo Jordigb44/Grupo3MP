@@ -551,7 +551,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="CJECvoa5vaHMvUkRLNPM" name="Diagramas de Flujo">
-    <mxGraphModel dx="1622" dy="1818" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1441" dy="1852" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -955,9 +955,12 @@
         <mxCell id="wizwVoO-BXpd23Zx7Wx5-51" value="Se muestra las opciones de manejo del personaje" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="192.34" y="2000" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="wizwVoO-BXpd23Zx7Wx5-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="wizwVoO-BXpd23Zx7Wx5-53">
+        <mxCell id="wizwVoO-BXpd23Zx7Wx5-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.713;exitY=0.757;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="wizwVoO-BXpd23Zx7Wx5-53" target="wizwVoO-BXpd23Zx7Wx5-72">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="556.9999999999995" y="2250" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="324" y="2203" />
+            </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="a28AM9g5S5HrAZugJ_Ee-4" value="Eliminar personaje" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="wizwVoO-BXpd23Zx7Wx5-62">
@@ -965,9 +968,9 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="wizwVoO-BXpd23Zx7Wx5-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="wizwVoO-BXpd23Zx7Wx5-53">
+        <mxCell id="wizwVoO-BXpd23Zx7Wx5-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="wizwVoO-BXpd23Zx7Wx5-53">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-21.250000000000455" y="2080.0000000000005" as="targetPoint" />
+            <mxPoint x="108.11999999999989" y="2310" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="a28AM9g5S5HrAZugJ_Ee-3" value="Agregar personajes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="wizwVoO-BXpd23Zx7Wx5-65">
@@ -981,14 +984,11 @@
         <mxCell id="wizwVoO-BXpd23Zx7Wx5-67" value="Diagrama de flujo general de manejo de personajes" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;" vertex="1" parent="1">
           <mxGeometry y="2440" width="464.42" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="wizwVoO-BXpd23Zx7Wx5-69" value="" style="verticalLabelPosition=bottom;verticalAlign=top;html=1;shape=mxgraph.flowchart.on-page_reference;" vertex="1" parent="1">
-          <mxGeometry x="-54.420000000000016" y="2020" width="60" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="wizwVoO-BXpd23Zx7Wx5-71" value="Agregar personaje" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="-10" y="2120" width="60" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="wizwVoO-BXpd23Zx7Wx5-72" value="Se muestra la pantalla de selección de personaje a eliminar" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="490" y="2250" width="130" height="110" as="geometry" />
+          <mxGeometry x="235" y="2307.5" width="177.66" height="87.5" as="geometry" />
+        </mxCell>
+        <mxCell id="a28AM9g5S5HrAZugJ_Ee-5" value="Agregar nuevo pe&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;rsonaje&lt;/span&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="51.56" y="2315" width="120" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
