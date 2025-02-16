@@ -551,7 +551,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="CJECvoa5vaHMvUkRLNPM" name="Diagramas de Flujo">
-    <mxGraphModel dx="2199" dy="3905" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1399" dy="2309" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -572,7 +572,7 @@
             <mxPoint x="250" y="510" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="NbouIzWj3wpBImz6SzTu-4" value="El operador hace el login" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="NbouIzWj3wpBImz6SzTu-4" value="El operador hace el login con rol operador" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="190" y="390" width="120" height="50" as="geometry" />
         </mxCell>
         <mxCell id="NbouIzWj3wpBImz6SzTu-6" value="login" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NbouIzWj3wpBImz6SzTu-5" target="NbouIzWj3wpBImz6SzTu-4">
