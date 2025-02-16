@@ -551,12 +551,12 @@
     </mxGraphModel>
   </diagram>
   <diagram id="CJECvoa5vaHMvUkRLNPM" name="Diagramas de Flujo">
-    <mxGraphModel dx="2340" dy="1991" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2714" dy="2440" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="r4vXYokkfIQKrOgaeKyE-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-900" y="80" width="640" height="540" as="geometry" />
+          <mxGeometry x="-870" y="99.06" width="640" height="540" as="geometry" />
         </mxCell>
         <mxCell id="NbouIzWj3wpBImz6SzTu-15" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=90;" parent="1" vertex="1">
           <mxGeometry x="-77.18" y="99.06" width="676.87" height="674.05" as="geometry" />
@@ -846,7 +846,7 @@
           <mxGeometry x="181.14" y="650" width="139.24" height="80" as="geometry" />
         </mxCell>
         <mxCell id="wizwVoO-BXpd23Zx7Wx5-24" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-80" y="850" width="750" height="1710" as="geometry" />
+          <mxGeometry x="-80" y="850" width="750" height="1750" as="geometry" />
         </mxCell>
         <mxCell id="wizwVoO-BXpd23Zx7Wx5-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0.964;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="wizwVoO-BXpd23Zx7Wx5-29" target="wizwVoO-BXpd23Zx7Wx5-28" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -1035,7 +1035,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="V5ftEHrM15ntlZ_z7ez9-9" value="¿Armas o armaduras?" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-645" y="375" width="140" height="80" as="geometry" />
+          <mxGeometry x="-615" y="394.06" width="140" height="80" as="geometry" />
         </mxCell>
         <mxCell id="a28AM9g5S5HrAZugJ_Ee-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="a28AM9g5S5HrAZugJ_Ee-13" target="a28AM9g5S5HrAZugJ_Ee-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -1047,14 +1047,14 @@
         </mxCell>
         <mxCell id="V5ftEHrM15ntlZ_z7ez9-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="V5ftEHrM15ntlZ_z7ez9-12" target="V5ftEHrM15ntlZ_z7ez9-9" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-575" y="360" as="targetPoint" />
+            <mxPoint x="-545" y="379.06" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="a28AM9g5S5HrAZugJ_Ee-13" value="No se pudo eliminar el personaje" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="530" y="2325" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="V5ftEHrM15ntlZ_z7ez9-12" value="Selecciona personaje&amp;nbsp;&lt;div&gt;(al que se aplica el cambio)&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-697.5" y="230" width="245" height="80" as="geometry" />
+          <mxGeometry x="-667.5" y="249.06" width="245" height="80" as="geometry" />
         </mxCell>
         <mxCell id="NnCxBMg1fl6OAwGlnLEa-23" value="Se puede desafiar?" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="148.7" y="3030" width="100" height="100" as="geometry" />
@@ -1067,17 +1067,17 @@
         <mxCell id="V5ftEHrM15ntlZ_z7ez9-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="V5ftEHrM15ntlZ_z7ez9-16" target="r4vXYokkfIQKrOgaeKyE-14" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="-850" y="520" />
-              <mxPoint x="-850" y="115" />
+              <mxPoint x="-820" y="539.06" />
+              <mxPoint x="-820" y="134.06" />
             </Array>
-            <mxPoint x="-697" y="270" as="targetPoint" />
+            <mxPoint x="-667" y="289.06" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="NnCxBMg1fl6OAwGlnLEa-25" value="NO" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="78.69999999999999" y="2998" width="40" height="30" as="geometry" />
         </mxCell>
         <mxCell id="V5ftEHrM15ntlZ_z7ez9-16" value="Selecciona tu arma" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-797.5" y="480" width="100" height="80" as="geometry" />
+          <mxGeometry x="-767.5" y="499.06" width="100" height="80" as="geometry" />
         </mxCell>
         <mxCell id="NnCxBMg1fl6OAwGlnLEa-26" value="Si" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="203.7" y="3148" width="30" height="30" as="geometry" />
@@ -1088,8 +1088,8 @@
         <mxCell id="V5ftEHrM15ntlZ_z7ez9-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="V5ftEHrM15ntlZ_z7ez9-19" target="r4vXYokkfIQKrOgaeKyE-14" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="-290" y="520" />
-              <mxPoint x="-290" y="115" />
+              <mxPoint x="-260" y="539.06" />
+              <mxPoint x="-260" y="134.06" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -1099,7 +1099,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="V5ftEHrM15ntlZ_z7ez9-19" value="Selecciona tu armadura" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-440" y="480" width="90" height="80" as="geometry" />
+          <mxGeometry x="-410" y="499.06" width="90" height="80" as="geometry" />
         </mxCell>
         <mxCell id="NnCxBMg1fl6OAwGlnLEa-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="NnCxBMg1fl6OAwGlnLEa-27" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -1152,13 +1152,16 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="r4vXYokkfIQKrOgaeKyE-14" value="Menu principal" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-652.5" y="90" width="155" height="50" as="geometry" />
+          <mxGeometry x="-622.5" y="109.06" width="155" height="50" as="geometry" />
         </mxCell>
         <mxCell id="r4vXYokkfIQKrOgaeKyE-19" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontSize=12;startSize=8;endSize=8;" edge="1" parent="1" source="r4vXYokkfIQKrOgaeKyE-1" target="r4vXYokkfIQKrOgaeKyE-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="r4vXYokkfIQKrOgaeKyE-20" value="Diagrama de flujos: Elige tus armas o armaduras" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="-730" y="570" width="340" height="30" as="geometry" />
+          <mxGeometry x="-700" y="589.06" width="340" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="r4vXYokkfIQKrOgaeKyE-22" value="Diagrama de Flujo: General del Manejo de personajes" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="2560" width="400" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
