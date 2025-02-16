@@ -551,7 +551,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="CJECvoa5vaHMvUkRLNPM" name="Diagramas de Flujo">
-    <mxGraphModel dx="4904" dy="3166" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2611" dy="2043" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -846,26 +846,20 @@
           <mxGeometry x="1998.3200000000002" y="-399.05999999999995" width="139.24" height="80" as="geometry" />
         </mxCell>
         <mxCell id="wizwVoO-BXpd23Zx7Wx5-24" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-80" y="800" width="750" height="900" as="geometry" />
+          <mxGeometry x="-80" y="940" width="750" height="760" as="geometry" />
         </mxCell>
         <mxCell id="wizwVoO-BXpd23Zx7Wx5-29" value="Menu principal del jugador" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="173.9" y="828" width="156.88" height="51.87" as="geometry" />
+          <mxGeometry x="173.9" y="960" width="156.88" height="51.87" as="geometry" />
         </mxCell>
-        <mxCell id="wizwVoO-BXpd23Zx7Wx5-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="wizwVoO-BXpd23Zx7Wx5-29" target="wizwVoO-BXpd23Zx7Wx5-50" edge="1">
+        <mxCell id="wizwVoO-BXpd23Zx7Wx5-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="wizwVoO-BXpd23Zx7Wx5-29" target="wizwVoO-BXpd23Zx7Wx5-51" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="252.3400000000006" y="889.9999999999995" as="sourcePoint" />
+            <mxPoint x="252.3399999999997" y="1040" as="sourcePoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="wizwVoO-BXpd23Zx7Wx5-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="wizwVoO-BXpd23Zx7Wx5-50" target="wizwVoO-BXpd23Zx7Wx5-51" edge="1">
-          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="a28AM9g5S5HrAZugJ_Ee-2" value="manejar personajes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="wizwVoO-BXpd23Zx7Wx5-59" connectable="0" vertex="1">
           <mxGeometry x="0.0667" y="-1" relative="1" as="geometry">
             <mxPoint y="-12" as="offset" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="wizwVoO-BXpd23Zx7Wx5-50" value="El jugador decide qué acción realizar" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="132.34" y="940" width="240" height="100" as="geometry" />
         </mxCell>
         <mxCell id="wizwVoO-BXpd23Zx7Wx5-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="wizwVoO-BXpd23Zx7Wx5-51" target="wizwVoO-BXpd23Zx7Wx5-53" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -931,6 +925,11 @@
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="198.7" y="1930" as="sourcePoint" />
             <mxPoint x="198.7" y="1980" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r4vXYokkfIQKrOgaeKyE-53" value="Desafiar a otro jugador" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=12;" vertex="1" connectable="0" parent="NnCxBMg1fl6OAwGlnLEa-20">
+          <mxGeometry x="-0.0994" y="4" relative="1" as="geometry">
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="a28AM9g5S5HrAZugJ_Ee-7" value="Personaje eliminado correctamente" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -1049,8 +1048,8 @@
         <mxCell id="NnCxBMg1fl6OAwGlnLEa-36" value="Usuario desafiante&amp;nbsp;&lt;div&gt;introduce el nick&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="117.44999999999999" y="1980" width="175" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="NnCxBMg1fl6OAwGlnLEa-37" value="El usuario selecciona desafiar otro usuario" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="148.70000000000005" y="1820" width="100" height="100" as="geometry" />
+        <mxCell id="NnCxBMg1fl6OAwGlnLEa-37" value="Menu principal del jugador" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="113.04999999999998" y="1820" width="171.3" height="70" as="geometry" />
         </mxCell>
         <mxCell id="NnCxBMg1fl6OAwGlnLEa-39" value="&lt;b&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;Diagrama de flujo: jugador desafia a otro&lt;/font&gt;&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="10.420000000000002" y="2740" width="366.92" height="30" as="geometry" />
