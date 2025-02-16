@@ -551,10 +551,55 @@
     </mxGraphModel>
   </diagram>
   <diagram id="CJECvoa5vaHMvUkRLNPM" name="Diagramas de Flujo">
-    <mxGraphModel dx="1178" dy="684" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="528" dy="1052" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="NbouIzWj3wpBImz6SzTu-15" value="" style="rounded=0;whiteSpace=wrap;html=1;rotation=90;" vertex="1" parent="1">
+          <mxGeometry x="-85" y="285" width="670" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NbouIzWj3wpBImz6SzTu-1" target="NbouIzWj3wpBImz6SzTu-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-1" value="El usuario abre la app" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="NbouIzWj3wpBImz6SzTu-4" target="NbouIzWj3wpBImz6SzTu-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NbouIzWj3wpBImz6SzTu-4" target="NbouIzWj3wpBImz6SzTu-7">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="250" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-4" value="El operador hace el login" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="390" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-6" value="operador" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NbouIzWj3wpBImz6SzTu-5" target="NbouIzWj3wpBImz6SzTu-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-5" value="El usuario selecciona&amp;nbsp;&lt;div&gt;tipo de login&lt;/div&gt;" style="rhombus;verticalAlign=middle;align=center;html=1;" vertex="1" parent="1">
+          <mxGeometry x="166.25" y="220" width="167.5" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="NbouIzWj3wpBImz6SzTu-7" target="NbouIzWj3wpBImz6SzTu-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-13" value="correctamente" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="NbouIzWj3wpBImz6SzTu-12">
+          <mxGeometry x="-0.1" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-7" value="Autorización" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="490" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-8" value="Se muestra el menú de opciones del operador" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="650" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NbouIzWj3wpBImz6SzTu-16" value="Diagrama de Flujo: Login operador" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="166.25" y="730" width="190" height="30" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
