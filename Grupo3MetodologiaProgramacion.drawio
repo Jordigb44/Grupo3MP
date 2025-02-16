@@ -345,7 +345,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="k705aFbDnbClGoiMdXsT" name="Diagrama de casos de uso">
-    <mxGraphModel dx="1777" dy="1728" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1318" dy="1752" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -515,8 +515,8 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="Dj7w6y1mkLYd36pRvy1_-11" value="Seleccionar el usuario a desafiar" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="200" y="-1090" width="120" height="80" as="geometry" />
+        <mxCell id="Dj7w6y1mkLYd36pRvy1_-11" value="Introduce el usuario a desafiar" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="190" y="-1090" width="130" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Dj7w6y1mkLYd36pRvy1_-12" value="Jugador 2&lt;div&gt;(Desafiado)&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
           <mxGeometry x="650" y="-990" width="30" height="60" as="geometry" />
@@ -560,7 +560,7 @@
             <mxPoint x="310" y="-980" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="09tUdZpG59J9mKALQhAm-2" value="Apostar oro" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="09tUdZpG59J9mKALQhAm-2" value="Selecciona la cantidad de oro a apostar" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="200" y="-950" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="09tUdZpG59J9mKALQhAm-5" value="Cambiar armadura al personaje" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
