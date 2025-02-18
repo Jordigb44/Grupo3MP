@@ -345,7 +345,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="k705aFbDnbClGoiMdXsT" name="Diagrama de casos de uso">
-    <mxGraphModel dx="2895" dy="2077" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2707" dy="1994" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -408,20 +408,21 @@
         <mxCell id="XZRkXZccxM3cvMw5or_g-6" value="Dar de baja a un personaje" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="85" y="440" width="140" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="XZRkXZccxM3cvMw5or_g-12" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="XZRkXZccxM3cvMw5or_g-2" target="XZRkXZccxM3cvMw5or_g-6" edge="1">
+        <mxCell id="XZRkXZccxM3cvMw5or_g-12" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="XZRkXZccxM3cvMw5or_g-6" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="-35" y="400" as="sourcePoint" />
+            <mxPoint x="-50" y="410" as="sourcePoint" />
             <mxPoint x="95" y="380" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="XZRkXZccxM3cvMw5or_g-18" value="Diagrama de Casos de Uso: Jugador, Manejar Personajes" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-112.5" y="530" width="340" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="v27ZFQPXKkDA8YpKztSA-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.009;exitY=0.38;exitDx=0;exitDy=0;exitPerimeter=0;endArrow=none;startFill=0;" parent="1" source="XZRkXZccxM3cvMw5or_g-5" target="XZRkXZccxM3cvMw5or_g-2" edge="1">
+        <mxCell id="v27ZFQPXKkDA8YpKztSA-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.009;exitY=0.38;exitDx=0;exitDy=0;exitPerimeter=0;endArrow=none;startFill=0;" parent="1" source="XZRkXZccxM3cvMw5or_g-5" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="86" y="400" />
             </Array>
+            <mxPoint x="-50" y="400" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="v27ZFQPXKkDA8YpKztSA-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startFill=0;" parent="1" edge="1">
