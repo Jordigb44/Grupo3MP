@@ -643,7 +643,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="CJECvoa5vaHMvUkRLNPM" name="Diagramas de Flujo">
-    <mxGraphModel dx="2895" dy="2077" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2707" dy="1994" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1176,7 +1176,7 @@
           <mxGeometry x="967.5" y="148" width="100" height="60" as="geometry" />
         </mxCell>
         <mxCell id="yU7PGkEuMz1nWB5DsXdz-3" value="Personaje agregado correctamente" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="947.4999999999999" y="1075" width="134.37" height="60" as="geometry" />
+          <mxGeometry x="950.3199999999999" y="1075" width="134.37" height="60" as="geometry" />
         </mxCell>
         <mxCell id="yU7PGkEuMz1nWB5DsXdz-4" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="yU7PGkEuMz1nWB5DsXdz-2" target="Oh7E5gC-EXTPL9R-WIgW-2" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
