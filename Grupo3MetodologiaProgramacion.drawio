@@ -352,7 +352,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="XlZDefDhXVz6hI7xW00p-32" value="&lt;i style=&quot;font-weight: normal;&quot;&gt;Adapter&lt;/i&gt;&lt;br&gt;&lt;div&gt;FileManager&lt;i style=&quot;font-weight: normal;&quot;&gt;&lt;br&gt;&lt;/i&gt;&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=39;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-380" y="-113" width="220" height="320" as="geometry" />
+          <mxGeometry x="-380" y="-110" width="220" height="320" as="geometry" />
         </mxCell>
         <mxCell id="XlZDefDhXVz6hI7xW00p-33" value="- usuarios_file: String&lt;div&gt;- personajes_file: String&lt;br&gt;&lt;/div&gt;&lt;div&gt;- combates_file: String&lt;/div&gt;&lt;div&gt;&lt;div&gt;- desafios_file: String&lt;/div&gt;&lt;/div&gt;&lt;div&gt;- usuario: Usuario&lt;/div&gt;&lt;div&gt;- personajes: List&amp;lt;Personajes&amp;gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- combates: List&amp;lt;Combates&amp;gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;- desafios: List&amp;lt;Desafio&amp;gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="XlZDefDhXVz6hI7xW00p-32" vertex="1">
           <mxGeometry y="39" width="220" height="121" as="geometry" />
