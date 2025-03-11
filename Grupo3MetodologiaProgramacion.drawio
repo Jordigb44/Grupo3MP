@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.1.0" pages="5">
   <diagram name="Diagrama de clases - general" id="c4acf3e9-155e-7222-9cf6-157b1a14988f">
-    <mxGraphModel dx="1574" dy="1502" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1462" dy="1441" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -522,7 +522,7 @@
           <mxGeometry x="1350" y="540" width="873" height="873" as="geometry" />
         </mxCell>
         <mxCell id="3QCQDNomNuUelk3mwj3J-5" value="&lt;i&gt;Personaje&lt;/i&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1684" y="560" width="260" height="320" as="geometry" />
+          <mxGeometry x="1684" y="560" width="260" height="350" as="geometry" />
         </mxCell>
         <mxCell id="3QCQDNomNuUelk3mwj3J-6" value="- nombre: String&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- salud: Integer&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- oro: int&lt;br&gt;&lt;div&gt;- armas: List&amp;lt;Arma&amp;gt;&lt;/div&gt;&lt;div&gt;- armaActiva: Arma&lt;/div&gt;&lt;div&gt;- armaduras: List&amp;lt;Armadura&amp;gt;&lt;/div&gt;&lt;div&gt;- armaduraActiva: Armadura&lt;/div&gt;&lt;div&gt;- esbirros: List&amp;lt;Esbirro&amp;gt;&lt;/div&gt;&lt;div&gt;- fortalezas: List&amp;lt;Fortaleza&amp;gt;&lt;/div&gt;&lt;div&gt;- debilidades: List&amp;lt;Debilidad&amp;gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="3QCQDNomNuUelk3mwj3J-5" vertex="1">
           <mxGeometry y="26" width="260" height="134" as="geometry" />
@@ -531,7 +531,7 @@
           <mxGeometry y="160" width="260" height="8" as="geometry" />
         </mxCell>
         <mxCell id="3QCQDNomNuUelk3mwj3J-8" value="# equiparArma(arma: Arma)&lt;div&gt;# desequiparArma(arma: Arma)&lt;/div&gt;&lt;div&gt;# getArmas: armas&lt;/div&gt;&lt;div&gt;&lt;div&gt;# equiparArmadura(armadura: Armadura)&lt;/div&gt;&lt;div&gt;# desequiparArmadura(armadura: Armadura)&lt;/div&gt;&lt;div&gt;# getArmaduras: armaduras&lt;/div&gt;&lt;div&gt;# atacar(objetivo: Personaje)&lt;/div&gt;&lt;div&gt;# recibirDano(cantidad: Integer)&lt;/div&gt;&lt;div&gt;# agregarEsbirro(esbirro: Esbirro)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;# getOro(): int&lt;/div&gt;&lt;div&gt;# sumarOro(oro: int)&lt;/div&gt;&lt;div&gt;# restarOro(oro: int)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="3QCQDNomNuUelk3mwj3J-5" vertex="1">
-          <mxGeometry y="168" width="260" height="152" as="geometry" />
+          <mxGeometry y="168" width="260" height="182" as="geometry" />
         </mxCell>
         <mxCell id="3QCQDNomNuUelk3mwj3J-9" value="Vampiro" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1390" y="1080" width="250" height="160" as="geometry" />
