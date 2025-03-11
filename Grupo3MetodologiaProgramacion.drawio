@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.1.0" pages="3">
   <diagram name="Diagrama de clases - general" id="c4acf3e9-155e-7222-9cf6-157b1a14988f">
-    <mxGraphModel dx="2442" dy="1889" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+    <mxGraphModel dx="3804" dy="2397" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -43,11 +43,17 @@
         <mxCell id="SPfAEjTLcJBn0tpjsIvn-10" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Jugador&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- personajes : List&amp;lt;Personaje&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- desafio: Desafio&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- posicionRanking: Int&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# getMenu()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;# agregarPersonaje()&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# borrarPersonaje()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# modificarArmasArmadurasPersonaje(personajes, armas, armaduras): personajes&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# seleccionarPersonaje(personajes): Personaje&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;# getMenuInicioDesafio(desafio)&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# getMenuDesafio()&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# getJugador(): Jugador&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;# consultaRankingGeneral()&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="165" y="265" width="330" height="235" as="geometry" />
         </mxCell>
-        <mxCell id="SPfAEjTLcJBn0tpjsIvn-14" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Personaje&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- nombre: String&lt;br&gt;- salud: Int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- oro: int&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- esbirros: List&amp;lt;Esbirro&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- armas: List&amp;lt;Arma&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- armaduras:&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;List&amp;lt;Armadura&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- fortalezas:&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;List&amp;lt;Fortaleza&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- debilidades:&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;List&amp;lt;Debilidad&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ atacar(Personaje oponente)&amp;nbsp;&lt;br&gt;+ recibirAtaque(int daño)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ getOro(): int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ sumarOro(oro: int)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+ restarOro(oro: int)&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+        <mxCell id="SPfAEjTLcJBn0tpjsIvn-14" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Personaje&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- nombre: String&lt;br&gt;- salud: Int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- oro: int&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- esbirros: List&amp;lt;Esbirro&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- armas: List&amp;lt;Arma&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- armaduras:&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;List&amp;lt;Armadura&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- fortalezas:&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;List&amp;lt;Fortaleza&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- debilidades:&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;List&amp;lt;Debilidad&amp;gt;&lt;/span&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# atacar(Personaje oponente)&amp;nbsp;&lt;br&gt;# recibirAtaque(int daño)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# getOro(): int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# sumarOro(oro: int)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# restarOro(oro: int)&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="600" y="267" width="190" height="250" as="geometry" />
         </mxCell>
-        <mxCell id="W1tuWybBOx7WuGGF0cSE-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=diamond;endFill=0;" parent="1" source="92KyF4e4Qp69SpN2NaZz-1" target="Te6iH88RGCHrJTXyyHaf-23" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="W1tuWybBOx7WuGGF0cSE-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=diamond;endFill=0;exitX=0.498;exitY=1.014;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="92KyF4e4Qp69SpN2NaZz-4" target="Te6iH88RGCHrJTXyyHaf-23" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="500" y="780" as="sourcePoint" />
+            <Array as="points">
+              <mxPoint x="500" y="805" />
+              <mxPoint x="385" y="805" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="W1tuWybBOx7WuGGF0cSE-26" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="W1tuWybBOx7WuGGF0cSE-25" vertex="1" connectable="0">
           <mxGeometry x="-0.862" relative="1" as="geometry">
@@ -60,16 +66,16 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="92KyF4e4Qp69SpN2NaZz-1" value="Vampiro" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="400" y="570" width="190" height="150" as="geometry" />
+          <mxGeometry x="400" y="570" width="200" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="92KyF4e4Qp69SpN2NaZz-2" value="- puntosSangre: int&lt;div&gt;- edad: int&lt;/div&gt;&lt;div&gt;- disciplinas: List&amp;lt;Disciplina&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="92KyF4e4Qp69SpN2NaZz-1" vertex="1">
-          <mxGeometry y="26" width="190" height="54" as="geometry" />
+        <mxCell id="92KyF4e4Qp69SpN2NaZz-2" value="- puntosSangre: Int&lt;div&gt;- edad: Int&lt;/div&gt;&lt;div&gt;- disciplinas: List&amp;lt;Disciplina&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="92KyF4e4Qp69SpN2NaZz-1" vertex="1">
+          <mxGeometry y="26" width="200" height="54" as="geometry" />
         </mxCell>
         <mxCell id="92KyF4e4Qp69SpN2NaZz-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="92KyF4e4Qp69SpN2NaZz-1" vertex="1">
-          <mxGeometry y="80" width="190" height="8" as="geometry" />
+          <mxGeometry y="80" width="200" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="92KyF4e4Qp69SpN2NaZz-4" value="- obtenerCostoSangre: int&lt;div&gt;- aplicarEfecto(usuario: Vampiro, objetivo: Personaje)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="92KyF4e4Qp69SpN2NaZz-1" vertex="1">
-          <mxGeometry y="88" width="190" height="62" as="geometry" />
+        <mxCell id="92KyF4e4Qp69SpN2NaZz-4" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;# resetPuntosSangre()&lt;/span&gt;&lt;/div&gt;&lt;div&gt;# aumentarPuntosSangre(cantidad: Integer)&lt;/div&gt;&lt;div&gt;# perderPuntosSangre(cantidad: Integer)&lt;/div&gt;&lt;div&gt;# usarDisciplina(disciplina: Disciplina)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="92KyF4e4Qp69SpN2NaZz-1" vertex="1">
+          <mxGeometry y="88" width="200" height="112" as="geometry" />
         </mxCell>
         <mxCell id="Te6iH88RGCHrJTXyyHaf-5" value="Arma" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="910" y="380" width="140" height="104" as="geometry" />
@@ -117,36 +123,36 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Te6iH88RGCHrJTXyyHaf-23" value="Disciplina" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="220" y="810" width="330" height="158" as="geometry" />
+          <mxGeometry x="220" y="840" width="330" height="158" as="geometry" />
         </mxCell>
-        <mxCell id="Te6iH88RGCHrJTXyyHaf-24" value="&lt;div&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- nombre: String&lt;br&gt;- ataque: int&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- defensa: int&lt;/p&gt;&lt;/div&gt;- costoSangre : int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="Te6iH88RGCHrJTXyyHaf-23" vertex="1">
+        <mxCell id="Te6iH88RGCHrJTXyyHaf-24" value="&lt;div&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- nombre: String&lt;br&gt;- ataque: Int&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- defensa: Int&lt;/p&gt;&lt;/div&gt;- costoSangre : Int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="Te6iH88RGCHrJTXyyHaf-23" vertex="1">
           <mxGeometry y="26" width="330" height="74" as="geometry" />
         </mxCell>
         <mxCell id="Te6iH88RGCHrJTXyyHaf-25" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="Te6iH88RGCHrJTXyyHaf-23" vertex="1">
           <mxGeometry y="100" width="330" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="Te6iH88RGCHrJTXyyHaf-26" value="+ obtenerCostoSangre():int&lt;div&gt;+ aplicarEfecto(usuario: Vampiro, objetivo: Personaje)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="Te6iH88RGCHrJTXyyHaf-23" vertex="1">
+        <mxCell id="Te6iH88RGCHrJTXyyHaf-26" value="+ obtenerCostoSangre():Int&lt;div&gt;+ aplicarEfecto(usuario: Vampiro, objetivo: Personaje)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="Te6iH88RGCHrJTXyyHaf-23" vertex="1">
           <mxGeometry y="108" width="330" height="50" as="geometry" />
         </mxCell>
         <mxCell id="eYIMzX3WZNuhf6WXJO9W-5" value="Cazador&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="630" y="570" width="160" height="104" as="geometry" />
+          <mxGeometry x="630" y="570" width="160" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="eYIMzX3WZNuhf6WXJO9W-6" value="- voluntad: int&lt;div&gt;- talentos: List&amp;lt;Talento&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eYIMzX3WZNuhf6WXJO9W-5" vertex="1">
+        <mxCell id="eYIMzX3WZNuhf6WXJO9W-6" value="- voluntad: Int&lt;div&gt;- talentos: List&amp;lt;Talento&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eYIMzX3WZNuhf6WXJO9W-5" vertex="1">
           <mxGeometry y="30" width="160" height="40" as="geometry" />
         </mxCell>
         <mxCell id="eYIMzX3WZNuhf6WXJO9W-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="eYIMzX3WZNuhf6WXJO9W-5" vertex="1">
           <mxGeometry y="70" width="160" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="eYIMzX3WZNuhf6WXJO9W-8" value="- usarTalento(Talento t)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eYIMzX3WZNuhf6WXJO9W-5" vertex="1">
-          <mxGeometry y="78" width="160" height="26" as="geometry" />
+        <mxCell id="eYIMzX3WZNuhf6WXJO9W-8" value="&lt;div&gt;# resetVoluntad()&lt;/div&gt;# restarVoluntad(cantidad: Integer)&lt;div&gt;# usarTalento(Talento t)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eYIMzX3WZNuhf6WXJO9W-5" vertex="1">
+          <mxGeometry y="78" width="160" height="82" as="geometry" />
         </mxCell>
-        <mxCell id="eYIMzX3WZNuhf6WXJO9W-9" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Habilidad&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- nombre: String&lt;br&gt;- ataque: int&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- defensa: int&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
-          <mxGeometry x="690" y="1010" width="190" height="110" as="geometry" />
+        <mxCell id="eYIMzX3WZNuhf6WXJO9W-9" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Habilidad&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- nombre: String&lt;br&gt;- ataque: Int&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- defensa: Int&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="690" y="1040" width="190" height="110" as="geometry" />
         </mxCell>
         <mxCell id="Te6iH88RGCHrJTXyyHaf-27" value="Talento" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="610" y="810" width="310" height="168" as="geometry" />
+          <mxGeometry x="610" y="840" width="310" height="168" as="geometry" />
         </mxCell>
-        <mxCell id="Te6iH88RGCHrJTXyyHaf-28" value="&lt;div&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- nombre: String&lt;br&gt;- ataque: int&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- defensa: int&lt;/p&gt;&lt;/div&gt;- costoVoluntad : Int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="Te6iH88RGCHrJTXyyHaf-27" vertex="1">
+        <mxCell id="Te6iH88RGCHrJTXyyHaf-28" value="&lt;div&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- nombre: String&lt;br&gt;- ataque: Int&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- defensa: Int&lt;/p&gt;&lt;/div&gt;- costoVoluntad : Int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="Te6iH88RGCHrJTXyyHaf-27" vertex="1">
           <mxGeometry y="26" width="310" height="74" as="geometry" />
         </mxCell>
         <mxCell id="Te6iH88RGCHrJTXyyHaf-29" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="Te6iH88RGCHrJTXyyHaf-27" vertex="1">
@@ -156,24 +162,24 @@
           <mxGeometry y="108" width="310" height="60" as="geometry" />
         </mxCell>
         <mxCell id="eYIMzX3WZNuhf6WXJO9W-14" value="Licantropo" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="825" y="570" width="160" height="94" as="geometry" />
+          <mxGeometry x="825" y="570" width="200" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="eYIMzX3WZNuhf6WXJO9W-15" value="- rabia: int&lt;div&gt;- dones: List&amp;lt;Don&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eYIMzX3WZNuhf6WXJO9W-14" vertex="1">
-          <mxGeometry y="26" width="160" height="34" as="geometry" />
+        <mxCell id="eYIMzX3WZNuhf6WXJO9W-15" value="&lt;div&gt;- rabia: Int&lt;/div&gt;&lt;div&gt;- dones: List&amp;lt;Don&amp;gt;&lt;/div&gt;&lt;div&gt;- altura: Float&lt;div&gt;- peso: Int&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eYIMzX3WZNuhf6WXJO9W-14" vertex="1">
+          <mxGeometry y="26" width="200" height="74" as="geometry" />
         </mxCell>
         <mxCell id="eYIMzX3WZNuhf6WXJO9W-16" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="eYIMzX3WZNuhf6WXJO9W-14" vertex="1">
-          <mxGeometry y="60" width="160" height="8" as="geometry" />
+          <mxGeometry y="100" width="200" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="eYIMzX3WZNuhf6WXJO9W-17" value="- transformarBestia()" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eYIMzX3WZNuhf6WXJO9W-14" vertex="1">
-          <mxGeometry y="68" width="160" height="26" as="geometry" />
+        <mxCell id="eYIMzX3WZNuhf6WXJO9W-17" value="&lt;div&gt;&lt;div&gt;# transformarBestia()&lt;/div&gt;&lt;div&gt;# resetRabia()&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;# aumentarRabia(cantidad: Integer)&lt;/span&gt;&lt;/div&gt;# usarDon(don: Don)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="eYIMzX3WZNuhf6WXJO9W-14" vertex="1">
+          <mxGeometry y="108" width="200" height="72" as="geometry" />
         </mxCell>
         <mxCell id="W1tuWybBOx7WuGGF0cSE-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.488;exitY=1.02;exitDx=0;exitDy=0;exitPerimeter=0;endArrow=block;endFill=0;" parent="1" source="Te6iH88RGCHrJTXyyHaf-34" target="eYIMzX3WZNuhf6WXJO9W-9" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="Te6iH88RGCHrJTXyyHaf-31" value="Don" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="980" y="810" width="310" height="158" as="geometry" />
+          <mxGeometry x="980" y="840" width="310" height="158" as="geometry" />
         </mxCell>
-        <mxCell id="Te6iH88RGCHrJTXyyHaf-32" value="&lt;div&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- nombre: String&lt;br&gt;- ataque: int&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- defensa: int&lt;/p&gt;&lt;/div&gt;- rabiaMinima : Int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="Te6iH88RGCHrJTXyyHaf-31" vertex="1">
+        <mxCell id="Te6iH88RGCHrJTXyyHaf-32" value="&lt;div&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- nombre: String&lt;br&gt;- ataque: Int&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;- defensa: Int&lt;/p&gt;&lt;/div&gt;- rabiaMinima : Int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="Te6iH88RGCHrJTXyyHaf-31" vertex="1">
           <mxGeometry y="26" width="310" height="74" as="geometry" />
         </mxCell>
         <mxCell id="Te6iH88RGCHrJTXyyHaf-33" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="Te6iH88RGCHrJTXyyHaf-31" vertex="1">
@@ -433,18 +439,6 @@
         <mxCell id="eTp_cbIQBf1Wxm3d1oyJ-5" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Ranking&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- jugadores: List &amp;lt;Jugador&amp;gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;# consultaRanking(jugadores js)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="150" y="620" width="220" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-2" value="&lt;i&gt;Personaje&lt;/i&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1644" y="540" width="260" height="320" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-3" value="- nombre: String&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- salud: Integer&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- oro: int&lt;br&gt;&lt;div&gt;- armas: List&amp;lt;Arma&amp;gt;&lt;/div&gt;&lt;div&gt;- armaActiva: Arma&lt;/div&gt;&lt;div&gt;- armaduras: List&amp;lt;Armadura&amp;gt;&lt;/div&gt;&lt;div&gt;- armaduraActiva: Armadura&lt;/div&gt;&lt;div&gt;- esbirros: List&amp;lt;Esbirro&amp;gt;&lt;/div&gt;&lt;div&gt;- fortalezas: List&amp;lt;Fortaleza&amp;gt;&lt;/div&gt;&lt;div&gt;- debilidades: List&amp;lt;Debilidad&amp;gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="fXkXoS4F0-JXkfivA6Ah-2" vertex="1">
-          <mxGeometry y="26" width="260" height="134" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="fXkXoS4F0-JXkfivA6Ah-2" vertex="1">
-          <mxGeometry y="160" width="260" height="8" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-5" value="+ equiparArma(arma: Arma)&lt;div&gt;+ desequiparArma(arma: Arma)&lt;br&gt;&lt;div&gt;+ equiparArmadura(armadura: Armadura)&lt;/div&gt;&lt;div&gt;+ desequiparArmadura(armadura: Armadura)&lt;/div&gt;&lt;div&gt;+ atacar(objetivo: Personaje)&lt;/div&gt;&lt;div&gt;+ recibirDano(cantidad: Integer)&lt;/div&gt;&lt;div&gt;+ agregarEsbirro(esbirro: Esbirro)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;+ getOro(): int&lt;/div&gt;&lt;div&gt;+ sumarOro(oro: int)&lt;/div&gt;&lt;div&gt;+ restarOro(oro: int)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="fXkXoS4F0-JXkfivA6Ah-2" vertex="1">
-          <mxGeometry y="168" width="260" height="152" as="geometry" />
-        </mxCell>
         <mxCell id="eTp_cbIQBf1Wxm3d1oyJ-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=diamond;endFill=1;enumerate=0;enumerateValue=0..n;startFill=1;fixDash=0;metaEdit=0;comic=0;entryX=0.703;entryY=-0.021;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryPerimeter=0;" parent="1" source="SPfAEjTLcJBn0tpjsIvn-10" target="eTp_cbIQBf1Wxm3d1oyJ-5" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="318" y="650" as="targetPoint" />
@@ -480,18 +474,6 @@
             <mxPoint x="-9" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-6" value="Vampiro" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1350" y="1060" width="250" height="160" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-7" value="- puntosSangre: Int&lt;div&gt;- edad: Integer&lt;br&gt;&lt;div&gt;- discplinas: List&amp;lt;Disciplina&amp;gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="fXkXoS4F0-JXkfivA6Ah-6" vertex="1">
-          <mxGeometry y="26" width="250" height="54" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-8" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="fXkXoS4F0-JXkfivA6Ah-6" vertex="1">
-          <mxGeometry y="80" width="250" height="8" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-9" value="&lt;div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ resetPuntosSangre()&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;+ aumentarPuntosSangre(cantidad: Integer)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;+ perderPuntosSangre(cantidad: Integer)&lt;/div&gt;&lt;div&gt;+ usarDisciplina(disciplina: Disciplina)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="fXkXoS4F0-JXkfivA6Ah-6" vertex="1">
-          <mxGeometry y="88" width="250" height="72" as="geometry" />
-        </mxCell>
         <mxCell id="tofQCgxIbrhFxaWmHGBA-1" value="&lt;div&gt;&lt;i style=&quot;font-weight: normal;&quot;&gt;Adapter&lt;/i&gt;&lt;/div&gt;Interfaz" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-410" y="280" width="240" height="104" as="geometry" />
         </mxCell>
@@ -501,59 +483,8 @@
         <mxCell id="tofQCgxIbrhFxaWmHGBA-3" value="# mostar()&lt;div&gt;# pedirEntrada()&lt;/div&gt;&lt;div&gt;# limpiarPantalla()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="tofQCgxIbrhFxaWmHGBA-1" vertex="1">
           <mxGeometry y="48" width="240" height="56" as="geometry" />
         </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-10" value="Licantropo" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1663" y="1060" width="200" height="180" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-11" value="&lt;div&gt;- rabia: Int&lt;/div&gt;&lt;div&gt;- dones: List&amp;lt;Don&amp;gt;&lt;/div&gt;&lt;div&gt;- altura: Float&lt;div&gt;- peso: Int&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="fXkXoS4F0-JXkfivA6Ah-10" vertex="1">
-          <mxGeometry y="26" width="200" height="74" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-12" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="fXkXoS4F0-JXkfivA6Ah-10" vertex="1">
-          <mxGeometry y="100" width="200" height="8" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-13" value="&lt;div&gt;&lt;div&gt;+ transformarBestia()&lt;/div&gt;&lt;div&gt;+ resetRabia()&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ aumentarRabia(cantidad: Integer)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;+ usarDon(don: Don)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="fXkXoS4F0-JXkfivA6Ah-10" vertex="1">
-          <mxGeometry y="108" width="200" height="72" as="geometry" />
-        </mxCell>
         <mxCell id="tofQCgxIbrhFxaWmHGBA-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.458;entryY=0.995;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;startFill=0;" parent="1" source="tofQCgxIbrhFxaWmHGBA-1" target="XlZDefDhXVz6hI7xW00p-60" edge="1">
           <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-14" value="Cazador" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1930" y="1060" width="200" height="130" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-15" value="- voluntad: Int&lt;div&gt;- talentos: List&amp;lt;Talento&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="fXkXoS4F0-JXkfivA6Ah-14" vertex="1">
-          <mxGeometry y="26" width="200" height="34" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-16" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="fXkXoS4F0-JXkfivA6Ah-14" vertex="1">
-          <mxGeometry y="60" width="200" height="8" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-17" value="&lt;div&gt;# resetVoluntad()&lt;/div&gt;# restarVoluntad(cantidad: Integer)&lt;div&gt;# usarTalento(Talento t)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="fXkXoS4F0-JXkfivA6Ah-14" vertex="1">
-          <mxGeometry y="68" width="200" height="62" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-18" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.176;entryY=1.033;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="fXkXoS4F0-JXkfivA6Ah-6" target="fXkXoS4F0-JXkfivA6Ah-5" edge="1">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="1820" y="880" as="sourcePoint" />
-            <mxPoint x="1980" y="880" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-19" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.462;entryY=1.017;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="fXkXoS4F0-JXkfivA6Ah-10" target="fXkXoS4F0-JXkfivA6Ah-5" edge="1">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="1520" y="1070" as="sourcePoint" />
-            <mxPoint x="1764" y="910" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-20" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.791;entryY=1.042;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="fXkXoS4F0-JXkfivA6Ah-14" target="fXkXoS4F0-JXkfivA6Ah-5" edge="1">
-          <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="1530" y="1080" as="sourcePoint" />
-            <mxPoint x="1706" y="930" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-21" value="MAX PuntosSangre = 10&lt;div&gt;(Suponemos que empieza el combate con un valor aleatorio)&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1385" y="890" width="140" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-22" value="MAX Voluntad = 3&lt;div&gt;(Cada partida empieza con el máximo y va perdiendo en función del daño que le hagan)&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1990" y="890" width="140" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="fXkXoS4F0-JXkfivA6Ah-23" value="MAX Rabia = 3&lt;div&gt;(Cada partida empieza con 0 y aumenta en función de recibir daño y uso de los Dones)&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="1667" y="1260" width="193" height="100" as="geometry" />
         </mxCell>
         <mxCell id="U1irCUeWA2OZ-tczdMD7-1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Jugador&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- numeroRegistro : String&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- personaje : Personaje&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- oro : int&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+registrarPersonaje(Personaje p)&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;+desafiarJugador(jugador oponente, int apuesta)&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="-460" y="1417.19" width="270" height="169" as="geometry" />
@@ -811,6 +742,84 @@
         </mxCell>
         <mxCell id="qrEam9vSyd-kdMCmaHrB-22" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;Operador&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;- fileManager: FileManager&lt;/p&gt;&lt;hr size=&quot;1&quot; style=&quot;border-style:solid;&quot;&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;111&quot; data-start=&quot;69&quot;&gt;# getMenu()&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;111&quot; data-start=&quot;69&quot;&gt;# getMenuJugadoresSinBloquear()&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;111&quot; data-start=&quot;69&quot;&gt;# bloquearJugador(Jugador )&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;111&quot; data-start=&quot;69&quot;&gt;# getMenuJugadoresBloqueados()&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;612&quot; data-start=&quot;571&quot;&gt;# desbloquearJugador(Jugador)&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;111&quot; data-start=&quot;69&quot;&gt;# getMenuAprobarDesafios()&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;# seleccionarDesafio()&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;# validarDesafio()&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;# getMenuDesafio()&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;# seleccionarTipoJugador(): Jugador&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;111&quot; data-start=&quot;69&quot;&gt;# seleccionarPersonaje(): Personaje&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;111&quot; data-start=&quot;69&quot;&gt;# editarPersonaje(): Personaje&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;111&quot; data-start=&quot;69&quot;&gt;# getMenuPersonaje()&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;111&quot; data-start=&quot;69&quot;&gt;# getMenuArmadura()&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;111&quot; data-start=&quot;69&quot;&gt;# getMenuEsbirro()&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;111&quot; data-start=&quot;69&quot;&gt;# getMenuFortalezas()&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;111&quot; data-start=&quot;69&quot;&gt;# getMenuDebilidades()&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;111&quot; data-start=&quot;69&quot;&gt;# getMenuArma()&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;# añadirArmaPersonaje(Arma)&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;111&quot; data-start=&quot;69&quot;&gt;&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;# eliminarArmaPersonaje()&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;179&quot; data-start=&quot;114&quot;&gt;# añadirArmaduraPersonaje(Armadura)&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;262&quot; data-start=&quot;182&quot;&gt;# añadirFortalezaPersonaje(Fortaleza)&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;262&quot; data-start=&quot;182&quot;&gt;# quitarFortalezaPersonaje(Fortaleza)&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;# añadirDebilidadPersonaje(Debilidad)&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;# quitarDebilidadPersonaje(Debilidad)&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;&lt;span data-end=&quot;333&quot; data-start=&quot;265&quot;&gt;# añadirEsbirroPersonaje(Esbirro)&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px 0px 0px 4px;&quot;&gt;# quitarEsbirroPersonaje(Esbirro)&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="-150" y="265" width="285" height="435" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-4" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="540" width="873" height="873" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-5" value="&lt;i&gt;Personaje&lt;/i&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1684" y="560" width="260" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-6" value="- nombre: String&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- salud: Integer&lt;/span&gt;&lt;/div&gt;&lt;div&gt;- oro: int&lt;br&gt;&lt;div&gt;- armas: List&amp;lt;Arma&amp;gt;&lt;/div&gt;&lt;div&gt;- armaActiva: Arma&lt;/div&gt;&lt;div&gt;- armaduras: List&amp;lt;Armadura&amp;gt;&lt;/div&gt;&lt;div&gt;- armaduraActiva: Armadura&lt;/div&gt;&lt;div&gt;- esbirros: List&amp;lt;Esbirro&amp;gt;&lt;/div&gt;&lt;div&gt;- fortalezas: List&amp;lt;Fortaleza&amp;gt;&lt;/div&gt;&lt;div&gt;- debilidades: List&amp;lt;Debilidad&amp;gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="3QCQDNomNuUelk3mwj3J-5">
+          <mxGeometry y="26" width="260" height="134" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="3QCQDNomNuUelk3mwj3J-5">
+          <mxGeometry y="160" width="260" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-8" value="# equiparArma(arma: Arma)&lt;div&gt;# desequiparArma(arma: Arma)&lt;br&gt;&lt;div&gt;# equiparArmadura(armadura: Armadura)&lt;/div&gt;&lt;div&gt;# desequiparArmadura(armadura: Armadura)&lt;/div&gt;&lt;div&gt;# atacar(objetivo: Personaje)&lt;/div&gt;&lt;div&gt;# recibirDano(cantidad: Integer)&lt;/div&gt;&lt;div&gt;# agregarEsbirro(esbirro: Esbirro)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;# getOro(): int&lt;/div&gt;&lt;div&gt;# sumarOro(oro: int)&lt;/div&gt;&lt;div&gt;# restarOro(oro: int)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="3QCQDNomNuUelk3mwj3J-5">
+          <mxGeometry y="168" width="260" height="152" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-9" value="Vampiro" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1390" y="1080" width="250" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-10" value="- puntosSangre: Int&lt;div&gt;- edad: Integer&lt;br&gt;&lt;div&gt;- discplinas: List&amp;lt;Disciplina&amp;gt;&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="3QCQDNomNuUelk3mwj3J-9">
+          <mxGeometry y="26" width="250" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-11" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="3QCQDNomNuUelk3mwj3J-9">
+          <mxGeometry y="80" width="250" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-12" value="&lt;div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;# resetPuntosSangre()&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;# aumentarPuntosSangre(cantidad: Integer)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;# perderPuntosSangre(cantidad: Integer)&lt;/div&gt;&lt;div&gt;# usarDisciplina(disciplina: Disciplina)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="3QCQDNomNuUelk3mwj3J-9">
+          <mxGeometry y="88" width="250" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-13" value="Licantropo" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1703" y="1080" width="200" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-14" value="&lt;div&gt;- rabia: Int&lt;/div&gt;&lt;div&gt;- dones: List&amp;lt;Don&amp;gt;&lt;/div&gt;&lt;div&gt;- altura: Float&lt;div&gt;- peso: Int&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="3QCQDNomNuUelk3mwj3J-13">
+          <mxGeometry y="26" width="200" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-15" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="3QCQDNomNuUelk3mwj3J-13">
+          <mxGeometry y="100" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-16" value="&lt;div&gt;&lt;div&gt;# transformarBestia()&lt;/div&gt;&lt;div&gt;# resetRabia()&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;# aumentarRabia(cantidad: Integer)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;# usarDon(don: Don)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="3QCQDNomNuUelk3mwj3J-13">
+          <mxGeometry y="108" width="200" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-17" value="Cazador" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1970" y="1080" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-18" value="- voluntad: Int&lt;div&gt;- talentos: List&amp;lt;Talento&amp;gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="3QCQDNomNuUelk3mwj3J-17">
+          <mxGeometry y="26" width="200" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-19" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="3QCQDNomNuUelk3mwj3J-17">
+          <mxGeometry y="60" width="200" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-20" value="&lt;div&gt;# resetVoluntad()&lt;/div&gt;# restarVoluntad(cantidad: Integer)&lt;div&gt;# usarTalento(Talento t)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="3QCQDNomNuUelk3mwj3J-17">
+          <mxGeometry y="68" width="200" height="62" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-21" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.176;entryY=1.033;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="3QCQDNomNuUelk3mwj3J-9" target="3QCQDNomNuUelk3mwj3J-8">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1860" y="900" as="sourcePoint" />
+            <mxPoint x="2020" y="900" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-22" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.462;entryY=1.017;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="3QCQDNomNuUelk3mwj3J-13" target="3QCQDNomNuUelk3mwj3J-8">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1560" y="1090" as="sourcePoint" />
+            <mxPoint x="1804" y="930" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-23" value="" style="endArrow=block;endSize=16;endFill=0;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.791;entryY=1.042;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="3QCQDNomNuUelk3mwj3J-17" target="3QCQDNomNuUelk3mwj3J-8">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1570" y="1100" as="sourcePoint" />
+            <mxPoint x="1746" y="950" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-24" value="MAX PuntosSangre = 10&lt;div&gt;(Suponemos que empieza el combate con un valor aleatorio)&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1425" y="910" width="140" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-25" value="MAX Voluntad = 3&lt;div&gt;(Cada partida empieza con el máximo y va perdiendo en función del daño que le hagan)&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2030" y="910" width="140" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="3QCQDNomNuUelk3mwj3J-26" value="MAX Rabia = 3&lt;div&gt;(Cada partida empieza con 0 y aumenta en función de recibir daño y uso de los Dones)&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1707" y="1280" width="193" height="100" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
