@@ -2623,7 +2623,7 @@
             <mxPoint x="-88" y="650" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-56" value="Pregunta si solicitar más armas" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-56" value="Pregunta si quiere agregar más armas" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="-88" y="700" as="sourcePoint" />
             <mxPoint x="-308" y="700" as="targetPoint" />
@@ -2680,22 +2680,10 @@
             <mxPoint x="100" y="830" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-69" value="Agregar arma al inventario" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
-          <mxGeometry width="80" relative="1" as="geometry">
-            <mxPoint x="100" y="860.5" as="sourcePoint" />
-            <mxPoint x="270" y="860.5" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="tpb_PxqEdVqzUWH1JbMk-72" value="Pregunta si solicitar más armas" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="-90" y="940" as="sourcePoint" />
             <mxPoint x="-310" y="940" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-73" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="210" y="880" as="sourcePoint" />
-            <mxPoint x="130" y="880" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
