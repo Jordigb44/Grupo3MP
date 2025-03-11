@@ -1165,7 +1165,7 @@
           <mxGeometry x="-620" y="910" width="485" height="30" as="geometry" />
         </mxCell>
         <mxCell id="Di-cD80EeTSVYBzeJR9A-32" value="Diagrama de actividad: Jugador - Modificar arma o armadura del personaje" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" vertex="1" parent="1">
-          <mxGeometry x="-620" y="1526" width="485" height="30" as="geometry" />
+          <mxGeometry x="-625" y="1536" width="485" height="30" as="geometry" />
         </mxCell>
         <mxCell id="Di-cD80EeTSVYBzeJR9A-36" value="Selecciona un arma" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-665" y="1278.5" width="142.5" height="80" as="geometry" />
