@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.1.0" pages="5">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.1.0" pages="5">
   <diagram name="Diagrama de clases - general" id="c4acf3e9-155e-7222-9cf6-157b1a14988f">
-    <mxGraphModel dx="2840" dy="2207" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1574" dy="1502" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -530,7 +530,7 @@
         <mxCell id="3QCQDNomNuUelk3mwj3J-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="3QCQDNomNuUelk3mwj3J-5" vertex="1">
           <mxGeometry y="160" width="260" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="3QCQDNomNuUelk3mwj3J-8" value="# equiparArma(arma: Arma)&lt;div&gt;# desequiparArma(arma: Arma)&lt;br&gt;&lt;div&gt;# equiparArmadura(armadura: Armadura)&lt;/div&gt;&lt;div&gt;# desequiparArmadura(armadura: Armadura)&lt;/div&gt;&lt;div&gt;# atacar(objetivo: Personaje)&lt;/div&gt;&lt;div&gt;# recibirDano(cantidad: Integer)&lt;/div&gt;&lt;div&gt;# agregarEsbirro(esbirro: Esbirro)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;# getOro(): int&lt;/div&gt;&lt;div&gt;# sumarOro(oro: int)&lt;/div&gt;&lt;div&gt;# restarOro(oro: int)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="3QCQDNomNuUelk3mwj3J-5" vertex="1">
+        <mxCell id="3QCQDNomNuUelk3mwj3J-8" value="# equiparArma(arma: Arma)&lt;div&gt;# desequiparArma(arma: Arma)&lt;/div&gt;&lt;div&gt;# getArmas: armas&lt;/div&gt;&lt;div&gt;&lt;div&gt;# equiparArmadura(armadura: Armadura)&lt;/div&gt;&lt;div&gt;# desequiparArmadura(armadura: Armadura)&lt;/div&gt;&lt;div&gt;# getArmaduras: armaduras&lt;/div&gt;&lt;div&gt;# atacar(objetivo: Personaje)&lt;/div&gt;&lt;div&gt;# recibirDano(cantidad: Integer)&lt;/div&gt;&lt;div&gt;# agregarEsbirro(esbirro: Esbirro)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;# getOro(): int&lt;/div&gt;&lt;div&gt;# sumarOro(oro: int)&lt;/div&gt;&lt;div&gt;# restarOro(oro: int)&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="3QCQDNomNuUelk3mwj3J-5" vertex="1">
           <mxGeometry y="168" width="260" height="152" as="geometry" />
         </mxCell>
         <mxCell id="3QCQDNomNuUelk3mwj3J-9" value="Vampiro" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -2523,185 +2523,176 @@
     </mxGraphModel>
   </diagram>
   <diagram id="btQHw71ES8tBb-njxSi4" name="Diagrama de Secuencia">
-    <mxGraphModel dx="3125" dy="1009" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1745" dy="511" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-39" value="Jugador" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+        <mxCell id="lQBI_DAhPvF6HGLnkhzl-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-570" y="30" width="1230" height="1190" as="geometry" />
+        </mxCell>
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-39" value="Jugador" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
           <mxGeometry x="-328" y="220" width="30" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-40" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="tpb_PxqEdVqzUWH1JbMk-45">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-40" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="tpb_PxqEdVqzUWH1JbMk-45" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="-83" y="1290" as="sourcePoint" />
             <mxPoint x="-118" y="290" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-41" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-41" value="" style="endArrow=none;dashed=1;html=1;rounded=0;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="-308" y="1290" as="sourcePoint" />
             <mxPoint x="-308" y="300" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-42" value="Solicita el nombre del personaje" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-42" value="Solicita el nombre del personaje" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="-88" y="490" as="sourcePoint" />
             <mxPoint x="-308" y="490" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-43" value="Inserta el nombre" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-43" value="Inserta el nombre" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-308" y="520" as="sourcePoint" />
             <mxPoint x="-88" y="520" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-44" value="Selecciona el tipo" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-44" value="Selecciona el tipo" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-308" y="410" as="sourcePoint" />
             <mxPoint x="-88" y="410" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-45" value="Interfaz" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-45" value="Interfaz" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="-138" y="240" width="110" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-46" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="tpb_PxqEdVqzUWH1JbMk-53">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-46" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="tpb_PxqEdVqzUWH1JbMk-53" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="97" y="1300" as="sourcePoint" />
             <mxPoint x="97" y="290" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-47" value="Selecciona opcion &quot;Agregar Personaje&quot;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-47" value="Selecciona opcion &quot;Agregar Personaje&quot;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="-308" y="330" as="sourcePoint" />
             <mxPoint x="-88" y="330" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-48" value="Solicita el tipo de personaje" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-48" value="Solicita el tipo de personaje" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="-88" y="380" as="sourcePoint" />
             <mxPoint x="-308" y="380" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-49" value="Tipo OK" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-49" value="Tipo OK" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="92" y="460" as="sourcePoint" />
             <mxPoint x="-78" y="460" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-50" value="Enviar Tipo" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-50" value="Enviar Tipo" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="-78" y="430" as="sourcePoint" />
             <mxPoint x="92" y="430" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-51" value="Tipo OK" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-51" value="Tipo OK" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="92" y="580" as="sourcePoint" />
             <mxPoint x="-78" y="580" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-52" value="Enviar Nombre" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-52" value="Enviar Nombre" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="-78" y="550" as="sourcePoint" />
             <mxPoint x="92" y="550" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-53" value="Controlador de Personaje" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-53" value="Controlador de Personaje" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="42" y="240" width="110" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-54" value="Solicita un arma" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-54" value="Solicita un arma" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="-88" y="620" as="sourcePoint" />
             <mxPoint x="-308" y="620" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-55" value="Selecciona el arma" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-55" value="Selecciona el arma" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-308" y="650" as="sourcePoint" />
             <mxPoint x="-88" y="650" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-56" value="Pregunta si solicitar más armas" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-56" value="Pregunta si solicitar más armas" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="-88" y="700" as="sourcePoint" />
             <mxPoint x="-308" y="700" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-57" value="SI" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-57" value="SI" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-308" y="729.17" as="sourcePoint" />
             <mxPoint x="-88" y="729.17" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-58" value="&lt;div&gt;Recibe datos de la interfaz.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Intermediario que gestiona la creación del Personaje.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;Crea un objeto de la clase Personaje.&lt;div&gt;&lt;br&gt;&lt;div&gt;Consulta el Inventario para agregar armas y armaduras.&lt;/div&gt;&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-58" value="&lt;div&gt;Recibe datos de la interfaz.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Intermediario que gestiona la creación del Personaje.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;Crea un objeto de la clase Personaje.&lt;div&gt;&lt;br&gt;&lt;div&gt;Consulta el Inventario para agregar armas y armaduras.&lt;/div&gt;&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="15.75" y="50" width="162.5" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-59" value="Pantalla o Menu donde se introduce la información" style="shape=note;size=20;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-59" value="Pantalla o Menu donde se introduce la información" style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-155.5" y="160" width="145" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-60" value="loop" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;" vertex="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-60" value="loop" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;" parent="1" vertex="1">
           <mxGeometry x="-413" y="670" width="723" height="220" as="geometry" />
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-61" value="[WHILE answer =&lt;div&gt;&amp;nbsp;SI &amp;amp;&amp;amp; HayHueco]&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-61" value="[WHILE answer =&lt;div&gt;&amp;nbsp;SI &amp;amp;&amp;amp; HayHueco]&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="-418" y="710" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-62" value="Solicita un arma" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-62" value="Solicita un arma" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="-83" y="770" as="sourcePoint" />
             <mxPoint x="-303" y="770" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-63" value="Selecciona el arma" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-63" value="Selecciona el arma" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-303" y="800" as="sourcePoint" />
             <mxPoint x="-83" y="800" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-64" value="NO" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-64" value="NO" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-303" y="970" as="sourcePoint" />
             <mxPoint x="-83" y="970" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-65" value="Inventario" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-65" value="Personaje" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
           <mxGeometry x="217" y="240" width="110" height="50" as="geometry" />
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-66" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="tpb_PxqEdVqzUWH1JbMk-65">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-66" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="tpb_PxqEdVqzUWH1JbMk-65" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="280" y="1300" as="sourcePoint" />
             <mxPoint x="271.37" y="290" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-67" value="Maneja la selección y almacenamiento de armas y armaduras." style="shape=note;size=20;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="199.5" y="140" width="145" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-68" value="Enviar arma" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-68" value="Enviar arma" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="-80" y="830" as="sourcePoint" />
             <mxPoint x="100" y="830" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-69" value="Agregar arma al inventario" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-69" value="Agregar arma al inventario" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="100" y="860.5" as="sourcePoint" />
             <mxPoint x="270" y="860.5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-70" value="" style="endArrow=none;dashed=1;html=1;rounded=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="tpb_PxqEdVqzUWH1JbMk-71">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="480" y="1300" as="sourcePoint" />
-            <mxPoint x="469" y="290" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-71" value="Personaje" style="html=1;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="414" y="240" width="110" height="50" as="geometry" />
-        </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-72" value="Pregunta si solicitar más armas" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-72" value="Pregunta si solicitar más armas" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
             <mxPoint x="-90" y="940" as="sourcePoint" />
             <mxPoint x="-310" y="940" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="tpb_PxqEdVqzUWH1JbMk-73" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" edge="1" parent="1">
+        <mxCell id="tpb_PxqEdVqzUWH1JbMk-73" value="return" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="210" y="880" as="sourcePoint" />
             <mxPoint x="130" y="880" as="targetPoint" />
