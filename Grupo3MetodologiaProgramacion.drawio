@@ -2979,10 +2979,13 @@
     </mxGraphModel>
   </diagram>
   <diagram id="btQHw71ES8tBb-njxSi4" name="Diagrama de Secuencia">
-    <mxGraphModel dx="2117" dy="618" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="5127" dy="2060" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="z6mDessJzHeSk_6cKfD3-111" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="1550" width="1060" height="700" as="geometry" />
+        </mxCell>
         <mxCell id="z6mDessJzHeSk_6cKfD3-58" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-480" y="1550" width="750" height="700" as="geometry" />
         </mxCell>
