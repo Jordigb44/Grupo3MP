@@ -3078,7 +3078,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="btQHw71ES8tBb-njxSi4" name="Diagrama de Secuencia">
-    <mxGraphModel dx="3412" dy="1135" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2043" dy="534" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -4381,22 +4381,13 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="U3W8jXGbi28vN1YHsuPZ-126" value="alter" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;" vertex="1" parent="1">
-          <mxGeometry x="-460" y="1280" width="780" height="550" as="geometry" />
+          <mxGeometry x="-460" y="1280" width="780" height="480" as="geometry" />
         </mxCell>
         <mxCell id="U3W8jXGbi28vN1YHsuPZ-127" value="[IF answer = SI]" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="-458" y="1320" width="110" height="30" as="geometry" />
         </mxCell>
         <mxCell id="U3W8jXGbi28vN1YHsuPZ-128" value="loop" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;" vertex="1" parent="1">
           <mxGeometry x="-430" y="1540" width="570" height="200" as="geometry" />
-        </mxCell>
-        <mxCell id="U3W8jXGbi28vN1YHsuPZ-129" value="" style="endArrow=none;dashed=1;html=1;rounded=0;exitX=-0.002;exitY=0.886;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.004;entryY=0.886;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="U3W8jXGbi28vN1YHsuPZ-126" target="U3W8jXGbi28vN1YHsuPZ-126">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="-70" y="1710" as="sourcePoint" />
-            <mxPoint x="-20" y="1660" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="U3W8jXGbi28vN1YHsuPZ-130" value="[ELSE]" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="-460" y="1770" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="U3W8jXGbi28vN1YHsuPZ-131" value="[WHILE answer = SI]" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="-440" y="1578" width="140" height="30" as="geometry" />
@@ -4463,8 +4454,8 @@
         </mxCell>
         <mxCell id="U3W8jXGbi28vN1YHsuPZ-142" value="Enviar todos los datos recogidos&lt;div&gt;del personaje&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" edge="1" parent="1">
           <mxGeometry width="80" relative="1" as="geometry">
-            <mxPoint x="110" y="1810" as="sourcePoint" />
-            <mxPoint x="290" y="1810" as="targetPoint" />
+            <mxPoint x="110" y="1805" as="sourcePoint" />
+            <mxPoint x="290" y="1805" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="U3W8jXGbi28vN1YHsuPZ-143" value="Diagrama de Secuencia: Agregar personaje" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;fontStyle=1" vertex="1" parent="1">
