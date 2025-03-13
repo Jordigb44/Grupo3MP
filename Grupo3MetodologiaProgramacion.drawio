@@ -3089,7 +3089,7 @@
           <mxGeometry x="-570" y="2000" width="750" height="700" as="geometry" />
         </mxCell>
         <mxCell id="lQBI_DAhPvF6HGLnkhzl-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-570" y="40" width="1070" height="1850" as="geometry" />
+          <mxGeometry x="-570" y="40" width="1070" height="1890" as="geometry" />
         </mxCell>
         <mxCell id="z6mDessJzHeSk_6cKfD3-28" value="Operador" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
           <mxGeometry x="-470" y="2160" width="30" height="60" as="geometry" />
@@ -4466,6 +4466,9 @@
             <mxPoint x="110" y="1810" as="sourcePoint" />
             <mxPoint x="290" y="1810" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="U3W8jXGbi28vN1YHsuPZ-143" value="Diagrama de Secuencia: Agregar personaje" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="-330" y="1878" width="590" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
