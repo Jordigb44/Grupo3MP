@@ -3078,7 +3078,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="btQHw71ES8tBb-njxSi4" name="Diagrama de Secuencia">
-    <mxGraphModel dx="2043" dy="534" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2049" dy="534" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -4387,7 +4387,7 @@
           <mxGeometry x="-458" y="1320" width="110" height="30" as="geometry" />
         </mxCell>
         <mxCell id="U3W8jXGbi28vN1YHsuPZ-128" value="loop" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;" vertex="1" parent="1">
-          <mxGeometry x="-430" y="1540" width="570" height="200" as="geometry" />
+          <mxGeometry x="-430" y="1540" width="560" height="200" as="geometry" />
         </mxCell>
         <mxCell id="U3W8jXGbi28vN1YHsuPZ-131" value="[WHILE answer = SI]" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="-440" y="1578" width="140" height="30" as="geometry" />
