@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15" version="26.1.0" pages="6">
   <diagram name="2aPt - Diagrama de clases" id="c4acf3e9-155e-7222-9cf6-157b1a14988f">
-    <mxGraphModel dx="2858" dy="1669" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+    <mxGraphModel dx="3335" dy="1904" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -620,10 +620,10 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="IHBwraZcoeUegIjk62Nu-10" value="Notification patrón Decorator" style="shape=note;size=12;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="IHBwraZcoeUegIjk62Nu-10" value="Notification usa patrón Decorator" style="shape=note;size=12;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="35" y="-760" width="210" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="IHBwraZcoeUegIjk62Nu-11" value="FileManager&amp;nbsp;patrón Adaoter" style="shape=note;size=12;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="IHBwraZcoeUegIjk62Nu-11" value="FileManager usa patrón Adaoter" style="shape=note;size=12;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-488" y="-290" width="210" height="30" as="geometry" />
         </mxCell>
         <mxCell id="x4Dn8OnilI1XNIhzITBW-1" value="TODO: Licantropo usar patron State" style="shape=note;size=11;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
@@ -631,6 +631,9 @@
         </mxCell>
         <mxCell id="x4Dn8OnilI1XNIhzITBW-2" value="TODO: Licantropo Peronsaje patron Builder" style="shape=note;size=14;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
           <mxGeometry x="800" y="120" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="x4Dn8OnilI1XNIhzITBW-3" value="Interfaz usa patrón Adaoter" style="shape=note;size=12;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-560" y="240" width="210" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
