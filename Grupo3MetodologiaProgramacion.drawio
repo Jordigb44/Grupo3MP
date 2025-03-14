@@ -3482,7 +3482,7 @@
           <mxGeometry x="1126.25" y="2184" width="110" height="50" as="geometry" />
         </mxCell>
         <mxCell id="zsQQzpfkvFATDvEDZeXn-3" value="" style="rounded=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" parent="1" vertex="1">
-          <mxGeometry x="640" y="40" width="1930" height="1150" as="geometry" />
+          <mxGeometry x="640" y="41" width="1930" height="1150" as="geometry" />
         </mxCell>
         <mxCell id="zsQQzpfkvFATDvEDZeXn-4" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;Sistema&lt;/span&gt;" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};size=70;" parent="1" vertex="1">
           <mxGeometry x="2200" y="97" width="340" height="1013" as="geometry" />
@@ -3752,7 +3752,7 @@
         </mxCell>
         <mxCell id="HZNzzJ23kNYZeP_cImlA-4" value="Obtenemos la instancia de notificación" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="HZNzzJ23kNYZeP_cImlA-3" vertex="1" connectable="0">
           <mxGeometry x="-0.0692" y="2" relative="1" as="geometry">
-            <mxPoint x="181" y="-17" as="offset" />
+            <mxPoint x="225" y="-12" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="HZNzzJ23kNYZeP_cImlA-5" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
@@ -3763,7 +3763,7 @@
         </mxCell>
         <mxCell id="HZNzzJ23kNYZeP_cImlA-6" value="Creamos la instancia de Noticación" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="HZNzzJ23kNYZeP_cImlA-5" vertex="1" connectable="0">
           <mxGeometry x="-0.0692" y="2" relative="1" as="geometry">
-            <mxPoint x="600" y="-17" as="offset" />
+            <mxPoint x="600" y="-14" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="HZNzzJ23kNYZeP_cImlA-7" value="" style="endArrow=open;html=1;rounded=0;endFill=0;dashed=1;dashPattern=8 8;" parent="1" edge="1">
@@ -3774,7 +3774,7 @@
         </mxCell>
         <mxCell id="HZNzzJ23kNYZeP_cImlA-8" value="Devolvemos la instancia de Noticación" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="HZNzzJ23kNYZeP_cImlA-7" vertex="1" connectable="0">
           <mxGeometry x="-0.0692" y="2" relative="1" as="geometry">
-            <mxPoint x="184" y="-17" as="offset" />
+            <mxPoint x="184" y="-14" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="HZNzzJ23kNYZeP_cImlA-11" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
