@@ -3710,7 +3710,7 @@
         </mxCell>
         <mxCell id="Uhq36A9_l-cNurB9PtiP-60" value="Devuelve el Usuario" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="Uhq36A9_l-cNurB9PtiP-59" vertex="1" connectable="0">
           <mxGeometry x="-0.0692" y="2" relative="1" as="geometry">
-            <mxPoint x="233" y="-18" as="offset" />
+            <mxPoint x="233" y="-11" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="Uhq36A9_l-cNurB9PtiP-61" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
