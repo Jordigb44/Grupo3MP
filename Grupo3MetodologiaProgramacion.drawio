@@ -649,7 +649,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="l-RggYs360koqnxxNY6v" name="2aPt - Diagramas de Actividad">
-    <mxGraphModel dx="2466" dy="1640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2832" dy="1852" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -3792,7 +3792,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="qdqHN07Kx1q3q2AzDUU_" name="2aPt - Diagrama de Estados">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="812" dy="1640" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -3856,7 +3856,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="rihJhzyz_5Dfq-ZHl5IM-22" value="Comprobamos usuario, contraseña y rol" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+        <mxCell id="rihJhzyz_5Dfq-ZHl5IM-22" value="Comprobación usuario, contraseña y rol" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="482.5" y="-230" width="110" height="45" as="geometry" />
         </mxCell>
         <mxCell id="viF9cBVa18frkPzbDn9c-5" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" parent="1" vertex="1">
@@ -3911,13 +3911,13 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="Z4GDAbrBmozgz1xOKLAE-11" value="Comprobamos nick, usuario, contraseña y rol" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-11" value="Comprobación nick, usuario, contraseña y rol" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="481" y="210" width="105" height="45" as="geometry" />
         </mxCell>
         <mxCell id="Z4GDAbrBmozgz1xOKLAE-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="Z4GDAbrBmozgz1xOKLAE-13" target="Z4GDAbrBmozgz1xOKLAE-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Z4GDAbrBmozgz1xOKLAE-13" value="Mostramos&amp;nbsp;al usuario que el nick introducido ya existe, que intente con otro" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-13" value="Mensaje al usuario que el nick introducido ya existe" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="351" y="370" width="148" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Z4GDAbrBmozgz1xOKLAE-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.998;entryY=0.621;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" parent="1" source="Z4GDAbrBmozgz1xOKLAE-11" target="Z4GDAbrBmozgz1xOKLAE-13" edge="1">
@@ -3934,7 +3934,7 @@
         <mxCell id="Z4GDAbrBmozgz1xOKLAE-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="Z4GDAbrBmozgz1xOKLAE-18" target="Z4GDAbrBmozgz1xOKLAE-16" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Z4GDAbrBmozgz1xOKLAE-18" value="Cargamos el sistema" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-18" value="Sistema cargado" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="621" y="212.5" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Z4GDAbrBmozgz1xOKLAE-19" value="Diagrama de Estado: Registrarse" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;fontStyle=1" parent="1" vertex="1">
@@ -3947,13 +3947,13 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="FmrjmwdEwtzcKlXd_cbR-3" value="Mostramos al usuario que su contraseña no es valida, debe de tener de 8 a 12 caracteres" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+        <mxCell id="FmrjmwdEwtzcKlXd_cbR-3" value="Mensaje al usuario de que el formato es incorecto" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="325" y="290" width="180" height="40" as="geometry" />
         </mxCell>
         <mxCell id="FmrjmwdEwtzcKlXd_cbR-6" value="&lt;div&gt;Contraseña&lt;/div&gt;&lt;div&gt;invalida&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=1;points=[];imageAspect=0;container=1;autosize=1;resizeHeight=0;resizeWidth=0;" parent="1" vertex="1" connectable="0">
           <mxGeometry x="470.9985714285715" y="254.99714285714288" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="FmrjmwdEwtzcKlXd_cbR-8" value="Mostramos al usuario que su contraseña no es valida, debe de tener de 8 a 12 caracteres" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+        <mxCell id="FmrjmwdEwtzcKlXd_cbR-8" value="Mensaje al usuario de que el formato es incorecto" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="336.5" y="-130" width="180" height="40" as="geometry" />
         </mxCell>
         <mxCell id="KmIi0py8uuevTL_NejsW-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="KmIi0py8uuevTL_NejsW-3" target="KmIi0py8uuevTL_NejsW-4" edge="1">
@@ -3977,7 +3977,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="KmIi0py8uuevTL_NejsW-3" value="Mostramos al usuario que ha introducido una contraseña incorrecta" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+        <mxCell id="KmIi0py8uuevTL_NejsW-3" value="Mensaje de contraseña no valida mostrado al usuario" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="447.5" y="-40" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="KmIi0py8uuevTL_NejsW-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="KmIi0py8uuevTL_NejsW-4" target="rihJhzyz_5Dfq-ZHl5IM-4" edge="1">
@@ -3988,7 +3988,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="KmIi0py8uuevTL_NejsW-4" value="Notificamos al usuario que han intentado acceder a su cuenta" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+        <mxCell id="KmIi0py8uuevTL_NejsW-4" value="Notificación de acceso a su cuenta al nick" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="196.5" y="-40" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="xdi999G_rVwlLCGCkS8m-1" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" parent="1" vertex="1">
@@ -4177,13 +4177,13 @@
         <mxCell id="aflgyBsLhDZmPXl6BGT7-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" parent="1" source="aflgyBsLhDZmPXl6BGT7-3" target="aflgyBsLhDZmPXl6BGT7-11" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="aflgyBsLhDZmPXl6BGT7-3" value="desafio pendiente" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="aflgyBsLhDZmPXl6BGT7-3" value="desafio pendiente" style="ellipse;whiteSpace=wrap;html=1;portConstraintRotation=0;" parent="1" vertex="1">
           <mxGeometry x="1060" y="-195" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="aflgyBsLhDZmPXl6BGT7-9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="aflgyBsLhDZmPXl6BGT7-5" target="aflgyBsLhDZmPXl6BGT7-8" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="aflgyBsLhDZmPXl6BGT7-5" value="desafio aceptado" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="aflgyBsLhDZmPXl6BGT7-5" value="desafio aceptado" style="ellipse;whiteSpace=wrap;html=1;portConstraintRotation=0;" parent="1" vertex="1">
           <mxGeometry x="1060" y="-80" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="aflgyBsLhDZmPXl6BGT7-7" value="jugador acepta&lt;div&gt;desafio&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
@@ -4192,7 +4192,7 @@
         <mxCell id="aflgyBsLhDZmPXl6BGT7-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="aflgyBsLhDZmPXl6BGT7-8" target="aflgyBsLhDZmPXl6BGT7-14" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="aflgyBsLhDZmPXl6BGT7-8" value="combate en curso" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="aflgyBsLhDZmPXl6BGT7-8" value="combate en curso" style="ellipse;whiteSpace=wrap;html=1;portConstraintRotation=0;" parent="1" vertex="1">
           <mxGeometry x="1315" y="-80" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="aflgyBsLhDZmPXl6BGT7-10" value="inicio combate" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
@@ -4203,7 +4203,7 @@
             <mxPoint x="1265" y="-280.3636363636365" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="aflgyBsLhDZmPXl6BGT7-11" value="desafio rechazado" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="aflgyBsLhDZmPXl6BGT7-11" value="desafio rechazado" style="ellipse;whiteSpace=wrap;html=1;portConstraintRotation=0;" parent="1" vertex="1">
           <mxGeometry x="1060" y="-300" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="aflgyBsLhDZmPXl6BGT7-13" value="jugador rechaza&lt;div&gt;desafio&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
@@ -4212,7 +4212,7 @@
         <mxCell id="aflgyBsLhDZmPXl6BGT7-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="aflgyBsLhDZmPXl6BGT7-14" target="aflgyBsLhDZmPXl6BGT7-20" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="aflgyBsLhDZmPXl6BGT7-14" value="ronda en curso" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="aflgyBsLhDZmPXl6BGT7-14" value="ronda en curso" style="ellipse;whiteSpace=wrap;html=1;portConstraintRotation=0;" parent="1" vertex="1">
           <mxGeometry x="1315" y="-195" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="aflgyBsLhDZmPXl6BGT7-16" value="se inicia&amp;nbsp;&lt;div&gt;ronda nueva&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
@@ -4237,7 +4237,7 @@
         <mxCell id="aflgyBsLhDZmPXl6BGT7-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="aflgyBsLhDZmPXl6BGT7-20" target="aflgyBsLhDZmPXl6BGT7-8" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="aflgyBsLhDZmPXl6BGT7-20" value="aplicando daño" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="aflgyBsLhDZmPXl6BGT7-20" value="aplicando daño" style="ellipse;whiteSpace=wrap;html=1;portConstraintRotation=0;" parent="1" vertex="1">
           <mxGeometry x="1578" y="-195" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="aflgyBsLhDZmPXl6BGT7-22" value="daño total" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
@@ -4248,7 +4248,7 @@
             <mxPoint x="1648" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="aflgyBsLhDZmPXl6BGT7-23" value="jugador derrotado" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="aflgyBsLhDZmPXl6BGT7-23" value="jugador derrotado" style="ellipse;whiteSpace=wrap;html=1;portConstraintRotation=0;" parent="1" vertex="1">
           <mxGeometry x="1578" y="-80" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="aflgyBsLhDZmPXl6BGT7-25" value="si la vida = 0 y&amp;nbsp;&lt;div&gt;sin esbirros&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
