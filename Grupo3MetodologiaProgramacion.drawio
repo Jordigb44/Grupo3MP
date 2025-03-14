@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15" version="26.1.0" pages="6">
   <diagram name="Diagrama de clases - general" id="c4acf3e9-155e-7222-9cf6-157b1a14988f">
-    <mxGraphModel dx="5607" dy="3377" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+    <mxGraphModel dx="2481" dy="1555" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -611,6 +611,9 @@
         </mxCell>
         <mxCell id="T87ECBZSwOQcv2fdxkoz-5" value="MAX Voluntad = 3&lt;div&gt;(Cada partida empieza con el máximo y va perdiendo en función del daño que le hagan)&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="810" y="570" width="140" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="S9_HU8WjIoxKamC7Ybbr-1" value="Formato UUID = LNNLL donde N es un número natural y L es una&lt;div&gt;letra&lt;/div&gt;" style="shape=note;size=20;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130.5" y="-320" width="210" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
@@ -4608,12 +4611,12 @@
     </mxGraphModel>
   </diagram>
   <diagram id="qdqHN07Kx1q3q2AzDUU_" name="Diagrama de Estados">
-    <mxGraphModel dx="1674" dy="2145" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1172" dy="1852" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="rihJhzyz_5Dfq-ZHl5IM-1" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
-          <mxGeometry x="50" y="50" width="30" height="30" as="geometry" />
+          <mxGeometry x="80" y="50" width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="rihJhzyz_5Dfq-ZHl5IM-2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" edge="1" source="rihJhzyz_5Dfq-ZHl5IM-1" parent="1">
           <mxGeometry relative="1" as="geometry">
@@ -4628,7 +4631,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="rihJhzyz_5Dfq-ZHl5IM-4" value="Login" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+        <mxCell id="rihJhzyz_5Dfq-ZHl5IM-4" value="Inicio de sesión" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
           <mxGeometry x="160" y="45" width="100" height="40" as="geometry" />
         </mxCell>
         <mxCell id="rihJhzyz_5Dfq-ZHl5IM-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="rihJhzyz_5Dfq-ZHl5IM-4" target="rihJhzyz_5Dfq-ZHl5IM-4">
@@ -4639,53 +4642,142 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="rihJhzyz_5Dfq-ZHl5IM-21" value="Usuario o contraseña&lt;div&gt;&amp;nbsp;o rol en blanco&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="133" y="-10" width="140" height="40" as="geometry" />
+        <mxCell id="rihJhzyz_5Dfq-ZHl5IM-21" value="Usuario o contraseña&lt;div&gt;&amp;nbsp;o rol en blanco o contraseña con formato incorrecto&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="53" y="-10" width="300" height="40" as="geometry" />
         </mxCell>
         <mxCell id="viF9cBVa18frkPzbDn9c-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="rihJhzyz_5Dfq-ZHl5IM-22" target="rihJhzyz_5Dfq-ZHl5IM-4">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="450" y="105" />
-              <mxPoint x="210" y="105" />
+              <mxPoint x="450" y="160" />
+              <mxPoint x="210" y="160" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="viF9cBVa18frkPzbDn9c-4" value="&lt;div&gt;Contraseña invalida introducida&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;lt; 3 veces incorrectamente&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="viF9cBVa18frkPzbDn9c-3">
-          <mxGeometry x="0.2123" y="-2" relative="1" as="geometry">
-            <mxPoint x="30" as="offset" />
+        <mxCell id="FmrjmwdEwtzcKlXd_cbR-7" value="&lt;div&gt;Contraseña formato incorrecto o&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;lt;3 introducida incorrectamente&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="viF9cBVa18frkPzbDn9c-3">
+          <mxGeometry x="-0.8417" y="1" relative="1" as="geometry">
+            <mxPoint x="-56" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="viF9cBVa18frkPzbDn9c-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="rihJhzyz_5Dfq-ZHl5IM-22" target="viF9cBVa18frkPzbDn9c-6">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="rihJhzyz_5Dfq-ZHl5IM-22" value="Comprobamos usuario, contraseña y rol" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-          <mxGeometry x="400" y="45" width="100" height="40" as="geometry" />
+          <mxGeometry x="390" y="40" width="110" height="45" as="geometry" />
         </mxCell>
         <mxCell id="viF9cBVa18frkPzbDn9c-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="rihJhzyz_5Dfq-ZHl5IM-25" target="rihJhzyz_5Dfq-ZHl5IM-4">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="rihJhzyz_5Dfq-ZHl5IM-25" value="Notificamos al usuario que han intentado acceder a su cuenta" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-          <mxGeometry x="273" y="150" width="140" height="40" as="geometry" />
+          <mxGeometry x="268" y="220" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="rihJhzyz_5Dfq-ZHl5IM-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.998;entryY=0.621;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="rihJhzyz_5Dfq-ZHl5IM-22" target="rihJhzyz_5Dfq-ZHl5IM-25">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="480" y="245" />
+            </Array>
+          </mxGeometry>
         </mxCell>
-        <mxCell id="rihJhzyz_5Dfq-ZHl5IM-27" value="&lt;div&gt;Contraseña invalida introducida&amp;nbsp;&lt;/div&gt;&lt;div&gt;3 veces incorrectamente&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=1;points=[];imageAspect=0;container=1;autosize=1;resizeHeight=0;resizeWidth=0;" vertex="1" connectable="0" parent="rihJhzyz_5Dfq-ZHl5IM-26">
-          <mxGeometry x="-0.6058" width="200" height="40" relative="1" as="geometry">
-            <mxPoint x="-100" y="2" as="offset" />
+        <mxCell id="rihJhzyz_5Dfq-ZHl5IM-27" value="&lt;div&gt;Contraseña invalida introducida&amp;nbsp;&lt;/div&gt;&lt;div&gt;3 veces incorrectamente con formato correcto&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=1;points=[];imageAspect=0;container=1;autosize=1;resizeHeight=0;resizeWidth=0;" vertex="1" connectable="0" parent="rihJhzyz_5Dfq-ZHl5IM-26">
+          <mxGeometry x="-0.6058" width="260" height="40" relative="1" as="geometry">
+            <mxPoint x="-130" y="55" as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="viF9cBVa18frkPzbDn9c-5" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
-          <mxGeometry x="660" y="50" width="30" height="30" as="geometry" />
+          <mxGeometry x="660" y="47" width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="viF9cBVa18frkPzbDn9c-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="viF9cBVa18frkPzbDn9c-6" target="viF9cBVa18frkPzbDn9c-5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="viF9cBVa18frkPzbDn9c-6" value="Cargamos el sistema" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
-          <mxGeometry x="530" y="45" width="100" height="40" as="geometry" />
+          <mxGeometry x="530" y="42" width="100" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="coGqd-or2nVxbNCBSQ48-1" value="Diagrama de Secuencia: Agregar personaje" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;fontStyle=1" vertex="1" parent="1">
-          <mxGeometry x="70" y="210" width="590" height="30" as="geometry" />
+        <mxCell id="coGqd-or2nVxbNCBSQ48-1" value="Diagrama de Estado: Iniciar sesión" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="65" y="280" width="590" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-1" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="80" y="400" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" edge="1" parent="1" source="Z4GDAbrBmozgz1xOKLAE-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="155" y="415" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Z4GDAbrBmozgz1xOKLAE-5" target="Z4GDAbrBmozgz1xOKLAE-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-4" value="Entrada de datos" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="Z4GDAbrBmozgz1xOKLAE-3">
+          <mxGeometry x="-0.2517" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-5" value="Registrarse" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="155" y="395" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="Z4GDAbrBmozgz1xOKLAE-5" target="Z4GDAbrBmozgz1xOKLAE-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="205" y="375" />
+              <mxPoint x="230" y="375" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-7" value="Usuario o contraseña&lt;div&gt;&amp;nbsp;o rol en blanco&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="128" y="340" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Z4GDAbrBmozgz1xOKLAE-11" target="Z4GDAbrBmozgz1xOKLAE-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="FmrjmwdEwtzcKlXd_cbR-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Z4GDAbrBmozgz1xOKLAE-11" target="FmrjmwdEwtzcKlXd_cbR-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="445" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-11" value="Comprobamos nick, usuario, contraseña y rol" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="390" width="105" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="Z4GDAbrBmozgz1xOKLAE-13" target="Z4GDAbrBmozgz1xOKLAE-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-13" value="Mostramos&amp;nbsp;al usuario que el nick introducido ya existe, que intente con otro" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="550" width="148" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.998;entryY=0.621;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="Z4GDAbrBmozgz1xOKLAE-11" target="Z4GDAbrBmozgz1xOKLAE-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-15" value="&lt;div&gt;Nick ya existe&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=1;points=[];imageAspect=0;container=1;autosize=1;resizeHeight=0;resizeWidth=0;" vertex="1" connectable="0" parent="Z4GDAbrBmozgz1xOKLAE-14">
+          <mxGeometry x="-0.6058" width="110" height="30" relative="1" as="geometry">
+            <mxPoint x="-55" y="40" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-16" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="660" y="397.5" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="Z4GDAbrBmozgz1xOKLAE-18" target="Z4GDAbrBmozgz1xOKLAE-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-18" value="Cargamos el sistema" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="392.5" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="Z4GDAbrBmozgz1xOKLAE-19" value="Diagrama de Estado: Registrarse" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="65" y="600" width="590" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="FmrjmwdEwtzcKlXd_cbR-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="FmrjmwdEwtzcKlXd_cbR-3" target="Z4GDAbrBmozgz1xOKLAE-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="205" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FmrjmwdEwtzcKlXd_cbR-3" value="Mostramos al usuario que su contraseña no es valida, debe de tener de 8 a 12 caracteres" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="234" y="470" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FmrjmwdEwtzcKlXd_cbR-6" value="&lt;div&gt;Contraseña&lt;/div&gt;&lt;div&gt;invalida&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=1;points=[];imageAspect=0;container=1;autosize=1;resizeHeight=0;resizeWidth=0;" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="379.9985714285715" y="434.9971428571429" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="FmrjmwdEwtzcKlXd_cbR-8" value="Mostramos al usuario que su contraseña no es valida, debe de tener de 8 a 12 caracteres" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="244" y="140" width="180" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
