@@ -4105,7 +4105,7 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="xdi999G_rVwlLCGCkS8m-30" value="Seleccionando rival" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="xdi999G_rVwlLCGCkS8m-30" value="Seleccionando rival y oro" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="553" y="-530" width="140" height="40" as="geometry" />
         </mxCell>
         <mxCell id="xdi999G_rVwlLCGCkS8m-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="xdi999G_rVwlLCGCkS8m-32" edge="1">
@@ -4125,20 +4125,28 @@
         <mxCell id="xdi999G_rVwlLCGCkS8m-35" value="acepta el desafío" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="248" y="-462" width="110" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="xdi999G_rVwlLCGCkS8m-36" value="rechazo desafío&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
-          <mxGeometry x="383" y="-520" width="110" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="xdi999G_rVwlLCGCkS8m-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="xdi999G_rVwlLCGCkS8m-38" target="xdi999G_rVwlLCGCkS8m-41" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="xdi999G_rVwlLCGCkS8m-38" value="Inicio desafío" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="94" y="-480" width="140" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="xdi999G_rVwlLCGCkS8m-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.553;entryY=0.953;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="xdi999G_rVwlLCGCkS8m-32" target="xdi999G_rVwlLCGCkS8m-27" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="xdi999G_rVwlLCGCkS8m-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="xdi999G_rVwlLCGCkS8m-32" target="xdi999G_rVwlLCGCkS8m-41" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460.5" y="-482.5" as="sourcePoint" />
+            <mxPoint x="202.5000000000001" y="-537.5" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="437" y="-535" />
+            </Array>
+          </mxGeometry>
         </mxCell>
-        <mxCell id="xdi999G_rVwlLCGCkS8m-40" value="Diagrama de Estado: Jugador desafío" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;fontStyle=1" parent="1" vertex="1">
-          <mxGeometry x="143" y="-350" width="590" height="30" as="geometry" />
+        <mxCell id="96_lOPMaeX-iv6ooi-83-4" value="&lt;span style=&quot;font-size: 12px; background-color: rgb(251, 251, 251);&quot;&gt;rechazo desafío&amp;nbsp;&lt;/span&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="xdi999G_rVwlLCGCkS8m-39">
+          <mxGeometry x="-0.8017" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="xdi999G_rVwlLCGCkS8m-40" value="Diagrama de Estado: Jugador - crear desafío" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="133" y="-400" width="590" height="30" as="geometry" />
         </mxCell>
         <mxCell id="xdi999G_rVwlLCGCkS8m-41" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" parent="1" vertex="1">
           <mxGeometry x="149" y="-550" width="30" height="30" as="geometry" />
@@ -4336,6 +4344,9 @@
         </mxCell>
         <mxCell id="96_lOPMaeX-iv6ooi-83-1" value="MUY CONFUSO, repensar y rehacer.&amp;nbsp;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;size=20;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
           <mxGeometry x="569.5" y="-1090" width="260.5" height="57" as="geometry" />
+        </mxCell>
+        <mxCell id="96_lOPMaeX-iv6ooi-83-3" value="Menu principal&amp;nbsp;&lt;div&gt;del jugador&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="49" y="-555" width="100" height="40" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
