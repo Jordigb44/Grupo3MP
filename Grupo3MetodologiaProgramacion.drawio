@@ -4146,7 +4146,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="xdi999G_rVwlLCGCkS8m-40" value="Diagrama de Estado: Jugador - crear desafío" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=19;fontStyle=1" parent="1" vertex="1">
-          <mxGeometry x="133" y="-400" width="590" height="30" as="geometry" />
+          <mxGeometry x="133" y="-410" width="590" height="30" as="geometry" />
         </mxCell>
         <mxCell id="xdi999G_rVwlLCGCkS8m-41" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" parent="1" vertex="1">
           <mxGeometry x="149" y="-550" width="30" height="30" as="geometry" />
