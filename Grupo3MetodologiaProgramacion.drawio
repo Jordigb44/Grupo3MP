@@ -4451,7 +4451,7 @@
           <mxGeometry x="107.75" y="788" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="lUajFVwIBK-N9kqInau3-15" value="selección desbloquear" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="577.75" y="780" width="140" height="30" as="geometry" />
+          <mxGeometry x="621" y="770" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="lUajFVwIBK-N9kqInau3-16" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
           <mxGeometry x="447.75" y="1160" width="33.5" height="30" as="geometry" />
