@@ -2198,7 +2198,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="btQHw71ES8tBb-njxSi4" name="2aPt - Diagrama de Secuencia">
-    <mxGraphModel dx="3172" dy="2293" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -3828,7 +3828,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="qdqHN07Kx1q3q2AzDUU_" name="2aPt - Diagrama de Estados">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1290" dy="1787" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -4397,6 +4397,100 @@
         </mxCell>
         <mxCell id="0We4anxuuW0fmNaU1hDR-14" value="Inicio desafío" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="94" y="-480" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-1" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="421.25" y="530" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="lUajFVwIBK-N9kqInau3-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="438.75" y="561" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="lUajFVwIBK-N9kqInau3-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="438.75" y="710" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-4" value="Menú operador es mostrado" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="373.75" y="606" width="130" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-5" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;Operador inicia sesión&lt;/span&gt;" style="text;whiteSpace=wrap;html=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="343.75" y="530" width="72.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-6" value="Se muestra lista de jugadores sin bloquear" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="157.75" y="920" width="130" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-7" value="Se muestra lista de jugadores bloqueados" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="642.75" y="911" width="130" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-9" value="Menú de gestión de jugadores es mostrado" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="377.75" y="710" width="130" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-11" value="&quot;gestión de jugadores&quot;&amp;nbsp;&lt;div&gt;es seleccionado&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="436" y="651" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-12" value="" style="endArrow=classic;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=0.385;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="lUajFVwIBK-N9kqInau3-9" target="lUajFVwIBK-N9kqInau3-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="379.75" y="825.5" as="sourcePoint" />
+            <mxPoint x="587.75" y="960" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="207.75" y="830" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-13" value="" style="endArrow=classic;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="lUajFVwIBK-N9kqInau3-9" target="lUajFVwIBK-N9kqInau3-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="503.75" y="825.5" as="sourcePoint" />
+            <mxPoint x="617.75" y="930" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="707.75" y="830" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-14" value="selección bloquear" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="107.75" y="788" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-15" value="selección desbloquear" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="577.75" y="780" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-16" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="447.75" y="1160" width="33.5" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.375;entryY=0.015;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="lUajFVwIBK-N9kqInau3-18" target="lUajFVwIBK-N9kqInau3-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-18" value="usuario a bloquear es seleccionado" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="152.75" y="1000" width="135" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.387;entryY=-0.015;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="lUajFVwIBK-N9kqInau3-20" target="lUajFVwIBK-N9kqInau3-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-20" value="usuario a desbloquear es seleccionado" style="whiteSpace=wrap;html=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="640.25" y="1000" width="135" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-21" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.421;exitY=0.998;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.444;entryY=0.076;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="lUajFVwIBK-N9kqInau3-6" target="lUajFVwIBK-N9kqInau3-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="507.75" y="1090" as="sourcePoint" />
+            <mxPoint x="557.75" y="1040" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-22" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="lUajFVwIBK-N9kqInau3-7" target="lUajFVwIBK-N9kqInau3-20">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="587.75" y="1020" as="sourcePoint" />
+            <mxPoint x="637.75" y="970" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-23" value="Gestión terminada, menú de operador" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="503.75" y="1180" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-24" value="&lt;div&gt;usuario seleccionado es desbloqueado&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="482.75" y="1055" width="230" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-25" value="usuario seleccionado es bloqueado" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="230.25" y="1055" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lUajFVwIBK-N9kqInau3-26" value="Diagrama de estado. Operador - Bloquear y desbloquear usuarios" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="222.75" y="1230" width="456" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
