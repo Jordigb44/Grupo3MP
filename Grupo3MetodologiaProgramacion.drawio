@@ -3992,13 +3992,11 @@
         <mxCell id="KmIi0py8uuevTL_NejsW-4" value="Notificación de acceso a su cuenta al nick" style="whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
           <mxGeometry x="196.5" y="-40" width="140" height="40" as="geometry" />
         </mxCell>
+        <mxCell id="fpBF04hhU-y3ZN3yJkm--9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="xdi999G_rVwlLCGCkS8m-1" target="xdi999G_rVwlLCGCkS8m-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="xdi999G_rVwlLCGCkS8m-1" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" parent="1" vertex="1">
           <mxGeometry x="439" y="-1098" width="30" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="xdi999G_rVwlLCGCkS8m-2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="xdi999G_rVwlLCGCkS8m-1" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="454" y="-1008" as="targetPoint" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="xdi999G_rVwlLCGCkS8m-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" parent="1" source="xdi999G_rVwlLCGCkS8m-5" target="xdi999G_rVwlLCGCkS8m-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
