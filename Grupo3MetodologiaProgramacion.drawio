@@ -649,7 +649,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="l-RggYs360koqnxxNY6v" name="2aPt - Diagramas de Actividad">
-    <mxGraphModel dx="3309" dy="2004" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2788" dy="1818" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -823,7 +823,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="pv8ES9CL5VQrgnZzrFCK-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="udk05qhwl1x0LUmo2uvu-67" target="udk05qhwl1x0LUmo2uvu-69">
+        <mxCell id="pv8ES9CL5VQrgnZzrFCK-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="udk05qhwl1x0LUmo2uvu-67" target="udk05qhwl1x0LUmo2uvu-69" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="146.6" y="1674" />
@@ -2196,14 +2196,14 @@
         <mxCell id="0B9xqkXz9lFw6ckl5Qza-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.45;entryY=0.008;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="jeaY1q6MVGmjDjydjRiX-10" target="jeaY1q6MVGmjDjydjRiX-28" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="pv8ES9CL5VQrgnZzrFCK-2" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;si&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+        <mxCell id="pv8ES9CL5VQrgnZzrFCK-2" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;si&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="323.6" y="1633.91" width="30" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="btQHw71ES8tBb-njxSi4" name="2aPt - Diagrama de Secuencia">
-    <mxGraphModel dx="2271" dy="1994" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2150" dy="1926" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2230,7 +2230,7 @@
           <mxGeometry x="-570" y="2000" width="750" height="700" as="geometry" />
         </mxCell>
         <mxCell id="lQBI_DAhPvF6HGLnkhzl-1" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-570" y="40" width="1070" height="1890" as="geometry" />
+          <mxGeometry x="-570" y="170" width="1070" height="1760" as="geometry" />
         </mxCell>
         <mxCell id="z6mDessJzHeSk_6cKfD3-28" value="Operador" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
           <mxGeometry x="-470" y="2160" width="30" height="60" as="geometry" />
@@ -3281,10 +3281,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="U3W8jXGbi28vN1YHsuPZ-91" value="&lt;div&gt;Recibe datos de la interfaz.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Intermediario que gestiona la creación del Personaje.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;Crea un objeto de la clase Personaje." style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="25.75" y="60" width="162.5" height="140" as="geometry" />
+          <mxGeometry x="52" y="-170" width="162.5" height="140" as="geometry" />
         </mxCell>
         <mxCell id="U3W8jXGbi28vN1YHsuPZ-92" value="Pantalla o Menu donde se introduce la información" style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-145.5" y="130" width="145" height="70" as="geometry" />
+          <mxGeometry x="-128" y="-130" width="145" height="70" as="geometry" />
         </mxCell>
         <mxCell id="U3W8jXGbi28vN1YHsuPZ-93" value="loop" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;" parent="1" vertex="1">
           <mxGeometry x="-410" y="640" width="540" height="180" as="geometry" />
@@ -3320,7 +3320,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="U3W8jXGbi28vN1YHsuPZ-100" value="Clase final que crea el personaje" style="shape=note;size=20;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="209.5" y="110" width="145" height="90" as="geometry" />
+          <mxGeometry x="260" y="-110" width="145" height="90" as="geometry" />
         </mxCell>
         <mxCell id="U3W8jXGbi28vN1YHsuPZ-101" value="Enviar arma" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
           <mxGeometry width="80" relative="1" as="geometry">
