@@ -19,6 +19,7 @@ Este proyecto es un sistema de gestión de un juego basado en una arquitectura m
 📦 com.proyecto
  ├── 📁 model           (Clases de modelo y datos)
  │   ├── Sistema.java
+ │   ├── I_Usuario.java
  │   ├── Usuario.java
  │   ├── Jugador.java
  │   ├── Operador.java
