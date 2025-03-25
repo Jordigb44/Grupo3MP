@@ -14,40 +14,63 @@ Este proyecto es un sistema de gestión de un juego basado en una arquitectura m
 
 ## 📂 Estructura del Proyecto
 ```
-📄 .gitignore
-🖌️ diagramas.drawio
 📦 com.proyecto
- ├── 📁 model           (Clases de modelo y datos)
- │   ├── Sistema.java
- │   ├── I_Usuario.java
- │   ├── Usuario.java
- │   ├── Jugador.java
- │   ├── Operador.java
- │   ├── Personaje.java
- │   ├── Desafio.java
- │   ├── Combate.java
- │   ├── Notificacion.java
- │   ├── Ranking.java
- │
- ├── 📁 storage         (Gestión de almacenamiento)
- │   ├── I_Storage.java
- │   ├── XMLStorage.java
- │   ├── FileManager.java
- │
  ├── 📁 auth            (Autenticación y autorización)
  │   ├── Authorization.java
  │   ├── PasarelaAuthorization.java
+ │
+ ├── 📁 main           (Punto de entrada)
+ │   ├── Main.java
+ │
+ ├── 📁 model           (Clases de modelo y datos)
+ │   ├── 📁 desafio
+ │      ├── Combate.java
+ │      ├── Desafio.java
+ │      ├── Rondas.java
+ │   ├── 📁 personaje
+ │      ├── 📁 estado
+ │         ├── EstadoBestia.java
+ │         ├── EstadoHumano.java
+ │         ├── I_EstadoLicantropo.java
+ │      ├── 📁 habilidad
+ │         ├── Arma.java
+ │         ├── Armadura.java
+ │         ├── Debilidad.java
+ │         ├── Fortaleza.java
+ │         ├── I_Habilidad.java
+ │      ├── 📁 tipo
+ │         ├── Cazador.java
+ │         ├── Licantropo.java
+ │         ├── Vampiro.java
+ │      ├── Builder.java
+ │      ├── Esbirro.java
+ │      ├── I_Personaje.java
+ │      ├── Personaje.java
+ │   ├── 📁 usuario
+ │      ├── I_Usuario.java
+ │      ├── Jugador.java
+ │      ├── Operador.java
+ │      ├── Usuario.java
+ │   ├── Ranking.java
+ │   ├── Sistema.java
  │
  ├── 📁 notifications   (Sistema de notificaciones)
  │   ├── I_Notification.java
  │   ├── NotificationDecorator.java
  │   ├── NotificationInterna.java
  │
- ├── 📁 ui              (Interfaz de usuario)
- │   ├── Interfaz.java
+ ├── 📁 storage         (Gestión de almacenamiento)
+ │   ├── FileManager.java
+ │   ├── I_Storage.java
+ │   ├── XMLStorage.java
  │
- ├── 📁 main           (Punto de entrada)
- │   ├── Main.java
+ ├── 📁 ui              (Interfaz de usuario)
+ │   ├── A_Interfaz.java
+ │   ├── I_Interfaz.java
+ │   ├── InterfazCLI.java
+📄 .gitignore (Carpetas o archivos que se ignoran)
+🖌️ diagramas.drawio (Todos los diagramas del proyecto)
+ℹ️ README.md (Información básica del proyecto)
 ```
 
 ## 📌 Diagrama de Clases
