@@ -14,7 +14,6 @@
     static {
         // Initialize the storage map with each adapter class and its instance
         storageMap.put(XMLStorage.class, XMLStorage.getInstance());
-        storageMap.put(JSONStorage.class, JSONStorage.getInstance()); // Example for JSONStorage
     }
 
     // Constructor that accepts the class of the storage adapter
