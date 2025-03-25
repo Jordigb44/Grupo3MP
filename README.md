@@ -38,7 +38,7 @@ Este proyecto es un sistema de gestión de un juego basado en una arquitectura m
  │   ├── PasarelaAuthorization.java
  │
  ├── 📁 notifications   (Sistema de notificaciones)
- │   ├── Notification.java
+ │   ├── I_Notification.java
  │   ├── NotificationDecorator.java
  │   ├── NotificationInterna.java
  │
