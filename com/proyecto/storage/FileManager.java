@@ -1,9 +1,9 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map;
 
-protected class FileManager {
-    private String usuarios_file;
-    private String personajes_file;
+import com.proyecto.model.personaje.habilidad.Arma;
+import com.proyecto.model.personaje.habilidad.Armadura;
     private String combates_file;
     private String desafios_file;
     private Usuario usuario;
@@ -23,7 +23,7 @@ protected class FileManager {
     }
 
     protected FileManager(Class<? extends I_Storage> storageClass) {
-        this.storage = storageMap.get(storageClass); // Retrieve the appropriate storage instance
+        this.storage = storageMap.get(storageClass);  // Retrieve the appropriate storage instance
         if (this.storage == null) {
             throw new IllegalArgumentException("Unsupported storage class: " + storageClass);
         }
