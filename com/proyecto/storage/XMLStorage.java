@@ -1,4 +1,10 @@
-public class XMLStorage implements I_Storage {
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
+import com.proyecto.model.personaje.Personaje;
+
+ic class XMLStorage implements I_Storage {
     private String directoryPath;
 
     // Constructor to initialize the directory path

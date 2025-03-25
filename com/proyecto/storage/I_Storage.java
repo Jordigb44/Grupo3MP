@@ -13,7 +13,7 @@ import java.util.List;
 public interface I_Storage {
     
     // Ruta del archivo de almacenamiento
-    String file_path = "data/storage.xml";
+    String directoryPath = "data";
 
     /**
      * Guarda un usuario en el almacenamiento.
