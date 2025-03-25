@@ -1,9 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map;
-
-import com.proyecto.model.personaje.habilidad.Arma;
-import com.proyecto.model.personaje.habilidad.Armadura;
     private String combates_file;
     private String desafios_file;
     private Usuario usuario;
