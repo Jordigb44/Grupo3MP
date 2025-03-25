@@ -1,5 +1,4 @@
-    private String combates_file;
-    private String desafios_file;
+
     private Usuario usuario;
     private List<Personajes> personajes;
     private List<Combates> combates;
@@ -9,20 +8,24 @@
     private List<Notificacion> notificaciones;
     private I_Storage storage;
 
+    // Map to store instances of I_Storage adapters
     private static final Map<Class<? extends I_Storage>, I_Storage> storageMap = new HashMap<>();
 
     static {
-        // Initialize the storage map with each class and its instance
+        // Initialize the storage map with each adapter class and its instance
         storageMap.put(XMLStorage.class, XMLStorage.getInstance());
+        storageMap.put(JSONStorage.class, JSONStorage.getInstance()); // Example for JSONStorage
     }
 
+    // Constructor that accepts the class of the storage adapter
     protected FileManager(Class<? extends I_Storage> storageClass) {
-        this.storage = storageMap.get(storageClass);  // Retrieve the appropriate storage instance
+        this.storage = storageMap.get(storageClass);  // Get the appropriate storage instance
         if (this.storage == null) {
             throw new IllegalArgumentException("Unsupported storage class: " + storageClass);
         }
     }
 
+    // Methods for saving and loading data
     protected String guardarUsuario(Usuario usuario) {
         return storage.saveUsuario(usuario);
     }
