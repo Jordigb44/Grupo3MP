@@ -1,24 +1,26 @@
-import java.util.Scanner;
-
 public class A_Interfaz implements I_Interfaz {
-    // Implementing the methods of I_Interfaz
+    private InterfazCLI interfazCLI;
+
+    // Constructor que inicializa InterfazCLI
+    public A_Interfaz() {
+        this.interfazCLI = new InterfazCLI(); // Initialize the adapter InterfazCLI
+    }
 
     @Override
     public void mostrar(String contenido) {
-        // Implementation of mostrar() with content as a parameter
-        System.out.println(contenido);
+        // Delegar a InterfazCLI
+        interfazCLI.mostrar(contenido);
     }
 
     @Override
     public String pedirEntrada() {
-        // Implementation of pedirEntrada() to return user input
-        Scanner scanner = new Scanner(System.in);
-        return scanner.nextLine(); // Return the user input
+        // Delegar a InterfazCLI y retornar la entrada del usuario
+        return interfazCLI.pedirEntrada();
     }
 
     @Override
     public void limpiarPantalla() {
-        // Implementation of limpiarPantalla()
-        System.out.println("\u000C"); // This is a common way to clear the console screen in Java.
+        // Delegar a InterfazCLI
+        interfazCLI.limpiarPantalla();
     }
 }
