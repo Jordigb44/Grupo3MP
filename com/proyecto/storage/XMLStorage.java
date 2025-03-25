@@ -1,18 +1,14 @@
-import javax.xml.bind.*;
-import java.io.*;
-import java.util.List;
-import com.proyecto.model.usuario.Usuario;
-import com.proyecto.model.personaje.Personaje;
-import com.proyecto.model.desafio.Desafio;
-import com.proyecto.model.desafio.Combate;
-import com.proyecto.model.Ranking;
-
 public class XMLStorage implements I_Storage {
-    private String file_path;
+    private String directoryPath;
 
-    // Constructor para inicializar la ruta del archivo
-    public XMLStorage(String file_path) {
-        this.file_path = file_path;
+    // Constructor to initialize the directory path
+    public XMLStorage(String directoryPath) {
+        this.directoryPath = directoryPath;
+    }
+
+    // Helper method to generate the file path for each object type
+    private String getFilePath(String objectType) {
+        return directoryPath + "/" + objectType + ".xml";
     }
 
     @Override
@@ -22,12 +18,11 @@ public class XMLStorage implements I_Storage {
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            File file = new File(file_path);
+            File file = new File(getFilePath("usuarios"));
             if (!file.exists()) {
-                file.createNewFile(); // Crear el archivo si no existe
+                file.createNewFile(); // Create file if it doesn't exist
             }
 
-            // Guardar el usuario en el archivo XML
             marshaller.marshal(usuario, file);
             return "Usuario guardado con éxito";
         } catch (JAXBException | IOException e) {
@@ -42,12 +37,11 @@ public class XMLStorage implements I_Storage {
             JAXBContext context = JAXBContext.newInstance(Usuario.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
 
-            File file = new File(file_path);
+            File file = new File(getFilePath("usuarios"));
             if (file.exists()) {
-                // Cargar los usuarios desde el archivo XML
                 return (List<Usuario>) unmarshaller.unmarshal(file);
             }
-            return null; // No se encontraron usuarios si el archivo no existe
+            return null; // No users found if the file doesn't exist
         } catch (JAXBException e) {
             e.printStackTrace();
             return null;
@@ -61,12 +55,11 @@ public class XMLStorage implements I_Storage {
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            File file = new File(file_path);
+            File file = new File(getFilePath("personajes"));
             if (!file.exists()) {
-                file.createNewFile(); // Crear el archivo si no existe
+                file.createNewFile();
             }
 
-            // Guardar los personajes en el archivo XML
             marshaller.marshal(personajes, file);
             return "Personajes guardados con éxito";
         } catch (JAXBException | IOException e) {
@@ -81,9 +74,8 @@ public class XMLStorage implements I_Storage {
             JAXBContext context = JAXBContext.newInstance(Personaje.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
 
-            File file = new File(file_path);
+            File file = new File(getFilePath("personajes"));
             if (file.exists()) {
-                // Cargar los personajes desde el archivo XML
                 return (List<Personaje>) unmarshaller.unmarshal(file);
             }
             return null;
@@ -100,7 +92,7 @@ public class XMLStorage implements I_Storage {
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            File file = new File(file_path);
+            File file = new File(getFilePath("combates"));
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -119,7 +111,7 @@ public class XMLStorage implements I_Storage {
             JAXBContext context = JAXBContext.newInstance(Combate.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
 
-            File file = new File(file_path);
+            File file = new File(getFilePath("combates"));
             if (file.exists()) {
                 return (List<Combate>) unmarshaller.unmarshal(file);
             }
@@ -137,7 +129,7 @@ public class XMLStorage implements I_Storage {
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            File file = new File(file_path);
+            File file = new File(getFilePath("desafios"));
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -156,7 +148,7 @@ public class XMLStorage implements I_Storage {
             JAXBContext context = JAXBContext.newInstance(Desafio.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
 
-            File file = new File(file_path);
+            File file = new File(getFilePath("desafios"));
             if (file.exists()) {
                 return (List<Desafio>) unmarshaller.unmarshal(file);
             }
@@ -174,7 +166,7 @@ public class XMLStorage implements I_Storage {
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            File file = new File(file_path);
+            File file = new File(getFilePath("ranking"));
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -193,7 +185,7 @@ public class XMLStorage implements I_Storage {
             JAXBContext context = JAXBContext.newInstance(Ranking.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
 
-            File file = new File(file_path);
+            File file = new File(getFilePath("ranking"));
             if (file.exists()) {
                 return (List<Ranking>) unmarshaller.unmarshal(file);
             }
