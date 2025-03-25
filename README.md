@@ -14,6 +14,7 @@ Este proyecto es un sistema de gestión de un juego basado en una arquitectura m
 
 ## 📂 Estructura del Proyecto
 ```
+🖌️ diagramas.drawio
 📦 com.proyecto
  ├── 📁 model           (Clases de modelo y datos)
  │   ├── Sistema.java
@@ -96,7 +97,7 @@ Permite extender las funcionalidades del sistema de notificaciones sin modificar
 ## 🚀 Instalación y Ejecución
 1. Clonar este repositorio:
    ```bash
-   git clone https://github.com/tu-repositorio.git
+   git clone https://github.com/Jordigb44/Grupo3MP.git
    ```
 2. Importar el proyecto en un IDE como **IntelliJ IDEA** o **Eclipse**.
 3. Ejecutar la clase `Main.java` para iniciar el sistema.
