@@ -14,13 +14,11 @@ Este proyecto es un sistema de gestión de un juego basado en una arquitectura m
 
 ## 📂 Estructura del Proyecto
 ```
-📦 com.proyecto
+📦 main.lib (Carpeta para mantener dependencias)
+📦 main.src (Carpeta del codigo)
  ├── 📁 auth            (Autenticación y autorización)
  │   ├── Authorization.java
  │   ├── PasarelaAuthorization.java
- │
- ├── 📁 main           (Punto de entrada)
- │   ├── Main.java
  │
  ├── 📁 model           (Clases de modelo y datos)
  │   ├── 📁 desafio
@@ -36,8 +34,10 @@ Este proyecto es un sistema de gestión de un juego basado en una arquitectura m
  │         ├── Arma.java
  │         ├── Armadura.java
  │         ├── Debilidad.java
+ │         ├── Don.java
  │         ├── Fortaleza.java
  │         ├── I_Habilidad.java
+ │         ├── Talento.java
  │      ├── 📁 tipo
  │         ├── Cazador.java
  │         ├── Licantropo.java
@@ -68,6 +68,9 @@ Este proyecto es un sistema de gestión de un juego basado en una arquitectura m
  │   ├── A_Interfaz.java
  │   ├── I_Interfaz.java
  │   ├── InterfazCLI.java
+ │
+ ├── App.java (Main program)
+
 📄 .gitignore (Carpetas o archivos que se ignoran)
 🖌️ diagramas.drawio (Todos los diagramas del proyecto)
 ℹ️ README.md (Información básica del proyecto)
