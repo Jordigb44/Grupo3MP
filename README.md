@@ -50,7 +50,7 @@ Este proyecto es un sistema de gestión de un juego basado en una arquitectura m
 ```
 
 ## 📌 Diagrama de Clases
-En el archivo diagramas.drawio encontrará todos los diagramas que se ceraron para la realizacion de este proyecto, en los que se encuentran: Diagramas de clase, diagramas de estado, diagramas de secuencia, diagramas de actividad, diagramas de caso de uso, y diagramas de flujo
+En el archivo `diagramas.drawio` encontrará todos los diagramas que se ceraron para la realizacion de este proyecto, en los que se encuentran: Diagramas de clase, diagramas de estado, diagramas de secuencia, diagramas de actividad, diagramas de caso de uso, y diagramas de flujo
 
 ## 🛠 Patrones de Diseño Utilizados
 
