@@ -7,8 +7,10 @@ public interface I_Interfaz {
 
     /**
      * Muestra la interfaz o la pantalla.
+     * 
+     * @param contenido El contenido a mostrar en la interfaz.
      */
-    void mostrar();
+    void mostrar(String contenido);
 
     /**
      * Solicita una entrada del usuario.
