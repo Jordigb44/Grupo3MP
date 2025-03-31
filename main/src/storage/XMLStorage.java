@@ -1,8 +1,15 @@
 package storage;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -36,81 +43,115 @@ public class XMLStorage implements I_Storage {
 
     // Helper method to generate the file path for each object type
     private String getFilePath(String objectType) {
-        return directoryPath + "/" + objectType + ".xml";
+        return directoryPath + objectType + ".xml";
     }
 
     @Override
     public String guardarUsuario(Usuario usuario) {
-        try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.newDocument();
+        System.out.println("Intentando guardar ekl usuario en: " + getFilePath("usuarios"));
+        File file = new File(getFilePath("usuarios"));
+        boolean exists = file.exists();
+        System.out.println("El archivo ya existe: " + exists);
 
-            // Crear el elemento raíz
-            Element rootElement = doc.createElement("usuarios");
-            doc.appendChild(rootElement);
+        try (FileOutputStream fos = new FileOutputStream(file, true);
+             OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
+             BufferedWriter writer = new BufferedWriter(osw)) {
 
-            // Crear el elemento 'usuario'
-            Element usuarioElement = doc.createElement("usuario");
-            rootElement.appendChild(usuarioElement);
-
-            // Añadir los detalles del usuario al XML
-            Element idElement = doc.createElement("id");
-            idElement.appendChild(doc.createTextNode(String.valueOf(usuario.getId())));
-            usuarioElement.appendChild(idElement);
-
-            Element nombreElement = doc.createElement("nombre");
-            nombreElement.appendChild(doc.createTextNode(usuario.getNombre()));
-            usuarioElement.appendChild(nombreElement);
-
-            // Guardar el XML en el archivo
-            File file = new File(getFilePath("usuarios"));
-            if (!file.exists()) {
-                file.createNewFile();
+            System.out.println("Abriendo y escribiendo el archivo");
+            
+            if (!exists) {
+                // Si el archivo no existe, escribimos la estructura base
+                System.out.println("Excribiendo cabecera XML");
+                writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
+                writer.write("<usuarios>\n");
             }
 
-            // Escribir el contenido en el archivo
-            TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            Transformer transformer = transformerFactory.newTransformer();
-            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(file);
-            transformer.transform(source, result);
+            // Agregar un nuevo usuario
+            System.out.println("Agregando el usuario: " + usuario.getNick());
+            writer.write("  <usuario>\n");
+            writer.write("    <id>" + usuario.getUserId() + "</id>\n");
+            writer.write("    <nick>" + usuario.getNick() + "</nick>\n");
+            writer.write("    <nombre>" + usuario.getNombre() + "</nombre>\n");
+            writer.write("    <password>" + usuario.getPassword() + "</password>\n");
+            writer.write("    <rol>" + usuario.getRol() + "</rol>\n");
+            writer.write("    <estado>" + usuario.getEstado() + "</estado>\n");
+            writer.write("    <fecha>" + usuario.getFecha() + "</fecha>\n");
+            writer.write("  </usuario>\n");
 
-            return "Usuario guardado con éxito";
-        } catch (Exception e) {
+            if (!exists) {
+                System.out.println("Cerrando tag");
+                writer.write("</usuarios>");
+            }
+            
+            System.out.println("Flush y cerramos el archivo");
+            writer.flush();
+
+            return "Usuario guardado correctamente.";
+        } catch (IOException e) {
+            System.err.println("Error al guardar usuario en XML: " + e.getMessage());
             e.printStackTrace();
-            return "Error al guardar el usuario";
+            return "Error al guardar usuario: " + e.getMessage();
         }
     }
 
     @Override
     public List<Usuario> cargarUsuarios() {
+        System.out.println("Intentando cargar usuarios");
         List<Usuario> usuarios = new ArrayList<>();
         try {
-            File file = new File(getFilePath("usuarios"));
-            if (file.exists()) {
-                DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-                DocumentBuilder builder = factory.newDocumentBuilder();
-                Document doc = builder.parse(file);
+            String rutaArchivo = getFilePath("usuarios");
+            System.out.println("Buscando archivo en: " + rutaArchivo);
+            File file = new File(rutaArchivo);
+            if (!file.exists()) {
+                System.out.println("El archivo de usuarios no existe");
+                return usuarios;
+            }
+            
+            System.out.println("El archivo existe, procediendo a leerlo");
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document doc = builder.parse(file);
+            
+            System.out.println("Archivo XML parseado correctamente");
+            NodeList nodeList = doc.getElementsByTagName("usuario");
+            System.out.println("Número de usuarios encontrados: " + nodeList.getLength());
 
-                NodeList nodeList = doc.getElementsByTagName("usuario");
-                for (int i = 0; i < nodeList.getLength(); i++) {
-                    Node node = nodeList.item(i);
-                    if (node.getNodeType() == Node.ELEMENT_NODE) {
-                        Element usuarioElement = (Element) node;
-                        
-                        // TO DO
-                        // int id = Integer.parseInt(usuarioElement.getElementsByTagName("id").item(0).getTextContent());
-                        // String nombre = usuarioElement.getElementsByTagName("nombre").item(0).getTextContent();
-
-                        // // Crear el objeto Usuario
-                        // Usuario usuario = new Usuario(id, nombre);
-                        // usuarios.add(usuario);
-                    }
+            for (int i = 0; i < nodeList.getLength(); i++) {
+                Node node = nodeList.item(i);
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+                    Element element = (Element) node;
+                    System.out.println("Procesando usuario #" + (i+1));
+                    
+                    String nick = element.getElementsByTagName("nick").item(0).getTextContent();
+                    String nombre = element.getElementsByTagName("nombre").item(0).getTextContent();
+                    String password = element.getElementsByTagName("password").item(0).getTextContent();
+                    String rol = element.getElementsByTagName("rol").item(0).getTextContent();
+                    String estado = element.getElementsByTagName("estado").item(0).getTextContent();
+                    
+                    System.out.println("Datos obtenidos: Nick=" + nick + ", Nombre=" + nombre);
+                    
+                    Usuario usuario = new Usuario(
+                        nick,
+                        nombre,
+                        password,
+                        rol,
+                        estado
+                    );
+                    
+                    String idText = element.getElementsByTagName("id").item(0).getTextContent();
+                    String fechaText = element.getElementsByTagName("fecha").item(0).getTextContent();
+                    System.out.println("ID=" + idText + ", Fecha=" + fechaText);
+                    
+                    usuario.setUserId(UUID.fromString(idText));
+                    usuario.setFecha(LocalDateTime.parse(fechaText));
+                    
+                    usuarios.add(usuario);
+                    System.out.println("Usuario añadido a la lista");
                 }
             }
+            System.out.println("Total de usuarios cargados: " + usuarios.size());
         } catch (Exception e) {
+            System.out.println("Error al cargar usuarios: " + e.getMessage());
             e.printStackTrace();
         }
         return usuarios;

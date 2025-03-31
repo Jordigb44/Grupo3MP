@@ -49,11 +49,12 @@ public class PasarelaAuthorization {
         interfaz.mostrar("=== REGISTRO DE USUARIO ===");
         interfaz.mostrar("Por favor, introduce un nombre de usuario:");
         String nick = interfaz.pedirEntrada();
+        interfaz.mostrar("Por favor, introduce su nombre:");
+        String nombre = interfaz.pedirEntrada();
         interfaz.mostrar("Por favor, introduce una contraseña:");
         String contraseña = interfaz.pedirEntrada();
         
-        Usuario nuevoUsuario = null;
-      //TODO: nuevoUsuario = new Usuario(nick, contraseña); // Crea un nuevo usuario
+        Usuario nuevoUsuario = new Usuario(nick, nombre, contraseña, null, null); // Crea un nuevo usuario
         String resultado = auth.guardarUsuario(nuevoUsuario);
         if (resultado.equals("Usuario guardado correctamente.")) {
             interfaz.mostrar("✅ " + resultado + " ¡Bienvenido, " + nick + "!");
