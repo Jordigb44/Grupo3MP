@@ -7,7 +7,7 @@ public class App {
             new Sistema();
             
         } catch (Exception e) {
-            System.err.println("Error al iniciar el sistema: " + e.getMessage());
+            System.err.println("Error al iniciar el sistema: " + e.getLocalizedMessage() + e.getMessage());
         } finally {
             // Cerrar el sistema al finalizar
             Sistema.cerrar();

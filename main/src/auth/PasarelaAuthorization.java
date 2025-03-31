@@ -17,7 +17,9 @@ public class PasarelaAuthorization {
         if (this.auth == null) {
         	this.auth = new Authorization(); // Usamos el patrón Singleton
         }
-        this.interfaz = interfaz; // Se recibe el adaptador como dependencia
+        if (this.interfaz == null) {        	
+        	this.interfaz = new A_Interfaz(); // Se recibe el adaptador como dependencia
+        }
         this.badCredential = 0;
     }
 

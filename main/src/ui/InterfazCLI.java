@@ -1,24 +1,29 @@
 package ui;
 
+import java.util.Scanner;
+
 public class InterfazCLI implements I_Interfaz {
-    private A_Interfaz aInterfaz;
+    private Scanner scanner;
 
     public InterfazCLI() {
-        this.aInterfaz = new A_Interfaz(); // Initialize the adapter A_Interfaz
+        System.out.println("InterfazCLI inicializada.");
+        this.scanner = new Scanner(System.in);
     }
 
     @Override
     public void mostrar(String contenido) {
-        aInterfaz.mostrar(contenido); // Delegate to A_Interfaz with content parameter
+        System.out.println(contenido);
     }
 
     @Override
     public String pedirEntrada() {
-        return aInterfaz.pedirEntrada(); // Return the result of the input from A_Interfaz
+        System.out.print("Ingrese un valor: ");
+        return scanner.nextLine();
     }
 
     @Override
     public void limpiarPantalla() {
-        aInterfaz.limpiarPantalla(); // Delegate to A_Interfaz
+        System.out.print("\033[H\033[2J"); // Secuencia ANSI para limpiar pantalla
+        System.out.flush();
     }
 }
