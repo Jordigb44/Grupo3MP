@@ -14,7 +14,7 @@ public class FileManager {
     private I_Storage storage;
 
     // Constructor that accepts a storage adapter
-    public FileManager(I_Storage storage) {
+    public FileManager() {
         if (storage == null) {
             throw new IllegalArgumentException("Storage adapter cannot be null");
         }
