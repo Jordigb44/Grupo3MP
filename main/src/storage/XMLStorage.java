@@ -26,7 +26,7 @@ import model.personaje.habilidad.Armadura;
 import model.usuario.Usuario;
 import notifications.I_Notification;
 
-class XMLStorage implements I_Storage {
+public class XMLStorage implements I_Storage {
     private String directoryPath;
 
     // Constructor to initialize the directory path

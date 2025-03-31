@@ -12,16 +12,22 @@ import notifications.I_Notification;
 
 public class FileManager {
     private I_Storage storage;
+    private Usuario usuario;
+    private List<Personaje> personajes;
+    private List<Combate> combates;
+    private List<Desafio> desafios;
+    private List<Arma> armas;
+    private List<Armadura> armaduras;
+    private List<I_Notification> notificaciones;
 
-    // Constructor that accepts a storage adapter
-    public FileManager() {
-        if (storage == null) {
-            throw new IllegalArgumentException("Storage adapter cannot be null");
-        }
-        this.storage = storage;
+    // Constructor that accepts a storage adapter and initializes attributes
+    public FileManager(I_Storage storage) {
+    	if (this.storage == null || this.storage != storage) {
+    		this.storage =  storage;
+    	}
     }
 
-    // Save and load methods for different types of data, delegating the work to the storage adapter
+    // TODO: Save and load methods for different types of data, delegating the work to the storage adapter
 
     public String guardarUsuario(Usuario usuario) {
         return storage.guardarUsuario(usuario);
