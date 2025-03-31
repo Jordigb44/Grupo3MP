@@ -1,5 +1,4 @@
 package model;
-
 import auth.PasarelaAuthoritation; // Asegúrate de importar la clase correcta
 import storage.FileManager;
 
