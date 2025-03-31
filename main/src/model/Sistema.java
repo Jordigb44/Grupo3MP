@@ -1,7 +1,7 @@
 package model;
 
-import storage.FileManager;
 import security.PasarelaAuthoritation; // Asegúrate de importar la clase correcta
+import storage.FileManager;
 
 public class Sistema {
     private static FileManager fileManager;
@@ -17,6 +17,7 @@ public class Sistema {
             pasarelaAuthoritation = new PasarelaAuthoritation();
             System.out.println("PasarelaAuthoritation inicializada.");
         }
+        pasarelaAuthoritation.
     }
 
     // Método para obtener la instancia de FileManager
