@@ -12,7 +12,7 @@ public class PasarelaAuthorization {
     private int badCredential;
 
     // Constructor
-    public PasarelaAuthorization(InterfazAdapter interfaz) {
+    public PasarelaAuthorization() {
         this.fileManager = Sistema.getFileManager();
         this.auth = Authorization.getInstance(); // Usamos el patrón Singleton
         this.interfaz = interfaz; // Se recibe el adaptador como dependencia
