@@ -68,7 +68,7 @@ public class Authorization {
         
         // No sabemos exactamente qué devuelve el método fileManager.guardarUsuario
         // así que comprobamos si contiene un mensaje de éxito
-        if (resultado != null && resultado.contains("exitosamente")) {
+        if (resultado != null && resultado.contains("Usuario guardado correctamente.")) {
             return "Usuario guardado correctamente.";
         } else {
             return "Error al guardar el usuario.";

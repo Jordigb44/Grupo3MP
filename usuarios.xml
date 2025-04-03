@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<usuarios>
+  <usuario>
+    <id>f0e6c0c3-46a6-44f8-902d-dab5d0fbcd13</id>
+    <nick>a</nick>
+    <nombre>a</nombre>
+    <password>a</password>
+    <rol/>
+    <estado/>
+    <fecha>2025-04-03T20:07:17.436870</fecha>
+  </usuario>
+  <usuario>
+    <id>0c2bc589-366a-47fc-971a-6c6c4e8aa12f</id>
+    <nick>b</nick>
+    <nombre>b</nombre>
+    <password>b</password>
+    <rol/>
+    <estado/>
+    <fecha>2025-04-03T20:07:24.137497</fecha>
+  </usuario>
+  <usuario>
+    <id>ce1eb14e-cebb-4f72-b82a-38b1cd1ab81f</id>
+    <nick>c</nick>
+    <nombre>c</nombre>
+    <password>c</password>
+    <rol/>
+    <estado/>
+    <fecha>2025-04-03T20:07:29.344983</fecha>
+  </usuario>
+</usuarios>

@@ -46,48 +46,98 @@ public class XMLStorage implements I_Storage {
         return directoryPath + objectType + ".xml";
     }
 
+    // Helper method to remove whitespace-only text nodes
+    private void removeWhitespaceNodes(Node node) {
+        NodeList children = node.getChildNodes();
+        for (int i = children.getLength() - 1; i >= 0; i--) {
+            Node child = children.item(i);
+            if (child.getNodeType() == Node.TEXT_NODE && child.getNodeValue().trim().isEmpty()) {
+                node.removeChild(child);
+            } else if (child.getNodeType() == Node.ELEMENT_NODE) {
+                removeWhitespaceNodes(child);
+            }
+        }
+    }
+
     @Override
     public String guardarUsuario(Usuario usuario) {
-        System.out.println("Intentando guardar ekl usuario en: " + getFilePath("usuarios"));
+        System.out.println("Intentando guardar el usuario en: " + getFilePath("usuarios"));
         File file = new File(getFilePath("usuarios"));
-        boolean exists = file.exists();
-        System.out.println("El archivo ya existe: " + exists);
+        Document doc;
 
-        try (FileOutputStream fos = new FileOutputStream(file, true);
-             OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.UTF_8);
-             BufferedWriter writer = new BufferedWriter(osw)) {
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
 
-            System.out.println("Abriendo y escribiendo el archivo");
-            
-            if (!exists) {
-                // Si el archivo no existe, escribimos la estructura base
-                System.out.println("Excribiendo cabecera XML");
-                writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
-                writer.write("<usuarios>\n");
+            // 🔹 Si el archivo existe pero está vacío, eliminarlo
+            if (file.exists() && file.length() == 0) {
+                System.out.println("El archivo está vacío. Eliminándolo...");
+                file.delete();
             }
 
-            // Agregar un nuevo usuario
-            System.out.println("Agregando el usuario: " + usuario.getNick());
-            writer.write("  <usuario>\n");
-            writer.write("    <id>" + usuario.getUserId() + "</id>\n");
-            writer.write("    <nick>" + usuario.getNick() + "</nick>\n");
-            writer.write("    <nombre>" + usuario.getNombre() + "</nombre>\n");
-            writer.write("    <password>" + usuario.getPassword() + "</password>\n");
-            writer.write("    <rol>" + usuario.getRol() + "</rol>\n");
-            writer.write("    <estado>" + usuario.getEstado() + "</estado>\n");
-            writer.write("    <fecha>" + usuario.getFecha() + "</fecha>\n");
-            writer.write("  </usuario>\n");
-
-            if (!exists) {
-                System.out.println("Cerrando tag");
-                writer.write("</usuarios>");
+            // 🔹 Crear nuevo documento si el archivo no existe
+            if (!file.exists()) {
+                doc = builder.newDocument();
+                Element rootElement = doc.createElement("usuarios");
+                doc.appendChild(rootElement);
+            } else {
+                doc = builder.parse(file);
+                // Normalize the document to remove excessive whitespace
+                doc.normalize();
+                // Remove all text nodes that are only whitespace
+                removeWhitespaceNodes(doc.getDocumentElement());
             }
-            
-            System.out.println("Flush y cerramos el archivo");
-            writer.flush();
+
+            Element root = doc.getDocumentElement();
+
+            // Crear elemento usuario
+            Element usuarioElement = doc.createElement("usuario");
+
+            Element idElement = doc.createElement("id");
+            idElement.appendChild(doc.createTextNode(usuario.getUserId().toString()));
+            usuarioElement.appendChild(idElement);
+
+            Element nickElement = doc.createElement("nick");
+            nickElement.appendChild(doc.createTextNode(usuario.getNick()));
+            usuarioElement.appendChild(nickElement);
+
+            Element nombreElement = doc.createElement("nombre");
+            nombreElement.appendChild(doc.createTextNode(usuario.getNombre()));
+            usuarioElement.appendChild(nombreElement);
+
+            Element passwordElement = doc.createElement("password");
+            passwordElement.appendChild(doc.createTextNode(usuario.getPassword()));
+            usuarioElement.appendChild(passwordElement);
+
+            // 🔹 Evitar valores null en XML
+            Element rolElement = doc.createElement("rol");
+            rolElement.appendChild(doc.createTextNode(usuario.getRol() != null ? usuario.getRol() : ""));
+            usuarioElement.appendChild(rolElement);
+
+            Element estadoElement = doc.createElement("estado");
+            estadoElement.appendChild(doc.createTextNode(usuario.getEstado() != null ? usuario.getEstado() : ""));
+            usuarioElement.appendChild(estadoElement);
+
+            Element fechaElement = doc.createElement("fecha");
+            fechaElement.appendChild(doc.createTextNode(usuario.getFecha() != null ? usuario.getFecha().toString() : ""));
+            usuarioElement.appendChild(fechaElement);
+
+            // Agregar nuevo usuario al XML
+            root.appendChild(usuarioElement);
+
+            // Escribir cambios en el archivo XML
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(file);
+            transformer.transform(source, result);
 
             return "Usuario guardado correctamente.";
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.err.println("Error al guardar usuario en XML: " + e.getMessage());
             e.printStackTrace();
             return "Error al guardar usuario: " + e.getMessage();
@@ -157,6 +207,7 @@ public class XMLStorage implements I_Storage {
         return usuarios;
     }
 
+    // TODO: Imprementar
     @Override
     public String guardarPersonajes(List<Personaje> personajes) {
         try {
@@ -182,7 +233,9 @@ public class XMLStorage implements I_Storage {
                 nombreElement.appendChild(doc.createTextNode(personaje.getNombre()));
                 personajeElement.appendChild(nombreElement);
             }
-
+            
+            // ...
+            
             // Guardar el XML en el archivo
             File file = new File(getFilePath("personajes"));
             if (!file.exists()) {
@@ -193,6 +246,7 @@ public class XMLStorage implements I_Storage {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(file);
             transformer.transform(source, result);
@@ -213,6 +267,9 @@ public class XMLStorage implements I_Storage {
                 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder builder = factory.newDocumentBuilder();
                 Document doc = builder.parse(file);
+                
+                // Normalize the document
+                doc.normalize();
 
                 NodeList nodeList = doc.getElementsByTagName("personaje");
                 for (int i = 0; i < nodeList.getLength(); i++) {
@@ -262,6 +319,7 @@ public class XMLStorage implements I_Storage {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(file);
             transformer.transform(source, result);
@@ -282,6 +340,9 @@ public class XMLStorage implements I_Storage {
                 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder builder = factory.newDocumentBuilder();
                 Document doc = builder.parse(file);
+                
+                // Normalize the document
+                doc.normalize();
 
                 NodeList nodeList = doc.getElementsByTagName("ranking");
                 for (int i = 0; i < nodeList.getLength(); i++) {
@@ -306,55 +367,153 @@ public class XMLStorage implements I_Storage {
 
     @Override
     public String guardarCombates(List<Combate> combates) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'guardarCombates'");
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document doc = builder.newDocument();
+
+            // Crear el elemento raíz
+            Element rootElement = doc.createElement("combates");
+            doc.appendChild(rootElement);
+
+            // Implementar la lógica para guardar combates
+            // ...
+
+            // Guardar el XML en el archivo
+            File file = new File(getFilePath("combates"));
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            // Escribir el contenido en el archivo
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(file);
+            transformer.transform(source, result);
+
+            return "Combates guardados con éxito";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error al guardar los combates";
+        }
     }
 
     @Override
     public List<Combate> cargarCombates() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'cargarCombates'");
+        List<Combate> combates = new ArrayList<>();
+        // Implementar la lógica para cargar combates
+        // ...
+        return combates;
     }
 
     @Override
     public String guardarDesafio(Desafio desafio) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'guardarDesafio'");
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document doc = builder.newDocument();
+
+            // Crear el elemento raíz
+            Element rootElement = doc.createElement("desafios");
+            doc.appendChild(rootElement);
+
+            // Implementar la lógica para guardar desafío
+            // ...
+
+            // Guardar el XML en el archivo
+            File file = new File(getFilePath("desafios"));
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+
+            // Escribir el contenido en el archivo
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(file);
+            transformer.transform(source, result);
+
+            return "Desafío guardado con éxito";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error al guardar el desafío";
+        }
     }
 
     @Override
     public List<Desafio> cargarDesafios() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'cargarDesafios'");
+        List<Desafio> desafios = new ArrayList<>();
+        // Implementar la lógica para cargar desafíos
+        // ...
+        return desafios;
     }
 
     @Override
     public List<Arma> cargarArmas() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'cargarArmas'");
+        List<Arma> armas = new ArrayList<>();
+        // Implementar la lógica para cargar armas
+        // ...
+        return armas;
     }
 
     @Override
     public List<Armadura> cargarArmaduras() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'cargarArmaduras'");
+        List<Armadura> armaduras = new ArrayList<>();
+        // Implementar la lógica para cargar armaduras
+        // ...
+        return armaduras;
     }
 
     @Override
     public I_Notification getNotificacion(Usuario usuario) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getNotificacion'");
+        // Implementar la lógica para obtener notificación
+        return null;
     }
 
     @Override
     public void setNotificacion(Usuario usuario, String mensaje) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setNotificacion'");
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document doc;
+            File file = new File(getFilePath("notificaciones"));
+            
+            // Crear nuevo documento o cargar existente
+            if (!file.exists() || file.length() == 0) {
+                doc = builder.newDocument();
+                Element rootElement = doc.createElement("notificaciones");
+                doc.appendChild(rootElement);
+            } else {
+                doc = builder.parse(file);
+                doc.normalize();
+                removeWhitespaceNodes(doc.getDocumentElement());
+            }
+            
+            // Implementar lógica para guardar notificación
+            // ...
+            
+            // Escribir contenido en archivo
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(file);
+            transformer.transform(source, result);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void deleteNotificacion(Usuario usuario) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'deleteNotificacion'");
+        // Implementar lógica para eliminar notificación
     }
 }

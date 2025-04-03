@@ -26,7 +26,7 @@ public class PasarelaAuthorization {
     // Método para iniciar sesión
     public Usuario iniciarSesion() {
         interfaz.mostrar("=== INICIO DE SESIÓN ===");
-        interfaz.mostrar("Por favor, introduce tu nombre de usuario:");
+        interfaz.mostrar("Por favor, introduce tu nick:");
         String nick = interfaz.pedirEntrada();
         interfaz.mostrar("Por favor, introduce tu contraseña:");
         String contraseña = interfaz.pedirEntrada();
