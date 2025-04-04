@@ -1,11 +1,6 @@
 package storage;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -275,9 +270,9 @@ public class XMLStorage implements I_Storage {
                 for (int i = 0; i < nodeList.getLength(); i++) {
                     Node node = nodeList.item(i);
                     if (node.getNodeType() == Node.ELEMENT_NODE) {
-                        Element personajeElement = (Element) node;
 
                         // TO DO
+                    	// Element personajeElement = (Element) node;
                         // int id = Integer.parseInt(personajeElement.getElementsByTagName("id").item(0).getTextContent());
                         // String nombre = personajeElement.getElementsByTagName("nombre").item(0).getTextContent();
 
