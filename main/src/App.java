@@ -11,6 +11,7 @@ public class App {
         } finally {
             // Cerrar el sistema al finalizar
             Sistema.cerrar();
+            // gola
         }   
     }
 }
