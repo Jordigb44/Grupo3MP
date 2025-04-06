@@ -80,4 +80,13 @@ public class FileManager {
     public void deleteNotificacion(Usuario usuario) {
         storage.deleteNotificacion(usuario);
     }
+
+	public void actualizarDesafio(Desafio desafio) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+		
+	
 }
