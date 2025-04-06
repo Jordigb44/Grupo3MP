@@ -2,11 +2,13 @@ package model.usuario;
 import java.util.List;
 import model.personaje.*;
 import model.desafio.*;
+import ui.A_Interfaz; 
 
 public class Jugador {
 	private List<Personaje> personajes;
-	private boolean desafio;
+	private Desafio desafio;
 	private int posicionRanking;
+    private A_Interfaz interfaz;
 	
 	public List<Personaje> getPersonajes() {
 		return personajes;
@@ -14,11 +16,11 @@ public class Jugador {
 	public void setPersonajes(List<Personaje> personajes) {
 		this.personajes = personajes;
 	}
-	public boolean getDesafio() {
+	public Desafio getDesafio() {
 		return desafio;
 	}
-	public void setDesafio(boolean b) {
-		this.desafio = b;
+	public void setDesafio(Desafio desafio) {
+		this.desafio = desafio;
 	}
 	public int getPosicionRanking() {
 		return posicionRanking;
@@ -26,18 +28,29 @@ public class Jugador {
 	public void setPosicionRanking(int posicionRanking) {
 		this.posicionRanking = posicionRanking;
 	}
-	public int getOro() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	public void restarOro(int penalizacion) {
-		// TODO Auto-generated method stub
-		
-	}
-	public void agregarOro(int penalizacion) {
-		// TODO Auto-generated method stub
-		
+	public Jugador getJugador() {
+	    return this;
 	}
 	
+	public void borrarPersonaje(Personaje personaje) {
+	    if (personaje != null) {
+	    	personajes.remove(personaje);
+		    interfaz.mostrar("Personaje borrado exitosamente");
+	    } else {
+	        interfaz.mostrar("No hay personajes disponibles que borrar"); ;
+	    }
+	}
+	
+	public void agregarPersonaje(Personaje personaje) {
+	    // Verificar que el personaje no sea nulo
+	    if (personaje == null) {
+	        interfaz.mostrar("Por favor introduzca, un personaje");;
+	    }  else if (personajes.contains(personaje)) {
+	        interfaz.mostrar("No puede añadir un personaje duplicado");
+	    } else {
+	    	personajes.add(personaje);
+	    } 
+	}
+
 	
 }
