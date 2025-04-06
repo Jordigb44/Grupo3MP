@@ -89,9 +89,9 @@ public interface I_Storage {
 
     List<Armadura> cargarArmaduras();
 
-    I_Notification getNotificacion(Usuario usuario);
+    List<String> getNotificacion(Usuario usuario);
 
-    void setNotificacion(Usuario usuario, String mensaje);
+    void setNotificacion(String nick, String mensaje);
 
     void deleteNotificacion(Usuario usuario);
 

@@ -30,6 +30,7 @@ public class Sistema {
         }
         // Llama al menú de sesión
         usuario = pasarelaAuthorization.menuSesion();
+        
     }
 
     // Método para obtener la instancia de FileManager

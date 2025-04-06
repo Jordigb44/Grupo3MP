@@ -692,20 +692,65 @@ public class XMLStorage implements I_Storage {
     }
 
     @Override
-    public I_Notification getNotificacion(Usuario usuario) {
-        // TODO: Implementar la lógica para obtener notificación
-        return null;
-    }
+    public List<String> getNotificacion(Usuario usuario) {
+        List<String> notificaciones = new ArrayList<>();
+        try {
+            // Definir la ruta del archivo de notificaciones
+            File file = new File(getFilePath("notificaciones"));
+            
+            // Verificar si el archivo existe y tiene contenido
+            if (!file.exists() || file.length() == 0) {
+                return notificaciones; // Devuelve una lista vacía si no hay notificaciones
+            }
 
+            // Preparar el parseo del archivo XML
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document doc = builder.parse(file);
+            doc.normalize();
+            
+            // Eliminar nodos de espacios en blanco
+            removeWhitespaceNodes(doc.getDocumentElement());
+
+            // Obtener los usuarios del archivo XML
+            NodeList usuarios = doc.getElementsByTagName("usuario");
+
+            // Iterar sobre los usuarios
+            for (int i = 0; i < usuarios.getLength(); i++) {
+                Element u = (Element) usuarios.item(i);
+
+                // Verificar si el ID del usuario coincide con el del usuario solicitado
+                if (u.getAttribute("nick").equals(String.valueOf(usuario.getNick()))) {
+                    // Obtener las notificaciones (mensajes) para este usuario
+                    NodeList mensajes = u.getElementsByTagName("mensaje");
+
+                    // Iterar sobre los mensajes de este usuario
+                    for (int j = 0; j < mensajes.getLength(); j++) {
+                        Element mensaje = (Element) mensajes.item(j);
+                        String fecha = mensaje.getAttribute("fecha");
+                        String texto = mensaje.getTextContent();
+
+                        // Formatear la notificación
+                        String notificacion = texto + " (Fecha: " + fecha + ")";
+                        notificaciones.add(notificacion); // Añadir la notificación a la lista
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return notificaciones; // Devolver todas las notificaciones encontradas
+    }
+    
     @Override
-    public void setNotificacion(Usuario usuario, String mensaje) {
+    public void setNotificacion(String nick, String mensaje) {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc;
             File file = new File(getFilePath("notificaciones"));
-            
-            // Crear nuevo documento o cargar existente
+
             if (!file.exists() || file.length() == 0) {
                 doc = builder.newDocument();
                 Element rootElement = doc.createElement("notificaciones");
@@ -715,21 +760,54 @@ public class XMLStorage implements I_Storage {
                 doc.normalize();
                 removeWhitespaceNodes(doc.getDocumentElement());
             }
-            
-            // TODO: Implementar lógica para guardar notificación
-            // ...
-            
-            // Escribir contenido en archivo
+
+            Element root = doc.getDocumentElement();
+            NodeList usuarios = root.getElementsByTagName("usuario");
+            Element usuarioExistente = null;
+
+            for (int i = 0; i < usuarios.getLength(); i++) {
+                Element u = (Element) usuarios.item(i);
+                if (u.getAttribute("nick").equals(String.valueOf(nick))) {
+                    usuarioExistente = u;
+                    break;
+                }
+            }
+
+            if (usuarioExistente != null) {
+                NodeList mensajes = usuarioExistente.getElementsByTagName("mensaje");
+                if (mensajes.getLength() > 0) {
+                    Element mensajeElement = (Element) mensajes.item(0);
+                    mensajeElement.setTextContent(mensaje);
+                    mensajeElement.setAttribute("fecha", java.time.LocalDateTime.now().toString());
+                } else {
+                    Element mensajeElement = doc.createElement("mensaje");
+                    mensajeElement.setTextContent(mensaje);
+                    mensajeElement.setAttribute("fecha", java.time.LocalDateTime.now().toString());
+                    usuarioExistente.appendChild(mensajeElement);
+                }
+            } else {
+                Element nuevoUsuario = doc.createElement("usuario");
+                nuevoUsuario.setAttribute("nick", String.valueOf(nick));
+
+                Element mensajeElement = doc.createElement("mensaje");
+                mensajeElement.setTextContent(mensaje);
+                mensajeElement.setAttribute("fecha", java.time.LocalDateTime.now().toString());
+
+                nuevoUsuario.appendChild(mensajeElement);
+                root.appendChild(nuevoUsuario);
+            }
+
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty(OutputKeys.METHOD, "xml");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
             transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(file);
             transformer.transform(source, result);
-            
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -737,6 +815,38 @@ public class XMLStorage implements I_Storage {
 
     @Override
     public void deleteNotificacion(Usuario usuario) {
-        // Implementar lógica para eliminar notificación
+        try {
+            File file = new File(getFilePath("notificaciones"));
+            if (!file.exists() || file.length() == 0) return;
+
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document doc = builder.parse(file);
+            doc.normalize();
+            removeWhitespaceNodes(doc.getDocumentElement());
+
+            Element root = doc.getDocumentElement();
+            NodeList usuarios = root.getElementsByTagName("usuario");
+
+            for (int i = 0; i < usuarios.getLength(); i++) {
+                Element u = (Element) usuarios.item(i);
+                if (u.getAttribute("id").equals(String.valueOf(usuario.getUserId()))) {
+                    root.removeChild(u);
+                    break;
+                }
+            }
+
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(file);
+            transformer.transform(source, result);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

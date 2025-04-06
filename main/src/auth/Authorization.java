@@ -38,23 +38,22 @@ public class Authorization {
     }
     
     // Método para verificar la contraseña de un usuario
-    public String checkPassword(String nick, String contraseña) {
+    public Object checkPassword(String nick, String contraseña) {
         // Lógica para verificar la contraseña
-        String resultado = verificarCredenciales(nick, contraseña);
-        if ("Contraseña correcta.".equals(resultado)) {
-            return "Contraseña correcta.";
-        } else {
-            return "Contraseña incorrecta.";
+        Object resultado = verificarCredenciales(nick, contraseña);
+        if ("Contraseña incorrecta.".equals(resultado)) {
+        	return resultado;
         }
+        return resultado;
     }
     
-    private String verificarCredenciales(String nick, String contraseña) {
+    private Object verificarCredenciales(String nick, String contraseña) {
         // Implementación real para verificar credenciales
         // Aquí deberías usar el fileManager para cargar usuarios y verificar credenciales
         List<Usuario> usuarios = fileManager.cargarUsuarios();
         for (Usuario u : usuarios) {
             if (u.getNick().equals(nick) && u.getPassword().equals(contraseña)) {
-                return "Contraseña correcta.";
+                return u;
             }
         }
         return "Contraseña incorrecta.";

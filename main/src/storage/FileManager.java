@@ -71,12 +71,12 @@ public class FileManager {
         return storage.cargarArmaduras();
     }
 
-    public I_Notification getNotificacion(Usuario usuario) {
+    public List<String> getNotificacion(Usuario usuario) {
         return storage.getNotificacion(usuario);
     }
 
-    public void setNotificacion(Usuario usuario, String mensaje) {
-        storage.setNotificacion(usuario, mensaje);
+    public void setNotificacion(String nick, String mensaje) {
+        storage.setNotificacion(nick, mensaje);
     }
 
     public void deleteNotificacion(Usuario usuario) {
