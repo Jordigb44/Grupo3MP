@@ -48,5 +48,14 @@ public class Jugador extends Usuario {
 	    } 
 	}
 
+	public void restarOro(int penalizacion) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void agregarOro(int penalizacion) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
