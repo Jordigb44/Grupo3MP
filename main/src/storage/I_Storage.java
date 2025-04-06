@@ -1,6 +1,7 @@
 package storage;
 
 import java.util.List;
+import java.util.UUID;
 
 import model.Ranking;
 import model.desafio.Combate;
@@ -93,4 +94,8 @@ public interface I_Storage {
     void setNotificacion(Usuario usuario, String mensaje);
 
     void deleteNotificacion(Usuario usuario);
+
+	void actualizarDesafio(Desafio desafio);
+
+	Desafio cargarDesafio(UUID desafioId);
 }

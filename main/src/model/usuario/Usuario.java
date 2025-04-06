@@ -10,23 +10,28 @@ import ui.A_Interfaz;
 import java.util.ArrayList;
 
 public class Usuario implements I_Usuario {
-    private LocalDateTime fecha;
-    private UUID userId;
-    private String nick;
-    private String nombre;
-    private String password;
-    private String rol;
-    private String estado;
+	protected LocalDateTime fecha;
+    protected UUID userId;
+    protected String nick;
+    protected String nombre;
+    protected String password;
+    protected String rol;
+    protected String estado;
     protected static A_Interfaz instanceInterface;
     protected static FileManager fileManager;
 
     // Constructor
-    public Usuario(A_Interfaz instanceInterface, FileManager fileManager) {
-        this.instanceInterface = instanceInterface;
-        this.fileManager = fileManager;
+    public Usuario(String nick, String nombre, String password, String rol, String estado) {
+        this.fecha = LocalDateTime.now();
+        this.userId = UUID.randomUUID();
+        this.nick = nick;
+        this.nombre = nombre;
+        this.password = password;
+        this.rol = rol;
+        this.estado = estado;
     }
 
-    // Implementación de los métodos de la interfaz
+	// Implementación de los métodos de la interfaz
     public LocalDateTime getFecha() {
         return fecha;
     }
@@ -41,10 +46,6 @@ public class Usuario implements I_Usuario {
 
     public void setUserId(UUID userId) {
         this.userId = userId;
-    }
-
-    public String getNick() {
-        return nick;
     }
 
     public void setNick(String nick) {
@@ -110,4 +111,8 @@ public class Usuario implements I_Usuario {
         this.fecha = (LocalDateTime) userData.get(6);
         return "Usuario actualizado correctamente";
     }
+
+	public String getNick() {
+		return this.nick;
+	}
 }

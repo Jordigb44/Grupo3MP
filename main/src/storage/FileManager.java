@@ -1,9 +1,11 @@
 package storage;
 
 import java.util.List;
+import java.util.UUID;
 
 import model.desafio.Combate;
 import model.desafio.Desafio;
+import model.desafio.I_Desafio;
 import model.personaje.Personaje;
 import model.personaje.habilidad.Arma;
 import model.personaje.habilidad.Armadura;
@@ -84,6 +86,11 @@ public class FileManager {
 	public void actualizarDesafio(Desafio desafio) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public Desafio cargarDesafio(UUID desafioId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
