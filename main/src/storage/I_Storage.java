@@ -95,7 +95,5 @@ public interface I_Storage {
 
     void deleteNotificacion(Usuario usuario);
 
-	void actualizarDesafio(Desafio desafio);
-
 	Desafio cargarDesafio(UUID desafioId);
 }

@@ -66,13 +66,13 @@ public class XMLStorage implements I_Storage {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
 
-            // 🔹 Si el archivo existe pero está vacío, eliminarlo
+            // Si el archivo existe pero está vacío, eliminarlo
             if (file.exists() && file.length() == 0) {
                 System.out.println("El archivo está vacío. Eliminándolo...");
                 file.delete();
             }
 
-            // 🔹 Crear nuevo documento si el archivo no existe
+            // Crear nuevo documento si el archivo no existe
             if (!file.exists()) {
                 doc = builder.newDocument();
                 Element rootElement = doc.createElement("usuarios");
@@ -106,7 +106,7 @@ public class XMLStorage implements I_Storage {
             passwordElement.appendChild(doc.createTextNode(usuario.getPassword()));
             usuarioElement.appendChild(passwordElement);
 
-            // 🔹 Evitar valores null en XML
+            // Evitar valores null en XML
             Element rolElement = doc.createElement("rol");
             rolElement.appendChild(doc.createTextNode(usuario.getRol() != null ? usuario.getRol() : ""));
             usuarioElement.appendChild(rolElement);
@@ -231,7 +231,7 @@ public class XMLStorage implements I_Storage {
                 personajeElement.appendChild(nombreElement);
             }
             
-            // ...
+            // TODO:
             
             // Guardar el XML en el archivo
             File file = new File(getFilePath("personajes"));
@@ -239,11 +239,13 @@ public class XMLStorage implements I_Storage {
                 file.createNewFile();
             }
 
-            // Escribir el contenido en el archivo
+            // Escribir cambios en el archivo XML
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.METHOD, "xml");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(file);
             transformer.transform(source, result);
@@ -273,7 +275,7 @@ public class XMLStorage implements I_Storage {
                     Node node = nodeList.item(i);
                     if (node.getNodeType() == Node.ELEMENT_NODE) {
 
-                        // TO DO
+                        // TODO:
                     	// Element personajeElement = (Element) node;
                         // int id = Integer.parseInt(personajeElement.getElementsByTagName("id").item(0).getTextContent());
                         // String nombre = personajeElement.getElementsByTagName("nombre").item(0).getTextContent();
@@ -316,7 +318,9 @@ public class XMLStorage implements I_Storage {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.METHOD, "xml");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(file);
             transformer.transform(source, result);
@@ -347,7 +351,7 @@ public class XMLStorage implements I_Storage {
                     if (node.getNodeType() == Node.ELEMENT_NODE) {
                         Element rankingElement = (Element) node;
                         
-                        // ___TO DO___
+                        // TODO:
                         // int puntuacion = Integer.parseInt(rankingElement.getElementsByTagName("puntuacion").item(0).getTextContent());
 
                         // // Crear el objeto Ranking
@@ -373,7 +377,7 @@ public class XMLStorage implements I_Storage {
             Element rootElement = doc.createElement("combates");
             doc.appendChild(rootElement);
 
-            // Implementar la lógica para guardar combates
+            // TODO: Implementar la lógica para guardar combates
             // ...
 
             // Guardar el XML en el archivo
@@ -401,7 +405,7 @@ public class XMLStorage implements I_Storage {
     @Override
     public List<Combate> cargarCombates() {
         List<Combate> combates = new ArrayList<>();
-        // Implementar la lógica para cargar combates
+        // TODO: Implementar la lógica para cargar combates
         // ...
         return combates;
     }
@@ -661,14 +665,6 @@ public class XMLStorage implements I_Storage {
         return desafios;
     }
 
-    // Método para actualizar un desafío existente
-    @Override
-    public void actualizarDesafio(Desafio desafio) {
-        // Este método simplemente llama a guardarDesafio, ya que ese método ya maneja
-        // la lógica para actualizar un desafío existente
-        guardarDesafio(desafio);
-    }
-
     // Helper method to find a user by ID
     private Usuario findUsuarioById(List<Usuario> usuarios, UUID id) {
         for (Usuario usuario : usuarios) {
@@ -682,7 +678,7 @@ public class XMLStorage implements I_Storage {
     @Override
     public List<Arma> cargarArmas() {
         List<Arma> armas = new ArrayList<>();
-        // Implementar la lógica para cargar armas
+        // TODO: Implementar la lógica para cargar armas
         // ...
         return armas;
     }
@@ -690,14 +686,14 @@ public class XMLStorage implements I_Storage {
     @Override
     public List<Armadura> cargarArmaduras() {
         List<Armadura> armaduras = new ArrayList<>();
-        // Implementar la lógica para cargar armaduras
+        // TODO: Implementar la lógica para cargar armaduras
         // ...
         return armaduras;
     }
 
     @Override
     public I_Notification getNotificacion(Usuario usuario) {
-        // Implementar la lógica para obtener notificación
+        // TODO: Implementar la lógica para obtener notificación
         return null;
     }
 
@@ -720,13 +716,14 @@ public class XMLStorage implements I_Storage {
                 removeWhitespaceNodes(doc.getDocumentElement());
             }
             
-            // Implementar lógica para guardar notificación
+            // TODO: Implementar lógica para guardar notificación
             // ...
             
             // Escribir contenido en archivo
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.METHOD, "xml");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
             transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
             DOMSource source = new DOMSource(doc);
