@@ -556,7 +556,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="oyyCRxG_ED22R5kUe9dC-9" value="NotificacionInterna" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="oyyCRxG_ED22R5kUe9dC-9" value="NotificacionInterna" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="320" y="-710" width="240" height="120" as="geometry" />
         </mxCell>
         <mxCell id="oyyCRxG_ED22R5kUe9dC-18" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- fileManager: FileManager&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="oyyCRxG_ED22R5kUe9dC-9" vertex="1">
@@ -600,7 +600,7 @@
         <mxCell id="S9_HU8WjIoxKamC7Ybbr-1" value="Formato UUID = LNNLL donde N es un número natural y L es una&lt;div&gt;letra&lt;/div&gt;" style="shape=note;size=10;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="130.5" y="-320" width="210" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="oyyCRxG_ED22R5kUe9dC-4" value="&lt;div&gt;NotifiacionDecorator&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="oyyCRxG_ED22R5kUe9dC-4" value="&lt;div&gt;NotifiacionDecorator&lt;/div&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="10" y="-710" width="240" height="130" as="geometry" />
         </mxCell>
         <mxCell id="oyyCRxG_ED22R5kUe9dC-5" value="&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;- fileManager: FileManager&lt;/span&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="oyyCRxG_ED22R5kUe9dC-4" vertex="1">
