@@ -27,4 +27,13 @@
     <estado/>
     <fecha>2025-04-03T20:07:29.344983</fecha>
   </usuario>
+  <usuario>
+    <id>09c957be-cedc-4f88-8286-b4b315421167</id>
+    <nick>adamkassmi</nick>
+    <nombre>adam</nombre>
+    <password>adamk</password>
+    <rol/>
+    <estado/>
+    <fecha>2025-04-05T01:25:10.323411700</fecha>
+  </usuario>
 </usuarios>

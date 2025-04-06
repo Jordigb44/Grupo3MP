@@ -5,7 +5,7 @@ import model.desafio.*;
 
 public class Jugador {
 	private List<Personaje> personajes;
-	private Desafio desafio;
+	private boolean desafio;
 	private int posicionRanking;
 	
 	public List<Personaje> getPersonajes() {
@@ -14,17 +14,29 @@ public class Jugador {
 	public void setPersonajes(List<Personaje> personajes) {
 		this.personajes = personajes;
 	}
-	public Desafio getDesafio() {
+	public boolean getDesafio() {
 		return desafio;
 	}
-	public void setDesafio(Desafio desafio) {
-		this.desafio = desafio;
+	public void setDesafio(boolean b) {
+		this.desafio = b;
 	}
 	public int getPosicionRanking() {
 		return posicionRanking;
 	}
 	public void setPosicionRanking(int posicionRanking) {
 		this.posicionRanking = posicionRanking;
+	}
+	public int getOro() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public void restarOro(int penalizacion) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void agregarOro(int penalizacion) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
