@@ -3,6 +3,10 @@ package model.usuario;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
+
+import storage.FileManager;
+import ui.A_Interfaz;
+
 import java.util.ArrayList;
 
 public class Usuario implements I_Usuario {
@@ -13,16 +17,13 @@ public class Usuario implements I_Usuario {
     private String password;
     private String rol;
     private String estado;
+    protected static A_Interfaz instanceInterface;
+    protected static FileManager fileManager;
 
     // Constructor
-    public Usuario(String nick, String nombre, String password, String rol, String estado) {
-        this.fecha = LocalDateTime.now();
-        this.userId = UUID.randomUUID();
-        this.nick = nick;
-        this.nombre = nombre;
-        this.password = password;
-        this.rol = rol;
-        this.estado = estado;
+    public Usuario(A_Interfaz instanceInterface, FileManager fileManager) {
+        this.instanceInterface = instanceInterface;
+        this.fileManager = fileManager;
     }
 
     // Implementación de los métodos de la interfaz

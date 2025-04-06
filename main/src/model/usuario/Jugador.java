@@ -1,33 +1,24 @@
 package model.usuario;
 import java.util.List;
 import model.personaje.*;
+import storage.FileManager;
 import model.desafio.*;
-import ui.A_Interfaz; 
 
-public class Jugador {
+
+public class Jugador extends Usuario {
 	private List<Personaje> personajes;
 	private Desafio desafio;
 	private int posicionRanking;
-    private A_Interfaz interfaz;
-	
-	public List<Personaje> getPersonajes() {
-		return personajes;
-	}
-	public void setPersonajes(List<Personaje> personajes) {
+	private int oro;    
+    
+	public Jugador(List<Personaje> personajes, Desafio desafio, int posicionRanking, int oro) {
+		super(instanceInterface, fileManager);
 		this.personajes = personajes;
-	}
-	public Desafio getDesafio() {
-		return desafio;
-	}
-	public void setDesafio(Desafio desafio) {
 		this.desafio = desafio;
-	}
-	public int getPosicionRanking() {
-		return posicionRanking;
-	}
-	public void setPosicionRanking(int posicionRanking) {
 		this.posicionRanking = posicionRanking;
+		this.oro = oro;
 	}
+	
 	public Jugador getJugador() {
 	    return this;
 	}
@@ -35,18 +26,23 @@ public class Jugador {
 	public void borrarPersonaje(Personaje personaje) {
 	    if (personaje != null) {
 	    	personajes.remove(personaje);
-		    interfaz.mostrar("Personaje borrado exitosamente");
+		    instanceInterface.mostrar("Personaje borrado exitosamente");
 	    } else {
-	        interfaz.mostrar("No hay personajes disponibles que borrar"); ;
+	    	instanceInterface.mostrar("No hay personajes disponibles que borrar"); ;
 	    }
 	}
 	
+	public int getOro() {
+		return oro;
+	}
+
+
 	public void agregarPersonaje(Personaje personaje) {
 	    // Verificar que el personaje no sea nulo
 	    if (personaje == null) {
-	        interfaz.mostrar("Por favor introduzca, un personaje");;
+	    	instanceInterface.mostrar("Por favor introduzca, un personaje");;
 	    }  else if (personajes.contains(personaje)) {
-	        interfaz.mostrar("No puede añadir un personaje duplicado");
+	    	instanceInterface.mostrar("No puede añadir un personaje duplicado");
 	    } else {
 	    	personajes.add(personaje);
 	    } 
