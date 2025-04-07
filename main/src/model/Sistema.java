@@ -19,8 +19,8 @@ public class Sistema {
     // Constructor de la clase Sistema
     public Sistema() {
         // Inicializa FileManager si no está ya inicializado
-        if (fileManager == null) {
-            fileManager = new FileManager(new XMLStorage(parentDir));
+        if (this.fileManager == null) {
+            this.fileManager = new FileManager(new XMLStorage(parentDir));
             System.out.println("FileManager inicializado.");
         }
         // Inicializa PasarelaAuthoritation si no está ya inicializado
@@ -37,28 +37,22 @@ public class Sistema {
     public static FileManager getFileManager() {
         return fileManager;
     }
-
-    // Método para establecer la instancia de FileManager
-    public static void setFileManager(FileManager fileManager) {
-        Sistema.fileManager = fileManager;
-    }
     
     public Usuario getUsuario() {
-    	return usuario;
+    	return this.usuario;
     }
     
     public List<Desafio> getDesafios(){
-    	if (desafios == null) {
-    		desafios = fileManager.cargarDesafios();
+    	if (this.desafios == null) {
+    		this.desafios = this.fileManager.cargarDesafios();
     	}
-		return desafios;
+		return this.desafios;
     }
     
     public List<Desafio> getDesafiosUsuario(Usuario usuario) {
-        List<Desafio> todosLosDesafios = this.getDesafios(); // o this.desafios si ya los tenés cargados en memoria
         List<Desafio> desafiosDelUsuario = new ArrayList<>();
 
-        for (Desafio desafio : todosLosDesafios) {
+        for (Desafio desafio : this.desafios) {
             if (desafio.getDesafiante().getUserId().equals(usuario.getUserId()) ||
                 desafio.getDesafiado().getUserId().equals(usuario.getUserId())) {
                 desafiosDelUsuario.add(desafio);
@@ -80,6 +74,11 @@ public class Sistema {
         }
 
         return desafiosPendientes;
+    }
+    
+    public List<Usuario> getJugadores() {
+    	return this.fileManager.cargarUsuarios();
+    	
     }
 
     // Método para cerrar el sistema
