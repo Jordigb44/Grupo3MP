@@ -11,7 +11,7 @@ public class Authorization {
     
     public Authorization() {
         // Constructor de la clase Authorization
-        fileManager = Sistema.getFileManager();
+        this.fileManager = Sistema.getFileManager();
     } 
     
     // Método para verificar si un usuario existe
@@ -28,7 +28,7 @@ public class Authorization {
     private String buscarUsuario(String nick) {
         // Implementación real para buscar usuario
         // Aquí deberías usar el fileManager para buscar el usuario por su nick
-        List<Usuario> usuarios = fileManager.cargarUsuarios();
+        List<Usuario> usuarios = this.fileManager.cargarUsuarios();
         for (Usuario u : usuarios) {
             if (u.getNick().equals(nick)) {
                 return "Usuario encontrado.";
@@ -50,7 +50,7 @@ public class Authorization {
     private Object verificarCredenciales(String nick, String contraseña) {
         // Implementación real para verificar credenciales
         // Aquí deberías usar el fileManager para cargar usuarios y verificar credenciales
-        List<Usuario> usuarios = fileManager.cargarUsuarios();
+        List<Usuario> usuarios = this.fileManager.cargarUsuarios();
         for (Usuario u : usuarios) {
             if (u.getNick().equals(nick) && u.getPassword().equals(contraseña)) {
                 return u;
@@ -62,7 +62,7 @@ public class Authorization {
     // Método para guardar un nuevo usuario
     public String guardarUsuario(Usuario usuario) {
         // Lógica para guardar el usuario
-        String resultado = fileManager.guardarUsuario(usuario);
+        String resultado = this.fileManager.guardarUsuario(usuario);
         System.out.println("Resultado de guardar usuario: " + resultado);
         
         // No sabemos exactamente qué devuelve el método fileManager.guardarUsuario
