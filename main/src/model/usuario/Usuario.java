@@ -17,7 +17,7 @@ public class Usuario implements I_Usuario {
     protected String password;
     protected String rol;
     protected String estado;
-	public String tipo;
+    protected String tipo;
     protected static A_Interfaz instanceInterface;
     protected static FileManager fileManager;
 

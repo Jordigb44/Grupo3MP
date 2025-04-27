@@ -30,11 +30,11 @@ public class Sistema {
             System.out.println("PasarelaAuthoritation inicializada.");
         }
         // Llama al menú de sesión
-        usuario = pasarelaAuthorization.menuSesion();
+        this.usuario = pasarelaAuthorization.menuSesion();
         
-        switch (usuario.tipo) {
+        switch (usuario.getTipo()) {
 	        case "1":
-	            Operador.getMenu();
+//	            Operador.getMenu();
 	            break;
 	        case "2":
 	            // Jugador.getMenu();

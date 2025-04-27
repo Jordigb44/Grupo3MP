@@ -21,6 +21,8 @@ import ui.A_Interfaz;
 public class Operador extends Usuario {
     // Main attribute
     private FileManager fileManager;
+    private A_Interfaz instanceInterface;
+    private List<Usuario> usuarios;
 
     /**
      * Constructor for the Operator class.
@@ -34,7 +36,8 @@ public class Operador extends Usuario {
     public Operador(A_Interfaz interfaz, FileManager fileManager, String nick, String nombre, String password) {
         super(nick, nombre, password, "operador", "activo");
         this.fileManager = fileManager;
-        Operador.instanceInterface = interfaz;
+        this.instanceInterface = interfaz;
+        this.usuarios = this.fileManager.cargarUsuarios();
     }
 
     /**
@@ -42,7 +45,9 @@ public class Operador extends Usuario {
      * 
      * @return Main menu formatted as a string
      */
-    public static String getMenu() {
+    public void getMenu() {
+    	this.instanceInterface.limpiarPantalla();
+    	
         StringBuilder menu = new StringBuilder();
         menu.append("=== OPERATOR MENU ===\n");
         menu.append("1. Player Management\n");
@@ -51,7 +56,11 @@ public class Operador extends Usuario {
         menu.append("0. Exit\n");
         menu.append("Select an option: ");
         
-        return menu.toString();
+        this.instanceInterface.mostrar(menu.toString());
+        String option = this.instanceInterface.pedirEntrada();
+        
+//        TODO: IF-ELSE
+//        Exit, tienes que llamar a sistema el mtodo CERRAR
     }
 
     /**
@@ -60,7 +69,7 @@ public class Operador extends Usuario {
      * @return Menu with the list of unblocked players
      */
     public String getMenuJugadoresSinBloquear() {
-        List<Jugador> jugadores = fileManager.cargarJugadoresSinBloquear();
+        List<Jugador> jugadores = this.fileManager.cargarJugadoresSinBloquear(usuarios);
         
         StringBuilder menu = new StringBuilder();
         menu.append("=== UNBLOCKED PLAYERS ===\n");
@@ -91,7 +100,8 @@ public class Operador extends Usuario {
         }
         
         jugador.setEstado("bloqueado");
-        fileManager.guardarJugador(jugador);
+//        TO-DO: WHEN actualizarJugador(Usuario Jugador) esté en FileManager.java, llamarlo para actualizar el estado de ese jugador y no crear un nuevo jugador
+        fileManager.actualizarJugador(jugador);
         
         return "Player " + jugador.getNick() + " successfully blocked.";
     }
@@ -102,7 +112,7 @@ public class Operador extends Usuario {
      * @return Menu with the list of blocked players
      */
     public String getMenuJugadoresBloqueados() {
-        List<Jugador> jugadores = fileManager.cargarJugadoresBloqueados();
+        List<Jugador> jugadores = this.fileManager.cargarJugadoresBloqueados(usuarios);
         
         StringBuilder menu = new StringBuilder();
         menu.append("=== BLOCKED PLAYERS ===\n");
@@ -133,7 +143,7 @@ public class Operador extends Usuario {
         }
         
         jugador.setEstado("activo");
-        fileManager.guardarJugador(jugador);
+        fileManager.guardarUsuario(jugador);
         
         return "Player " + jugador.getNick() + " successfully unblocked.";
     }
@@ -283,7 +293,7 @@ public class Operador extends Usuario {
                 Jugador jugador = jugadores.get(indexJugador - 1);
                 
                 // Now, we select a character from the player
-                List<Personaje> personajes = fileManager.cargarPersonajesPorJugador(jugador);
+                List<Personaje> personajes = jugador.getPersonajes();
                 
                 instanceInterface.mostrar("Select a character:");
                 for (int i = 0; i < personajes.size(); i++) {
@@ -319,7 +329,7 @@ public class Operador extends Usuario {
             return null;
         }
     }
-
+    
     /**
      * Edits a selected character.
      * 

@@ -43,6 +43,11 @@ public class FileManager {
     public List<Usuario> cargarUsuarios() {
         return storage.cargarUsuarios();
     }
+    
+    public void actualizarJugador(Jugador jugador) {
+		// TODO Auto-generated method stub
+		
+	}
 
     public String guardarPersonajes(List<Personaje> personajes) {
         return storage.guardarPersonajes(personajes);
@@ -102,17 +107,43 @@ public class FileManager {
     // OPERATOR METHODS
     //==================================================
     
+	/**
+     * Saves a specific character.
+     * 
+     * @param personaje The character to save
+     */
+    public void guardarPersonaje(Personaje personaje) {
+        List<Personaje> personajes = cargarPersonajes();
+        boolean found = false;
+        
+        // Update the character if it exists
+        for (int i = 0; i < personajes.size(); i++) {
+            if (personajes.get(i).getId().equals(personaje.getId())) {
+                personajes.set(i, personaje);
+                found = true;
+                break;
+            }
+        }
+        
+        // Add the character if it doesn't exist
+        if (!found) {
+            personajes.add(personaje);
+        }
+        
+        // Save the updated list
+        guardarPersonajes(personajes);
+    }
+	
     /**
      * Loads all players that are not blocked.
      * 
      * @return List of unblocked players
      */
-    public List<Jugador> cargarJugadoresSinBloquear() {
-        List<Usuario> usuarios = cargarUsuarios();
+    public List<Jugador> cargarJugadoresSinBloquear(List<Usuario> usuarios) {
         List<Jugador> jugadoresSinBloquear = new ArrayList<>();
         
         for (Usuario usuario : usuarios) {
-            if ("jugador".equals(usuario.getRol()) && !"bloqueado".equals(usuario.getEstado())) {
+            if (!"bloqueado".equals(usuario.getEstado())) {
                 if (usuario instanceof Jugador) {
                     jugadoresSinBloquear.add((Jugador) usuario);
                 }
@@ -127,12 +158,11 @@ public class FileManager {
      * 
      * @return List of blocked players
      */
-    public List<Jugador> cargarJugadoresBloqueados() {
-        List<Usuario> usuarios = cargarUsuarios();
+    public List<Jugador> cargarJugadoresBloqueados(List<Usuario> usuarios) {
         List<Jugador> jugadoresBloqueados = new ArrayList<>();
         
         for (Usuario usuario : usuarios) {
-            if ("jugador".equals(usuario.getRol()) && "bloqueado".equals(usuario.getEstado())) {
+            if ("bloqueado".equals(usuario.getEstado())) {
                 if (usuario instanceof Jugador) {
                     jugadoresBloqueados.add((Jugador) usuario);
                 }
@@ -140,15 +170,6 @@ public class FileManager {
         }
         
         return jugadoresBloqueados;
-    }
-    
-    /**
-     * Saves a specific player.
-     * 
-     * @param jugador The player to save
-     */
-    public void guardarJugador(Jugador jugador) {
-        guardarUsuario(jugador);
     }
     
     /**
@@ -179,7 +200,7 @@ public class FileManager {
         List<Jugador> jugadoresActivos = new ArrayList<>();
         
         for (Usuario usuario : usuarios) {
-            if ("jugador".equals(usuario.getRol()) && "activo".equals(usuario.getEstado())) {
+            if ("activo".equals(usuario.getEstado())) {
                 if (usuario instanceof Jugador) {
                     jugadoresActivos.add((Jugador) usuario);
                 }
@@ -187,44 +208,6 @@ public class FileManager {
         }
         
         return jugadoresActivos;
-    }
-    
-    /**
-     * Loads all characters belonging to a specific player.
-     * 
-     * @param jugador The player to load characters for
-     * @return List of the player's characters
-     */
-    public List<Personaje> cargarPersonajesPorJugador(Jugador jugador) {
-        // This assumes that the player object already has its characters
-        return jugador.getPersonajes();
-    }
-    
-    /**
-     * Saves a specific character.
-     * 
-     * @param personaje The character to save
-     */
-    public void guardarPersonaje(Personaje personaje) {
-        List<Personaje> personajes = cargarPersonajes();
-        boolean found = false;
-        
-        // Update the character if it exists
-        for (int i = 0; i < personajes.size(); i++) {
-            if (personajes.get(i).getId().equals(personaje.getId())) {
-                personajes.set(i, personaje);
-                found = true;
-                break;
-            }
-        }
-        
-        // Add the character if it doesn't exist
-        if (!found) {
-            personajes.add(personaje);
-        }
-        
-        // Save the updated list
-        guardarPersonajes(personajes);
     }
     
     /**
@@ -274,4 +257,5 @@ public class FileManager {
         // Basic implementation, in a real system this would load from storage
         return new ArrayList<>();
     }
+
 }
