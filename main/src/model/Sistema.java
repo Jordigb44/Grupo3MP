@@ -5,6 +5,7 @@ import java.util.List;
 import auth.PasarelaAuthorization; // Asegúrate de importar la clase correcta
 import model.desafio.Desafio;
 import model.desafio.E_EstadoDesafio;
+import model.usuario.Operador;
 import model.usuario.Usuario;
 import storage.FileManager;
 import storage.XMLStorage;
@@ -31,6 +32,17 @@ public class Sistema {
         // Llama al menú de sesión
         usuario = pasarelaAuthorization.menuSesion();
         
+        switch (usuario.tipo) {
+	        case "1":
+	            Operador.getMenu();
+	            break;
+	        case "2":
+	            // Jugador.getMenu();
+	            break;
+	        default:
+	            System.out.println("⚠️ Tipo de usuario no reconocido.");
+	            break;
+	    }        
     }
 
     // Método para obtener la instancia de FileManager

@@ -42,7 +42,7 @@ public class Operador extends Usuario {
      * 
      * @return Main menu formatted as a string
      */
-    public String getMenu() {
+    public static String getMenu() {
         StringBuilder menu = new StringBuilder();
         menu.append("=== OPERATOR MENU ===\n");
         menu.append("1. Player Management\n");

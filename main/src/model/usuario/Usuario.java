@@ -17,6 +17,7 @@ public class Usuario implements I_Usuario {
     protected String password;
     protected String rol;
     protected String estado;
+	public String tipo;
     protected static A_Interfaz instanceInterface;
     protected static FileManager fileManager;
 
@@ -82,6 +83,14 @@ public class Usuario implements I_Usuario {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+    
+    public String getTipo() {
+        return this.tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     @Override

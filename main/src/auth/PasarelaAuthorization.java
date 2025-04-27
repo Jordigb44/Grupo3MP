@@ -3,6 +3,7 @@ package auth;
 import java.util.List;
 
 import model.Sistema;
+import model.usuario.Operador;
 import model.usuario.Usuario;
 import notifications.NotificationInterna;
 import storage.FileManager;
@@ -95,6 +96,21 @@ public class PasarelaAuthorization {
             switch (opcion) {
                 case "1":
                     usuario = iniciarSesion(); // Intenta iniciar sesión
+                    if (usuario != null) {
+                        // Si inició sesión bien, pedir el rol
+                        this.interfaz.mostrar("¿Qué rol desea usar?");
+                        this.interfaz.mostrar("1. Administrador");
+                        this.interfaz.mostrar("2. Jugador");
+                        String tipoUsuario = this.interfaz.pedirEntrada();
+                        
+                        if (tipoUsuario.equals("1")) {
+                        	usuario.setTipo("operador");
+                        } else if (tipoUsuario.equals("2")) {
+                        	usuario.setTipo("jugador");
+                        } else {
+                            this.interfaz.mostrar("⚠️ Rol no válido. Se canceló la selección.");
+                        }
+                    }
                     break;
                 case "2":
                     usuario = registrarUsuario(); // Intenta registrar un usuario
