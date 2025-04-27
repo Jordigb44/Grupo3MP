@@ -32,26 +32,26 @@ public class Jugador extends Usuario {
 	
 	public void borrarPersonaje(Personaje personaje) {
 	    if (personaje != null) {
-	    	personajes.remove(personaje);
+	    	this.personajes.remove(personaje);
 	    	interfaz.mostrar("Personaje borrado exitosamente");
 	    } else {
-	    	interfaz.mostrar("No hay personajes disponibles que borrar"); ;
+	    	this.interfaz.mostrar("No hay personajes disponibles que borrar"); ;
 	    }
 	}
 	
 	public int getOro() {
-		return oro;
+		return this.oro;
 	}
 
 
 	public void agregarPersonaje(Personaje personaje) {
 	    // Verificar que el personaje no sea nulo
 	    if (personaje == null) {
-	    	interfaz.mostrar("Por favor introduzca, un personaje");;
+	    	this.interfaz.mostrar("Por favor introduzca, un personaje");;
 	    }  else if (personajes.contains(personaje)) {
-	    	interfaz.mostrar("No puede añadir un personaje duplicado");
+	    	this.interfaz.mostrar("No puede añadir un personaje duplicado");
 	    } else {
-	    	personajes.add(personaje);
+	    	this.personajes.add(personaje);
 	    } 
 	}
 
@@ -63,6 +63,10 @@ public class Jugador extends Usuario {
 	public void agregarOro(int penalizacion) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public List<Personaje> getPersonajes() {
+		return this.personajes;
 	}
 	
 }
