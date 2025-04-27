@@ -30,29 +30,29 @@ public class PasarelaAuthorization {
 
     // Método para iniciar sesión
     public Usuario iniciarSesion() {
-        interfaz.mostrar("=== INICIO DE SESIÓN ===");
-        interfaz.mostrar("Por favor, introduce tu nick:");
-        String nick = interfaz.pedirEntrada();
-        interfaz.mostrar("Por favor, introduce tu contraseña:");
-        String contraseña = interfaz.pedirEntrada();
+        this.interfaz.mostrar("=== INICIO DE SESIÓN ===");
+        this.interfaz.mostrar("Por favor, introduce tu nick:");
+        String nick = this.interfaz.pedirEntrada();
+        this.interfaz.mostrar("Por favor, introduce tu contraseña:");
+        String contraseña = this.interfaz.pedirEntrada();
 
-        Object resultado = auth.checkPassword(nick, contraseña);
+        Object resultado = this.auth.checkPassword(nick, contraseña);
         if (resultado.equals("Contraseña incorrecta.")) {
-            badCredential++;
+            this.badCredential++;
          // Si badCredential llega a 3, se envía una notificación al usuario
-            if (badCredential == 3) {
+            if (this.badCredential == 3) {
                 // Verificar si el usuario con el nick ingresado existe en el sistema
                 Usuario usuarioExistente = obtenerUsuarioPorNick(nick);
                 if (usuarioExistente != null) { // Si el usuario existe
                     String mensaje = "Se han intentado 3 inicios de sesión fallidos con tu cuenta";
-                    notificationInterna.setNotificacion(nick, mensaje); // Enviar notificación
-                    interfaz.mostrar("🚨 ¡Alerta! Se ha enviado una notificación al usuario: '" + nick + "'.");
+                    this.notificationInterna.setNotificacion(nick, mensaje); // Enviar notificación
+                    this.interfaz.mostrar("🚨 ¡Alerta! Se ha enviado una notificación al usuario: '" + nick + "'.");
                 }
             }
             return null; // Devuelve null si no se pudo iniciar sesión
         }
-        badCredential = 0; // Reinicia el contador de intentos fallidos
-        interfaz.mostrar("✅ Inicio de sesión exitoso. ¡Bienvenido, " + nick + "!");
+        this.badCredential = 0; // Reinicia el contador de intentos fallidos
+        this.interfaz.mostrar("✅ Inicio de sesión exitoso. ¡Bienvenido, " + nick + "!");
         // Si la autenticación fue exitosa, obtenemos y mostramos las notificaciones
         Usuario usuarioAutenticado = (Usuario) resultado;
         mostrarNotificaciones(usuarioAutenticado);
@@ -61,21 +61,21 @@ public class PasarelaAuthorization {
 
     // Método para registrar un usuario
     public Usuario registrarUsuario() {
-        interfaz.mostrar("=== REGISTRO DE USUARIO ===");
-        interfaz.mostrar("Por favor, introduce un nombre de usuario:");
-        String nick = interfaz.pedirEntrada();
-        interfaz.mostrar("Por favor, introduce su nombre:");
-        String nombre = interfaz.pedirEntrada();
-        interfaz.mostrar("Por favor, introduce una contraseña:");
-        String contraseña = interfaz.pedirEntrada();
+        this.interfaz.mostrar("=== REGISTRO DE USUARIO ===");
+        this.interfaz.mostrar("Por favor, introduce un nombre de usuario:");
+        String nick = this.interfaz.pedirEntrada();
+        this.interfaz.mostrar("Por favor, introduce su nombre:");
+        String nombre = this.interfaz.pedirEntrada();
+        this.interfaz.mostrar("Por favor, introduce una contraseña:");
+        String contraseña = this.interfaz.pedirEntrada();
         
         Usuario nuevoUsuario = new Usuario(nick, nombre, contraseña, null, null); // Crea un nuevo usuario
-        String resultado = auth.guardarUsuario(nuevoUsuario);
+        String resultado = this.auth.guardarUsuario(nuevoUsuario);
         if (resultado.equals("Usuario guardado correctamente.")) {
-            interfaz.mostrar("✅ " + resultado + " ¡Bienvenido, " + nick + "!");
+            this.interfaz.mostrar("✅ " + resultado + " ¡Bienvenido, " + nick + "!");
             return nuevoUsuario; // Devuelve el usuario registrado
         } else {
-            interfaz.mostrar("❌ " + resultado);
+            this.interfaz.mostrar("❌ " + resultado);
             return null; // Devuelve null si no se pudo registrar
         }
     }
@@ -84,13 +84,13 @@ public class PasarelaAuthorization {
     public Usuario menuSesion() {
         Usuario usuario = null;
         while (usuario == null) { // Repite hasta que se obtenga un usuario válido
-            interfaz.mostrar("=== BIENVENIDO A LA PASARELA DE AUTORIZACIÓN ===");
-            interfaz.mostrar("Por favor, selecciona una opción:");
-            interfaz.mostrar("1. Iniciar sesión");
-            interfaz.mostrar("2. Registrarse");
-            interfaz.mostrar("3. Salir");
-            interfaz.mostrar("==============================================");
-            String opcion = interfaz.pedirEntrada();
+            this.interfaz.mostrar("=== BIENVENIDO A LA PASARELA DE AUTORIZACIÓN ===");
+            this.interfaz.mostrar("Por favor, selecciona una opción:");
+            this.interfaz.mostrar("1. Iniciar sesión");
+            this.interfaz.mostrar("2. Registrarse");
+            this.interfaz.mostrar("3. Salir");
+            this.interfaz.mostrar("==============================================");
+            String opcion = this.interfaz.pedirEntrada();
 
             switch (opcion) {
                 case "1":
@@ -100,10 +100,10 @@ public class PasarelaAuthorization {
                     usuario = registrarUsuario(); // Intenta registrar un usuario
                     break;
                 case "3":
-                    interfaz.mostrar("👋 ¡Gracias por usar el sistema! Hasta pronto.");
+                    this.interfaz.mostrar("👋 ¡Gracias por usar el sistema! Hasta pronto.");
                     return null; // Devuelve null para indicar que el usuario ha salido
                 default:
-                    interfaz.mostrar("⚠️ Opción no válida. Por favor, intenta de nuevo.");
+                    this.interfaz.mostrar("⚠️ Opción no válida. Por favor, intenta de nuevo.");
                     break;
             }
         }
@@ -112,7 +112,7 @@ public class PasarelaAuthorization {
     
  // Método para obtener el usuario por su nick
     private Usuario obtenerUsuarioPorNick(String nick) {
-        List<Usuario> usuarios = fileManager.cargarUsuarios();
+        List<Usuario> usuarios = this.fileManager.cargarUsuarios();
         for (Usuario u : usuarios) {
             if (u.getNick().equals(nick)) {
                 return u; // Retorna el usuario si lo encuentra
@@ -126,15 +126,15 @@ public class PasarelaAuthorization {
         List<String> notificaciones = notificationInterna.getNotificacion(usuario);
         
         if (notificaciones.isEmpty()) {
-            interfaz.mostrar("ℹ️ No tienes notificaciones nuevas.");
+            this.interfaz.mostrar("ℹ️ No tienes notificaciones nuevas.");
         } else {
-            interfaz.mostrar("📩 Tienes las siguientes notificaciones:");
+            this.interfaz.mostrar("📩 Tienes las siguientes notificaciones:");
             for (String notificacion : notificaciones) {
-                interfaz.mostrar(" - " + notificacion);
+                this.interfaz.mostrar(" - " + notificacion);
             }
             // Eliminar las notificaciones después de haberlas mostrado
-            notificationInterna.deleteNotificacion(usuario);
-            interfaz.mostrar("✅ Las notificaciones han sido eliminadas.");
+            this.notificationInterna.deleteNotificacion(usuario);
+            this.interfaz.mostrar("✅ Las notificaciones han sido eliminadas.");
         }
     }
 }
