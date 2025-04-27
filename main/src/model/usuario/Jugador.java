@@ -66,7 +66,17 @@ public class Jugador extends Usuario {
 	}
 
 	public List<Personaje> getPersonajes() {
-		return this.personajes;
+
+		return null;
 	}
-	
+
+	public void sumarPuntos(int i) {
+		posicionRanking += i;
+		
+	}
+
+	public Personaje getPersonaje() {
+		return (Personaje) personajes;
+	}
+		
 }
