@@ -42,7 +42,7 @@ public class Desafio implements I_Desafio {
         // Solo necesitas un método para guardar el desafío actualizado
         fileManager.guardarDesafio(this);
 
-        return new Combate();
+        return new Combate(d);
     }
 
     public String Desafiar(Jugador desafiante, Jugador desafiado, int oroApostado) {

@@ -18,4 +18,13 @@
     <estado/>
     <fecha>2025-04-05T01:25:10.323411700</fecha>
   </usuario>
+  <usuario>
+    <id>029fca74-5995-49a7-b2e3-76757bc44ea9</id>
+    <nick>adam</nick>
+    <nombre>adam</nombre>
+    <password>adam</password>
+    <rol/>
+    <estado/>
+    <fecha>2025-04-26T13:47:48.049191400</fecha>
+  </usuario>
 </usuarios>

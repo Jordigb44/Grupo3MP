@@ -64,5 +64,21 @@ public class Jugador extends Usuario {
 		// TODO Auto-generated method stub
 		
 	}
+
+	public List<Personaje> getPersonajes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void sumarPuntos(int i) {
+		posicionRanking += i;
+		
+	}
+
+	public Personaje getPersonaje() {
+		// TODO Auto-generated method stub
+		return (Personaje) personajes;
+	}
+
 	
 }
