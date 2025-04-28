@@ -2,4 +2,8 @@
 */.DS_Store
 */.vscode
 /bin
-/main/bin
+/main/bin/*
+/main/.idea
+/main/.project
+*/.settings/*
+*/.classpath
