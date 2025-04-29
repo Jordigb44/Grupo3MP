@@ -20,7 +20,7 @@ public class Jugador extends Usuario {
 	    this.personajes = personajes;
 	    this.desafio = desafio;
 	    this.posicionRanking = posicionRanking;
-	    this.oro = oro;
+	    this.oro = oro; //easteregg1
 	    
 	    this.interfaz = interfaz;
 	    this.fileManager = fileManager;
