@@ -1,6 +1,7 @@
 package test;
 
 import model.usuario.Operador;
+import model.usuario.Usuario;
 import storage.FileManager;
 import storage.XMLStorage;
 import ui.A_Interfaz;
@@ -20,7 +21,8 @@ public class PruebaSimpleOperador {
             FileManager fileManager = new FileManager(new XMLStorage("./"));
             
             // Crear un operador para pruebas
-            Operador operador = new Operador(interfaz, fileManager, "admin", "Administrador", "password123", 0);
+            Usuario usuario = new Usuario("admin", "Administrador", "password123", "operador", "activo", 0, 0);
+            Operador operador = new Operador(interfaz, fileManager, usuario);
             
             // Mostrar mensaje de inicio
             System.out.println("\nOperador creado correctamente.");

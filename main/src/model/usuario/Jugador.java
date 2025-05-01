@@ -1,9 +1,11 @@
 package model.usuario;
+import java.util.ArrayList;
 import java.util.List;
 import model.personaje.*;
 import storage.FileManager;
 import storage.XMLStorage;
 import ui.A_Interfaz;
+import model.Ranking;
 import model.desafio.*;
 import model.personaje.habilidad.*;
 
@@ -16,19 +18,24 @@ public class Jugador extends Usuario {
 
     private A_Interfaz interfaz;
     private FileManager fileManager;
+    private Usuario usuario;
+    private List<Usuario> usuarios;
+   
     
-    public Jugador(A_Interfaz interfaz, FileManager fileManager, String nick, String nombre,
-                  String password, String rol, String estado, int oro, List<Personaje> personajes,
-                  Desafio desafio, int posicionRanking) {
-        super(nick, nombre, password, rol, estado, oro);
+    public Jugador(Usuario usuario, List<Personaje> personajes, Desafio desafio, List<Usuario> usuarios) {
+        super(usuario);
         this.personajes = personajes;
         this.desafio = desafio;
-        this.posicionRanking = posicionRanking;
+        this.usuarios = usuarios;
+    }
 
-        this.interfaz = interfaz;
-        this.fileManager = fileManager;
 
-        this.desafio.setFileManager(this.fileManager);
+	public void setInterfaz(A_Interfaz interfaz) {
+    	this.interfaz = interfaz;    	
+    }
+    
+    public void setFileManger(FileManager fileManager) {
+    	this.fileManager = fileManager;    	
     }
 
     public Jugador getJugador() {
@@ -37,6 +44,7 @@ public class Jugador extends Usuario {
     
     public void getDesafioMenu() {
     	if (this.desafio !=  null) {
+    		this.desafio.setFileManager(this.fileManager);
     		this.interfaz.mostrar("=== Tienes un desafio nuevo ===");
             this.interfaz.mostrar("Desafiante: "+ this.desafio.getDesafiante());
             this.interfaz.mostrar("Oro apostado: "+ this.desafio.getOroApostado());
@@ -116,7 +124,7 @@ public class Jugador extends Usuario {
 //                    break;
 //
                 case "6":
-//                    consultarRankingGeneral();
+                    consultarRankingGeneral();
                     break;
 
                 case "7":
@@ -312,7 +320,7 @@ public class Jugador extends Usuario {
         this.posicionRanking = posicion;
     }
 
-    public int getPuntos() {
+    public Integer getPuntos() {
         return this.puntos;
     }
 
@@ -355,29 +363,17 @@ public class Jugador extends Usuario {
         this.desafio = null;
         interfaz.mostrar("Desafío rechazado. Desafiante: "+ this.desafio.getDesafiante() + " Vs Desafiado: " + this.desafio.getDesafiado());
     }
+    
+    public void consultarRankingGeneral() {
+        try {
+            Ranking ranking = new Ranking(this.usuarios, this.interfaz);
+            // Muestra el ranking
+            ranking.consultarRanking(usuarios);
 
-//    public void consultarRankingGeneral() {
-//        try {
-////        	TODO: Victor - esto lo hace FileManager, nunca usar XMLStorage
-////            XMLStorage xmlStorage = XMLStorage.cargarRanking();
-//
-//            Ranking ranking = xmlStorage.cargarRanking();
-//
-//            if (ranking == null) {
-//                System.out.println("No se pudo cargar el ranking.");
-//                return;
-//            }
-////            List<Jugador> jugadores = xmlStorage.cargarUsuarios();
-//            if (jugadores == null || jugadores.isEmpty()) {
-//                System.out.println("No hay jugadores registrados en el sistema.");
-//                return;
-//            }
-//
-//            ranking.consultarRanking(jugadores);
-//
-//        } catch (Exception e) {
-//            System.out.println("Error al consultar el ranking general: " + e.getMessage());
-//            e.printStackTrace();
-//        }
-//    }
+        } catch (Exception e) {
+            System.out.println("Error al consultar el ranking general: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 }

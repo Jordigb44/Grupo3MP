@@ -31,8 +31,8 @@ public class Operador extends Usuario {
      * @param nombre      Nombre completo del operador
      * @param password    Contraseña del operador
      */
-    public Operador(A_Interfaz interfaz, FileManager fileManager, String nick, String nombre, String password, Integer oro) {
-        super(nick, nombre, password, "operador", "activo", oro);
+    public Operador(A_Interfaz interfaz, FileManager fileManager, Usuario usuario) {
+        super(usuario);
         this.fileManager = fileManager;
         this.instanceInterface = interfaz;
         this.usuarios = this.fileManager.cargarUsuarios();

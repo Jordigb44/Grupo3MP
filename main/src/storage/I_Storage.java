@@ -48,17 +48,23 @@ public interface I_Storage {
     String guardarPersonajes(List<Personaje> personajes);
 
     /**
+     * Carga todos los personajes almacenados de un jugador.
+     * @return Lista de personajes.
+     */
+    List<Personaje> cargarPersonajesUsuario(String nick);
+    
+    /**
      * Carga todos los personajes almacenados.
      * @return Lista de personajes.
      */
     List<Personaje> cargarPersonajes();
 
     /**
-     * Guarda una lista de combates.
-     * @param combates Lista de combates a almacenar.
+     * Guarda un combate.
+     * @param combate a almacenar.
      * @return Mensaje de éxito o error.
      */
-    String guardarCombates(List<Combate> combates);
+    String guardarCombate(Combate combate);
 
     /**
      * Carga todos los combates almacenados.
@@ -78,12 +84,6 @@ public interface I_Storage {
      * @return Lista de desafíos.
      */
     List<Desafio> cargarDesafios();
-
-    /**
-     * Carga el ranking almacenado.
-     * @return Lista de rankings.
-     */
-    List<Ranking> cargarRanking();
 
     List<Arma> cargarArmas();
 

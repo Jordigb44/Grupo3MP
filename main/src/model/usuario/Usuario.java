@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+import model.personaje.Personaje;
 import storage.FileManager;
 import ui.A_Interfaz;
 
@@ -19,11 +20,14 @@ public class Usuario implements I_Usuario {
     protected String estado;
     protected String tipo;
     protected Integer oro;
+    protected Integer puntos;
+//    protected List<Personaje> personajes;
+    
     protected static A_Interfaz instanceInterface;
     protected static FileManager fileManager;
 
     // Constructor
-    public Usuario(String nick, String nombre, String password, String rol, String estado, Integer oro) {
+    public Usuario(String nick, String nombre, String password, String rol, String estado, Integer oro, Integer puntos) {
         this.fecha = LocalDateTime.now();
         this.userId = UUID.randomUUID();
         this.nick = nick;
@@ -32,7 +36,26 @@ public class Usuario implements I_Usuario {
         this.rol = rol;
         this.estado = estado;
         this.oro = oro;
+        this.puntos = puntos;
+//		this.personajes = personajes;
     }
+
+	public Usuario(Usuario usuario) { // Constructor alternativo
+		this.fecha = usuario.getFecha();
+        this.userId = usuario.getUserId();
+        this.nick = usuario.getNick();
+        this.nombre = usuario.getNombre();
+        this.password = usuario.getPassword();
+        this.rol = usuario.getRol();
+        this.estado = usuario.getEstado();
+        this.oro = usuario.getOro();
+        this.puntos = usuario.getPuntos();
+//		this.personajes = usuario.getPersonajes();
+	}
+
+//	private List<Personaje> getPersonajes() {
+//		return this.personajes;
+//	}
 
 	// Implementación de los métodos de la interfaz
     public LocalDateTime getFecha() {
@@ -103,6 +126,14 @@ public class Usuario implements I_Usuario {
         this.oro = oro;
     }
 
+    public Integer getPuntos() {
+        return this.puntos;
+    }
+
+    public void setPuntos(Integer puntos) {
+        this.puntos = puntos;
+    }
+    
     @Override
     public List<Object> getUser() {
         List<Object> userData = new ArrayList<>();
@@ -114,6 +145,7 @@ public class Usuario implements I_Usuario {
         userData.add(estado);
         userData.add(fecha);
         userData.add(oro);
+        userData.add(puntos);
         return userData;
     }
 
@@ -130,6 +162,7 @@ public class Usuario implements I_Usuario {
         this.estado = (String) userData.get(5);
         this.fecha = (LocalDateTime) userData.get(6);
         this.oro = (Integer) userData.get(7);
+        this.puntos = (Integer) userData.get(8);
         return "Usuario actualizado correctamente";
     }
 

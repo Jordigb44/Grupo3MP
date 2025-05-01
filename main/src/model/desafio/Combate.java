@@ -18,19 +18,21 @@ public class Combate {
     }
     
     public void iniciarCombate() {
-        Jugador desafiante = desafio.getDesafiante();
-        Jugador desafiando = desafio.getDesafiado();
+        Jugador desafiante = this.desafio.getDesafiante();
+        Jugador desafiando = this.desafio.getDesafiado();
 
         while (desafiante.getPersonaje().getSalud() > 0 && desafiando.getPersonaje().getSalud() > 0) {
             Rondas ronda = new Rondas(desafiante, desafiando);
             ronda.iniciarRonda();
-            rondas.add(ronda);
+            this.rondas.add(ronda);
 
             if (ronda.getResultado().equals(desafiante.getNombre() + " gana")) {
-                ganador = desafiante;
+				// TODO: actualizamos puntos del jugador
+            	this.ganador = desafiante;
                 break;
             } else if (ronda.getResultado().equals(desafiando.getNombre() + " gana")) {
-                ganador = desafiando;
+				// TODO: actualizamos puntos del jugador
+            	this.ganador = desafiando;
                 break;
             }
         }
@@ -38,16 +40,24 @@ public class Combate {
         actualizarRanking();
     }
     
+    public Desafio getDesafio() {
+    	return this.desafio;
+    }
+    
+    public List<Rondas> getRondas(){
+    	return this.rondas;
+    }
+    
     public void actualizarRanking() {
     	// TODO: Agregar Guardar Combate
-    	if (ganador != null) {
-            ganador.sumarPuntos(10); // Por ejemplo 10 puntos por victoria
+    	if (this.ganador != null) {
+    		this.ganador.sumarPuntos(10); // Por ejemplo 10 puntos por victoria
         }
     }
     
     public void getResultadoRondas() {
-    	 for (int i = 0; i < rondas.size(); i++) {
-             System.out.println("Ronda " + (i + 1) + ": " + rondas.get(i).getResultado());
+    	 for (int i = 0; i < this.rondas.size(); i++) {
+             System.out.println("Ronda " + (i + 1) + ": " + this.rondas.get(i).getResultado());
          }
     }
     
@@ -55,4 +65,7 @@ public class Combate {
         return ganador;
     }
     
+    public void setGanador(Jugador ganador) {
+    	this.ganador = ganador;
+    }
 }

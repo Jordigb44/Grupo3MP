@@ -14,7 +14,6 @@ import storage.XMLStorage;
 import ui.A_Interfaz;
 // TODO: JORDI
 // - Metodo de: cargarRanking(): List<Ranking> # Ordenador
-// - Sistema crea y devuelve la interfaz, ya que ahora la crea la apsarela y eso esta mal
 // - Hacer un getter y setter [cargarUsuarios] de usuarios, ya que lo necesita tanto Operador como Jugador
 
 public class Sistema {
@@ -22,6 +21,7 @@ public class Sistema {
     private PasarelaAuthorization pasarelaAuthorization;
     private String parentDir = "./";
     private Usuario usuario;
+    private List<Usuario> usuarios;
     private List<Desafio> desafios;
     private A_Interfaz interfaz;
     private NotificationInterna notificationInterna;
@@ -49,34 +49,32 @@ public class Sistema {
         	this.pasarelaAuthorization = new PasarelaAuthorization(this.fileManager, this.interfaz, this.notificationInterna);
         	System.out.println("PasarelaAuthoritation inicializada.");
         }
+        
+        this.usuarios = this.fileManager.cargarUsuarios();
 
         // Llama al menú de sesión
         this.usuario = pasarelaAuthorization.menuSesion();
         
+        
         switch (usuario.getTipo()) {
 	        case "operador":
-	        	Operador operador = new Operador(interfaz, fileManager, parentDir, parentDir, parentDir, null);
+	        	Operador operador = new Operador(interfaz, fileManager, this.usuario);
 	        	operador.getMenu();
+	        	this.fileManager.guardarUsuario(operador); // guardamos copia actual del usuario
 	            break;
 	        case "jugador":
-	        	Jugador jugador = new Jugador( // TODO: Jordi - Trabajar
-	        			new A_Interfaz(),
-	        		    this.fileManager,
-	        		    this.usuario.getNick(),
-	        		    this.usuario.getNombre(),
-	        		    this.usuario.getPassword(),
-	        		    this.usuario.getRol(),
-	        		    this.usuario.getEstado(),
-	        		    this.usuario.getOro(),
-	        		    new ArrayList<>(), // TODO: personajes
-	        		    null,              // TODO: desafío actual
-	        		    0                 // TODO: ranking
-	        		);
+	        	Jugador jugador = new Jugador(this.usuario, 
+	        									null, // personajes
+	        									null, // desafio
+	        									getJugadores()); // usuarios
+	        		jugador.setInterfaz(interfaz);
+	        		jugador.setFileManger(fileManager);
 	        	
 	        		jugador.getDesafioMenu();
 	        		jugador.getMenu();
+	        		this.fileManager.guardarUsuario(jugador); // guardamos copia actual del usuario
 	        default:
-	            System.out.println("⚠️ Tipo de usuario no reconocido.");
+	            System.out.println("Cerrando aplicación...");
 	            break;
 	    }        
     }
@@ -137,11 +135,11 @@ public class Sistema {
     public void cerrar() {
         if (fileManager != null) {
             fileManager = null;
-            System.out.println("FileManager cerrado.");
+//            System.out.println("FileManager cerrado.");
         }
         if (pasarelaAuthorization != null) {
         	pasarelaAuthorization = null;
-            System.out.println("PasarelaAuthoritation cerrada.");
+//            System.out.println("PasarelaAuthoritation cerrada.");
         }
     }
 }

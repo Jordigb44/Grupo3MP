@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <usuarios>
   <usuario>
-    <id>f0e6c0c3-46a6-44f8-902d-dab5d0fbcd13</id>
-    <nick>jordi</nick>
-    <nombre>jordi</nombre>
-    <password>jordi</password>
-    <rol/>
-    <estado/>
-    <fecha>2025-04-03T20:07:17.436870</fecha>
-    <oro>0</oro>
-  </usuario>
-  <usuario>
     <id>029fca74-5995-49a7-b2e3-76757bc44ea9</id>
     <nick>adam</nick>
     <nombre>adam</nombre>
@@ -19,5 +9,17 @@
     <estado/>
     <fecha>2025-04-26T13:47:48.049191400</fecha>
     <oro>0</oro>
+    <puntos>0</puntos>
+  </usuario>
+  <usuario>
+    <id>f0e6c0c3-46a6-44f8-902d-dab5d0fbcd13</id>
+    <nick>jordi</nick>
+    <nombre>jordi</nombre>
+    <password>jordi</password>
+    <rol/>
+    <estado/>
+    <fecha>2025-04-03T20:07:17.436870</fecha>
+    <oro>0</oro>
+    <puntos>0</puntos>
   </usuario>
 </usuarios>

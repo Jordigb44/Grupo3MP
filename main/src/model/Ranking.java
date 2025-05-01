@@ -5,100 +5,64 @@ import java.util.Comparator;
 import java.util.List;
 
 import model.usuario.Jugador;
+import model.usuario.Usuario;
 import ui.A_Interfaz;
 
 
 public class Ranking {
-    private List<Jugador> jugadores;
+    private List<Usuario> usuarios;
     private A_Interfaz interfaz;
-   
-    public Ranking() {
-        this.jugadores = new ArrayList<>();
-    }
 
-    public Ranking(List<Jugador> jugadores, A_Interfaz interfaz) {
-        this.jugadores = jugadores;
+    public Ranking(List<Usuario> jugadores, A_Interfaz interfaz) {
+        this.usuarios = usuarios;
         this.interfaz = interfaz;
-    }
- 
-    public List<Jugador> getJugadores() {
-        return jugadores;
-    }
-
-    public void setJugadores(List<Jugador> jugadores) {
-        this.jugadores = jugadores;
-    }
-    
-    public void setInterfaz(A_Interfaz interfaz) {
-        this.interfaz = interfaz;
-    }
-    
-    public void ordenarRanking() {
-        if (jugadores == null || jugadores.isEmpty()) {
-            return;
-        }
-        
-         Collections.sort(jugadores, new Comparator<Jugador>() {
-            @Override
-            public int compare(Jugador j1, Jugador j2) {
-                return Integer.compare(j2.getPosicionRanking(), j1.getPosicionRanking());
-            }
-        });
     }
   
-    public void consultarRanking(List<Jugador> jugadores) {
-        if (jugadores == null || jugadores.isEmpty()) {
+    public void consultarRanking(List<Usuario> usuarios) {
+        if (usuarios == null || usuarios.isEmpty()) {
             if (interfaz != null) {
-                interfaz.mostrar("No hay jugadores para mostrar en el ranking.");
+                interfaz.mostrar("No hay usuarios para mostrar en el ranking.");
             } else {
-                System.out.println("No hay jugadores para mostrar en el ranking.");
+                System.out.println("No hay usuarios para mostrar en el ranking.");
             }
             return;
         }
-        
-     
-        List<Jugador> jugadoresRanking = new ArrayList<>(jugadores);
-     
-        ordenarRanking();
-    
-        for (int i = 0; i < jugadoresRanking.size(); i++) {
-            jugadoresRanking.get(i).setPosicionRanking(i + 1);
-        }
-        
 
+        // Ordenamos los usuarios por puntos de mayor a menor
+        usuarios.sort((u1, u2) -> Integer.compare(u2.getPuntos(), u1.getPuntos()));
+
+        // Mostrar el ranking
         if (interfaz != null) {
-            interfaz.mostrar("\n========== RANKING GENERAL DE JUGADORES ==========");
+            interfaz.mostrar("\n========== RANKING GENERAL DE USUARIOS ==========");
             interfaz.mostrar(String.format("%-10s | %-20s | %-10s", "Posición", "Nombre", "Puntos"));
             interfaz.mostrar("--------------------------------------------------");
-            
-            for (Jugador jugador : jugadoresRanking) {
+
+            // Asignamos la posición y mostramos el ranking
+            for (int i = 0; i < usuarios.size(); i++) {
+                Usuario usuario = usuarios.get(i);
                 interfaz.mostrar(String.format("%-10d | %-20s | %-10d", 
-                                  jugador.getPosicionRanking(), 
-                                  jugador.getNombre(), 
-                                  jugador.getPuntos()));
+                        i + 1, // La posición es simplemente el índice + 1
+                        usuario.getNombre(), 
+                        usuario.getPuntos()));
             }
-            
+
             interfaz.mostrar("==================================================");
         } else {
-            System.out.println("\n========== RANKING GENERAL DE JUGADORES ==========");
+            System.out.println("\n========== RANKING GENERAL DE USUARIOS ==========");
             System.out.printf("%-10s | %-20s | %-10s\n", "Posición", "Nombre", "Puntos");
             System.out.println("--------------------------------------------------");
-            
-            for (Jugador jugador : jugadoresRanking) {
+
+            // Asignamos la posición y mostramos el ranking
+            for (int i = 0; i < usuarios.size(); i++) {
+                Usuario usuario = usuarios.get(i);
                 System.out.printf("%-10d | %-20s | %-10d\n", 
-                                 jugador.getPosicionRanking(), 
-                                 jugador.getNombre(), 
-                                 jugador.getPuntos());
+                        i + 1, // La posición es simplemente el índice + 1
+                        usuario.getNombre(), 
+                        usuario.getPuntos());
             }
-            
+
             System.out.println("==================================================");
         }
-        
-    
-        this.jugadores = jugadoresRanking;   
-   
     }
-   
-  
 
 }

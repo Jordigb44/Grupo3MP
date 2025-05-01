@@ -23,6 +23,7 @@ import model.Ranking;
 import model.desafio.Combate;
 import model.desafio.Desafio;
 import model.desafio.E_EstadoDesafio;
+import model.desafio.Rondas;
 import model.personaje.Personaje;
 import model.personaje.habilidad.Arma;
 import model.personaje.habilidad.Armadura;
@@ -57,7 +58,7 @@ public class XMLStorage implements I_Storage {
 
     @Override
     public String guardarUsuario(Usuario usuario) {
-        System.out.println("Intentando guardar el usuario en: " + getFilePath("usuarios"));
+//        System.out.println("Intentando guardar el usuario en: " + getFilePath("usuarios"));
         File file = new File(getFilePath("usuarios"));
         Document doc;
 
@@ -67,7 +68,7 @@ public class XMLStorage implements I_Storage {
 
             // Si el archivo existe pero está vacío, eliminarlo
             if (file.exists() && file.length() == 0) {
-                System.out.println("El archivo está vacío. Eliminándolo...");
+//                System.out.println("El archivo está vacío. Eliminándolo...");
                 file.delete();
             }
 
@@ -78,15 +79,25 @@ public class XMLStorage implements I_Storage {
                 doc.appendChild(rootElement);
             } else {
                 doc = builder.parse(file);
-                // Normalize the document to remove excessive whitespace
                 doc.normalize();
-                // Remove all text nodes that are only whitespace
                 removeWhitespaceNodes(doc.getDocumentElement());
             }
 
             Element root = doc.getDocumentElement();
 
-            // Crear elemento usuario
+            // 💡 Buscar si el usuario ya existe
+            NodeList usuarios = root.getElementsByTagName("usuario");
+            for (int i = 0; i < usuarios.getLength(); i++) {
+                Element usuarioExistente = (Element) usuarios.item(i);
+                String nickExistente = usuarioExistente.getElementsByTagName("nick").item(0).getTextContent();
+
+                if (nickExistente.equals(usuario.getNick().toString())) {
+                    root.removeChild(usuarioExistente);  // Eliminar usuario existente
+                    break;
+                }
+            }
+
+            // Crear elemento usuario nuevo/actualizado
             Element usuarioElement = doc.createElement("usuario");
 
             Element idElement = doc.createElement("id");
@@ -105,7 +116,6 @@ public class XMLStorage implements I_Storage {
             passwordElement.appendChild(doc.createTextNode(usuario.getPassword()));
             usuarioElement.appendChild(passwordElement);
 
-            // Evitar valores null en XML
             Element rolElement = doc.createElement("rol");
             rolElement.appendChild(doc.createTextNode(usuario.getRol() != null ? usuario.getRol() : ""));
             usuarioElement.appendChild(rolElement);
@@ -117,17 +127,19 @@ public class XMLStorage implements I_Storage {
             Element fechaElement = doc.createElement("fecha");
             fechaElement.appendChild(doc.createTextNode(usuario.getFecha() != null ? usuario.getFecha().toString() : ""));
             usuarioElement.appendChild(fechaElement);
-            
+
             Element oroElement = doc.createElement("oro");
-            oroElement.appendChild(doc.createTextNode(
-                usuario.getOro() != null ? usuario.getOro().toString() : "0"
-            ));
+            oroElement.appendChild(doc.createTextNode(usuario.getOro() != null ? usuario.getOro().toString() : "0"));
             usuarioElement.appendChild(oroElement);
 
-            // Agregar nuevo usuario al XML
+            Element puntosElement = doc.createElement("puntos");
+            puntosElement.appendChild(doc.createTextNode(usuario.getPuntos() != null ? usuario.getPuntos().toString() : "0"));
+            usuarioElement.appendChild(puntosElement);
+
+            // Agregar el nuevo nodo al root
             root.appendChild(usuarioElement);
 
-            // Escribir cambios en el archivo XML
+            // Guardar el documento XML
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -137,7 +149,7 @@ public class XMLStorage implements I_Storage {
             DOMSource source = new DOMSource(doc);
             StreamResult result = new StreamResult(file);
             transformer.transform(source, result);
-
+//            System.out.println("Usuario guardado correctamente.");
             return "Usuario guardado correctamente.";
         } catch (Exception e) {
             System.err.println("Error al guardar usuario en XML: " + e.getMessage());
@@ -241,6 +253,8 @@ public class XMLStorage implements I_Storage {
                     String estado = element.getElementsByTagName("estado").item(0).getTextContent();
                     String oroStr = element.getElementsByTagName("oro").item(0).getTextContent();
                     Integer oro = oroStr != null && !oroStr.isEmpty() ? Integer.parseInt(oroStr) : 0;
+                    String puntosStr = element.getElementsByTagName("puntos").item(0).getTextContent();
+                    Integer puntos = puntosStr != null && !puntosStr.isEmpty() ? Integer.parseInt(puntosStr) : 0;
                     
                     // System.out.println("Datos obtenidos: Nick=" + nick + ", Nombre=" + nombre);
                     
@@ -250,7 +264,8 @@ public class XMLStorage implements I_Storage {
                         password,
                         rol,
                         estado,
-                        oro
+                        oro,
+                        puntos
                     );
                     
                     String idText = element.getElementsByTagName("id").item(0).getTextContent();
@@ -325,6 +340,43 @@ public class XMLStorage implements I_Storage {
         }
     }
 
+    // TODO: Imprementar
+    @Override
+    public List<Personaje> cargarPersonajesUsuario(String nick) {
+        List<Personaje> personajes = new ArrayList<>();
+        try {
+            File file = new File(getFilePath("personajes_usuario"));
+            if (file.exists()) {
+                DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder builder = factory.newDocumentBuilder();
+                Document doc = builder.parse(file);
+                
+                // Normalize the document
+                doc.normalize();
+
+                NodeList nodeList = doc.getElementsByTagName("personaje");
+                for (int i = 0; i < nodeList.getLength(); i++) {
+                    Node node = nodeList.item(i);
+                    if (node.getNodeType() == Node.ELEMENT_NODE) {
+
+                        // TODO:
+                    	// Element personajeElement = (Element) node;
+                        // int id = Integer.parseInt(personajeElement.getElementsByTagName("id").item(0).getTextContent());
+                        // String nombre = personajeElement.getElementsByTagName("nombre").item(0).getTextContent();
+
+                        // // Crear el objeto Personaje
+                        // Personaje personaje = new Personaje(id, nombre);
+                        // personajes.add(personaje);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return personajes;
+    }
+    
+    // TODO: Imprementar
     @Override
     public List<Personaje> cargarPersonajes() {
         List<Personaje> personajes = new ArrayList<>();
@@ -361,83 +413,134 @@ public class XMLStorage implements I_Storage {
     }
 
     @Override
-    public List<Ranking> cargarRanking() {
-        List<Ranking> rankingList = new ArrayList<>();
+    public String guardarCombate(Combate combate) {
         try {
-            File file = new File(getFilePath("ranking"));
+            File file = new File("combates.xml");
+
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc;
+            Element root;
+
             if (file.exists()) {
-                DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-                DocumentBuilder builder = factory.newDocumentBuilder();
-                Document doc = builder.parse(file);
-                
-                // Normalize the document
-                doc.normalize();
-
-                NodeList nodeList = doc.getElementsByTagName("ranking");
-                for (int i = 0; i < nodeList.getLength(); i++) {
-                    Node node = nodeList.item(i);
-                    if (node.getNodeType() == Node.ELEMENT_NODE) {
-                        Element rankingElement = (Element) node;
-                        
-                        // TODO:
-                        // int puntuacion = Integer.parseInt(rankingElement.getElementsByTagName("puntuacion").item(0).getTextContent());
-
-                        // // Crear el objeto Ranking
-                        // Ranking ranking = new Ranking(puntuacion);
-                        // rankingList.add(ranking);
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return rankingList;
-    }
-
-    @Override
-    public String guardarCombates(List<Combate> combates) {
-        try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.newDocument();
-
-            // Crear el elemento raíz
-            Element rootElement = doc.createElement("combates");
-            doc.appendChild(rootElement);
-
-            // TODO: Implementar la lógica para guardar combates
-            // ...
-
-            // Guardar el XML en el archivo
-            File file = new File(getFilePath("combates"));
-            if (!file.exists()) {
-                file.createNewFile();
+                doc = dBuilder.parse(file);
+                root = doc.getDocumentElement();
+            } else {
+                doc = dBuilder.newDocument();
+                root = doc.createElement("combates");
+                doc.appendChild(root);
             }
 
-            // Escribir el contenido en el archivo
-            TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            Transformer transformer = transformerFactory.newTransformer();
+            Element combateElem = doc.createElement("combate");
+
+            // Guardar solo ID del Desafio
+            Element desafioIdElem = doc.createElement("desafioId");
+            desafioIdElem.setTextContent(combate.getDesafio().getDesafioId().toString());
+            combateElem.appendChild(desafioIdElem);
+
+            // Ganador
+            if (combate.getGanador() != null) {
+                Element ganadorElem = doc.createElement("ganador");
+                ganadorElem.setTextContent(combate.getGanador().getNombre());
+                combateElem.appendChild(ganadorElem);
+            }
+
+            // Rondas
+            Element rondasElem = doc.createElement("rondas");
+            for (Rondas ronda : combate.getRondas()) {
+                Element rondaElem = doc.createElement("ronda");
+                Element resultadoElem = doc.createElement("resultado");
+                resultadoElem.setTextContent(ronda.getResultado());
+                rondaElem.appendChild(resultadoElem);
+                rondasElem.appendChild(rondaElem);
+            }
+            combateElem.appendChild(rondasElem);
+
+            root.appendChild(combateElem);
+
+            Transformer transformer = TransformerFactory.newInstance().newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
-            DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(file);
-            transformer.transform(source, result);
+            transformer.transform(new DOMSource(doc), new StreamResult(file));
 
-            return "Combates guardados con éxito";
+            return "Combate guardado";
         } catch (Exception e) {
             e.printStackTrace();
-            return "Error al guardar los combates";
+            return "No se pudo guardar el combate";
         }
     }
-
-    @Override
+    
     public List<Combate> cargarCombates() {
         List<Combate> combates = new ArrayList<>();
-        // TODO: Implementar la lógica para cargar combates
-        // ...
+
+        try {
+            File file = new File("combates.xml");
+            if (!file.exists()) return combates;
+
+            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+            Document doc = dBuilder.parse(file);
+
+            NodeList combateNodes = doc.getElementsByTagName("combate");
+
+            for (int i = 0; i < combateNodes.getLength(); i++) {
+                Element combateElem = (Element) combateNodes.item(i);
+
+                // Recuperar Desafio por UUID
+                String desafioIdStr = getTextValue(combateElem, "desafioId");
+                UUID desafioId = UUID.fromString(desafioIdStr);
+                Desafio desafio = new Desafio(desafioId);
+
+                Combate combate = new Combate(desafio);
+
+                // Ganador (por nombre)
+                String ganadorNombre = getOptionalTextValue(combateElem, "ganador");
+                if (ganadorNombre != null) {
+                    Jugador desafiante = desafio.getDesafiante();
+                    Jugador desafiado = desafio.getDesafiado();
+
+                    if (ganadorNombre.equals(desafiante.getNombre())) {
+                        combate.setGanador(desafiante);
+                    } else if (ganadorNombre.equals(desafiado.getNombre())) {
+                        combate.setGanador(desafiado);
+                    }
+                }
+
+                // Rondas
+                NodeList rondaNodes = ((Element) combateElem.getElementsByTagName("rondas").item(0)).getElementsByTagName("ronda");
+                for (int j = 0; j < rondaNodes.getLength(); j++) {
+                    Element rondaElem = (Element) rondaNodes.item(j);
+                    String resultado = getTextValue(rondaElem, "resultado");
+
+                    Rondas ronda = new Rondas(desafio.getDesafiante(), desafio.getDesafiado());
+                    ronda.iniciarRonda();
+                    ronda.setResultado(resultado);
+                    combate.getRondas().add(ronda);
+                }
+
+                combates.add(combate);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         return combates;
     }
 
+    private String getTextValue(Element parent, String tagName) {
+        NodeList list = parent.getElementsByTagName(tagName);
+        if (list == null || list.getLength() == 0) return null;
+        return list.item(0).getTextContent();
+    }
+
+    private String getOptionalTextValue(Element parent, String tagName) {
+        NodeList list = parent.getElementsByTagName(tagName);
+        if (list.getLength() > 0) {
+            return list.item(0).getTextContent();
+        }
+        return null;
+    }
+    
     @Override
     public String guardarDesafio(Desafio desafio) {
         try {

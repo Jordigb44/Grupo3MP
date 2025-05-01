@@ -76,7 +76,7 @@ public class PasarelaAuthorization {
         this.interfaz.mostrar("Por favor, introduce una contraseña:");
         String contraseña = this.interfaz.pedirEntrada();
         
-        Usuario nuevoUsuario = new Usuario(nick, nombre, contraseña, null, null, 0); // Crea un nuevo usuario
+        Usuario nuevoUsuario = new Usuario(nick, nombre, contraseña, null, null, 0, 0); // Crea un nuevo usuario
         String resultado = this.auth.guardarUsuario(nuevoUsuario);
         if (resultado.equals("Usuario guardado correctamente.")) {
             this.interfaz.mostrar("✅ " + resultado + " ¡Bienvenido, " + nick + "!");

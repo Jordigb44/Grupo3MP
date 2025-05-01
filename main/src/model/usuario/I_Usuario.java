@@ -14,6 +14,7 @@ public interface I_Usuario {
     String rol = null;
     String estado = null;
     Integer oro = null;
+    Integer puntos = null;
 
     // Methods
     List<Object> getUser();

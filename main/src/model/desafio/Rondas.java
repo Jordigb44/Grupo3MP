@@ -167,6 +167,10 @@ public class Rondas {
 	   
 
 	public String getResultado() {
-		return Resultado;
+		return this.Resultado;
+	}
+	
+	public void setResultado(String resultado) {
+		this.Resultado = resultado;
 	}
 }

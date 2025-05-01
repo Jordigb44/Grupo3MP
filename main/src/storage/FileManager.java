@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import model.Ranking;
 import model.desafio.Combate;
 import model.desafio.Desafio;
 import model.desafio.E_EstadoDesafio;
@@ -56,13 +57,17 @@ public class FileManager {
     public String guardarPersonajes(List<Personaje> personajes) {
         return storage.guardarPersonajes(personajes);
     }
+    
+    public List<Personaje> cargarPersonajesUsuario(String nick) {
+        return storage.cargarPersonajesUsuario(nick);
+    }
 
     public List<Personaje> cargarPersonajes() {
         return storage.cargarPersonajes();
     }
 
-    public String guardarCombates(List<Combate> combates) {
-        return storage.guardarCombates(combates);
+    public String guardarCombate(Combate combate) {
+        return storage.guardarCombate(combate);
     }
 
     public List<model.desafio.Combate> cargarCombates() {
