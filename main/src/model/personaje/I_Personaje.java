@@ -14,6 +14,7 @@ public interface I_Personaje {
     int oro = 0;
     List<Arma> armas = null;
     Arma armaActiva = null;
+    int poder =0;
     List<Armadura> armaduras = null;
     Armadura armaduraActiva = null;
     List<Esbirro> esbirros = null;
@@ -31,6 +32,7 @@ public interface I_Personaje {
     void recibirDano(Integer cantidad);
     void agregarEsbirro(Esbirro esbirro);
     int getOro();
+    int getPoder();
     void sumarOro(int oro);
     void restarOro(int oro);
 }

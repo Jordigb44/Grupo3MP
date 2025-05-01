@@ -7,15 +7,13 @@ import model.personaje.Personaje;
 import model.personaje.habilidad.Talento;
 
 public class Cazador extends Personaje {
+	private int voluntad;
+    private List<Talento> talentos;
+
     public Cazador(String nombre) {
 		super(nombre);
 
 	}
-
-	private int voluntad;
-    private List<Talento> talentos;
-
-  
 
     protected void resetVoluntad() {
         this.voluntad = 100;
@@ -34,4 +32,14 @@ public class Cazador extends Personaje {
             t.aplicarEfecto(this, objetivo);
         }
     }
+
+	public Talento getTalentoActivo() {
+		// TODO Auto-generated method stub
+		return (Talento) talentos;
+	}
+
+	public int getVoluntad() {
+		// TODO Auto-generated method stub
+		return voluntad;
+	}
 }

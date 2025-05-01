@@ -7,10 +7,6 @@ import model.personaje.Personaje;
 import model.personaje.habilidad.Don;
 
 public class Licantropo extends Personaje {
-    public Licantropo(String nombre) {
-		super(nombre);
-		
-	}
 
 	private int rabia;
     private List<Don> dones;
@@ -18,7 +14,10 @@ public class Licantropo extends Personaje {
     private int peso;
     private String estado;
 
-   
+    public Licantropo(String nombre) {
+		super(nombre);
+		
+	}
 
     protected void transformarBestia() {
         this.estado = "bestia";
@@ -37,4 +36,14 @@ public class Licantropo extends Personaje {
             don.aplicarEfecto(this, objetivo);
         }
     }
+
+	public Don getDonActivo() {
+	
+		return (Don) dones;
+	}
+
+	public int getRabia() {
+		
+		return rabia;
+	}
 }
