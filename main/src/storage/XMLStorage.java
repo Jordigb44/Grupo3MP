@@ -28,7 +28,6 @@ import model.personaje.habilidad.Arma;
 import model.personaje.habilidad.Armadura;
 import model.usuario.Jugador;
 import model.usuario.Usuario;
-import notifications.I_Notification;
 
 public class XMLStorage implements I_Storage {
     private String directoryPath;
@@ -118,6 +117,12 @@ public class XMLStorage implements I_Storage {
             Element fechaElement = doc.createElement("fecha");
             fechaElement.appendChild(doc.createTextNode(usuario.getFecha() != null ? usuario.getFecha().toString() : ""));
             usuarioElement.appendChild(fechaElement);
+            
+            Element oroElement = doc.createElement("oro");
+            oroElement.appendChild(doc.createTextNode(
+                usuario.getOro() != null ? usuario.getOro().toString() : "0"
+            ));
+            usuarioElement.appendChild(oroElement);
 
             // Agregar nuevo usuario al XML
             root.appendChild(usuarioElement);
@@ -234,6 +239,8 @@ public class XMLStorage implements I_Storage {
                     String password = element.getElementsByTagName("password").item(0).getTextContent();
                     String rol = element.getElementsByTagName("rol").item(0).getTextContent();
                     String estado = element.getElementsByTagName("estado").item(0).getTextContent();
+                    String oroStr = element.getElementsByTagName("oro").item(0).getTextContent();
+                    Integer oro = oroStr != null && !oroStr.isEmpty() ? Integer.parseInt(oroStr) : 0;
                     
                     // System.out.println("Datos obtenidos: Nick=" + nick + ", Nombre=" + nombre);
                     
@@ -242,7 +249,8 @@ public class XMLStorage implements I_Storage {
                         nombre,
                         password,
                         rol,
-                        estado
+                        estado,
+                        oro
                     );
                     
                     String idText = element.getElementsByTagName("id").item(0).getTextContent();
@@ -350,46 +358,6 @@ public class XMLStorage implements I_Storage {
             e.printStackTrace();
         }
         return personajes;
-    }
-
-    @Override
-    public String guardarRanking(Ranking ranking) {
-        try {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.newDocument();
-
-            // Crear el elemento raíz
-            Element rootElement = doc.createElement("ranking");
-            doc.appendChild(rootElement);
-
-            // Añadir detalles del ranking
-            Element puntuacionElement = doc.createElement("puntuacion");
-            puntuacionElement.appendChild(doc.createTextNode(String.valueOf(ranking.getPuntuacion())));
-            rootElement.appendChild(puntuacionElement);
-
-            // Guardar el XML en el archivo
-            File file = new File(getFilePath("ranking"));
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-
-            // Escribir el contenido en el archivo
-            TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            Transformer transformer = transformerFactory.newTransformer();
-            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            transformer.setOutputProperty(OutputKeys.METHOD, "xml");
-            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
-            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
-            DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(file);
-            transformer.transform(source, result);
-
-            return "Ranking guardado con éxito";
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "Error al guardar el ranking";
-        }
     }
 
     @Override

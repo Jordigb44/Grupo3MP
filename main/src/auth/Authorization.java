@@ -9,9 +9,9 @@ import storage.FileManager;
 public class Authorization {
     private FileManager fileManager;
     
-    public Authorization() {
+    public Authorization(FileManager fileManager) {
         // Constructor de la clase Authorization
-        this.fileManager = Sistema.getFileManager();
+        this.fileManager = fileManager;
     } 
     
     // Método para verificar si un usuario existe

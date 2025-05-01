@@ -39,6 +39,7 @@ public class Combate {
     }
     
     public void actualizarRanking() {
+    	// TODO: Agregar Guardar Combate
     	if (ganador != null) {
             ganador.sumarPuntos(10); // Por ejemplo 10 puntos por victoria
         }

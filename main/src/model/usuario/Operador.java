@@ -31,8 +31,8 @@ public class Operador extends Usuario {
      * @param nombre      Nombre completo del operador
      * @param password    Contraseña del operador
      */
-    public Operador(A_Interfaz interfaz, FileManager fileManager, String nick, String nombre, String password) {
-        super(nick, nombre, password, "operador", "activo");
+    public Operador(A_Interfaz interfaz, FileManager fileManager, String nick, String nombre, String password, Integer oro) {
+        super(nick, nombre, password, "operador", "activo", oro);
         this.fileManager = fileManager;
         this.instanceInterface = interfaz;
         this.usuarios = this.fileManager.cargarUsuarios();
@@ -75,8 +75,6 @@ public class Operador extends Usuario {
                     // Salir
                     this.instanceInterface.mostrar("Saliendo del sistema...");
                     salir = true;
-                    // Llamar al método cerrar de Sistema
-                    model.Sistema.cerrar();
                     break;
                 default:
                     this.instanceInterface.mostrar("Opción no válida. Presione Enter para continuar...");

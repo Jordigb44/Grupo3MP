@@ -8,10 +8,6 @@ import model.desafio.*;
 import model.personaje.habilidad.*;
 
 public class Jugador extends Usuario {
-    public Jugador(String nick, String nombre, String password, String rol, String estado) {
-		super(nick, nombre, password, rol, estado);
-	}
-
     private int puntos;
 	private List<Personaje> personajes;
     private Desafio desafio;
@@ -22,21 +18,43 @@ public class Jugador extends Usuario {
     private FileManager fileManager;
     
     public Jugador(A_Interfaz interfaz, FileManager fileManager, String nick, String nombre,
-                  String password, String rol, String estado, List<Personaje> personajes,
-                  Desafio desafio, int posicionRanking, int oro) {
-        super(nick, nombre, password, rol, estado);
+                  String password, String rol, String estado, int oro, List<Personaje> personajes,
+                  Desafio desafio, int posicionRanking) {
+        super(nick, nombre, password, rol, estado, oro);
         this.personajes = personajes;
         this.desafio = desafio;
         this.posicionRanking = posicionRanking;
-        this.oro = oro;
 
         this.interfaz = interfaz;
         this.fileManager = fileManager;
+
+        this.desafio.setFileManager(this.fileManager);
     }
 
     public Jugador getJugador() {
         return this;
     }
+    
+    public void getDesafioMenu() {
+    	if (this.desafio !=  null) {
+    		this.interfaz.mostrar("=== Tienes un desafio nuevo ===");
+            this.interfaz.mostrar("Desafiante: "+ this.desafio.getDesafiante());
+            this.interfaz.mostrar("Oro apostado: "+ this.desafio.getOroApostado());
+            this.interfaz.mostrar("¿Quieres aceptar el Desafio?:");
+            this.interfaz.mostrar("1. Si");
+            this.interfaz.mostrar("2. No");
+            String opcion = this.interfaz.pedirEntrada();
+
+            switch (opcion) {
+                case "1":
+                	this.desafio.Aceptar(desafio);
+                    break;
+                default:
+                	this.desafio.Rechazar();
+                	break;
+            }
+    	}
+	}
 
     public void getMenu() {
         String opcion = " ";
@@ -47,7 +65,7 @@ public class Jugador extends Usuario {
             this.interfaz.mostrar("2. Borrar personaje");
             this.interfaz.mostrar("3. Equipar armadura");
             this.interfaz.mostrar("4. Equipar arma");
-            this.interfaz.mostrar("5. Iniciar desafío");
+            this.interfaz.mostrar("5. Crear un desafío nuevo");
             this.interfaz.mostrar("6. Consulta ranking general");
             this.interfaz.mostrar("7. Ver oro disponible");
             this.interfaz.mostrar("8. Salir");
@@ -98,7 +116,7 @@ public class Jugador extends Usuario {
 //                    break;
 //
                 case "6":
-                    consultarRankingGeneral();
+//                    consultarRankingGeneral();
                     break;
 
                 case "7":
@@ -140,8 +158,9 @@ public class Jugador extends Usuario {
 
         try {
             int salud = Integer.parseInt(saludStr);
-            Personaje nuevo = new Personaje(nombre, salud);
-            this.personajes.add(nuevo);
+//            TODO: VICTOR - En espera del codigo de Yago
+//            Personaje nuevo = new Personaje(nombre, salud);
+//            this.personajes.add(nuevo);
             this.interfaz.mostrar("✅ Personaje agregado exitosamente: " + nombre);
         } catch (NumberFormatException e) {
             this.interfaz.mostrar("⚠️ Salud inválida. El personaje no fue creado.");
@@ -305,7 +324,7 @@ public class Jugador extends Usuario {
         this.puntos += puntos;
     }
 
-    public int getOro() {
+    public Integer getOro() {
         return this.oro;
     }
 
@@ -329,35 +348,36 @@ public class Jugador extends Usuario {
 
     public void aceptarDesafio(Desafio desafio) {
         this.desafio = desafio;
-        interfaz.mostrar("Desafío aceptado");
+        interfaz.mostrar("Desafío aceptado. Desafiante: "+ this.desafio.getDesafiante() + " Vs Desafiado: " + this.desafio.getDesafiado());
     }
 
     public void rechazarDesafio() {
         this.desafio = null;
-        interfaz.mostrar("Desafío rechazado");
+        interfaz.mostrar("Desafío rechazado. Desafiante: "+ this.desafio.getDesafiante() + " Vs Desafiado: " + this.desafio.getDesafiado());
     }
 
-    public void consultarRankingGeneral() {
-        try {
-            XMLStorage xmlStorage = XMLStorage.cargarRanking();
-
-            Ranking ranking = xmlStorage.cargarRanking();
-
-            if (ranking == null) {
-                System.out.println("No se pudo cargar el ranking.");
-                return;
-            }
-            List<Jugador> jugadores = xmlStorage.cargarUsuarios();
-            if (jugadores == null || jugadores.isEmpty()) {
-                System.out.println("No hay jugadores registrados en el sistema.");
-                return;
-            }
-
-            ranking.consultarRanking(jugadores);
-
-        } catch (Exception e) {
-            System.out.println("Error al consultar el ranking general: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
+//    public void consultarRankingGeneral() {
+//        try {
+////        	TODO: Victor - esto lo hace FileManager, nunca usar XMLStorage
+////            XMLStorage xmlStorage = XMLStorage.cargarRanking();
+//
+//            Ranking ranking = xmlStorage.cargarRanking();
+//
+//            if (ranking == null) {
+//                System.out.println("No se pudo cargar el ranking.");
+//                return;
+//            }
+////            List<Jugador> jugadores = xmlStorage.cargarUsuarios();
+//            if (jugadores == null || jugadores.isEmpty()) {
+//                System.out.println("No hay jugadores registrados en el sistema.");
+//                return;
+//            }
+//
+//            ranking.consultarRanking(jugadores);
+//
+//        } catch (Exception e) {
+//            System.out.println("Error al consultar el ranking general: " + e.getMessage());
+//            e.printStackTrace();
+//        }
+//    }
 }

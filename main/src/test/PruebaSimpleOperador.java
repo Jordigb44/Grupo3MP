@@ -20,7 +20,7 @@ public class PruebaSimpleOperador {
             FileManager fileManager = new FileManager(new XMLStorage("./"));
             
             // Crear un operador para pruebas
-            Operador operador = new Operador(interfaz, fileManager, "admin", "Administrador", "password123");
+            Operador operador = new Operador(interfaz, fileManager, "admin", "Administrador", "password123", 0);
             
             // Mostrar mensaje de inicio
             System.out.println("\nOperador creado correctamente.");

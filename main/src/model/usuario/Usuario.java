@@ -18,11 +18,12 @@ public class Usuario implements I_Usuario {
     protected String rol;
     protected String estado;
     protected String tipo;
+    protected Integer oro;
     protected static A_Interfaz instanceInterface;
     protected static FileManager fileManager;
 
     // Constructor
-    public Usuario(String nick, String nombre, String password, String rol, String estado) {
+    public Usuario(String nick, String nombre, String password, String rol, String estado, Integer oro) {
         this.fecha = LocalDateTime.now();
         this.userId = UUID.randomUUID();
         this.nick = nick;
@@ -30,6 +31,7 @@ public class Usuario implements I_Usuario {
         this.password = password;
         this.rol = rol;
         this.estado = estado;
+        this.oro = oro;
     }
 
 	// Implementación de los métodos de la interfaz
@@ -92,6 +94,14 @@ public class Usuario implements I_Usuario {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+    
+    public Integer getOro() {
+        return this.oro;
+    }
+
+    public void setOro(Integer oro) {
+        this.oro = oro;
+    }
 
     @Override
     public List<Object> getUser() {
@@ -103,6 +113,7 @@ public class Usuario implements I_Usuario {
         userData.add(rol);
         userData.add(estado);
         userData.add(fecha);
+        userData.add(oro);
         return userData;
     }
 
@@ -118,6 +129,7 @@ public class Usuario implements I_Usuario {
         this.rol = (String) userData.get(4);
         this.estado = (String) userData.get(5);
         this.fecha = (LocalDateTime) userData.get(6);
+        this.oro = (Integer) userData.get(7);
         return "Usuario actualizado correctamente";
     }
 

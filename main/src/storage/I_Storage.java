@@ -80,13 +80,6 @@ public interface I_Storage {
     List<Desafio> cargarDesafios();
 
     /**
-     * Guarda el ranking del juego.
-     * @param ranking Ranking a almacenar.
-     * @return Mensaje de éxito o error.
-     */
-    String guardarRanking(Ranking ranking);
-
-    /**
      * Carga el ranking almacenado.
      * @return Lista de rankings.
      */

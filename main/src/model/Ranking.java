@@ -95,9 +95,7 @@ public class Ranking {
         }
         
     
-        this.jugadores = jugadoresRanking;
-    }
-    
+        this.jugadores = jugadoresRanking;   
    
     }
    

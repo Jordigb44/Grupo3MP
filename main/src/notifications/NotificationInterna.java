@@ -9,8 +9,8 @@ import storage.FileManager;
 public class NotificationInterna implements I_Notification {
     private FileManager fileManager;
 
-    public NotificationInterna() {
-        this.fileManager = Sistema.getFileManager();
+    public NotificationInterna(FileManager fileManager) {
+        this.fileManager = fileManager;
     }
 
     @Override

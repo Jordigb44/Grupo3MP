@@ -8,15 +8,7 @@
     <rol/>
     <estado/>
     <fecha>2025-04-03T20:07:17.436870</fecha>
-  </usuario>
-  <usuario>
-    <id>09c957be-cedc-4f88-8286-b4b315421167</id>
-    <nick>adamkassmi</nick>
-    <nombre>adam</nombre>
-    <password>adamk</password>
-    <rol/>
-    <estado/>
-    <fecha>2025-04-05T01:25:10.323411700</fecha>
+    <oro>0</oro>
   </usuario>
   <usuario>
     <id>029fca74-5995-49a7-b2e3-76757bc44ea9</id>
@@ -26,32 +18,6 @@
     <rol/>
     <estado/>
     <fecha>2025-04-26T13:47:48.049191400</fecha>
-  </usuario>
-  <usuario>
-    <id>b9586a2b-345d-43d1-8d9d-d27c03e247ee</id>
-    <nick>tets</nick>
-    <nombre>tets</nombre>
-    <password>tets</password>
-    <rol/>
-    <estado/>
-    <fecha>2025-05-01T18:27:32.342254</fecha>
-  </usuario>
-  <usuario>
-    <id>7d4dd291-9d9f-4f76-81cc-72b0882773fb</id>
-    <nick>test</nick>
-    <nombre>test</nombre>
-    <password>test</password>
-    <rol/>
-    <estado/>
-    <fecha>2025-05-01T18:43:12.644413</fecha>
-  </usuario>
-  <usuario>
-    <id>ae0cf877-0123-4be8-bd34-cbd4501996ec</id>
-    <nick>test2</nick>
-    <nombre>test2</nombre>
-    <password>test2</password>
-    <rol/>
-    <estado/>
-    <fecha>2025-05-01T18:44:38.914943</fecha>
+    <oro>0</oro>
   </usuario>
 </usuarios>

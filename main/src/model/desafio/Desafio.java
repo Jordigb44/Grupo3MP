@@ -18,13 +18,10 @@ public class Desafio implements I_Desafio {
     private FileManager fileManager;
 
     public Desafio() {
-        // Inicializar el FileManager
-        this.fileManager = Sistema.getFileManager(); // Asumiendo que tienes un método getInstance()
     }
     
     // Constructor adicional para cargar desafíos existentes
     public Desafio(UUID desafioId) {
-        this();  // Llamar al constructor sin parámetros para inicializar fileManager
         Desafio desafioCargado = fileManager.cargarDesafio(desafioId);
         if (desafioCargado != null) {
             this.desafioId = desafioCargado.getDesafioId();
@@ -36,13 +33,14 @@ public class Desafio implements I_Desafio {
         }
     }
 
-    public Combate Aceptar(Desafio d) {
+    public void Aceptar(Desafio d) {
         this.estado = E_EstadoDesafio.ACEPTADO;
         
         // Solo necesitas un método para guardar el desafío actualizado
         fileManager.guardarDesafio(this);
 
-        return new Combate(d);
+        Combate combate = new Combate(d);
+        combate.iniciarCombate();
     }
 
     public String Desafiar(Jugador desafiante, Jugador desafiado, int oroApostado) {

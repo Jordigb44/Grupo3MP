@@ -20,7 +20,7 @@ public interface I_Desafio {
      * @param d El desafío a aceptar.
      * @return Objeto Combate representando el combate generado.
      */
-    Combate Aceptar(Desafio d);
+    void Aceptar(Desafio d);
 
     /**
      * Rechaza un desafío, aplicando una penalización al jugador desafiado.

@@ -8,17 +8,24 @@ import model.desafio.E_EstadoDesafio;
 import model.usuario.Jugador;
 import model.usuario.Operador;
 import model.usuario.Usuario;
+import notifications.NotificationInterna;
 import storage.FileManager;
 import storage.XMLStorage;
 import ui.A_Interfaz;
+// TODO: JORDI
+// - Metodo de: cargarRanking(): List<Ranking> # Ordenador
+// - Sistema crea y devuelve la interfaz, ya que ahora la crea la apsarela y eso esta mal
+// - Hacer un getter y setter [cargarUsuarios] de usuarios, ya que lo necesita tanto Operador como Jugador
 
 public class Sistema {
-    private static FileManager fileManager;
-    private static PasarelaAuthorization pasarelaAuthorization;
+    private FileManager fileManager;
+    private PasarelaAuthorization pasarelaAuthorization;
     private String parentDir = "./";
     private Usuario usuario;
     private List<Desafio> desafios;
-    private Jugador jugador;
+    private A_Interfaz interfaz;
+    private NotificationInterna notificationInterna;
+    
 
     // Constructor de la clase Sistema
     public Sistema() {
@@ -27,21 +34,32 @@ public class Sistema {
             this.fileManager = new FileManager(new XMLStorage(parentDir));
             System.out.println("FileManager inicializado.");
         }
-        // Inicializa PasarelaAuthoritation si no está ya inicializado
-        if (pasarelaAuthorization == null) {
-            pasarelaAuthorization = new PasarelaAuthorization();
+        // Inicializa Interfaz si no está ya inicializado
+        if (this.interfaz == null) {
+            this.interfaz = new A_Interfaz();
             System.out.println("PasarelaAuthoritation inicializada.");
         }
+        // Inicializa Interfaz si no está ya inicializado
+        if (this.notificationInterna == null) {
+        	this.notificationInterna = new NotificationInterna(this.fileManager);  // Usamos el patrón Singleton
+        }
         
+        // Inicializa PasarelaAuthoritation si no está ya inicializado
+        if (this.pasarelaAuthorization == null) {
+        	this.pasarelaAuthorization = new PasarelaAuthorization(this.fileManager, this.interfaz, this.notificationInterna);
+        	System.out.println("PasarelaAuthoritation inicializada.");
+        }
+
         // Llama al menú de sesión
         this.usuario = pasarelaAuthorization.menuSesion();
         
         switch (usuario.getTipo()) {
 	        case "operador":
-//	            Operador.getMenu();
+	        	Operador operador = new Operador(interfaz, fileManager, parentDir, parentDir, parentDir, null);
+	        	operador.getMenu();
 	            break;
 	        case "jugador":
-	        	this.jugador = new Jugador(
+	        	Jugador jugador = new Jugador( // TODO: Jordi - Trabajar
 	        			new A_Interfaz(),
 	        		    this.fileManager,
 	        		    this.usuario.getNick(),
@@ -49,12 +67,14 @@ public class Sistema {
 	        		    this.usuario.getPassword(),
 	        		    this.usuario.getRol(),
 	        		    this.usuario.getEstado(),
+	        		    this.usuario.getOro(),
 	        		    new ArrayList<>(), // TODO: personajes
 	        		    null,              // TODO: desafío actual
-	        		    0,                 // TODO: ranking
-	        		    0                  // TODO: oro inicial
+	        		    0                 // TODO: ranking
 	        		);
-	        		this.jugador.getMenu();
+	        	
+	        		jugador.getDesafioMenu();
+	        		jugador.getMenu();
 	        default:
 	            System.out.println("⚠️ Tipo de usuario no reconocido.");
 	            break;
@@ -62,9 +82,13 @@ public class Sistema {
     }
 
     // Método para obtener la instancia de FileManager
-    public static FileManager getFileManager() {
-        return fileManager;
+    public FileManager getFileManager() {
+        return this.fileManager;
     }
+    
+    public A_Interfaz getInterfaz() {
+		return this.interfaz;
+	}
     
     public Usuario getUsuario() {
     	return this.usuario;
@@ -110,7 +134,7 @@ public class Sistema {
     }
 
     // Método para cerrar el sistema
-    public static void cerrar() {
+    public void cerrar() {
         if (fileManager != null) {
             fileManager = null;
             System.out.println("FileManager cerrado.");

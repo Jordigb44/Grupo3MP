@@ -11,22 +11,20 @@ import ui.A_Interfaz; // Asegúrate de que este sea el nombre correcto del adapt
 
 public class PasarelaAuthorization {
     private Authorization auth;
-    private A_Interfaz interfaz; // Adaptador para la interacción con el usuario
+    private A_Interfaz interfaz;
     private FileManager fileManager;
+    private NotificationInterna notificationInterna;
     private int badCredential;
-    private NotificationInterna notificationInterna; // Instancia de la clase de notificaciones
 
     // Constructor
-    public PasarelaAuthorization() {
-        this.fileManager = Sistema.getFileManager();
+    public PasarelaAuthorization(FileManager fileManager, A_Interfaz interfaz, NotificationInterna notificationInterna) {
+        this.fileManager = fileManager;
         if (this.auth == null) {
-        	this.auth = new Authorization(); // Usamos el patrón Singleton
+        	this.auth = new Authorization(this.fileManager); // Usamos el patrón Singleton
         }
-        if (this.interfaz == null) {        	
-        	this.interfaz = new A_Interfaz(); // Se recibe el adaptador como dependencia
-        }
+        this.interfaz = interfaz;
+        this.notificationInterna = notificationInterna;  // Usamos el patrón Singleton
         this.badCredential = 0;
-        this.notificationInterna = new NotificationInterna(); // Inicializar notificaciones
     }
 
     // Método para iniciar sesión
@@ -78,7 +76,7 @@ public class PasarelaAuthorization {
         this.interfaz.mostrar("Por favor, introduce una contraseña:");
         String contraseña = this.interfaz.pedirEntrada();
         
-        Usuario nuevoUsuario = new Usuario(nick, nombre, contraseña, null, null); // Crea un nuevo usuario
+        Usuario nuevoUsuario = new Usuario(nick, nombre, contraseña, null, null, 0); // Crea un nuevo usuario
         String resultado = this.auth.guardarUsuario(nuevoUsuario);
         if (resultado.equals("Usuario guardado correctamente.")) {
             this.interfaz.mostrar("✅ " + resultado + " ¡Bienvenido, " + nick + "!");
