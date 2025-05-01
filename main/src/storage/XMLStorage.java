@@ -143,31 +143,31 @@ public class XMLStorage implements I_Storage {
 
     @Override
     public List<Usuario> cargarUsuarios() {
-        System.out.println("Intentando cargar usuarios");
+        // System.out.println("Intentando cargar usuarios");
         List<Usuario> usuarios = new ArrayList<>();
         try {
             String rutaArchivo = getFilePath("usuarios");
-            System.out.println("Buscando archivo en: " + rutaArchivo);
+            // System.out.println("Buscando archivo en: " + rutaArchivo);
             File file = new File(rutaArchivo);
             if (!file.exists()) {
-                System.out.println("El archivo de usuarios no existe");
+                // System.out.println("El archivo de usuarios no existe");
                 return usuarios;
             }
             
-            System.out.println("El archivo existe, procediendo a leerlo");
+            // System.out.println("El archivo existe, procediendo a leerlo");
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(file);
             
-            System.out.println("Archivo XML parseado correctamente");
+            // System.out.println("Archivo XML parseado correctamente");
             NodeList nodeList = doc.getElementsByTagName("usuario");
-            System.out.println("Número de usuarios encontrados: " + nodeList.getLength());
+            // System.out.println("Número de usuarios encontrados: " + nodeList.getLength());
 
             for (int i = 0; i < nodeList.getLength(); i++) {
                 Node node = nodeList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element element = (Element) node;
-                    System.out.println("Procesando usuario #" + (i+1));
+                    // System.out.println("Procesando usuario #" + (i+1));
                     
                     String nick = element.getElementsByTagName("nick").item(0).getTextContent();
                     String nombre = element.getElementsByTagName("nombre").item(0).getTextContent();
@@ -175,7 +175,7 @@ public class XMLStorage implements I_Storage {
                     String rol = element.getElementsByTagName("rol").item(0).getTextContent();
                     String estado = element.getElementsByTagName("estado").item(0).getTextContent();
                     
-                    System.out.println("Datos obtenidos: Nick=" + nick + ", Nombre=" + nombre);
+                    // System.out.println("Datos obtenidos: Nick=" + nick + ", Nombre=" + nombre);
                     
                     Usuario usuario = new Usuario(
                         nick,
@@ -187,18 +187,18 @@ public class XMLStorage implements I_Storage {
                     
                     String idText = element.getElementsByTagName("id").item(0).getTextContent();
                     String fechaText = element.getElementsByTagName("fecha").item(0).getTextContent();
-                    System.out.println("ID=" + idText + ", Fecha=" + fechaText);
+                    // System.out.println("ID=" + idText + ", Fecha=" + fechaText);
                     
                     usuario.setUserId(UUID.fromString(idText));
                     usuario.setFecha(LocalDateTime.parse(fechaText));
                     
                     usuarios.add(usuario);
-                    System.out.println("Usuario añadido a la lista");
+                    // System.out.println("Usuario añadido a la lista");
                 }
             }
-            System.out.println("Total de usuarios cargados: " + usuarios.size());
+            // System.out.println("Total de usuarios cargados: " + usuarios.size());
         } catch (Exception e) {
-            System.out.println("Error al cargar usuarios: " + e.getMessage());
+            // System.out.println("Error al cargar usuarios: " + e.getMessage());
             e.printStackTrace();
         }
         return usuarios;
@@ -817,20 +817,20 @@ public class XMLStorage implements I_Storage {
     public void deleteNotificacion(Usuario usuario) {
         try {
             File file = new File(getFilePath("notificaciones"));
+
             if (!file.exists() || file.length() == 0) return;
 
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(file);
             doc.normalize();
-            removeWhitespaceNodes(doc.getDocumentElement());
 
             Element root = doc.getDocumentElement();
             NodeList usuarios = root.getElementsByTagName("usuario");
 
             for (int i = 0; i < usuarios.getLength(); i++) {
                 Element u = (Element) usuarios.item(i);
-                if (u.getAttribute("id").equals(String.valueOf(usuario.getUserId()))) {
+                if (u.getAttribute("nick").equals(usuario.getNick())) {
                     root.removeChild(u);
                     break;
                 }

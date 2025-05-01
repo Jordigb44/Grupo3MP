@@ -50,6 +50,13 @@ public class PasarelaAuthorization {
                     this.interfaz.mostrar("🚨 ¡Alerta! Se ha enviado una notificación al usuario: '" + nick + "'.");
                 }
             }
+            this.interfaz.mostrar("❌ Usuario o contraseña incorrecto ❌\n");
+            try {
+                Thread.sleep(5000); // Espera 5 segundos antes de limpiar la pantalla
+            } catch (InterruptedException e) {
+                e.printStackTrace(); // Manejo básico de error
+            }
+            this.interfaz.limpiarPantalla();
             return null; // Devuelve null si no se pudo iniciar sesión
         }
         this.badCredential = 0; // Reinicia el contador de intentos fallidos
@@ -57,6 +64,7 @@ public class PasarelaAuthorization {
         // Si la autenticación fue exitosa, obtenemos y mostramos las notificaciones
         Usuario usuarioAutenticado = (Usuario) resultado;
         mostrarNotificaciones(usuarioAutenticado);
+        
         return usuarioAutenticado; // <-- Retorna el objeto Usuario autenticado
     }
 
