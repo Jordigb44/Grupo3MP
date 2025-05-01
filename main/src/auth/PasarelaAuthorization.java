@@ -122,7 +122,7 @@ public class PasarelaAuthorization {
                     break;
                 case "2":
                     usuario = registrarUsuario(); // Intenta registrar un usuario
-                    break;
+                    menuSesion(); // Ir a menu de inicio de sesión
                 case "3":
                     this.interfaz.mostrar("👋 ¡Gracias por usar el sistema! Hasta pronto.");
                     return null; // Devuelve null para indicar que el usuario ha salido

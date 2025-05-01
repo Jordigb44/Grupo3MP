@@ -27,4 +27,13 @@
     <estado/>
     <fecha>2025-04-26T13:47:48.049191400</fecha>
   </usuario>
+  <usuario>
+    <id>b9586a2b-345d-43d1-8d9d-d27c03e247ee</id>
+    <nick>tets</nick>
+    <nombre>tets</nombre>
+    <password>tets</password>
+    <rol/>
+    <estado/>
+    <fecha>2025-05-01T18:27:32.342254</fecha>
+  </usuario>
 </usuarios>
