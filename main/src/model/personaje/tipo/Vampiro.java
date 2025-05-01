@@ -7,25 +7,24 @@ import model.personaje.Personaje;
 import model.personaje.habilidad.Disciplina;
 
 public class Vampiro extends Personaje {
-    public Vampiro(String nombre) {
-		super(nombre);
-	}
 
 	private int puntosSangre;
     private int edad;
     private List<Disciplina> disciplinas;
 
-   
+    public Vampiro(String nombre) {
+		super(nombre);
+	}
 
     protected void resetPuntosSangre() {
         this.puntosSangre = 100;
     }
 
-    protected void aumentarPuntosSangre(int cantidad) {
+    public void aumentarPuntosSangre(int cantidad) {
         this.puntosSangre += cantidad;
     }
 
-    protected void perderPuntosSangre(int cantidad) {
+    public void perderPuntosSangre(int cantidad) {
         this.puntosSangre -= cantidad;
         if (this.puntosSangre < 0) {
             this.puntosSangre = 0;
@@ -40,4 +39,20 @@ public class Vampiro extends Personaje {
             }
         }
     }
+
+	public Disciplina getDisciplinaActiva() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public int getPuntosSangre() {
+		// TODO Auto-generated method stub
+		return puntosSangre;
+	}
+
+	public void setPuntosSangre(int i) {
+		
+		this.puntosSangre = i;
+		
+	}
 }

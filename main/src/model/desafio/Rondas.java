@@ -3,6 +3,12 @@ package model.desafio;
 import java.util.Random;
 
 import model.personaje.Personaje;
+import model.personaje.habilidad.Disciplina;
+import model.personaje.habilidad.Don;
+import model.personaje.habilidad.Talento;
+import model.personaje.tipo.Cazador;
+import model.personaje.tipo.Licantropo;
+import model.personaje.tipo.Vampiro;
 import model.usuario.Jugador;
 
 public class Rondas {
@@ -64,14 +70,101 @@ public class Rondas {
 	    }
 
 	    private int calcularPotencialAtaque(Personaje personaje) {
-	        int ataqueBase = personaje.getArmaActiva() != null ? personaje.getArmaActiva().getAtaque() : 0;
-	        return ataqueBase; // Aquí puedes añadir más lógica si hay fortalezas, talentos, etc.
+	        int poderBase = personaje.getPoder();
+	        int equipoAtaque = personaje.getArmaActiva() != null ? personaje.getArmaActiva().getAtaque() : 0;
+	        int modificador = calcularModificadorFortalezaDebilidad(personaje);
+
+	        if (personaje instanceof Vampiro) {
+	            Vampiro vampiro = (Vampiro) personaje;
+	            Disciplina disciplina = vampiro.getDisciplinaActiva(); 
+	            int extra = 0;
+
+	            if (disciplina != null && vampiro.getPuntosSangre() >= disciplina.obtenerCostoSangre()) {
+	                extra += disciplina.getAtaque();
+	                vampiro.perderPuntosSangre(disciplina.obtenerCostoSangre());
+	                if (vampiro.getPuntosSangre() >= 5) {
+	                    extra += 2;
+	                }
+	                vampiro.aumentarPuntosSangre(4); 
+	                if (vampiro.getPuntosSangre() > 10) vampiro.setPuntosSangre(10); 
+	            }
+
+	            return poderBase + equipoAtaque + extra + modificador;
+
+	        } else if (personaje instanceof Licantropo) {
+	            Licantropo lican = (Licantropo) personaje;
+	            Don don = lican.getDonActivo(); 
+	            int extra = 0;
+
+	            if (don != null && lican.getRabia() >= don.getRabiaMinima()) {
+	                extra += don.getAtaque();
+	            }
+
+	            return poderBase + equipoAtaque + extra + lican.getRabia() + modificador;
+
+	        } else if (personaje instanceof Cazador) {
+	            Cazador cazador = (Cazador) personaje;
+	            Talento talento = cazador.getTalentoActivo();
+	            int extra = 0;
+
+	            if (talento != null) {
+	                extra += talento.getAtaque();
+	            }
+
+	            return poderBase + equipoAtaque + extra + cazador.getVoluntad() + modificador;
+
+	        } else {
+	            return poderBase + equipoAtaque + modificador;
+	        }
 	    }
 
 	    private int calcularPotencialDefensa(Personaje personaje) {
-	        int defensaBase = personaje.getArmaduraActiva() != null ? personaje.getArmaduraActiva().getDefensa() : 0;
-	        return defensaBase; // Aquí puedes añadir más lógica si hay habilidades defensivas.
+	        int defensaEquipo = personaje.getArmaduraActiva() != null ? personaje.getArmaduraActiva().getDefensa() : 0;
+	        int poderBase = personaje.getPoder();
+	        int modificador = calcularModificadorFortalezaDebilidad(personaje);
+
+	        if (personaje instanceof Vampiro) {
+	            Vampiro vampiro = (Vampiro) personaje;
+	            Disciplina disciplina = vampiro.getDisciplinaActiva();
+	            int extra = 0;
+
+	            if (disciplina != null && vampiro.getPuntosSangre() >= disciplina.obtenerCostoSangre()) {
+	                extra += disciplina.getDefensa();
+	                vampiro.perderPuntosSangre(disciplina.obtenerCostoSangre());
+	            }
+
+	            return poderBase + defensaEquipo + extra + modificador;
+
+	        } else if (personaje instanceof Licantropo) {
+	            Licantropo lican = (Licantropo) personaje;
+	            Don don = lican.getDonActivo();
+	            int extra = 0;
+
+	            if (don != null && lican.getRabia() >= don.getRabiaMinima()) {
+	                extra += don.getDefensa();
+	            }
+
+	            return poderBase + defensaEquipo + extra + lican.getRabia() + modificador;
+
+	        } else if (personaje instanceof Cazador) {
+	            Cazador cazador = (Cazador) personaje;
+	            Talento talento = cazador.getTalentoActivo();
+	            int extra = 0;
+
+	            if (talento != null) {
+	                extra += talento.getDefensa();
+	            }
+
+	            return poderBase + defensaEquipo + extra + cazador.getVoluntad() + modificador;
+
+	        } else {
+	            return poderBase + defensaEquipo + modificador;
+	        }
 	    }
+	    private int calcularModificadorFortalezaDebilidad(Personaje personaje) {
+	        return 0;
+	    }
+	   
 
 	public String getResultado() {
 		return Resultado;

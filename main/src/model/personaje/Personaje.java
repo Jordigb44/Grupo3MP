@@ -13,6 +13,7 @@ import model.personaje.habilidad.Fortaleza;
 	    private int oro;
 	    private List<Arma> armas;
 	    private Arma armaActiva;
+	    private int Poder;
 	    private List<Armadura> armaduras;
 	    private Armadura armaduraActiva;
 	    private List<Esbirro> esbirros;
@@ -100,7 +101,9 @@ import model.personaje.habilidad.Fortaleza;
 	    public void agregarEsbirro(Esbirro esbirro) {
 	        this.esbirros.add(esbirro);
 	    }
-
+	    public int getPoder() {
+			return Poder;
+		}
 	    // Oro
 	    public int getOro() {
 	        return oro;
@@ -143,6 +146,10 @@ import model.personaje.habilidad.Fortaleza;
 		}
 		public Armadura getArmaduraActiva() {
 			return (Armadura) armaduras;
+		}
+		public Fortaleza getFortalezas() {
+			return (Fortaleza) fortalezas;
+			
 		}
 	}
     

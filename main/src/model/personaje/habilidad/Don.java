@@ -23,4 +23,14 @@ public class Don {
     public void aplicarEfecto(Licantropo usuario, Personaje objetivo) {
         objetivo.recibirDano(this.ataque);
     }
+
+	public int getAtaque() {
+		// TODO Auto-generated method stub
+		return ataque;
+	}
+
+	public int getDefensa() {
+		// TODO Auto-generated method stub
+		return defensa;
+	}
 }
