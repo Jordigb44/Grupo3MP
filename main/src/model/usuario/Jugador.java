@@ -12,28 +12,28 @@ public class Jugador extends Usuario {
 		super(nick, nombre, password, rol, estado);
 	}
 
-    private int puntos;         
+    private int puntos;
 	private List<Personaje> personajes;
     private Desafio desafio;
     private int posicionRanking;
-    private int oro;    
-    
+    private int oro;
+
     private A_Interfaz interfaz;
     private FileManager fileManager;
     
-    public Jugador(A_Interfaz interfaz, FileManager fileManager, String nick, String nombre, 
-                  String password, String rol, String estado, List<Personaje> personajes, 
+    public Jugador(A_Interfaz interfaz, FileManager fileManager, String nick, String nombre,
+                  String password, String rol, String estado, List<Personaje> personajes,
                   Desafio desafio, int posicionRanking, int oro) {
         super(nick, nombre, password, rol, estado);
         this.personajes = personajes;
         this.desafio = desafio;
         this.posicionRanking = posicionRanking;
         this.oro = oro;
-        
+
         this.interfaz = interfaz;
         this.fileManager = fileManager;
     }
-  
+
     public Jugador getJugador() {
         return this;
     }
@@ -117,20 +117,20 @@ public class Jugador extends Usuario {
     }
 
 
-    
-    
-    
+
+
+
     public List<Personaje> getPersonajes() {
         return this.personajes;
     }
-    
+
     public Personaje getPersonaje() {
         if (personajes == null || personajes.isEmpty()) {
             return null;
         }
         return personajes.get(0);
     }
-    
+
     public void agregarPersonaje() {
         this.interfaz.mostrar("Ingrese el nombre del nuevo personaje:");
         String nombre = this.interfaz.pedirEntrada();
@@ -148,7 +148,7 @@ public class Jugador extends Usuario {
         }
     }
 
-    
+
     public void borrarPersonaje(Personaje personaje) {
         if (personaje != null && this.personajes.contains(personaje)) {
             this.personajes.remove(personaje);
@@ -158,7 +158,7 @@ public class Jugador extends Usuario {
         }
     }
 
-    
+
     public void equiparArmaduraAPersonaje() {
         if (personajes.isEmpty()) {
             interfaz.mostrar("⚠️ No tienes personajes.");
@@ -249,19 +249,19 @@ public class Jugador extends Usuario {
         }
     }
 
- 
+
 
 	public Personaje seleccionarPersonaje(List<Personaje> personajes) {
 	    if (personajes == null || personajes.isEmpty()) {
 	        interfaz.mostrar("⚠️ No hay personajes disponibles.");
 	        return null;
 	    }
-	
+
 	    interfaz.mostrar("Seleccione el número del personaje:");
 	    for (int i = 0; i < personajes.size(); i++) {
 	        interfaz.mostrar((i + 1) + ". " + personajes.get(i).getNombre());
 	    }
-	
+
 	    String sel = interfaz.pedirEntrada();
 	    try {
 	        int idx = Integer.parseInt(sel) - 1;
@@ -276,47 +276,47 @@ public class Jugador extends Usuario {
 	        return null;
 	    }
 	}
-    
+
     public Desafio getDesafio() {
         return this.desafio;
     }
-    
+
     public void setDesafio(Desafio desafio) {
         this.desafio = desafio;
     }
-    
+
     public int getPosicionRanking() {
         return this.posicionRanking;
     }
-    
+
     public void setPosicionRanking(int posicion) {
         this.posicionRanking = posicion;
     }
-    
+
     public int getPuntos() {
         return this.puntos;
     }
-    
+
     public void setPuntos(int puntos) {
         this.puntos = puntos;
     }
-    
+
     public void sumarPuntos(int puntos) {
         this.puntos += puntos;
     }
-    
+
     public int getOro() {
         return this.oro;
     }
-    
+
     public void setOro(int oro) {
         this.oro = oro;
     }
-    
+
     public void sumarOro(int cantidad) {
         this.oro += cantidad;
     }
-    
+
     public void restarOro(int penalizacion) {
         if (penalizacion > this.oro) {
             this.oro = 0;
@@ -326,35 +326,35 @@ public class Jugador extends Usuario {
             interfaz.mostrar("Se ha deducido " + penalizacion + " de oro");
         }
     }
-    
+
     public void aceptarDesafio(Desafio desafio) {
         this.desafio = desafio;
         interfaz.mostrar("Desafío aceptado");
     }
-    
+
     public void rechazarDesafio() {
         this.desafio = null;
         interfaz.mostrar("Desafío rechazado");
     }
-    
+
     public void consultarRankingGeneral() {
         try {
             XMLStorage xmlStorage = XMLStorage.cargarRanking();
-            
+
             Ranking ranking = xmlStorage.cargarRanking();
-            
+
             if (ranking == null) {
                 System.out.println("No se pudo cargar el ranking.");
                 return;
-            }         
-            List<Jugador> jugadores = xmlStorage.cargarUsuarios();         
+            }
+            List<Jugador> jugadores = xmlStorage.cargarUsuarios();
             if (jugadores == null || jugadores.isEmpty()) {
                 System.out.println("No hay jugadores registrados en el sistema.");
                 return;
             }
-            
+
             ranking.consultarRanking(jugadores);
-            
+
         } catch (Exception e) {
             System.out.println("Error al consultar el ranking general: " + e.getMessage());
             e.printStackTrace();

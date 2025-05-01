@@ -140,6 +140,66 @@ public class XMLStorage implements I_Storage {
             return "Error al guardar usuario: " + e.getMessage();
         }
     }
+    
+    @Override
+    public String darDeBajaUsuario(String nick) {
+        System.out.println("Marcando usuario '" + nick + "' como dado de baja en: " + getFilePath("usuarios"));
+        File file = new File(getFilePath("usuarios"));
+
+        if (!file.exists() || file.length() == 0) {
+            return "El archivo no existe o está vacío.";
+        }
+
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document doc = builder.parse(file);
+            doc.normalize();
+            removeWhitespaceNodes(doc.getDocumentElement());
+
+            Element root = doc.getDocumentElement();
+            NodeList usuarios = root.getElementsByTagName("usuario");
+            boolean actualizado = false;
+
+            for (int i = 0; i < usuarios.getLength(); i++) {
+                Element usuarioElement = (Element) usuarios.item(i);
+                Element nickElement = (Element) usuarioElement.getElementsByTagName("nick").item(0);
+                String nickTexto = nickElement.getTextContent();
+
+                if (nickTexto.equals(nick)) {
+                    Element estadoElement = (Element) usuarioElement.getElementsByTagName("estado").item(0);
+                    if (estadoElement == null) {
+                        estadoElement = doc.createElement("estado");
+                        usuarioElement.appendChild(estadoElement);
+                    }
+                    estadoElement.setTextContent("Baja");
+                    actualizado = true;
+                    break;
+                }
+            }
+
+            if (!actualizado) {
+                return "Usuario con nick '" + nick + "' no encontrado.";
+            }
+
+            // Guardar los cambios
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+            transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(file);
+            transformer.transform(source, result);
+
+            return "Usuario con nick '" + nick + "' ha sido dado de baja.";
+        } catch (Exception e) {
+            System.err.println("Error al dar de baja al usuario: " + e.getMessage());
+            e.printStackTrace();
+            return "Error al dar de baja al usuario: " + e.getMessage();
+        }
+    }
 
     @Override
     public List<Usuario> cargarUsuarios() {

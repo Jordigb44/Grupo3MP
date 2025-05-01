@@ -26,6 +26,13 @@ public interface I_Storage {
      * @return Mensaje de éxito o error.
      */
     String guardarUsuario(Usuario usuario);
+    
+    /**
+     * Eliminar un usuario en el almacenamiento.
+     * @param usuario Usuario a eliminar.
+     * @return Mensaje de éxito o error.
+     */
+    String darDeBajaUsuario(String nick);
 
     /**
      * Carga todos los usuarios almacenados.

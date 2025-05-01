@@ -39,6 +39,10 @@ public class FileManager {
     public String guardarUsuario(Usuario usuario) {
         return storage.guardarUsuario(usuario);
     }
+    
+    public String darDeBajaUsuario(String nick) {
+        return storage.darDeBajaUsuario(nick);
+    }
 
     public List<Usuario> cargarUsuarios() {
         return storage.cargarUsuarios();
