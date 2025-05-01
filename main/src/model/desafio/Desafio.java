@@ -64,7 +64,7 @@ public class Desafio implements I_Desafio {
         this.estado = E_EstadoDesafio.RECHAZADO;
         int penalizacion = (int) Math.ceil(oroApostado * 0.10);
         desafiado.restarOro(penalizacion);
-        desafiante.agregarOro(penalizacion);
+        desafiante.sumarOro(penalizacion);
 
         fileManager.guardarDesafio(this);
     }
