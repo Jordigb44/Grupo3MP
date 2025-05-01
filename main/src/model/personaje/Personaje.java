@@ -73,13 +73,29 @@ import model.personaje.habilidad.Fortaleza;
 	        if (this.armaduraActiva != null) {
 	            defensa = armaduraActiva.getDefensa(); 
 	        }
-	        int danoRecibido = Math.max(0, cantidad - defensa);
-	        this.salud -= danoRecibido;
-	        if (this.salud < 0) {
-	            this.salud = 0;
+
+	        int danoFinal = Math.max(0, cantidad - defensa);
+
+	        // Aplicar daño a esbirros primero
+	        for (Esbirro esbirro : esbirros) {
+	            if (danoFinal <= 0) break;
+
+	            int saludEsbirro = esbirro.getSalud();
+	            if (saludEsbirro > 0) {
+	                int danoAEsbirro = Math.min(danoFinal, saludEsbirro);
+	                esbirro.setSalud(saludEsbirro - danoAEsbirro);
+	                danoFinal -= danoAEsbirro;
+	            }
+	        }
+
+	        // Si sobra daño después de esbirros, aplicarlo al personaje
+	        if (danoFinal > 0) {
+	            this.salud -= danoFinal;
+	            if (this.salud < 0) {
+	                this.salud = 0;
+	            }
 	        }
 	    }
-
 	    // Esbirros
 	    public void agregarEsbirro(Esbirro esbirro) {
 	        this.esbirros.add(esbirro);
