@@ -33,10 +33,10 @@ public class Sistema {
         this.usuario = pasarelaAuthorization.menuSesion();
         
         switch (usuario.getTipo()) {
-	        case "1":
+	        case "operador":
 //	            Operador.getMenu();
 	            break;
-	        case "2":
+	        case "jugador":
 	            // Jugador.getMenu();
 	            break;
 	        default:
