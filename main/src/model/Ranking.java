@@ -58,15 +58,8 @@ public class Ranking {
         
      
         List<Jugador> jugadoresRanking = new ArrayList<>(jugadores);
-        
      
-        Collections.sort(jugadoresRanking, new Comparator<Jugador>() {
-            @Override
-            public int compare(Jugador j1, Jugador j2) {
-                return Integer.compare(j2.getPuntos(), j1.getPuntos());
-            }
-        });
-        
+        ordenarRanking();
     
         for (int i = 0; i < jugadoresRanking.size(); i++) {
             jugadoresRanking.get(i).setPosicionRanking(i + 1);
