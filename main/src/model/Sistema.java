@@ -5,10 +5,12 @@ import java.util.List;
 import auth.PasarelaAuthorization; // Asegúrate de importar la clase correcta
 import model.desafio.Desafio;
 import model.desafio.E_EstadoDesafio;
+import model.usuario.Jugador;
 import model.usuario.Operador;
 import model.usuario.Usuario;
 import storage.FileManager;
 import storage.XMLStorage;
+import ui.A_Interfaz;
 
 public class Sistema {
     private static FileManager fileManager;
@@ -16,6 +18,7 @@ public class Sistema {
     private String parentDir = "./";
     private Usuario usuario;
     private List<Desafio> desafios;
+    private Jugador jugador;
 
     // Constructor de la clase Sistema
     public Sistema() {
@@ -29,6 +32,7 @@ public class Sistema {
             pasarelaAuthorization = new PasarelaAuthorization();
             System.out.println("PasarelaAuthoritation inicializada.");
         }
+        
         // Llama al menú de sesión
         this.usuario = pasarelaAuthorization.menuSesion();
         
@@ -37,8 +41,20 @@ public class Sistema {
 //	            Operador.getMenu();
 	            break;
 	        case "jugador":
-	            // Jugador.getMenu();
-	            break;
+	        	this.jugador = new Jugador(
+	        			new A_Interfaz(),
+	        		    this.fileManager,
+	        		    this.usuario.getNick(),
+	        		    this.usuario.getNombre(),
+	        		    this.usuario.getPassword(),
+	        		    this.usuario.getRol(),
+	        		    this.usuario.getEstado(),
+	        		    new ArrayList<>(), // TODO: personajes
+	        		    null,              // TODO: desafío actual
+	        		    0,                 // TODO: ranking
+	        		    0                  // TODO: oro inicial
+	        		);
+	        		this.jugador.getMenu();
 	        default:
 	            System.out.println("⚠️ Tipo de usuario no reconocido.");
 	            break;

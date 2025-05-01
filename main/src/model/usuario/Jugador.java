@@ -116,8 +116,7 @@ public class Jugador extends Usuario {
 	}
 
 	public List<Personaje> getPersonajes() {
-
-		return null;
+		return this.personajes;
 	}
 
 	public void sumarPuntos(int i) {
@@ -126,7 +125,7 @@ public class Jugador extends Usuario {
 	}
 
 	public Personaje getPersonaje() {
-		return (Personaje) personajes;
+		return personajes.isEmpty() ? null : personajes.get(0);
 	}
 		
 }

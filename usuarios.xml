@@ -36,4 +36,22 @@
     <estado/>
     <fecha>2025-05-01T18:27:32.342254</fecha>
   </usuario>
+  <usuario>
+    <id>7d4dd291-9d9f-4f76-81cc-72b0882773fb</id>
+    <nick>test</nick>
+    <nombre>test</nombre>
+    <password>test</password>
+    <rol/>
+    <estado/>
+    <fecha>2025-05-01T18:43:12.644413</fecha>
+  </usuario>
+  <usuario>
+    <id>ae0cf877-0123-4be8-bd34-cbd4501996ec</id>
+    <nick>test2</nick>
+    <nombre>test2</nombre>
+    <password>test2</password>
+    <rol/>
+    <estado/>
+    <fecha>2025-05-01T18:44:38.914943</fecha>
+  </usuario>
 </usuarios>
