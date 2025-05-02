@@ -5,6 +5,7 @@ import java.util.List;
 
 import model.personaje.Personaje;
 import model.personaje.habilidad.Don;
+import storage.FileManager;
 
 public class Licantropo extends Personaje {
 
@@ -13,14 +14,23 @@ public class Licantropo extends Personaje {
     private float altura;
     private int peso;
     private String estado;
+    private FileManager fileManager;
 
-    public Licantropo(String nombre) {
-		super(nombre);
-		
+    public Licantropo(FileManager fileManager, Personaje personaje) {
+		super(personaje);
+		this.fileManager = fileManager;
+    	this.dones = this.fileManager.getDonesLicantropo();
+    	this.rabia = this.fileManager.getRabiaLicantropo();
+    	this.peso = this.fileManager.getPesoLicantropo();
+    	this.estado = "humano";
 	}
 
     protected void transformarBestia() {
-        this.estado = "bestia";
+        if (this.estado == "humano") {
+        	this.estado = "bestia";
+        } else {
+        	this.estado = "humano";
+        }
     }
 
     protected void resetRabia() {

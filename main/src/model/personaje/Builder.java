@@ -26,9 +26,9 @@ public class Builder {
             case "vampiro":
                 this.personaje = new Vampiro(this.fileManager, this.personaje);
             case "cazador":
-            	this.personaje = new Cazador(this.personaje);
+            	this.personaje = new Cazador(this.fileManager, this.personaje);
             case "licantropo":
-            	this.personaje = new Licantropo(this.personaje);
+            	this.personaje = new Licantropo(this.fileManager, this.personaje);
         }
     }
     
