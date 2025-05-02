@@ -8,31 +8,38 @@ import model.personaje.habilidad.Debilidad;
 import model.personaje.habilidad.Fortaleza;
 
 public interface I_Personaje {
-    // Attributes
-    String nombre = null;
-    Integer salud = null;
-    int oro = 0;
-    List<Arma> armas = null;
-    Arma armaActiva = null;
-    int poder =0;
-    List<Armadura> armaduras = null;
-    Armadura armaduraActiva = null;
-    List<Esbirro> esbirros = null;
-    List<Fortaleza> fortalezas = null;
-    List<Debilidad> debilidades = null;
-
-    // Methods
-    void equiparArma(Arma arma);
+	// Métodos para gestión de armas
+    void equiparArma(List<Arma> armas); // Coincide con la clase
     void desequiparArma(Arma arma);
     List<Arma> getArmas();
+    List<Arma> getArmaActiva();
+
+    // Métodos para gestión de armaduras
     void equiparArmadura(Armadura armadura);
     void desequiparArmadura(Armadura armadura);
     List<Armadura> getArmaduras();
+    Armadura getArmaduraActiva();
+
+    // Combate
     void atacar(Personaje objetivo);
     void recibirDano(Integer cantidad);
+
+    // Esbirros
     void agregarEsbirro(Esbirro esbirro);
+    List<Esbirro> getEsbirros();
+
+    // Recursos
     int getOro();
-    int getPoder();
     void sumarOro(int oro);
     void restarOro(int oro);
+
+    // Atributos generales
+    String getNombre();
+    int getSalud();
+    int getPoder();
+    List<Fortaleza> getFortalezas();
+    List<Debilidad> getDebilidades();
+
+    // Otros
+    char[] getId(); // Esto parece un placeholder, verifica si lo necesitas realmente
 }

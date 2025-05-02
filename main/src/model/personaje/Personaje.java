@@ -12,7 +12,7 @@ import model.personaje.habilidad.Fortaleza;
 	    private int salud;
 	    private int oro;
 	    private List<Arma> armas;
-	    private Arma armaActiva;
+	    private List<Arma> armaActiva;
 	    private int Poder;
 	    private List<Armadura> armaduras;
 	    private Armadura armaduraActiva;
@@ -20,19 +20,32 @@ import model.personaje.habilidad.Fortaleza;
 	    private List<Fortaleza> fortalezas;
 	    private List<Debilidad> debilidades;
 
-	    public Personaje(String nombre) {
+	    public Personaje(String nombre, List<Arma> armaActiva, Armadura armaduraActiva, List<Arma> armas, List<Armadura> armaduras, List<Esbirro> esbirros, List<Fortaleza> fortalezas, List<Debilidad> debilidades) {
 	        this.nombre = nombre;
 	        this.salud = 100;
 	        this.oro = 0;
-	        this.armas = new ArrayList<>();
-	        this.armaduras = new ArrayList<>();
-	        this.esbirros = new ArrayList<>();
-	        this.fortalezas = new ArrayList<>();
-	        this.debilidades = new ArrayList<>();
+	        this.armas = armas;
+	        this.armaduras = armaduras;
+	        this.esbirros = esbirros;
+	        this.fortalezas = fortalezas;
+	        this.debilidades = debilidades;
+	    }
+	    
+	    public Personaje(Personaje personaje) {
+	        this.nombre = personaje.getNombre();
+	        this.salud = personaje.getSalud();
+	        this.oro = personaje.getOro();
+	        this.armaActiva = personaje.getArmaActiva();
+	        this.armaduraActiva = personaje.getArmaduraActiva();
+	        this.armas = personaje.getArmas();
+	        this.armaduras = personaje.getArmaduras();
+	        this.esbirros = personaje.getEsbirros();
+	        this.fortalezas = personaje.getFortalezas();
+	        this.debilidades = personaje.getDebilidades();
 	    }
 
 	    // Métodos de Armas
-	    public void equiparArma(Arma arma) {
+	    public void equiparArma(List<Arma> arma) {
 	        this.armaActiva = arma;
 	    }
 
@@ -63,9 +76,11 @@ import model.personaje.habilidad.Fortaleza;
 
 	    // Combate
 	    public void atacar(Personaje objetivo) {
-	        if (this.armaActiva != null) {
-	            int dano = armaActiva.getAtaque();
-	            objetivo.recibirDano(dano);
+	    	if (armaActiva != null && !armaActiva.isEmpty()) {
+	            for (Arma arma : armaActiva) {
+	                int dano = arma.getAtaque();
+	                objetivo.recibirDano(dano);
+	            }
 	        }
 	    }
 
@@ -104,6 +119,10 @@ import model.personaje.habilidad.Fortaleza;
 	    public int getPoder() {
 			return Poder;
 		}
+	    public List<Esbirro> getEsbirros() {
+	    	return this.esbirros;
+	    }
+	    
 	    // Oro
 	    public int getOro() {
 	        return oro;
@@ -140,17 +159,17 @@ import model.personaje.habilidad.Fortaleza;
 			return null;
 		}
 
-		public Arma getArmaActiva() {
-			// TODO Auto-generated method stub
-			return (Arma) armas;
+		public List<Arma> getArmaActiva() { 
+			return this.armaActiva;
 		}
 		public Armadura getArmaduraActiva() {
-			return (Armadura) armaduras;
+			return this.getArmaduraActiva();
 		}
-		public Fortaleza getFortalezas() {
-			return (Fortaleza) fortalezas;
-			
+		public List<Fortaleza> getFortalezas() {
+			return this.fortalezas;
 		}
+		public List<Debilidad> getDebilidades() {
+			return this.debilidades;
+		}
+		
 	}
-    
-

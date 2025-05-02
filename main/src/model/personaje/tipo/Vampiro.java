@@ -12,10 +12,15 @@ public class Vampiro extends Personaje {
     private int edad;
     private List<Disciplina> disciplinas;
 
-    public Vampiro(String nombre) {
-		super(nombre);
+    //CONSTRUCTOR
+    public Vampiro(Personaje personaje, int puntosSangre, int edad) {
+    	super(personaje);
+        this.disciplinas = new ArrayList<>();
+        this.puntosSangre = puntosSangre;
+        this.edad = edad;
 	}
 
+    //METODOS
     protected void resetPuntosSangre() {
         this.puntosSangre = 100;
     }
