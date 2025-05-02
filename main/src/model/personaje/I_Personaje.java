@@ -39,6 +39,7 @@ public interface I_Personaje {
     int getPoder();
     List<Fortaleza> getFortalezas();
     List<Debilidad> getDebilidades();
+    int getAtaqueArmasActivas();
 
     // Otros
     char[] getId(); // Esto parece un placeholder, verifica si lo necesitas realmente

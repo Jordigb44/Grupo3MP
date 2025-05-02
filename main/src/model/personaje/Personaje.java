@@ -183,6 +183,16 @@ import model.personaje.habilidad.Fortaleza;
 			return this.armaActiva;
 		}
 		
+		public int getAtaqueArmasActivas() {
+		    int ataqueTotal = 0;
+		    
+		    for (Arma arma : this.armaActiva) {
+		        ataqueTotal += arma.getAtaque(); // Se asume que Arma tiene un método getAtaque()
+		    }
+
+		    return ataqueTotal;
+		}
+		
 		public Armadura getArmaduraActiva() {
 			return this.getArmaduraActiva();
 		}

@@ -71,8 +71,7 @@ public class Rondas {
 
 	    private int calcularPotencialAtaque(Personaje personaje) {
 	        int poderBase = personaje.getPoder();
-	        //TODO (Revisar ya que Arma activa es un List no un arma solamente, posible solucion con preguntar size del List?)
-	        int equipoAtaque = personaje.getArmaActiva() != null ? ((Disciplina) personaje.getArmaActiva()).getAtaque() : 0;
+	        int equipoAtaque = personaje.getArmaActiva() != null ? personaje.getAtaqueArmasActivas() : 0;
 	        int modificador = calcularModificadorFortalezaDebilidad(personaje);
 
 	        if (personaje instanceof Vampiro) {
