@@ -1,12 +1,14 @@
 package storage;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
@@ -21,13 +23,17 @@ import model.personaje.Personaje;
 import model.personaje.habilidad.Arma;
 import model.personaje.habilidad.Armadura;
 import model.personaje.habilidad.Debilidad;
+import model.personaje.habilidad.Disciplina;
+import model.personaje.habilidad.Don;
 import model.personaje.habilidad.Fortaleza;
+import model.personaje.habilidad.Talento;
 import model.usuario.Jugador;
 import model.usuario.Usuario;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 public class XMLStorage implements I_Storage {
     private String directoryPath;
@@ -1228,123 +1234,471 @@ public class XMLStorage implements I_Storage {
         }
     }
     /**
- * Loads strengths from the XML file
- */
-@Override
-public List<Fortaleza> cargarFortalezas() {
-    List<Fortaleza> fortalezas = new ArrayList<>();
-    try {
-        File file = new File(getFilePath("fortalezas"));
-        if (file.exists()) {
+	 * Loads strengths from the XML file
+	 */
+	@Override
+	public List<Fortaleza> cargarFortalezas() {
+	    List<Fortaleza> fortalezas = new ArrayList<>();
+	    try {
+	        File file = new File(getFilePath("fortalezas"));
+	        if (file.exists()) {
+	            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+	            DocumentBuilder builder = factory.newDocumentBuilder();
+	            Document doc = builder.parse(file);
+	            
+	            // Normalize the document
+	            doc.normalize();
+	
+	            NodeList nodeList = doc.getElementsByTagName("fortaleza");
+	            for (int i = 0; i < nodeList.getLength(); i++) {
+	                Node node = nodeList.item(i);
+	                if (node.getNodeType() == Node.ELEMENT_NODE) {
+	                    Element fortalezaElement = (Element) node;
+	                    
+	                    String nombre = fortalezaElement.getElementsByTagName("nombre").item(0).getTextContent();
+	                    int nivel = Integer.parseInt(fortalezaElement.getElementsByTagName("nivel").item(0).getTextContent());
+	                    
+	                    // Crear el objeto Fortaleza
+	                    Fortaleza fortaleza = new Fortaleza(nombre, nivel);
+	                    fortalezas.add(fortaleza);
+	                }
+	            }
+	        } else {
+	            System.out.println("Archivo de fortalezas no encontrado en: " + getFilePath("fortalezas"));
+	        }
+	    } catch (Exception e) {
+	        System.err.println("Error al cargar fortalezas: " + e.getMessage());
+	        e.printStackTrace();
+	    }
+	    return fortalezas;
+	}
+	
+	/**
+	 * Loads weaknesses from the XML file
+	 */
+	@Override
+	public List<Debilidad> cargarDebilidades() {
+	    List<Debilidad> debilidades = new ArrayList<>();
+	    try {
+	        File file = new File(getFilePath("debilidades"));
+	        if (file.exists()) {
+	            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+	            DocumentBuilder builder = factory.newDocumentBuilder();
+	            Document doc = builder.parse(file);
+	            
+	            // Normalize the document
+	            doc.normalize();
+	
+	            NodeList nodeList = doc.getElementsByTagName("debilidad");
+	            for (int i = 0; i < nodeList.getLength(); i++) {
+	                Node node = nodeList.item(i);
+	                if (node.getNodeType() == Node.ELEMENT_NODE) {
+	                    Element debilidadElement = (Element) node;
+	                    
+	                    String nombre = debilidadElement.getElementsByTagName("nombre").item(0).getTextContent();
+	                    int nivel = Integer.parseInt(debilidadElement.getElementsByTagName("nivel").item(0).getTextContent());
+	                    
+	                    // Crear el objeto Debilidad
+	                    Debilidad debilidad = new Debilidad(nombre, nivel);
+	                    debilidades.add(debilidad);
+	                }
+	            }
+	        } else {
+	            System.out.println("Archivo de debilidades no encontrado en: " + getFilePath("debilidades"));
+	        }
+	    } catch (Exception e) {
+	        System.err.println("Error al cargar debilidades: " + e.getMessage());
+	        e.printStackTrace();
+	    }
+	    return debilidades;
+	}
+	
+	/**
+	 * Loads minions from the XML file
+	 */
+	@Override
+	public List<Esbirro> cargarEsbirros() {
+	    List<Esbirro> esbirros = new ArrayList<>();
+	    try {
+	    	Document doc = getDoc("esbirros");
+	            
+	        // Normalize the document
+	            doc.normalize();
+	
+	            NodeList nodeList = doc.getElementsByTagName("esbirro");
+	            for (int i = 0; i < nodeList.getLength(); i++) {
+	                Node node = nodeList.item(i);
+	                if (node.getNodeType() == Node.ELEMENT_NODE) {
+	                    Element esbirroElement = (Element) node;
+	                    
+	                    String nombre = esbirroElement.getElementsByTagName("nombre").item(0).getTextContent();
+	                    String tipo = esbirroElement.getElementsByTagName("tipo").item(0).getTextContent();
+	                    int nivel = Integer.parseInt(esbirroElement.getElementsByTagName("nivel").item(0).getTextContent());
+	                    
+	                    // Crear el objeto Esbirro
+	                    Esbirro esbirro = new Esbirro(nombre, tipo, nivel);
+	                    esbirros.add(esbirro);
+	                }
+	            }
+	    } catch (Exception e) {
+	        System.err.println("Error al cargar esbirros: " + e.getMessage());
+	        e.printStackTrace();
+	    }
+	    return esbirros;
+	}
+	
+	// methods of each personal type
+	private Document getDoc(String filename) {
+        try {
+            File file = new File(filename);
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(file);
-            
-            // Normalize the document
             doc.normalize();
+            return doc;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
-            NodeList nodeList = doc.getElementsByTagName("fortaleza");
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                Node node = nodeList.item(i);
-                if (node.getNodeType() == Node.ELEMENT_NODE) {
-                    Element fortalezaElement = (Element) node;
-                    
-                    String nombre = fortalezaElement.getElementsByTagName("nombre").item(0).getTextContent();
-                    int nivel = Integer.parseInt(fortalezaElement.getElementsByTagName("nivel").item(0).getTextContent());
-                    
-                    // Crear el objeto Fortaleza
-                    Fortaleza fortaleza = new Fortaleza(nombre, nivel);
-                    fortalezas.add(fortaleza);
+    private void writeDoc(Document doc, String filename) {
+        try {
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(new File(filename));
+            transformer.transform(source, result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String getTextContent(Element parentElement, String tagName) {
+        NodeList nodeList = parentElement.getElementsByTagName(tagName);
+        if (nodeList.getLength() > 0) {
+            return nodeList.item(0).getTextContent();
+        }
+        return "";
+    }
+
+    private void setTextContent(Document doc, Element parentElement, String tagName, String value) {
+        NodeList nodeList = parentElement.getElementsByTagName(tagName);
+        if (nodeList.getLength() > 0) {
+            nodeList.item(0).setTextContent(value);
+        } else {
+            Element newElement = doc.createElement(tagName);
+            newElement.setTextContent(value);
+            parentElement.appendChild(newElement);
+        }
+    }
+
+    private void setTextContent(Document doc, Element parentElement, String tagName, int value) {
+        setTextContent(doc, parentElement, tagName, String.valueOf(value));
+    }
+
+    // Getters
+
+    public List<Talento> getTalentosCazador() {
+        String fileNameTipoPersonajes = "tipo_personajes";
+		Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList cazadorList = doc.getElementsByTagName("Cazador");
+        List<Talento> talentos = new ArrayList<>();
+        if (cazadorList.getLength() > 0) {
+            Element cazadorElement = (Element) cazadorList.item(0);
+            NodeList talentosList = cazadorElement.getElementsByTagName("Talentos");
+            if (talentosList.getLength() > 0) {
+                Element talentosElement = (Element) talentosList.item(0);
+                NodeList talentoNodes = talentosElement.getElementsByTagName("Talento");
+                for (int i = 0; i < talentoNodes.getLength(); i++) {
+                    Element talentoElement = (Element) talentoNodes.item(i);
+                    String nombre = getTextContent(talentoElement, "Nombre");
+                    int ataque = Integer.parseInt(getTextContent(talentoElement, "Ataque"));
+                    int defensa = Integer.parseInt(getTextContent(talentoElement, "Defensa"));
+                    int costoVoluntad = Integer.parseInt(getTextContent(talentoElement, "CostoVoluntad"));
+                    talentos.add(new Talento(nombre, ataque, defensa, costoVoluntad));
                 }
             }
-        } else {
-            System.out.println("Archivo de fortalezas no encontrado en: " + getFilePath("fortalezas"));
         }
-    } catch (Exception e) {
-        System.err.println("Error al cargar fortalezas: " + e.getMessage());
-        e.printStackTrace();
+        return talentos;
     }
-    return fortalezas;
-}
 
-/**
- * Loads weaknesses from the XML file
- */
-@Override
-public List<Debilidad> cargarDebilidades() {
-    List<Debilidad> debilidades = new ArrayList<>();
-    try {
-        File file = new File(getFilePath("debilidades"));
-        if (file.exists()) {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.parse(file);
-            
-            // Normalize the document
-            doc.normalize();
+    public int getVoluntadCazador() {
+        String fileNameTipoPersonajes = "tipo_personajes";
+		Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList cazadorList = doc.getElementsByTagName("Cazador");
+        if (cazadorList.getLength() > 0) {
+            Element cazadorElement = (Element) cazadorList.item(0);
+            NodeList voluntadList = cazadorElement.getElementsByTagName("Voluntad");
+            if (voluntadList.getLength() > 0) {
+                return Integer.parseInt(voluntadList.item(0).getTextContent());
+            }
+        }
+        return 0;
+    }
 
-            NodeList nodeList = doc.getElementsByTagName("debilidad");
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                Node node = nodeList.item(i);
-                if (node.getNodeType() == Node.ELEMENT_NODE) {
-                    Element debilidadElement = (Element) node;
-                    
-                    String nombre = debilidadElement.getElementsByTagName("nombre").item(0).getTextContent();
-                    int nivel = Integer.parseInt(debilidadElement.getElementsByTagName("nivel").item(0).getTextContent());
-                    
-                    // Crear el objeto Debilidad
-                    Debilidad debilidad = new Debilidad(nombre, nivel);
-                    debilidades.add(debilidad);
+    public List<Don> getDonesLicantropo() {
+        String fileNameTipoPersonajes = "tipo_personajes";
+		Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList licantropoList = doc.getElementsByTagName("Licantropo");
+        List<Don> dones = new ArrayList<>();
+        if (licantropoList.getLength() > 0) {
+            Element licantropoElement = (Element) licantropoList.item(0);
+            NodeList donesList = licantropoElement.getElementsByTagName("Dones");
+            if (donesList.getLength() > 0) {
+                Element donesElement = (Element) donesList.item(0);
+                NodeList donNodes = donesElement.getElementsByTagName("Don");
+                for (int i = 0; i < donNodes.getLength(); i++) {
+                    Element donElement = (Element) donNodes.item(i);
+                    String nombre = getTextContent(donElement, "Nombre");
+                    int ataque = Integer.parseInt(getTextContent(donElement, "Ataque"));
+                    int defensa = Integer.parseInt(getTextContent(donElement, "Defensa"));
+                    int rabiaMinima = Integer.parseInt(getTextContent(donElement, "RabiaMinima"));
+                    dones.add(new Don(nombre, ataque, defensa, rabiaMinima));
                 }
             }
-        } else {
-            System.out.println("Archivo de debilidades no encontrado en: " + getFilePath("debilidades"));
         }
-    } catch (Exception e) {
-        System.err.println("Error al cargar debilidades: " + e.getMessage());
-        e.printStackTrace();
+        return dones;
     }
-    return debilidades;
-}
 
-/**
- * Loads minions from the XML file
- */
-@Override
-public List<Esbirro> cargarEsbirros() {
-    List<Esbirro> esbirros = new ArrayList<>();
-    try {
-        File file = new File(getFilePath("esbirros"));
-        if (file.exists()) {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.parse(file);
-            
-            // Normalize the document
-            doc.normalize();
+    public int getRabiaLicantropo() {
+        String fileNameTipoPersonajes = "tipo_personajes";
+		Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList licantropoList = doc.getElementsByTagName("Licantropo");
+        if (licantropoList.getLength() > 0) {
+            Element licantropoElement = (Element) licantropoList.item(0);
+            NodeList rabiaList = licantropoElement.getElementsByTagName("Rabia");
+            if (rabiaList.getLength() > 0) {
+                return Integer.parseInt(rabiaList.item(0).getTextContent());
+            }
+        }
+        return 0;
+    }
 
-            NodeList nodeList = doc.getElementsByTagName("esbirro");
-            for (int i = 0; i < nodeList.getLength(); i++) {
-                Node node = nodeList.item(i);
-                if (node.getNodeType() == Node.ELEMENT_NODE) {
-                    Element esbirroElement = (Element) node;
-                    
-                    String nombre = esbirroElement.getElementsByTagName("nombre").item(0).getTextContent();
-                    String tipo = esbirroElement.getElementsByTagName("tipo").item(0).getTextContent();
-                    int nivel = Integer.parseInt(esbirroElement.getElementsByTagName("nivel").item(0).getTextContent());
-                    
-                    // Crear el objeto Esbirro
-                    Esbirro esbirro = new Esbirro(nombre, tipo, nivel);
-                    esbirros.add(esbirro);
+    public int getPesoLicantropo() {
+        String fileNameTipoPersonajes = "tipo_personajes";
+		Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList licantropoList = doc.getElementsByTagName("Licantropo");
+        if (licantropoList.getLength() > 0) {
+            Element licantropoElement = (Element) licantropoList.item(0);
+            NodeList pesoList = licantropoElement.getElementsByTagName("Peso");
+            if (pesoList.getLength() > 0) {
+                return Integer.parseInt(pesoList.item(0).getTextContent());
+            }
+        }
+        return 0;
+    }
+
+    public List<Disciplina> getDisciplinasVampiro() {
+        String fileNameTipoPersonajes = "tipo_personajes";
+		Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList vampiroList = doc.getElementsByTagName("Vampiro");
+        List<Disciplina> disciplinas = new ArrayList<>();
+        if (vampiroList.getLength() > 0) {
+            Element vampiroElement = (Element) vampiroList.item(0);
+            NodeList disciplinasList = vampiroElement.getElementsByTagName("Disciplinas");
+            if (disciplinasList.getLength() > 0) {
+                Element disciplinasElement = (Element) disciplinasList.item(0);
+                NodeList disciplinaNodes = disciplinasElement.getElementsByTagName("Disciplina");
+                for (int i = 0; i < disciplinaNodes.getLength(); i++) {
+                    Element disciplinaElement = (Element) disciplinaNodes.item(i);
+                    String nombre = getTextContent(disciplinaElement, "Nombre");
+                    int ataque = Integer.parseInt(getTextContent(disciplinaElement, "Ataque"));
+                    int defensa = Integer.parseInt(getTextContent(disciplinaElement, "Defensa"));
+                    int costoSangre = Integer.parseInt(getTextContent(disciplinaElement, "CostoSangre"));
+                    disciplinas.add(new Disciplina(nombre, ataque, defensa, costoSangre));
                 }
             }
-        } else {
-            System.out.println("Archivo de esbirros no encontrado en: " + getFilePath("esbirros"));
         }
-    } catch (Exception e) {
-        System.err.println("Error al cargar esbirros: " + e.getMessage());
-        e.printStackTrace();
+        return disciplinas;
     }
-    return esbirros;
-}
+
+    public int getPuntosdeSangreVampiro() {
+        String fileNameTipoPersonajes = "tipo_personajes";
+		Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList vampiroList = doc.getElementsByTagName("Vampiro");
+        if (vampiroList.getLength() > 0) {
+            Element vampiroElement = (Element) vampiroList.item(0);
+            NodeList puntosSangreList = vampiroElement.getElementsByTagName("PuntosSangre");
+            if (puntosSangreList.getLength() > 0) {
+                return Integer.parseInt(puntosSangreList.item(0).getTextContent());
+            }
+        }
+        return 0;
+    }
+
+    public int getEdadVampiro() {
+        String fileNameTipoPersonajes = "tipo_personajes";
+		Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList vampiroList = doc.getElementsByTagName("Vampiro");
+        if (vampiroList.getLength() > 0) {
+            Element vampiroElement = (Element) vampiroList.item(0);
+            NodeList edadList = vampiroElement.getElementsByTagName("Edad");
+            if (edadList.getLength() > 0) {
+                return Integer.parseInt(edadList.item(0).getTextContent());
+            }
+        }
+        return 0;
+    }
+
+    // Setters
+
+    public void setVoluntadCazador(int voluntad) {
+        String fileNameTipoPersonajes = "tipo_personajes";
+		Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList cazadorList = doc.getElementsByTagName("Cazador");
+        if (cazadorList.getLength() > 0) {
+            Element cazadorElement = (Element) cazadorList.item(0);
+            setTextContent(doc, cazadorElement, "Voluntad", voluntad);
+            writeDoc(doc, fileNameTipoPersonajes);
+        }
+    }
+
+    public void setRabiaLicantropo(int rabia) {
+        String fileNameTipoPersonajes = "tipo_personajes";
+		Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList licantropoList = doc.getElementsByTagName("Licantropo");
+        if (licantropoList.getLength() > 0) {
+            Element licantropoElement = (Element) licantropoList.item(0);
+            setTextContent(doc, licantropoElement, "Rabia", rabia);
+            writeDoc(doc, fileNameTipoPersonajes);
+        }
+    }
+
+    public void setPesoLicantropo(int peso) {
+        String fileNameTipoPersonajes = "tipo_personajes";
+		Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList licantropoList = doc.getElementsByTagName("Licantropo");
+        if (licantropoList.getLength() > 0) {
+            Element licantropoElement = (Element) licantropoList.item(0);
+            setTextContent(doc, licantropoElement, "Peso", peso);
+            writeDoc(doc, fileNameTipoPersonajes);
+        }
+    }
+
+    public void setPuntosdeSangreVampiro(int puntosSangre) {
+        String fileNameTipoPersonajes = "tipo_personajes";
+		Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList vampiroList = doc.getElementsByTagName("Vampiro");
+        if (vampiroList.getLength() > 0) {
+            Element vampiroElement = (Element) vampiroList.item(0);
+            setTextContent(doc, vampiroElement, "PuntosSangre", puntosSangre);
+            writeDoc(doc, fileNameTipoPersonajes);
+        }
+    }
+
+    public void setEdadVampiro(int edad) {
+        String fileNameTipoPersonajes = "tipo_personajes";
+		Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList vampiroList = doc.getElementsByTagName("Vampiro");
+        if (vampiroList.getLength() > 0) {
+            Element vampiroElement = (Element) vampiroList.item(0);
+            setTextContent(doc, vampiroElement, "Edad", edad);
+            writeDoc(doc, fileNameTipoPersonajes);
+        }
+    }
+
+    // Setters for Lists (more complex - consider how you want to update the list)
+
+    public void setTalentosCazador(List<Talento> talentos) {
+        String fileNameTipoPersonajes = "tipo_personajes";
+        Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList cazadorList = doc.getElementsByTagName("Cazador");
+        if (cazadorList.getLength() > 0) {
+            Element cazadorElement = (Element) cazadorList.item(0);
+            NodeList talentosList = cazadorElement.getElementsByTagName("Talentos");
+            Element talentosElement = null;
+
+            if (talentosList.getLength() > 0) {
+                talentosElement = (Element) talentosList.item(0);
+                // Remove existing talentos
+                NodeList talentNodes = talentosElement.getElementsByTagName("Talento");
+                for (int i = talentNodes.getLength() - 1; i >= 0; i--) {
+                    talentosElement.removeChild(talentNodes.item(i));
+                }
+            } else {
+                talentosElement = doc.createElement("Talentos");
+                cazadorElement.appendChild(talentosElement);
+            }
+
+            // Add new talentos
+            for (Talento talento : talentos) {
+                Element talentoElement = doc.createElement("Talento");
+                setTextContent(doc, talentoElement, "Nombre", talento.getNombre());
+                setTextContent(doc, talentoElement, "Ataque", talento.getAtaque());
+                setTextContent(doc, talentoElement, "Defensa", talento.getDefensa());
+                setTextContent(doc, talentoElement, "CostoVoluntad", talento.getCostoVoluntad());
+                talentosElement.appendChild(talentoElement);
+            }
+            writeDoc(doc, fileNameTipoPersonajes);
+        }
+    }
+
+    public void setDonesLicantropo(List<Don> dones) {
+        String fileNameTipoPersonajes = "tipo_personajes";
+        Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList licantropoList = doc.getElementsByTagName("Licantropo");
+        if (licantropoList.getLength() > 0) {
+            Element licantropoElement = (Element) licantropoList.item(0);
+            NodeList donesList = licantropoElement.getElementsByTagName("Dones");
+            Element donesElement = null;
+
+            if (donesList.getLength() > 0) {
+                donesElement = (Element) donesList.item(0);
+                // Remove existing dones
+                NodeList donNodes = donesElement.getElementsByTagName("Don");
+                for (int i = donNodes.getLength() - 1; i >= 0; i--) {
+                    donesElement.removeChild(donNodes.item(i));
+                }
+            } else {
+                donesElement = doc.createElement("Dones");
+                licantropoElement.appendChild(donesElement);
+            }
+
+            // Add new dones
+            for (Don don : dones) {
+                Element donElement = doc.createElement("Don");
+                setTextContent(doc, donElement, "Nombre", don.getNombre());
+                setTextContent(doc, donElement, "Ataque", don.getAtaque());
+                setTextContent(doc, donElement, "Defensa", don.getDefensa());
+                setTextContent(doc, donElement, "RabiaMinima", don.getRabiaMinima());
+                donesElement.appendChild(donElement);
+            }
+            writeDoc(doc, fileNameTipoPersonajes);
+        }
+    }
+
+    public void setDisciplinasVampiro(List<Disciplina> disciplinas) {
+        String fileNameTipoPersonajes = "tipo_personajes";
+        Document doc = getDoc(fileNameTipoPersonajes);
+        NodeList vampiroList = doc.getElementsByTagName("Vampiro");
+        if (vampiroList.getLength() > 0) {
+            Element vampiroElement = (Element) vampiroList.item(0);
+            NodeList disciplinasList = vampiroElement.getElementsByTagName("Disciplinas");
+            Element disciplinasElement = null;
+
+            if (disciplinasList.getLength() > 0) {
+                disciplinasElement = (Element) disciplinasList.item(0);
+                // Remove existing disciplinas
+                NodeList disciplinaNodes = disciplinasElement.getElementsByTagName("Disciplina");
+                for (int i = disciplinaNodes.getLength() - 1; i >= 0; i--) {
+                    disciplinasElement.removeChild(disciplinaNodes.item(i));
+                }
+            } else {
+                disciplinasElement = doc.createElement("Disciplinas");
+                vampiroElement.appendChild(disciplinasElement);
+            }
+
+            // Add new disciplinas
+            for (Disciplina disciplina : disciplinas) {
+                Element disciplinaElement = doc.createElement("Disciplina");
+                setTextContent(doc, disciplinaElement, "Nombre", disciplina.getNombre());
+                setTextContent(doc, disciplinaElement, "Ataque", disciplina.getAtaque());
+                setTextContent(doc, disciplinaElement, "Defensa", disciplina.getDefensa());
+                setTextContent(doc, disciplinaElement, "CostoSangre", disciplina.obtenerCostoSangre());
+                disciplinasElement.appendChild(disciplinaElement);
+            }
+            writeDoc(doc, fileNameTipoPersonajes);
+        }
+    }
 }

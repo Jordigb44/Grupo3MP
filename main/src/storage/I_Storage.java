@@ -9,7 +9,10 @@ import model.personaje.Personaje;
 import model.personaje.habilidad.Arma;
 import model.personaje.habilidad.Armadura;
 import model.personaje.habilidad.Debilidad;
+import model.personaje.habilidad.Disciplina;
+import model.personaje.habilidad.Don;
 import model.personaje.habilidad.Fortaleza;
+import model.personaje.habilidad.Talento;
 import model.usuario.Usuario;
 
 /**
@@ -141,4 +144,20 @@ public interface I_Storage {
      * @return Desafío cargado.
      */
     Desafio cargarDesafio(UUID desafioId);
+
+	List<Talento> getTalentosCazador();
+
+	int getVoluntadCazador();
+
+	List<Don> getDonesLicantropo();
+
+	int getRabiaLicantropo();
+
+	int getPesoLicantropo();
+
+	List<Disciplina> getDisciplinasVampiro();
+
+	int getPuntosdeSangreVampiro();
+
+	int getEdadVampiro();
 }
