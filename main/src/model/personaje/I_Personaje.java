@@ -22,7 +22,7 @@ public interface I_Personaje {
 
     // Combate
     void atacar(Personaje objetivo);
-    void recibirDano(Integer cantidad);
+    void recibirDano(int cantidad);
 
     // Esbirros
     void agregarEsbirro(Esbirro esbirro);

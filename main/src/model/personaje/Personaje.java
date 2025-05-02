@@ -78,7 +78,7 @@ import model.personaje.habilidad.Fortaleza;
 	        return armaduras;
 	    }
 
-	    // Combate
+	    // Combate (REVISAR )
 	    public void atacar(Personaje objetivo) {
 	    	if (armaActiva != null && !armaActiva.isEmpty()) {
 	            for (Arma arma : armaActiva) {
@@ -116,6 +116,7 @@ import model.personaje.habilidad.Fortaleza;
 	            }
 	        }
 	    }
+	    
 	    // Esbirros
 	    public void agregarEsbirro(Esbirro esbirro) {
 	        this.esbirros.add(esbirro);
@@ -147,9 +148,11 @@ import model.personaje.habilidad.Fortaleza;
 		public UUID getUUID() {
 			return this.uuid;
 		}
+		
 		public void setUUID(UUID uuid) {
 			this.uuid = uuid;
 		}
+		
 	    public String getNombre() {
 	        return nombre;
 	    }
@@ -158,27 +161,25 @@ import model.personaje.habilidad.Fortaleza;
 	        return salud;
 	    }
 
-		@Override
-		public void recibirDano(Integer cantidad) {
-			// TODO Auto-generated method stub
-			
-		}
-
 		public char[] getId() {
 			if (this.uuid == null) {
 				return null;
 			}
 			return this.uuid.toString().toCharArray();
 		}
+		
 		public List<Arma> getArmaActiva() { 
 			return this.armaActiva;
 		}
+		
 		public Armadura getArmaduraActiva() {
 			return this.getArmaduraActiva();
 		}
+		
 		public List<Fortaleza> getFortalezas() {
 			return this.fortalezas;
 		}
+		
 		public List<Debilidad> getDebilidades() {
 			return this.debilidades;
 		}
