@@ -38,79 +38,250 @@ public class FileManager {
 
     // Save and load methods for different types of data, delegating the work to the storage adapter
 
+    /**
+     * Guarda un usuario en el almacenamiento.
+     *
+     * @param usuario el usuario a guardar
+     * @return un mensaje indicando el resultado de la operación
+     */
     public String guardarUsuario(Usuario usuario) {
         return this.storage.guardarUsuario(usuario);
     }
-    
+
+    /**
+     * Da de baja (elimina o desactiva) a un usuario identificado por su nick.
+     *
+     * @param nick el nombre de usuario
+     * @return un mensaje indicando el resultado de la operación
+     */
     public String darDeBajaUsuario(String nick) {
         return this.storage.darDeBajaUsuario(nick);
     }
 
+    /**
+     * Carga todos los usuarios desde el almacenamiento.
+     *
+     * @return una lista de objetos Usuario
+     */
     public List<Usuario> cargarUsuarios() {
         return this.storage.cargarUsuarios();
     }
-    
-    public void actualizarJugador(Jugador jugador) {
-		// TODO Auto-generated method stub
-		
-	}
 
+    /**
+     * Actualiza la información de un jugador existente.
+     *
+     * @param jugador el jugador a actualizar
+     * @return un mensaje indicando el resultado de la operación
+     */
+    public String actualizarJugador(Jugador jugador) {
+        return this.storage.guardarUsuario(jugador);
+    }
+
+    /**
+     * Guarda una lista de personajes en el almacenamiento.
+     *
+     * @param personajes la lista de personajes a guardar
+     * @return un mensaje indicando el resultado de la operación
+     */
     public String guardarPersonajes(List<Personaje> personajes) {
         return this.storage.guardarPersonajes(personajes);
     }
-    
+
+    /**
+     * Carga los personajes asociados a un usuario específico.
+     *
+     * @param nick el nombre del usuario
+     * @return una lista de personajes pertenecientes al usuario
+     */
     public List<Personaje> cargarPersonajesUsuario(String nick) {
         return this.storage.cargarPersonajesUsuario(nick);
     }
 
+    /**
+     * Carga todos los personajes desde el almacenamiento.
+     *
+     * @return una lista de todos los personajes
+     */
     public List<Personaje> cargarPersonajes() {
         return this.storage.cargarPersonajes();
     }
 
+    /**
+     * Guarda un combate en el almacenamiento.
+     *
+     * @param combate el combate a guardar
+     * @return un mensaje indicando el resultado de la operación
+     */
     public String guardarCombate(Combate combate) {
         return this.storage.guardarCombate(combate);
     }
 
+    /**
+     * Carga todos los combates almacenados.
+     *
+     * @return una lista de objetos Combate
+     */
     public List<model.desafio.Combate> cargarCombates() {
         return this.storage.cargarCombates();
     }
 
+    /**
+     * Guarda un desafío en el almacenamiento.
+     *
+     * @param desafio el desafío a guardar
+     * @return un mensaje indicando el resultado de la operación
+     */
     public String guardarDesafio(Desafio desafio) {
         return this.storage.guardarDesafio(desafio);
     }
 
+    /**
+     * Carga todos los desafíos desde el almacenamiento.
+     *
+     * @return una lista de objetos Desafio
+     */
     public List<Desafio> cargarDesafios() {
         return this.storage.cargarDesafios();
     }
 
+    /**
+     * Carga todas las armas disponibles desde el almacenamiento.
+     *
+     * @return una lista de objetos Arma
+     */
     public List<Arma> cargarArmas() {
         return this.storage.cargarArmas();
     }
 
+    /**
+     * Carga todas las armaduras disponibles desde el almacenamiento.
+     *
+     * @return una lista de objetos Armadura
+     */
     public List<Armadura> cargarArmaduras() {
         return this.storage.cargarArmaduras();
     }
 
+    /**
+     * Obtiene las notificaciones asociadas a un usuario.
+     *
+     * @param usuario el usuario del cual se obtienen las notificaciones
+     * @return una lista de mensajes de notificación
+     */
     public List<String> getNotificacion(Usuario usuario) {
         return this.storage.getNotificacion(usuario);
     }
 
+    /**
+     * Establece (agrega) una notificación para un usuario.
+     *
+     * @param nick el nombre del usuario
+     * @param mensaje el mensaje de notificación a agregar
+     */
     public void setNotificacion(String nick, String mensaje) {
         this.storage.setNotificacion(nick, mensaje);
     }
 
+    /**
+     * Elimina todas las notificaciones de un usuario.
+     *
+     * @param usuario el usuario del cual se eliminarán las notificaciones
+     */
     public void deleteNotificacion(Usuario usuario) {
         this.storage.deleteNotificacion(usuario);
     }
 
-	public void actualizarDesafio(Desafio desafio) {
-		// TODO Auto-generated method stub
-		
-	}
+    /**
+     * Actualiza un desafío existente en el almacenamiento.
+     *
+     * @param desafio el desafío a actualizar
+     * @return un mensaje indicando el resultado de la operación
+     */
+    public String actualizarDesafio(Desafio desafio) {
+        return this.storage.guardarDesafio(desafio);
+    }
 
-	public Desafio cargarDesafio(UUID desafioId) {
-		return this.storage.cargarDesafio(desafioId);
-	}
+    /**
+     * Carga un desafío específico usando su UUID.
+     *
+     * @param desafioId el identificador único del desafío
+     * @return el objeto Desafio correspondiente
+     */
+    public Desafio cargarDesafio(UUID desafioId) {
+        return this.storage.cargarDesafio(desafioId);
+    }
+	
+	/**
+	    * Obtiene la lista de talentos del personaje tipo Cazador desde el almacenamiento.
+	    * 
+	    * @return una lista de objetos Talento del Cazador.
+	    */
+	   public List<Talento> getTalentosCazador() {
+	       return this.storage.getTalentosCazador();
+	   }
+
+	   /**
+	    * Obtiene el valor de voluntad del personaje tipo Cazador desde el almacenamiento.
+	    * 
+	    * @return un valor entero que representa la voluntad del Cazador.
+	    */
+	   public int getVoluntadCazador() {
+	       return this.storage.getVoluntadCazador();
+	   }
+
+	   /**
+	    * Obtiene la lista de dones del personaje tipo Licántropo desde el almacenamiento.
+	    * 
+	    * @return una lista de objetos Don del Licántropo.
+	    */
+	   public List<Don> getDonesLicantropo() {
+	       return this.storage.getDonesLicantropo();
+	   }
+
+	   /**
+	    * Obtiene el valor de rabia del personaje tipo Licántropo desde el almacenamiento.
+	    * 
+	    * @return un valor entero que representa la rabia del Licántropo.
+	    */
+	   public int getRabiaLicantropo() {
+	       return this.storage.getRabiaLicantropo();
+	   }
+
+	   /**
+	    * Obtiene el peso del personaje tipo Licántropo desde el almacenamiento.
+	    * 
+	    * @return un valor entero que representa el peso del Licántropo.
+	    */
+	   public int getPesoLicantropo() {
+	       return this.storage.getPesoLicantropo();
+	   }
+
+	   /**
+	    * Obtiene la lista de disciplinas del personaje tipo Vampiro desde el almacenamiento.
+	    * 
+	    * @return una lista de objetos Disciplina del Vampiro.
+	    */
+	   public List<Disciplina> getDisciplinasVampiro() {
+	       return this.storage.getDisciplinasVampiro();
+	   }
+
+	   /**
+	    * Obtiene la cantidad de puntos de sangre del personaje tipo Vampiro desde el almacenamiento.
+	    * 
+	    * @return un valor entero que representa los puntos de sangre del Vampiro.
+	    */
+	   public int getPuntosdeSangreVampiro() {
+	       return this.storage.getPuntosdeSangreVampiro();
+	   }
+
+	   /**
+	    * Obtiene la edad del personaje tipo Vampiro desde el almacenamiento.
+	    * 
+	    * @return un valor entero que representa la edad del Vampiro.
+	    */
+	   public int getEdadVampiro() {
+	       return this.storage.getEdadVampiro();
+	   }
 
     //==================================================
     // OPERATOR METHODS
@@ -264,37 +435,4 @@ public class FileManager {
         return this.storage.cargarEsbirros();
     }
     
-    
-    // methods of each personal ru
-	public List<Talento> getTalentosCazador() {
-		return this.storage.getTalentosCazador();
-	}
-
-	public int getVoluntadCazador() {
-		return this.storage.getVoluntadCazador();
-	}
-
-	public List<Don> getDonesLicantropo() {
-		return this.storage.getDonesLicantropo();
-	}
-
-	public int getRabiaLicantropo() {
-		return this.storage.getRabiaLicantropo();
-	}
-
-	public int getPesoLicantropo() {
-		return this.storage.getPesoLicantropo();
-	}
-
-	public List<Disciplina> getDisciplinasVampiro() {
-		return this.storage.getDisciplinasVampiro();
-	}
-
-	public int getPuntosdeSangreVampiro() {
-		return this.storage.getPuntosdeSangreVampiro();
-	}
-
-	public int getEdadVampiro() {
-		return this.storage.getEdadVampiro();
-	}
 }
