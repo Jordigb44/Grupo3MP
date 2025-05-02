@@ -1,13 +1,14 @@
 package model.personaje;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import model.personaje.habilidad.Arma;
 import model.personaje.habilidad.Armadura;
 import model.personaje.habilidad.Debilidad;
 import model.personaje.habilidad.Fortaleza;
 
 	public class Personaje implements I_Personaje{
+		private UUID uuid; // Añadir esta declaración a la clase
 	    private String nombre;
 	    private int salud;
 	    private int oro;
@@ -19,30 +20,33 @@ import model.personaje.habilidad.Fortaleza;
 	    private List<Esbirro> esbirros;
 	    private List<Fortaleza> fortalezas;
 	    private List<Debilidad> debilidades;
+		
 
-	    public Personaje(String nombre, List<Arma> armaActiva, Armadura armaduraActiva, List<Arma> armas, List<Armadura> armaduras, List<Esbirro> esbirros, List<Fortaleza> fortalezas, List<Debilidad> debilidades) {
-	        this.nombre = nombre;
-	        this.salud = 100;
-	        this.oro = 0;
-	        this.armas = armas;
-	        this.armaduras = armaduras;
-	        this.esbirros = esbirros;
-	        this.fortalezas = fortalezas;
-	        this.debilidades = debilidades;
-	    }
-	    
-	    public Personaje(Personaje personaje) {
-	        this.nombre = personaje.getNombre();
-	        this.salud = personaje.getSalud();
-	        this.oro = personaje.getOro();
-	        this.armaActiva = personaje.getArmaActiva();
-	        this.armaduraActiva = personaje.getArmaduraActiva();
-	        this.armas = personaje.getArmas();
-	        this.armaduras = personaje.getArmaduras();
-	        this.esbirros = personaje.getEsbirros();
-	        this.fortalezas = personaje.getFortalezas();
-	        this.debilidades = personaje.getDebilidades();
-	    }
+		public Personaje(String nombre, List<Arma> armaActiva, Armadura armaduraActiva, List<Arma> armas, List<Armadura> armaduras, List<Esbirro> esbirros, List<Fortaleza> fortalezas, List<Debilidad> debilidades) {
+			this.uuid = UUID.randomUUID(); // Generar un nuevo UUID
+			this.nombre = nombre;
+			this.salud = 100;
+			this.oro = 0;
+			this.armas = armas;
+			this.armaduras = armaduras;
+			this.esbirros = esbirros;
+			this.fortalezas = fortalezas;
+			this.debilidades = debilidades;
+		}
+		
+		public Personaje(Personaje personaje) {
+			this.uuid = personaje.getUUID(); // Obtener el UUID del personaje original
+			this.nombre = personaje.getNombre();
+			this.salud = personaje.getSalud();
+			this.oro = personaje.getOro();
+			this.armaActiva = personaje.getArmaActiva();
+			this.armaduraActiva = personaje.getArmaduraActiva();
+			this.armas = personaje.getArmas();
+			this.armaduras = personaje.getArmaduras();
+			this.esbirros = personaje.getEsbirros();
+			this.fortalezas = personaje.getFortalezas();
+			this.debilidades = personaje.getDebilidades();
+		}
 
 	    // Métodos de Armas
 	    public void equiparArma(List<Arma> arma) {
@@ -140,6 +144,12 @@ import model.personaje.habilidad.Fortaleza;
 	    }
 
 	    // Getters adicionales si quieres
+		public UUID getUUID() {
+			return this.uuid;
+		}
+		public void setUUID(UUID uuid) {
+			this.uuid = uuid;
+		}
 	    public String getNombre() {
 	        return nombre;
 	    }
@@ -155,10 +165,11 @@ import model.personaje.habilidad.Fortaleza;
 		}
 
 		public char[] getId() {
-			// TODO Auto-generated method stub
-			return null;
+			if (this.uuid == null) {
+				return null;
+			}
+			return this.uuid.toString().toCharArray();
 		}
-
 		public List<Arma> getArmaActiva() { 
 			return this.armaActiva;
 		}

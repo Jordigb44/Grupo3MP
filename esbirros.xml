@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<esbirros>
+    <esbirro>
+        <nombre>Ghoul Sirviente</nombre>
+        <tipo>Cazador</tipo>
+        <nivel>2</nivel>
+    </esbirro>
+    <esbirro>
+        <nombre>Lobo Guardián</nombre>
+        <tipo>Licántropo</tipo>
+        <nivel>1</nivel>
+    </esbirro>
+    <esbirro>
+        <nombre>Demonio Menor</nombre>
+        <tipo>Vampiro</tipo>
+        <nivel>3</nivel>
+    </esbirro>
+    <esbirro>
+        <nombre>Licántropo Bailarín</nombre>
+        <tipo>Licántropo</tipo>
+        <nivel>4</nivel>
+    </esbirro>
+    <esbirro>
+        <nombre>Vampiro Hipster</nombre>
+        <tipo>Vampiro</tipo>
+        <nivel>3</nivel>
+    </esbirro>
+    <esbirro>
+        <nombre>Cazador de Ofertas</nombre>
+        <tipo>Cazador</tipo>
+        <nivel>2</nivel>
+    </esbirro>
+    <esbirro>
+        <nombre>Licántropo Chef</nombre>
+        <tipo>Licántropo</tipo>
+        <nivel>5</nivel>
+    </esbirro>
+    <esbirro>
+        <nombre>Vampiro Gamer</nombre>
+        <tipo>Vampiro</tipo>
+        <nivel>4</nivel>
+    </esbirro>
+    <esbirro>
+        <nombre>Cazador de Mitos</nombre>
+        <tipo>Cazador</tipo>
+        <nivel>3</nivel>
+    </esbirro>
+</esbirros>

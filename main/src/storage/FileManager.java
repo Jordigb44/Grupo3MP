@@ -3,8 +3,6 @@ package storage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
-import model.Ranking;
 import model.desafio.Combate;
 import model.desafio.Desafio;
 import model.desafio.E_EstadoDesafio;
@@ -31,11 +29,11 @@ public class FileManager {
     // Constructor that accepts a storage adapter and initializes attributes
     public FileManager(I_Storage storage) {
     	if (this.storage == null || this.storage != storage) {
-    		this.storage =  storage;
+    		this.storage = storage;
     	}
     }
 
-    // TODO: Save and load methods for different types of data, delegating the work to the storage adapter
+    // Save and load methods for different types of data, delegating the work to the storage adapter
 
     public String guardarUsuario(Usuario usuario) {
         return storage.guardarUsuario(usuario);
@@ -108,8 +106,7 @@ public class FileManager {
 	}
 
 	public Desafio cargarDesafio(UUID desafioId) {
-		// TODO Auto-generated method stub
-		return null;
+		return storage.cargarDesafio(desafioId);
 	}
 
     //==================================================
@@ -209,23 +206,23 @@ public class FileManager {
         List<Jugador> jugadoresActivos = new ArrayList<>();
         
         for (Usuario usuario : usuarios) {
-            if ("activo".equals(usuario.getEstado())) {
-                if (usuario instanceof Jugador) {
-                    jugadoresActivos.add((Jugador) usuario);
-                }
+            if ("activo".equals(usuario.getEstado()) && "jugador".equals(usuario.getRol())) {
+                // Crear un nuevo Jugador a partir del Usuario
+                List<Personaje> personajes = cargarPersonajesUsuario(usuario.getNick());
+                Jugador jugador = new Jugador(usuario, personajes, null, usuarios);
+                jugadoresActivos.add(jugador);
             }
         }
         
         return jugadoresActivos;
     }
-    
     /**
      * Loads all available weapons.
      * 
      * @return List of available weapons
      */
     public List<Arma> cargarArmasDisponibles() {
-        return cargarArmas();
+        return storage.cargarArmas();
     }
     
     /**
@@ -234,7 +231,7 @@ public class FileManager {
      * @return List of available armors
      */
     public List<Armadura> cargarArmadurasDisponibles() {
-        return cargarArmaduras();
+        return storage.cargarArmaduras();
     }
     
     /**
@@ -243,8 +240,7 @@ public class FileManager {
      * @return List of available strengths
      */
     public List<Fortaleza> cargarFortalezasDisponibles() {
-        // Basic implementation, in a real system this would load from storage
-        return new ArrayList<>();
+        return storage.cargarFortalezas();
     }
     
     /**
@@ -253,8 +249,7 @@ public class FileManager {
      * @return List of available weaknesses
      */
     public List<Debilidad> cargarDebilidadesDisponibles() {
-        // Basic implementation, in a real system this would load from storage
-        return new ArrayList<>();
+        return storage.cargarDebilidades();
     }
     
     /**
@@ -263,8 +258,6 @@ public class FileManager {
      * @return List of available minions
      */
     public List<Esbirro> cargarEsbirrosDisponibles() {
-        // Basic implementation, in a real system this would load from storage
-        return new ArrayList<>();
+        return storage.cargarEsbirros();
     }
-
 }

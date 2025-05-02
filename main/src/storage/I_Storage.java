@@ -2,15 +2,15 @@ package storage;
 
 import java.util.List;
 import java.util.UUID;
-
-import model.Ranking;
 import model.desafio.Combate;
 import model.desafio.Desafio;
+import model.personaje.Esbirro;
 import model.personaje.Personaje;
 import model.personaje.habilidad.Arma;
 import model.personaje.habilidad.Armadura;
+import model.personaje.habilidad.Debilidad;
+import model.personaje.habilidad.Fortaleza;
 import model.usuario.Usuario;
-import notifications.I_Notification;
 
 /**
  * Interfaz para la gestión del almacenamiento de datos.
@@ -85,15 +85,60 @@ public interface I_Storage {
      */
     List<Desafio> cargarDesafios();
 
+    /**
+     * Carga todas las armas almacenadas.
+     * @return Lista de armas.
+     */
     List<Arma> cargarArmas();
 
+    /**
+     * Carga todas las armaduras almacenadas.
+     * @return Lista de armaduras.
+     */
     List<Armadura> cargarArmaduras();
 
+    /**
+     * Carga todas las fortalezas almacenadas.
+     * @return Lista de fortalezas.
+     */
+    List<Fortaleza> cargarFortalezas();
+
+    /**
+     * Carga todas las debilidades almacenadas.
+     * @return Lista de debilidades.
+     */
+    List<Debilidad> cargarDebilidades();
+
+    /**
+     * Carga todos los esbirros almacenados.
+     * @return Lista de esbirros.
+     */
+    List<Esbirro> cargarEsbirros();
+
+    /**
+     * Obtiene las notificaciones de un usuario.
+     * @param usuario Usuario para el que se obtienen las notificaciones.
+     * @return Lista de notificaciones.
+     */
     List<String> getNotificacion(Usuario usuario);
 
+    /**
+     * Establece una notificación para un usuario.
+     * @param nick Nick del usuario.
+     * @param mensaje Mensaje de la notificación.
+     */
     void setNotificacion(String nick, String mensaje);
 
+    /**
+     * Elimina las notificaciones de un usuario.
+     * @param usuario Usuario para el que se eliminan las notificaciones.
+     */
     void deleteNotificacion(Usuario usuario);
 
-	Desafio cargarDesafio(UUID desafioId);
+    /**
+     * Carga un desafío específico.
+     * @param desafioId ID del desafío a cargar.
+     * @return Desafío cargado.
+     */
+    Desafio cargarDesafio(UUID desafioId);
 }

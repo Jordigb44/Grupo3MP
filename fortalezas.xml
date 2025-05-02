@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fortalezas>
+    <fortaleza>
+        <nombre>Resistencia al Fuego</nombre>
+        <nivel>2</nivel>
+    </fortaleza>
+    <fortaleza>
+        <nombre>Velocidad Sobrenatural</nombre>
+        <nivel>3</nivel>
+    </fortaleza>
+    <fortaleza>
+        <nombre>Fuerza Incrementada</nombre>
+        <nivel>2</nivel>
+    </fortaleza>
+    <fortaleza>
+        <nombre>Teletransporte</nombre>
+        <nivel>3</nivel>
+    </fortaleza>
+    <fortaleza>
+        <nombre>Invisibilidad</nombre>
+        <nivel>2</nivel>
+    </fortaleza>
+    <fortaleza>
+        <nombre>Reflejo Masivo</nombre>
+        <nivel>1</nivel>
+    </fortaleza>
+    <!-- Más fortalezas -->
+</fortalezas>

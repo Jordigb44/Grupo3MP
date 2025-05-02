@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<personajes>
+  <personaje>
+    <id>46fce7a4-19f1-4b90-81b5-a7a2af6e5e29</id>
+    <nombre>Alucard</nombre>
+  </personaje>
+  <personaje>
+    <id>3f09f657-2121-4a8f-b847-2f07f26d4b23</id>
+    <nombre>Fenrir</nombre>
+  </personaje>
+  <personaje>
+    <id>6a7f0cad-6bed-44ae-87ac-3802b16f22b0</id>
+    <nombre>Van Helsing</nombre>
+  </personaje>
+  <personaje>
+    <id>7b558fcc-6d91-45f1-ad0c-a4457b86f7f9</id>
+    <nombre>Drácula</nombre>
+  </personaje>
+  <personaje>
+    <id>c9d0a0aa-cfe3-4a59-89cd-b51ae137e625</id>
+    <nombre>Eva Cazadora</nombre>
+  </personaje>
+  <personaje>
+    <id>d26d2c13-1f8b-4dce-ae51-2f6571a842be</id>
+    <nombre>Luna Plateada</nombre>
+  </personaje>
+  <personaje>
+    <id>a76ac5be-85db-43cd-8413-a2130719ba46</id>
+    <nombre>Luna Plateada</nombre>
+  </personaje>
+</personajes>
