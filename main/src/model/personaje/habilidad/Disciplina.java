@@ -35,4 +35,8 @@ public class Disciplina {
 	public int getDefensa() {
 		return this.defensa;
 	}
+
+	public String getNombre() {
+		return this.nombre;
+	}
 }

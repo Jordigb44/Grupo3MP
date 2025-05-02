@@ -11,7 +11,10 @@ import model.personaje.Personaje;
 import model.personaje.habilidad.Arma;
 import model.personaje.habilidad.Armadura;
 import model.personaje.habilidad.Debilidad;
+import model.personaje.habilidad.Disciplina;
+import model.personaje.habilidad.Don;
 import model.personaje.habilidad.Fortaleza;
+import model.personaje.habilidad.Talento;
 import model.usuario.Jugador;
 import model.usuario.Usuario;
 import notifications.I_Notification;
@@ -36,15 +39,15 @@ public class FileManager {
     // Save and load methods for different types of data, delegating the work to the storage adapter
 
     public String guardarUsuario(Usuario usuario) {
-        return storage.guardarUsuario(usuario);
+        return this.storage.guardarUsuario(usuario);
     }
     
     public String darDeBajaUsuario(String nick) {
-        return storage.darDeBajaUsuario(nick);
+        return this.storage.darDeBajaUsuario(nick);
     }
 
     public List<Usuario> cargarUsuarios() {
-        return storage.cargarUsuarios();
+        return this.storage.cargarUsuarios();
     }
     
     public void actualizarJugador(Jugador jugador) {
@@ -53,51 +56,51 @@ public class FileManager {
 	}
 
     public String guardarPersonajes(List<Personaje> personajes) {
-        return storage.guardarPersonajes(personajes);
+        return this.storage.guardarPersonajes(personajes);
     }
     
     public List<Personaje> cargarPersonajesUsuario(String nick) {
-        return storage.cargarPersonajesUsuario(nick);
+        return this.storage.cargarPersonajesUsuario(nick);
     }
 
     public List<Personaje> cargarPersonajes() {
-        return storage.cargarPersonajes();
+        return this.storage.cargarPersonajes();
     }
 
     public String guardarCombate(Combate combate) {
-        return storage.guardarCombate(combate);
+        return this.storage.guardarCombate(combate);
     }
 
     public List<model.desafio.Combate> cargarCombates() {
-        return storage.cargarCombates();
+        return this.storage.cargarCombates();
     }
 
     public String guardarDesafio(Desafio desafio) {
-        return storage.guardarDesafio(desafio);
+        return this.storage.guardarDesafio(desafio);
     }
 
     public List<Desafio> cargarDesafios() {
-        return storage.cargarDesafios();
+        return this.storage.cargarDesafios();
     }
 
     public List<Arma> cargarArmas() {
-        return storage.cargarArmas();
+        return this.storage.cargarArmas();
     }
 
     public List<Armadura> cargarArmaduras() {
-        return storage.cargarArmaduras();
+        return this.storage.cargarArmaduras();
     }
 
     public List<String> getNotificacion(Usuario usuario) {
-        return storage.getNotificacion(usuario);
+        return this.storage.getNotificacion(usuario);
     }
 
     public void setNotificacion(String nick, String mensaje) {
-        storage.setNotificacion(nick, mensaje);
+        this.storage.setNotificacion(nick, mensaje);
     }
 
     public void deleteNotificacion(Usuario usuario) {
-        storage.deleteNotificacion(usuario);
+        this.storage.deleteNotificacion(usuario);
     }
 
 	public void actualizarDesafio(Desafio desafio) {
@@ -106,7 +109,7 @@ public class FileManager {
 	}
 
 	public Desafio cargarDesafio(UUID desafioId) {
-		return storage.cargarDesafio(desafioId);
+		return this.storage.cargarDesafio(desafioId);
 	}
 
     //==================================================
@@ -222,7 +225,7 @@ public class FileManager {
      * @return List of available weapons
      */
     public List<Arma> cargarArmasDisponibles() {
-        return storage.cargarArmas();
+        return this.storage.cargarArmas();
     }
     
     /**
@@ -231,7 +234,7 @@ public class FileManager {
      * @return List of available armors
      */
     public List<Armadura> cargarArmadurasDisponibles() {
-        return storage.cargarArmaduras();
+        return this.storage.cargarArmaduras();
     }
     
     /**
@@ -240,7 +243,7 @@ public class FileManager {
      * @return List of available strengths
      */
     public List<Fortaleza> cargarFortalezasDisponibles() {
-        return storage.cargarFortalezas();
+        return this.storage.cargarFortalezas();
     }
     
     /**
@@ -249,7 +252,7 @@ public class FileManager {
      * @return List of available weaknesses
      */
     public List<Debilidad> cargarDebilidadesDisponibles() {
-        return storage.cargarDebilidades();
+        return this.storage.cargarDebilidades();
     }
     
     /**
@@ -258,6 +261,40 @@ public class FileManager {
      * @return List of available minions
      */
     public List<Esbirro> cargarEsbirrosDisponibles() {
-        return storage.cargarEsbirros();
+        return this.storage.cargarEsbirros();
     }
+    
+    
+    // methods of each personal ru
+	public List<Talento> getTalentosCazador() {
+		return this.storage.getTalentosCazador();
+	}
+
+	public int getVoluntadCazador() {
+		return this.storage.getVoluntadCazador();
+	}
+
+	public List<Don> getDonesLicantropo() {
+		return this.storage.getDonesLicantropo();
+	}
+
+	public int getRabiaLicantropo() {
+		return this.storage.getRabiaLicantropo();
+	}
+
+	public int getPesoLicantropo() {
+		return this.storage.getPesoLicantropo();
+	}
+
+	public List<Disciplina> getDisciplinasVampiro() {
+		return this.storage.getDisciplinasVampiro();
+	}
+
+	public int getPuntosdeSangreVampiro() {
+		return this.storage.getPuntosdeSangreVampiro();
+	}
+
+	public int getEdadVampiro() {
+		return this.storage.getEdadVampiro();
+	}
 }

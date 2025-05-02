@@ -33,4 +33,8 @@ public class Talento {
 		// TODO Auto-generated method stub
 		return defensa;
 	}
+
+	public String getNombre() {
+		return this.nombre;
+	}
 }

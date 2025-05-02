@@ -15,9 +15,13 @@ public class Don {
         this.defensa = defensa;
         this.rabiaMinima = rabiaMinima;
     }
+    
+    public String getNombre() {
+    	return this.nombre;
+    }
 
     public int getRabiaMinima() {
-        return rabiaMinima;
+        return this.rabiaMinima;
     }
 
     public void aplicarEfecto(Licantropo usuario, Personaje objetivo) {
@@ -25,12 +29,10 @@ public class Don {
     }
 
 	public int getAtaque() {
-		// TODO Auto-generated method stub
-		return ataque;
+		return this.ataque;
 	}
 
 	public int getDefensa() {
-		// TODO Auto-generated method stub
-		return defensa;
+		return this.defensa;
 	}
 }
