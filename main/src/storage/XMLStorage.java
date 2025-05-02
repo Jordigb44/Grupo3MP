@@ -343,6 +343,7 @@ public class XMLStorage implements I_Storage {
 			return "Error al guardar los personajes";
 		}
 	}
+	
 	@Override
 	public List<Personaje> cargarPersonajesUsuario(String nick) {
 		List<Personaje> personajes = new ArrayList<>();
