@@ -17,7 +17,7 @@ public class InterfazCLI implements I_Interfaz {
 
     @Override
     public String pedirEntrada() {
-        System.out.print("Ingrese un valor: ");
+        System.out.print(">> ");
         return scanner.nextLine();
     }
 

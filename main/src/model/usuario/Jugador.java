@@ -376,4 +376,9 @@ public class Jugador extends Usuario {
         }
     }
 
+
+	public void setPersonajes(List<Personaje> personajes2) {
+		this.personajes = personajes2;
+	}
+
 }

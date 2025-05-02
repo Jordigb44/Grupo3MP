@@ -87,6 +87,8 @@ public interface I_Storage {
      * @return Lista de desafíos.
      */
     List<Desafio> cargarDesafios();
+    
+    Desafio cargarDesafioUsuario(String nick);
 
     /**
      * Carga todas las armas almacenadas.

@@ -314,41 +314,47 @@ public class FileManager {
         guardarPersonajes(personajes);
     }
 	
-    /**
-     * Loads all players that are not blocked.
-     * 
-     * @return List of unblocked players
-     */
     public List<Jugador> cargarJugadoresSinBloquear(List<Usuario> usuarios) {
         List<Jugador> jugadoresSinBloquear = new ArrayList<>();
-        
+
         for (Usuario usuario : usuarios) {
-            if (!"bloqueado".equals(usuario.getEstado())) {
-                if (usuario instanceof Jugador) {
-                    jugadoresSinBloquear.add((Jugador) usuario);
-                }
+            if (!"bloqueado".equals(usuario.getEstado()) && usuario instanceof Jugador) {
+                Jugador jugador = (Jugador) usuario;
+
+                // Cargar personajes del jugador
+                List<Personaje> personajes = cargarPersonajesUsuario(jugador.getNick());
+                jugador.setPersonajes(personajes);
+
+                // Cargar desafío del jugador
+                Desafio desafio = this.storage.cargarDesafioUsuario(jugador.getNick());
+                jugador.setDesafio(desafio);
+
+                jugadoresSinBloquear.add(jugador);
             }
         }
-        
+
         return jugadoresSinBloquear;
     }
-    
-    /**
-     * Loads all blocked players.
-     * 
-     * @return List of blocked players
-     */
+
     public List<Jugador> cargarJugadoresBloqueados(List<Usuario> usuarios) {
         List<Jugador> jugadoresBloqueados = new ArrayList<>();
-        
+
         for (Usuario usuario : usuarios) {
-            if ("bloqueado".equals(usuario.getEstado())) {
-                if (usuario instanceof Jugador) {
-                    jugadoresBloqueados.add((Jugador) usuario);
-                }
+            if ("bloqueado".equals(usuario.getEstado()) && usuario instanceof Jugador) {
+                Jugador jugador = (Jugador) usuario;
+
+                // Cargar personajes del jugador
+                List<Personaje> personajes = cargarPersonajesUsuario(jugador.getNick());
+                jugador.setPersonajes(personajes);
+
+                // Cargar desafío del jugador
+                Desafio desafio = this.storage.cargarDesafioUsuario(jugador.getNick());
+                jugador.setDesafio(desafio);
+
+                jugadoresBloqueados.add(jugador);
             }
         }
-        
+
         return jugadoresBloqueados;
     }
     
