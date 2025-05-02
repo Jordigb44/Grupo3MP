@@ -9,7 +9,7 @@ import model.personaje.habilidad.Fortaleza;
 
 public interface I_Personaje {
 	// Métodos para gestión de armas
-    void equiparArma(List<Arma> armas); // Coincide con la clase
+	String equiparArma(Arma arma);
     void desequiparArma(Arma arma);
     List<Arma> getArmas();
     List<Arma> getArmaActiva();

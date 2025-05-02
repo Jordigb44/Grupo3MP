@@ -49,9 +49,20 @@ import model.personaje.habilidad.Fortaleza;
 		}
 
 	    // Métodos de Armas
-	    public void equiparArma(List<Arma> arma) {
-	        this.armaActiva = arma;
-	    }
+		public String equiparArma(Arma arma) {
+		    int manosOcupadas = 0;
+
+		    for (Arma a : this.armaActiva) {
+		        manosOcupadas += a.getManos(); // Asumiendo que Arma tiene un método getManos() que retorna 1 o 2
+		    }
+
+		    if (manosOcupadas + arma.getManos() <= 2) {
+		        this.armaActiva.add(arma);
+		        return "Se agrego el arma.";
+		    } else {
+		        return "NO se pudo agrego el arma.";
+		    }
+		}
 
 	    public void desequiparArma(Arma arma) {
 	        if (this.armaActiva == arma) {
