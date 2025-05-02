@@ -5,22 +5,29 @@ import java.util.List;
 
 import model.personaje.Personaje;
 import model.personaje.habilidad.Disciplina;
+import storage.FileManager;
 
 public class Vampiro extends Personaje {
 
 	private int puntosSangre;
     private int edad;
     private List<Disciplina> disciplinas;
+    private FileManager fileManager;
 
     //CONSTRUCTOR
-    public Vampiro(Personaje personaje, int puntosSangre, int edad) {
+    public Vampiro(FileManager fileManager, Personaje personaje) {
     	super(personaje);
-        this.disciplinas = new ArrayList<>();
-        this.puntosSangre = puntosSangre;
-        this.edad = edad;
+        this.fileManager = fileManager;
+    	this.disciplinas = this.fileManager.getDisciplinasVampiro();
+    	this.puntosSangre = this.fileManager.getPuntosdeSangreVampiro();
+    	this.edad = this.fileManager.getEdadVampiro();
 	}
 
     //METODOS
+    public Vampiro getVampiro() {
+    	return this;
+    }
+    
     protected void resetPuntosSangre() {
         this.puntosSangre = 100;
     }
@@ -45,19 +52,15 @@ public class Vampiro extends Personaje {
         }
     }
 
-	public Disciplina getDisciplinaActiva() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Disciplina> getDisciplinas() { //TODO
+		return this.disciplinas;
 	}
 
 	public int getPuntosSangre() {
-		// TODO Auto-generated method stub
-		return puntosSangre;
+		return this.puntosSangre;
 	}
 
 	public void setPuntosSangre(int i) {
-		
 		this.puntosSangre = i;
-		
 	}
 }

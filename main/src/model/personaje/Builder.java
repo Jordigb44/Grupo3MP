@@ -8,28 +8,28 @@ import model.personaje.habilidad.Debilidad;
 import model.personaje.habilidad.Disciplina;
 import model.personaje.habilidad.Fortaleza;
 import model.personaje.tipo.Vampiro;
+import storage.FileManager;
 import ui.A_Interfaz;
 
 public class Builder {
-	private A_Interfaz interfaz;
+	private A_Interfaz interfaz; //QUITAR EN CASO DE NO USAR
+	private Personaje personaje;
+	private FileManager fileManager;
 	
 	//CONSTRUCTOR
-    public Builder(A_Interfaz interfaz, String tipo, String nombre, List<Arma> armaActiva, Armadura armaduraActiva, List<Arma> armas, List<Armadura> armaduras, List<Esbirro> esbirros, List<Fortaleza> fortalezas, List<Debilidad> debilidades) {
-        this.interfaz = interfaz;
-    	Personaje personaje = new Personaje(nombre, armaActiva, armaduraActiva, armas, armaduras, esbirros, fortalezas, debilidades);
+    public Builder(FileManager fileManager, A_Interfaz interfaz, String tipo, String nombre, List<Arma> armaActiva, Armadura armaduraActiva, List<Arma> armas, List<Armadura> armaduras, List<Esbirro> esbirros, List<Fortaleza> fortalezas, List<Debilidad> debilidades) {
+        this.fileManager = fileManager;
+    	this.interfaz = interfaz;
+    	this.personaje = new Personaje(nombre, armaActiva, armaduraActiva, armas, armaduras, esbirros, fortalezas, debilidades);
         
         switch (tipo) {
             case "vampiro":
-                this.interfaz.mostrar("Numero de puntos de sangre");
-                int puntosDeSangre = Integer.parseInt(this.interfaz.pedirEntrada());
-                this.interfaz.mostrar("Edad: ");
-                int edad = Integer.parseInt(this.interfaz.pedirEntrada());
-                
-                return new Vampiro(personaje, puntosDeSangre, edad);
+                this.personaje = new Vampiro(this.fileManager, this.personaje);
             case "cazador":
-                return new Cazador();
+            	this.personaje = new Cazador(this.personaje);
             case "licantropo":
-                return new Licantropo();
+            	this.personaje = new Licantropo(this.personaje);
         }
     }
+    
 }
