@@ -5,14 +5,18 @@ import java.util.List;
 
 import model.personaje.Personaje;
 import model.personaje.habilidad.Talento;
+import storage.FileManager;
 
 public class Cazador extends Personaje {
 	private int voluntad;
     private List<Talento> talentos;
+    private FileManager fileManager;
 
-    public Cazador(String nombre) {
-		super(nombre);
-
+    public Cazador(FileManager fileManager, Personaje personaje) {
+		super(personaje);
+		this.fileManager = fileManager;
+    	this.talentos = this.fileManager.getTalentosCazador();
+    	this.voluntad = this.fileManager.getVoluntadCazador();
 	}
 
     protected void resetVoluntad() {
@@ -39,7 +43,6 @@ public class Cazador extends Personaje {
 	}
 
 	public int getVoluntad() {
-		// TODO Auto-generated method stub
-		return voluntad;
+		return this.voluntad;
 	}
 }

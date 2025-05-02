@@ -7,6 +7,8 @@ import model.personaje.habilidad.Armadura;
 import model.personaje.habilidad.Debilidad;
 import model.personaje.habilidad.Disciplina;
 import model.personaje.habilidad.Fortaleza;
+import model.personaje.tipo.Cazador;
+import model.personaje.tipo.Licantropo;
 import model.personaje.tipo.Vampiro;
 import storage.FileManager;
 import ui.A_Interfaz;
