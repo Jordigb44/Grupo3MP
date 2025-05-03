@@ -131,7 +131,7 @@ public class Operador extends Usuario {
                             break; // Volver al menú anterior
                         }
                         
-                        List<Jugador> jugadores = this.fileManager.cargarJugadoresSinBloquear(usuarios);
+                        List<Jugador> jugadores = this.fileManager.cargarJugadoresActivos();
                         if (index > 0 && index <= jugadores.size()) {
                             Jugador jugador = jugadores.get(index - 1);
                             String resultado = this.bloquearJugador(jugador);
@@ -159,7 +159,7 @@ public class Operador extends Usuario {
                             break; // Volver al menú anterior
                         }
                         
-                        List<Jugador> jugadores = this.fileManager.cargarJugadoresBloqueados(usuarios);
+                        List<Jugador> jugadores = this.fileManager.cargarJugadoresBloqueados();
                         if (index > 0 && index <= jugadores.size()) {
                             Jugador jugador = jugadores.get(index - 1);
                             String resultado = this.desbloquearJugador(jugador);
@@ -360,7 +360,7 @@ public class Operador extends Usuario {
      * @return Menú con la lista de jugadores sin bloquear
      */
     public String getMenuJugadoresSinBloquear() {
-        List<Jugador> jugadores = this.fileManager.cargarJugadoresSinBloquear(usuarios);
+        List<Jugador> jugadores = this.fileManager.cargarJugadoresActivos();
         
         StringBuilder menu = new StringBuilder();
         menu.append("=== JUGADORES SIN BLOQUEAR ===\n");
@@ -402,7 +402,7 @@ public class Operador extends Usuario {
      * @return Menú con la lista de jugadores bloqueados
      */
     public String getMenuJugadoresBloqueados() {
-        List<Jugador> jugadores = this.fileManager.cargarJugadoresBloqueados(usuarios);
+        List<Jugador> jugadores = this.fileManager.cargarJugadoresBloqueados();
         
         StringBuilder menu = new StringBuilder();
         menu.append("=== JUGADORES BLOQUEADOS ===\n");

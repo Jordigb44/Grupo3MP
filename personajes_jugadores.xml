@@ -2,26 +2,7 @@
 <personajes>
   <personaje>
     <jugador>jordi</jugador>
-    <nombre>c1</nombre>
-    <arma>Daga</arma>
-    <armadura>Cota de Malla</armadura>
-    <debilidad>Debilidad a la Luz Solar</debilidad>
-    <esbirro>Lobo Guardián</esbirro>
-    <oro>0</oro>
-  </personaje>
-  <personaje>
-    <jugador>jordi</jugador>
-    <nombre>l1</nombre>
-    <arma>Daga</arma>
-    <armadura>Cota de Malla</armadura>
-    <fortaleza>Velocidad Sobrenatural</fortaleza>
-    <debilidad>Debilidad a la Luz Solar</debilidad>
-    <esbirro>Lobo Guardián</esbirro>
-    <oro>0</oro>
-  </personaje>
-  <personaje>
-    <jugador>jordi</jugador>
-    <nombre>c</nombre>
+    <nombre>1</nombre>
     <arma>Daga</arma>
     <armadura>Cota de Malla</armadura>
     <fortaleza>Velocidad Sobrenatural</fortaleza>

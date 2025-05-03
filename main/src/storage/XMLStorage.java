@@ -1075,7 +1075,7 @@ public class XMLStorage implements I_Storage {
 			File file = new File(rutaArchivo);
 
 			if (!file.exists()) {
-				System.out.println("El archivo de desafíos no existe");
+//				System.out.println("El archivo de desafíos no existe");
 				return null;
 			}
 
@@ -1157,22 +1157,22 @@ public class XMLStorage implements I_Storage {
 		    List<Desafio> desafios = new ArrayList<>();
 		    try {
 		        String rutaArchivo = getFilePath("desafios");
-		        System.out.println("Buscando archivo en: " + rutaArchivo);
+//		        System.out.println("Buscando archivo en: " + rutaArchivo);
 		        File file = new File(rutaArchivo);
 
 		        if (!file.exists()) {
-		            System.out.println("El archivo de desafíos no existe");
+//		            System.out.println("El archivo de desafíos no existe");
 		            return desafios;
 		        }
 
-		        System.out.println("El archivo existe, procediendo a leerlo");
+//		        System.out.println("El archivo existe, procediendo a leerlo");
 		        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		        DocumentBuilder builder = factory.newDocumentBuilder();
 		        Document doc = builder.parse(file);
 
-		        System.out.println("Archivo XML parseado correctamente");
+//		        System.out.println("Archivo XML parseado correctamente");
 		        NodeList nodeList = doc.getElementsByTagName("desafio");
-		        System.out.println("Número de desafíos encontrados: " + nodeList.getLength());
+//		        System.out.println("Número de desafíos encontrados: " + nodeList.getLength());
 
 		        // Get list of all users to match IDs
 		        List<Usuario> usuarios = cargarUsuarios();
@@ -1181,7 +1181,7 @@ public class XMLStorage implements I_Storage {
 		            Node node = nodeList.item(i);
 		            if (node.getNodeType() == Node.ELEMENT_NODE) {
 		                Element element = (Element) node;
-		                System.out.println("Procesando desafío #" + (i+1));
+//		                System.out.println("Procesando desafío #" + (i+1));
 
 		                // Extract challenge data
 		                String idText = element.getElementsByTagName("id").item(0).getTextContent();
@@ -1191,21 +1191,21 @@ public class XMLStorage implements I_Storage {
 		                String estadoText = element.getElementsByTagName("estado").item(0).getTextContent();
 		                String fechaText = element.getElementsByTagName("fecha").item(0).getTextContent();
 
-		                System.out.println("Datos obtenidos: ID=" + idText + ", Oro=" + oroApostado);
+//		                System.out.println("Datos obtenidos: ID=" + idText + ", Oro=" + oroApostado);
 
 		                // Find users by ID
 		                Jugador desafiante = (Jugador) findUsuarioById(usuarios, UUID.fromString(desafianteId));
 		                Jugador desafiado = (Jugador) findUsuarioById(usuarios, UUID.fromString(desafiadoId));
 
 		                if (desafiante == null || desafiado == null) {
-		                    System.out.println("No se encontró el usuario desafiante o desafiado, saltando este desafío");
+//		                    System.out.println("No se encontró el usuario desafiante o desafiado, saltando este desafío");
 		                    continue;
 		                }
 
 		                // Find matching E_EstadoDesafio enum value by string
 		                E_EstadoDesafio estado = obtenerEstadoDesafio(estadoText);
 		                if (estado == null) {
-		                    System.out.println("Estado no válido: " + estadoText + ", saltando este desafío");
+//		                    System.out.println("Estado no válido: " + estadoText + ", saltando este desafío");
 		                    continue;
 		                }
 
@@ -1219,11 +1219,11 @@ public class XMLStorage implements I_Storage {
 		                desafio.setFechaDesafio(LocalDateTime.parse(fechaText));
 
 		                desafios.add(desafio);
-		                System.out.println("Desafío añadido a la lista");
+//		                System.out.println("Desafío añadido a la lista");
 		            }
 		        }
 		    } catch (Exception e) {
-		        System.out.println("Error al cargar desafíos: " + e.getMessage());
+//		        System.out.println("Error al cargar desafíos: " + e.getMessage());
 		        e.printStackTrace();
 		    }
 		    return desafios;
@@ -1243,7 +1243,7 @@ public class XMLStorage implements I_Storage {
 	}
 	
 	public Desafio cargarDesafioUsuario(String nick) {
-		    System.out.println("Intentando cargar desafíos para el usuario: " + nick);
+//		    System.out.println("Intentando cargar desafíos para el usuario: " + nick);
 		    List<Desafio> todosDesafios = cargarDesafios();
 		    
 		    for (Desafio desafio : todosDesafios) {

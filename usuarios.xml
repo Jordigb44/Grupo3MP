@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <usuarios>
   <usuario>
-    <id>029fca74-5995-49a7-b2e3-76757bc44ea9</id>
-    <nick>adam</nick>
-    <nombre>adam</nombre>
-    <password>adam</password>
-    <rol>jugador</rol>
-    <estado>activo</estado>
-    <fecha>2025-04-26T13:47:48.049191400</fecha>
-    <oro>0</oro>
-    <puntos>0</puntos>
-  </usuario>
-  <usuario>
     <id>a1b2c3d4-5e6f-47a8-9f0b-c1d2e3f4a5b6</id>
     <nick>elena</nick>
     <nombre>Elena</nombre>
@@ -23,12 +12,23 @@
     <puntos>15</puntos>
   </usuario>
   <usuario>
+    <id>029fca74-5995-49a7-b2e3-76757bc44ea9</id>
+    <nick>adam</nick>
+    <nombre>adam</nombre>
+    <password>adam</password>
+    <rol>jugador</rol>
+    <estado>bloqueado</estado>
+    <fecha>2025-04-26T13:47:48.049191400</fecha>
+    <oro>0</oro>
+    <puntos>0</puntos>
+  </usuario>
+  <usuario>
     <id>f0e6c0c3-46a6-44f8-902d-dab5d0fbcd13</id>
     <nick>jordi</nick>
     <nombre>jordi</nombre>
     <password>jordi</password>
     <rol>jugador</rol>
-    <estado>activo</estado>
+    <estado>bloqueado</estado>
     <fecha>2025-04-03T20:07:17.436870</fecha>
     <oro>0</oro>
     <puntos>0</puntos>
