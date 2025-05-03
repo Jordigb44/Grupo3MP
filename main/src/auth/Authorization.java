@@ -52,9 +52,10 @@ public class Authorization {
                 if (!u.getPassword().equals(contraseña)) {
                     return "Contraseña incorrecta.";
                 }
-                if ("bloqueado".equalsIgnoreCase(u.getEstado())) {
-                    return "Este usuario está bloqueado y no puede iniciar sesión.";
+                if ("Baja".equalsIgnoreCase(u.getEstado())) {
+                    return "Este usuario está dado de baja.";
                 }
+                System.out.println(u.getEstado());
                 return u; // Credenciales correctas y usuario no bloqueado
             }
         }

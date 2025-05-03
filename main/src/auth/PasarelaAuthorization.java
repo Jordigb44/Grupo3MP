@@ -48,14 +48,24 @@ public class PasarelaAuthorization {
                     this.interfaz.mostrar("🚨 ¡Alerta! Se ha enviado una notificación al usuario: '" + nick + "'.");
                 }
             }
-            this.interfaz.mostrar("❌ Usuario o contraseña incorrecto ❌\n");
+            this.interfaz.mostrar("❌ Usuario o contraseña incorrecto, intenta de nuevo en 2 segundos. ❌\n");
             try {
-                Thread.sleep(5000); // Espera 5 segundos antes de limpiar la pantalla
+                Thread.sleep(2000); // Espera 2 segundos antes de limpiar la pantalla
             } catch (InterruptedException e) {
                 e.printStackTrace(); // Manejo básico de error
             }
             this.interfaz.limpiarPantalla();
             return null; // Devuelve null si no se pudo iniciar sesión
+        }
+        if (resultado.equals("Este usuario está dado de baja.")) {
+        	this.interfaz.mostrar("Su usuario esta dado de baja, contacte con el administrador o cree un nuevo usuario, intente de nuevo en 2 segundos\n");
+        	try {
+                Thread.sleep(2000); // Espera 2 segundos antes de limpiar la pantalla
+            } catch (InterruptedException e) {
+                e.printStackTrace(); // Manejo básico de error
+            }
+        	this.interfaz.limpiarPantalla();
+        	return null;
         }
         this.badCredential = 0; // Reinicia el contador de intentos fallidos
         this.interfaz.mostrar("✅ Inicio de sesión exitoso. ¡Bienvenido, " + nick + "!");

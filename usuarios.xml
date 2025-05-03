@@ -6,7 +6,7 @@
     <nombre>Elena</nombre>
     <password>elena123</password>
     <rol>jugador</rol>
-    <estado>activo</estado>
+    <estado>Baja</estado>
     <fecha>2025-05-02T10:15:35.123456</fecha>
     <oro>200</oro>
     <puntos>15</puntos>
@@ -17,7 +17,7 @@
     <nombre>adam</nombre>
     <password>adam</password>
     <rol>jugador</rol>
-    <estado>bloqueado</estado>
+    <estado>activo</estado>
     <fecha>2025-04-26T13:47:48.049191400</fecha>
     <oro>0</oro>
     <puntos>0</puntos>
