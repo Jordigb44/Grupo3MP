@@ -67,7 +67,7 @@ public class Sistema {
 		        	int puntos = this.usuario.getPuntos(); // NO BORRAR
 		        	Jugador jugador = new Jugador(this.usuario.getUserId(), this.usuario.getNick(), this.usuario.getNombre(), this.usuario.getPassword(), this.usuario.getRol(), this.usuario.getEstado(), this.usuario.getOro(), this.usuario.getPuntos(), 
 		        		    this.fileManager.cargarPersonajesUsuario(this.usuario.getNick()),
-		        		    this.fileManager.cargarDesafioUsuario(this.usuario.getNick()));
+		        		    this.fileManager.cargarDesafioUsuario(this.usuario.getNick(), usuarios));
 		        	jugador.setOro(oro); // NO BORRAR
 		        	jugador.setPuntos(puntos); // NO BORRAR
 		        	this.interfaz.mostrar("->Jugador "+jugador.getNick()+" - "+jugador.getOro());
@@ -100,7 +100,7 @@ public class Sistema {
     
     public List<Desafio> getDesafios(){
     	if (this.desafios == null) {
-    		this.desafios = this.fileManager.cargarDesafios();
+    		this.desafios = this.fileManager.cargarDesafios(usuarios);
     	}
 		return this.desafios;
     }

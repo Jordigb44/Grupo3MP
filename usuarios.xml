@@ -29,19 +29,8 @@
     <password>jordi</password>
     <rol>jugador</rol>
     <estado>activo</estado>
-    <fecha>2025-04-03T20:07:17.436870</fecha>
+    <fecha>2025-05-03T19:39:43.604636</fecha>
     <oro>20</oro>
     <puntos>10</puntos>
-  </usuario>
-  <usuario>
-    <id>d8dd8586-87db-4ef5-8b59-cf7c94e4d2d6</id>
-    <nick>a</nick>
-    <nombre>a</nombre>
-    <password>a</password>
-    <rol/>
-    <estado/>
-    <fecha>2025-05-03T17:40:25.712184</fecha>
-    <oro>0</oro>
-    <puntos>0</puntos>
   </usuario>
 </usuarios>

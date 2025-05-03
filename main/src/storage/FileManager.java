@@ -97,8 +97,8 @@ public class FileManager {
         return this.storage.cargarPersonajesUsuario(nick);
     }
     
-    public Desafio cargarDesafioUsuario(String nick) {
-        return this.storage.cargarDesafioUsuario(nick);
+    public Desafio cargarDesafioUsuario(String nick, List<Usuario> usuarios) {
+        return this.storage.cargarDesafioUsuario(nick, usuarios);
     }
     
     public String eliminarPersonajesUsuario(String nick, Personaje personaje) {
@@ -152,8 +152,8 @@ public class FileManager {
      *
      * @return una lista de objetos Desafio
      */
-    public List<Desafio> cargarDesafios() {
-        return this.storage.cargarDesafios();
+    public List<Desafio> cargarDesafios(List<Usuario> usuarios) {
+        return this.storage.cargarDesafios(usuarios);
     }
 
     /**
@@ -331,19 +331,27 @@ public class FileManager {
      * 
      * @return List of pending challenges
      */
-    public List<Desafio> cargarDesafiosPendientes() {
-        List<Desafio> desafios = cargarDesafios();
+    public List<Desafio> cargarDesafiosPendientes(List<Usuario> usuarios) {
+        List<Desafio> desafios = cargarDesafios(usuarios);
+        System.out.println("Desafios cargados: "+desafios);
         List<Desafio> desafiosPendientes = new ArrayList<>();
         
         for (Desafio desafio : desafios) {
-            if (E_EstadoDesafio.PENDIENTE.equals(desafio.getEstado())) {
-                desafiosPendientes.add(desafio);
+            if (desafio.getEstado() != null) {
+                // Depuración: imprime detalles de la comparación
+                System.out.println("Comparando estados:");
+                System.out.println(" - E_EstadoDesafio.PENDIENTE: " + E_EstadoDesafio.PENDIENTE);
+                System.out.println(" - desafio.getEstado(): " + desafio.getEstado());
+
+                // Agregar el desafío pendiente a la lista
+                if (E_EstadoDesafio.PENDIENTE.equals(desafio.getEstado())) {
+                    desafiosPendientes.add(desafio);
+                }
             }
         }
         
         return desafiosPendientes;
     }
-    
     /**
      * Loads all active players.
      * 
@@ -357,7 +365,7 @@ public class FileManager {
             if ("activo".equals(usuario.getEstado()) && "jugador".equals(usuario.getRol())) {
                 // Crear un nuevo Jugador a partir del Usuario
                 List<Personaje> personajes = cargarPersonajesUsuario(usuario.getNick());
-                Desafio desafio = this.storage.cargarDesafioUsuario(usuario.getNick());
+                Desafio desafio = this.storage.cargarDesafioUsuario(usuario.getNick(), usuarios);
                 Jugador jugador = new Jugador(usuario.getUserId(), usuario.getNick(), usuario.getNombre(), usuario.getPassword(), usuario.getRol(), usuario.getEstado(), usuario.getOro(), usuario.getPuntos()
 , personajes, desafio);
                 jugadoresActivos.add(jugador);
@@ -375,7 +383,7 @@ public class FileManager {
             if ("bloqueado".equals(usuario.getEstado()) && "jugador".equals(usuario.getRol())) {
                 // Crear un nuevo Jugador a partir del Usuario
                 List<Personaje> personajes = cargarPersonajesUsuario(usuario.getNick());
-                Desafio desafio = this.storage.cargarDesafioUsuario(usuario.getNick());
+                Desafio desafio = this.storage.cargarDesafioUsuario(usuario.getNick(), usuarios);
                 Jugador jugador = new Jugador(usuario.getUserId(), usuario.getNick(), usuario.getNombre(), usuario.getPassword(), usuario.getRol(), usuario.getEstado(), usuario.getOro(), usuario.getPuntos()
 , personajes, desafio);
                 jugadoresActivos.add(jugador);

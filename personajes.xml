@@ -136,4 +136,101 @@
       <salud>1</salud>
     </esbirro>
   </personaje>
+  <personaje>
+    <id>533045c7-9ed1-449f-9553-7c3eaa91e5ce</id>
+    <nombre>Alucard</nombre>
+    <oro>0</oro>
+    <salud>100</salud>
+  </personaje>
+  <personaje>
+    <id>b79de2fb-8921-4425-80c4-7aba112e121c</id>
+    <nombre>Fenrir</nombre>
+    <oro>0</oro>
+    <salud>100</salud>
+  </personaje>
+  <personaje>
+    <id>9e1bf9c2-04fb-494d-922d-736fe82ac1f7</id>
+    <nombre>Van Helsing</nombre>
+    <oro>0</oro>
+    <salud>100</salud>
+  </personaje>
+  <personaje>
+    <id>c0124c1a-5693-4685-bb98-c6e184d452ff</id>
+    <nombre>Drácula</nombre>
+    <oro>0</oro>
+    <salud>100</salud>
+  </personaje>
+  <personaje>
+    <id>2c06be43-d5ff-43a6-a936-dd5cd2ed9edd</id>
+    <nombre>Eva Cazadora</nombre>
+    <oro>0</oro>
+    <salud>100</salud>
+  </personaje>
+  <personaje>
+    <id>ac0ca0ec-d2e6-4093-938b-b7f81482068c</id>
+    <nombre>Luna Plateada</nombre>
+    <oro>0</oro>
+    <salud>100</salud>
+  </personaje>
+  <personaje>
+    <id>9be91b6e-f42d-4b9a-92e7-068de8c07df2</id>
+    <nombre>Alucard</nombre>
+    <oro>0</oro>
+    <salud>100</salud>
+  </personaje>
+  <personaje>
+    <id>0ae03820-7deb-4122-9f37-bc322c154ace</id>
+    <nombre>Fenrir</nombre>
+    <oro>0</oro>
+    <salud>100</salud>
+  </personaje>
+  <personaje>
+    <id>63d35f33-6777-47d6-b4cf-7a98af866487</id>
+    <nombre>Van Helsing</nombre>
+    <oro>0</oro>
+    <salud>100</salud>
+  </personaje>
+  <personaje>
+    <id>83150b7d-cb9c-4262-a509-0afdbd232c94</id>
+    <nombre>Drácula</nombre>
+    <oro>0</oro>
+    <salud>100</salud>
+  </personaje>
+  <personaje>
+    <id>d7b7cba9-e8d3-4036-b37c-4c73eb566bcd</id>
+    <nombre>Eva Cazadora</nombre>
+    <oro>0</oro>
+    <salud>100</salud>
+  </personaje>
+  <personaje>
+    <id>0ca89f77-1e71-4517-9ca1-3843fca01a33</id>
+    <nombre>Luna Plateada</nombre>
+    <oro>0</oro>
+    <salud>100</salud>
+  </personaje>
+  <personaje>
+    <id>ba3185a4-7829-411b-b46d-4177d66336ac</id>
+    <nombre>1</nombre>
+    <oro>0</oro>
+    <salud>100</salud>
+    <arma>Daga</arma>
+    <arma>Espada Larga</arma>
+    <armadura>Cota de Malla</armadura>
+    <fortaleza>Velocidad Sobrenatural</fortaleza>
+    <debilidad>Debilidad a la Luz Solar</debilidad>
+  </personaje>
+  <personaje>
+    <id>652d9766-1d1c-49a6-8bcb-475425687f69</id>
+    <nombre>1</nombre>
+    <oro>0</oro>
+    <salud>100</salud>
+    <armadura>Cota de Malla</armadura>
+    <fortaleza>Velocidad Sobrenatural</fortaleza>
+    <debilidad>Debilidad a la Luz Solar</debilidad>
+    <esbirro>
+      <tipo>Licántropo</tipo>
+      <nombre>Lobo Guardián</nombre>
+      <salud>1</salud>
+    </esbirro>
+  </personaje>
 </personajes>

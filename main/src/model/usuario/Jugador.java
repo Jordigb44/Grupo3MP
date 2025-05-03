@@ -529,7 +529,7 @@ public class Jugador extends Usuario {
                 for (Usuario usuario : this.usuarios) {
                     if (usuario.getNick().equalsIgnoreCase(nickContrincante)) {
                     	desafiado = new Jugador(usuario.getUserId(), usuario.getNick(), usuario.getNombre(), usuario.getPassword(), usuario.getRol(), usuario.getEstado(), usuario.getOro(), usuario.getPuntos()
-, this.fileManager.cargarPersonajesUsuario(usuario.nick), this.fileManager.cargarDesafioUsuario(usuario.nick));
+, this.fileManager.cargarPersonajesUsuario(usuario.nick), this.fileManager.cargarDesafioUsuario(usuario.nick, usuarios));
                         break;
                     }
                 }

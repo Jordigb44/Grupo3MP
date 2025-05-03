@@ -92,9 +92,9 @@ public interface I_Storage {
      * Carga todos los desafíos almacenados.
      * @return Lista de desafíos.
      */
-    List<Desafio> cargarDesafios();
+    List<Desafio> cargarDesafios(List<Usuario> usuario);
     
-    Desafio cargarDesafioUsuario(String nick);
+    Desafio cargarDesafioUsuario(String nick, List<Usuario> usuarios);
 
     /**
      * Carga todas las armas almacenadas.
@@ -168,5 +168,7 @@ public interface I_Storage {
 	int getPuntosdeSangreVampiro();
 
 	int getEdadVampiro();
+
+
 
 }

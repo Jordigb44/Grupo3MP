@@ -74,8 +74,9 @@ import ui.A_Interfaz;
 
 	    public void desequiparArma(Arma arma) {
 	        if (this.armaActiva == arma) {
-	            this.armaActiva = null;
+	            this.armaActiva.remove(arma);
 	        }
+	        
 	    }
 
 	    public List<Arma> getArmas() {
