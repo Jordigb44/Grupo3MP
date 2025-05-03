@@ -569,15 +569,14 @@ public class Jugador extends Usuario {
                     this.interfaz.mostrar("Introduce la cantidad de oro a apostar (mayor a 0 y hasta " + this.oro + ") o 0 para volver:");
                     try {
                         oroApostado = Integer.parseInt(this.interfaz.pedirEntrada());
-//                        if (oroApostado == 0) {
-//                            return; // Volver
-//                        }
-//                        if (oroApostado > 0 && oroApostado <= this.oro) {
-//                            break;
-//                        } else {
-//                            this.interfaz.mostrar("Cantidad inválida.");
-//                        }
-                        break;
+                        if (oroApostado == 0) {
+                            return; // Volver
+                        }
+                        if (oroApostado > 0 && oroApostado <= this.oro) {
+                            break;
+                        } else {
+                            this.interfaz.mostrar("Cantidad inválida.");
+                      }
                     } catch (NumberFormatException e) {
                         this.interfaz.mostrar("Introduce un número válido.");
                     }
