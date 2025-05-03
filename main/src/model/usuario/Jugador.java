@@ -167,10 +167,10 @@ public class Jugador extends Usuario {
     }
 
     public Personaje getPersonaje() {
-        if (personajes == null || personajes.isEmpty()) {
+        if (this.personajes == null || this.personajes.isEmpty()) {
             return null;
         }
-        return personajes.get(0);
+        return this.personajes.get(0);
     }
     
     // --- REVISAR
