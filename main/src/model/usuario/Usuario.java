@@ -52,6 +52,9 @@ public class Usuario implements I_Usuario {
     }
 
     public UUID getUserId() {
+    	if (userId == null) {
+    	    setUserId(UUID.randomUUID()); // o lanza excepción si debe existir
+    	}
         return userId;
     }
 
