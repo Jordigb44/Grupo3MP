@@ -1488,7 +1488,7 @@ public class XMLStorage implements I_Storage {
 	// Getters
 
 	public List<Talento> getTalentosCazador() {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList cazadorList = doc.getElementsByTagName("Cazador");
 		List<Talento> talentos = new ArrayList<>();
@@ -1512,7 +1512,7 @@ public class XMLStorage implements I_Storage {
 	}
 
 	public int getVoluntadCazador() {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList cazadorList = doc.getElementsByTagName("Cazador");
 		if (cazadorList.getLength() > 0) {
@@ -1526,7 +1526,7 @@ public class XMLStorage implements I_Storage {
 	}
 
 	public List<Don> getDonesLicantropo() {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList licantropoList = doc.getElementsByTagName("Licantropo");
 		List<Don> dones = new ArrayList<>();
@@ -1550,7 +1550,7 @@ public class XMLStorage implements I_Storage {
 	}
 
 	public int getRabiaLicantropo() {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList licantropoList = doc.getElementsByTagName("Licantropo");
 		if (licantropoList.getLength() > 0) {
@@ -1564,7 +1564,7 @@ public class XMLStorage implements I_Storage {
 	}
 
 	public int getPesoLicantropo() {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList licantropoList = doc.getElementsByTagName("Licantropo");
 		if (licantropoList.getLength() > 0) {
@@ -1578,7 +1578,7 @@ public class XMLStorage implements I_Storage {
 	}
 
 	public List<Disciplina> getDisciplinasVampiro() {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList vampiroList = doc.getElementsByTagName("Vampiro");
 		List<Disciplina> disciplinas = new ArrayList<>();
@@ -1602,7 +1602,7 @@ public class XMLStorage implements I_Storage {
 	}
 
 	public int getPuntosdeSangreVampiro() {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList vampiroList = doc.getElementsByTagName("Vampiro");
 		if (vampiroList.getLength() > 0) {
@@ -1616,7 +1616,7 @@ public class XMLStorage implements I_Storage {
 	}
 
 	public int getEdadVampiro() {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList vampiroList = doc.getElementsByTagName("Vampiro");
 		if (vampiroList.getLength() > 0) {
@@ -1632,7 +1632,7 @@ public class XMLStorage implements I_Storage {
 	// Setters
 
 	public void setVoluntadCazador(int voluntad) {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList cazadorList = doc.getElementsByTagName("Cazador");
 		if (cazadorList.getLength() > 0) {
@@ -1643,7 +1643,7 @@ public class XMLStorage implements I_Storage {
 	}
 
 	public void setRabiaLicantropo(int rabia) {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList licantropoList = doc.getElementsByTagName("Licantropo");
 		if (licantropoList.getLength() > 0) {
@@ -1654,7 +1654,7 @@ public class XMLStorage implements I_Storage {
 	}
 
 	public void setPesoLicantropo(int peso) {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList licantropoList = doc.getElementsByTagName("Licantropo");
 		if (licantropoList.getLength() > 0) {
@@ -1665,7 +1665,7 @@ public class XMLStorage implements I_Storage {
 	}
 
 	public void setPuntosdeSangreVampiro(int puntosSangre) {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList vampiroList = doc.getElementsByTagName("Vampiro");
 		if (vampiroList.getLength() > 0) {
@@ -1676,7 +1676,7 @@ public class XMLStorage implements I_Storage {
 	}
 
 	public void setEdadVampiro(int edad) {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList vampiroList = doc.getElementsByTagName("Vampiro");
 		if (vampiroList.getLength() > 0) {
@@ -1689,7 +1689,7 @@ public class XMLStorage implements I_Storage {
 	// Setters for Lists (more complex - consider how you want to update the list)
 
 	public void setTalentosCazador(List<Talento> talentos) {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList cazadorList = doc.getElementsByTagName("Cazador");
 		if (cazadorList.getLength() > 0) {
@@ -1723,7 +1723,7 @@ public class XMLStorage implements I_Storage {
 	}
 
 	public void setDonesLicantropo(List<Don> dones) {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList licantropoList = doc.getElementsByTagName("Licantropo");
 		if (licantropoList.getLength() > 0) {
@@ -1757,7 +1757,7 @@ public class XMLStorage implements I_Storage {
 	}
 
 	public void setDisciplinasVampiro(List<Disciplina> disciplinas) {
-		String fileNameTipoPersonajes = "tipo_personajes";
+		String fileNameTipoPersonajes = "tipos_personajes";
 		Document doc = getDoc(fileNameTipoPersonajes);
 		NodeList vampiroList = doc.getElementsByTagName("Vampiro");
 		if (vampiroList.getLength() > 0) {
