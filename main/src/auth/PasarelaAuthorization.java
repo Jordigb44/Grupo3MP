@@ -98,10 +98,9 @@ public class PasarelaAuthorization {
         this.interfaz.mostrar("Por favor, introduce una contraseña:");
         String contraseña = this.interfaz.pedirEntrada();
         
-        Usuario nuevoUsuario = new Usuario(null, nick, nombre, contraseña, null, null, 0, 0); // Crea un nuevo usuario
+        Usuario nuevoUsuario = new Usuario(null, nick, nombre, contraseña, "jugador", "activo", 0, 0); // Crea un nuevo usuario
         String resultado = this.auth.guardarUsuario(nuevoUsuario);
         if (resultado.equals("Usuario guardado correctamente.")) {
-            this.interfaz.mostrar("✅ " + resultado + " ¡Bienvenido, " + nick + "!");
             return nuevoUsuario; // Devuelve el usuario registrado
         } else {
             this.interfaz.mostrar("❌ " + resultado);
@@ -139,12 +138,11 @@ public class PasarelaAuthorization {
                             this.interfaz.mostrar("⚠️ Rol no válido. Se canceló la selección.");
                         }
                     }
-                    intentosFallidos = 0; // reiniciar si hubo éxito
+                    intentosFallidos = 0;
                     break;
 
                 case "2":
-                    usuario = registrarUsuario();
-                    intentosFallidos = 0; // reiniciar si hubo éxito
+                    registrarUsuario();
                     break;
 
                 case "3":
@@ -160,7 +158,10 @@ public class PasarelaAuthorization {
                     }
                     break;
             }
+
+            this.interfaz.limpiarPantalla(); // opcional, si tu interfaz lo soporta
         }
+
         return usuario;
     }
     

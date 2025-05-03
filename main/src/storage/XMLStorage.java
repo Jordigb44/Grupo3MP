@@ -124,7 +124,7 @@ public class XMLStorage implements I_Storage {
 			usuarioElement.appendChild(passwordElement);
 
 			Element rolElement = doc.createElement("rol");
-			rolElement.appendChild(doc.createTextNode(usuario.getRol() != null ? usuario.getRol() : ""));
+			rolElement.appendChild(doc.createTextNode(usuario.getRol() != null ? usuario.getRol() : "jugador"));
 			usuarioElement.appendChild(rolElement);
 
 			Element estadoElement = doc.createElement("estado");
@@ -1108,8 +1108,8 @@ public class XMLStorage implements I_Storage {
 						String fechaText = element.getElementsByTagName("fecha").item(0).getTextContent();
 
 						// Find users by ID
-						Jugador desafiante = (Jugador) findUsuarioById(usuarios, UUID.fromString(desafianteId));
-						Jugador desafiado = (Jugador) findUsuarioById(usuarios, UUID.fromString(desafiadoId));
+						Jugador desafiante = crearJugadorDesdeUsuario(UUID.fromString(desafianteId));
+						Jugador desafiado = crearJugadorDesdeUsuario(UUID.fromString(desafiadoId));
 
 						if (desafiante == null || desafiado == null) {
 							System.out.println("No se encontró el usuario desafiante o desafiado");
@@ -1195,8 +1195,8 @@ public class XMLStorage implements I_Storage {
 //		                System.out.println("Datos obtenidos: ID=" + idText + ", Oro=" + oroApostado);
 
 		                // Find users by ID
-		                Jugador desafiante = (Jugador) findUsuarioById(usuarios, UUID.fromString(desafianteId));
-		                Jugador desafiado = (Jugador) findUsuarioById(usuarios, UUID.fromString(desafiadoId));
+		                Jugador desafiante = (Jugador) crearJugadorDesdeUsuario(UUID.fromString(desafianteId));
+		                Jugador desafiado = (Jugador) crearJugadorDesdeUsuario(UUID.fromString(desafiadoId));
 
 		                if (desafiante == null || desafiado == null) {
 //		                    System.out.println("No se encontró el usuario desafiante o desafiado, saltando este desafío");
@@ -1263,6 +1263,30 @@ public class XMLStorage implements I_Storage {
 			}
 		}
 		return null;
+	}
+	
+	private Jugador crearJugadorDesdeUsuario(UUID id) {
+		List<Usuario> usuarios = cargarUsuarios();
+	    for (Usuario usuario : usuarios) {
+	        if (usuario.getUserId().toString() == id.toString()) {
+	            List<Personaje> personajes = cargarPersonajesUsuario(usuario.getNick());
+	            Desafio desafio = cargarDesafioUsuario(usuario.getNick());
+
+	            return new Jugador(
+	                usuario.getUserId(),
+	                usuario.getNick(),
+	                usuario.getNombre(),
+	                usuario.getPassword(),
+	                usuario.getRol(),
+	                usuario.getEstado(),
+	                usuario.getOro(),
+	                usuario.getPuntos(),
+	                personajes,
+	                desafio
+	            );
+	        }
+	    }
+	    return null; // Si no encuentra el usuario
 	}
 
 	@Override
