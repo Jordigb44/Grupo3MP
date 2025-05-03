@@ -14,7 +14,7 @@ public class Esbirro {
 
     // Getters y Setters
     public String getTipo() {
-        return tipo;
+        return this.tipo;
     }
 
     public void setTipo(String tipo) {
@@ -22,7 +22,7 @@ public class Esbirro {
     }
 
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     public void setNombre(String nombre) {
@@ -30,7 +30,7 @@ public class Esbirro {
     }
 
     public int getSalud() {
-        return salud;
+        return this.salud;
     }
 
     public void setSalud(int salud) {
