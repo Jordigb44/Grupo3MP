@@ -300,26 +300,24 @@ public class XMLStorage implements I_Storage {
 	public String guardarPersonajes(List<Personaje> personajes) {
 	    try {
 	        // Crear el documento XML si no existe o cargar el existente
-	        Document doc = getDoc("personajes"); // Usamos getDoc para cargar el documento
+	        Document doc = getDoc("personajes");
 	        if (doc == null) {
 	            System.out.println("Error al cargar el documento de personajes.");
 	            return "Error al cargar el documento";
 	        }
 
-	        // Obtener el nodo raíz "personajes"
+	        // Obtener o crear el nodo raíz
 	        Element rootElement = doc.getDocumentElement();
 	        if (rootElement == null) {
 	            rootElement = doc.createElement("personajes");
 	            doc.appendChild(rootElement);
 	        }
 
-	        // Iterar sobre la lista de personajes
+	        // Agregar personajes
 	        for (Personaje personaje : personajes) {
-	            // Crear un elemento "personaje"
 	            Element personajeElement = doc.createElement("personaje");
 	            rootElement.appendChild(personajeElement);
 
-	            // ID y nombre
 	            Element idElement = doc.createElement("id");
 	            idElement.appendChild(doc.createTextNode(String.valueOf(personaje.getId())));
 	            personajeElement.appendChild(idElement);
@@ -328,72 +326,67 @@ public class XMLStorage implements I_Storage {
 	            nombreElement.appendChild(doc.createTextNode(personaje.getNombre()));
 	            personajeElement.appendChild(nombreElement);
 
-	            // Oro
 	            Element oroElement = doc.createElement("oro");
 	            oroElement.appendChild(doc.createTextNode(String.valueOf(personaje.getOro())));
 	            personajeElement.appendChild(oroElement);
 
-	            // Salud
 	            Element saludElement = doc.createElement("salud");
 	            saludElement.appendChild(doc.createTextNode(String.valueOf(personaje.getSalud())));
 	            personajeElement.appendChild(saludElement);
 
-	            // Armas
 	            for (Arma arma : personaje.getArmas()) {
 	                Element armaElement = doc.createElement("arma");
 	                armaElement.appendChild(doc.createTextNode(arma.getNombre()));
 	                personajeElement.appendChild(armaElement);
 	            }
 
-	            // Armaduras
 	            for (Armadura armadura : personaje.getArmaduras()) {
 	                Element armaduraElement = doc.createElement("armadura");
 	                armaduraElement.appendChild(doc.createTextNode(armadura.getNombre()));
 	                personajeElement.appendChild(armaduraElement);
 	            }
 
-	            // Fortalezas
 	            for (Fortaleza fortaleza : personaje.getFortalezas()) {
 	                Element fortalezaElement = doc.createElement("fortaleza");
 	                fortalezaElement.appendChild(doc.createTextNode(fortaleza.getNombre()));
 	                personajeElement.appendChild(fortalezaElement);
 	            }
 
-	            // Debilidades
 	            for (Debilidad debilidad : personaje.getDebilidades()) {
 	                Element debilidadElement = doc.createElement("debilidad");
 	                debilidadElement.appendChild(doc.createTextNode(debilidad.getNombre()));
 	                personajeElement.appendChild(debilidadElement);
 	            }
 
-	            // Esbirros
 	            for (Esbirro esbirro : personaje.getEsbirros()) {
 	                Element esbirroElement = doc.createElement("esbirro");
 
-	                // Tipo del esbirro
 	                Element tipoElement = doc.createElement("tipo");
 	                tipoElement.appendChild(doc.createTextNode(esbirro.getTipo()));
 	                esbirroElement.appendChild(tipoElement);
 
-	                // Nombre del esbirro
-	                Element nombreElement1 = doc.createElement("nombre");
-	                nombreElement1.appendChild(doc.createTextNode(esbirro.getNombre()));
-	                esbirroElement.appendChild(nombreElement1);
+	                Element nombreEsbirroElement = doc.createElement("nombre");
+	                nombreEsbirroElement.appendChild(doc.createTextNode(esbirro.getNombre()));
+	                esbirroElement.appendChild(nombreEsbirroElement);
 
-	                // Salud del esbirro
-	                Element saludElement1 = doc.createElement("salud");
-	                saludElement1.appendChild(doc.createTextNode(String.valueOf(esbirro.getSalud())));
-	                esbirroElement.appendChild(saludElement1);
+	                Element saludEsbirroElement = doc.createElement("salud");
+	                saludEsbirroElement.appendChild(doc.createTextNode(String.valueOf(esbirro.getSalud())));
+	                esbirroElement.appendChild(saludEsbirroElement);
 
-	                // Añadir el esbirro al personaje
 	                personajeElement.appendChild(esbirroElement);
 	            }
 	        }
 
-	        // Escribir el documento XML actualizado en el archivo
-	        writeDoc(doc, "personajes"); // Usamos writeDoc para guardar el documento
+	        // Guardar el documento actualizado en el archivo
+	        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+	        Transformer transformer = transformerFactory.newTransformer();
+	        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+	        DOMSource source = new DOMSource(doc);
+	        StreamResult result = new StreamResult(new File(getFilePath("personajes")));
+	        transformer.transform(source, result);
 
 	        return "Personajes guardados con éxito";
+
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	        return "Error al guardar los personajes";
@@ -404,7 +397,7 @@ public class XMLStorage implements I_Storage {
 	    try {
 	        File file = new File(getFilePath("personajes_jugadores"));
 	        if (!file.exists()) {
-	            file.createNewFile();
+	            file.createNewFile(); // crea el archivo si no existe
 	        }
 
 	        Document doc = getDoc("personajes_jugadores");
@@ -420,7 +413,6 @@ public class XMLStorage implements I_Storage {
 	        }
 
 	        for (Personaje personaje : personajes) {
-	            // Buscar si ya existe un personaje con el mismo nombre y jugador
 	            NodeList listaPersonajes = rootElement.getElementsByTagName("personaje");
 	            boolean reemplazado = false;
 
@@ -431,7 +423,6 @@ public class XMLStorage implements I_Storage {
 	                String nombreExistente = personajeExistente.getElementsByTagName("nombre").item(0).getTextContent();
 
 	                if (jugadorExistente.equals(nick) && nombreExistente.equals(personaje.getNombre())) {
-	                    // Reemplazar el nodo existente
 	                    Element nuevoElemento = crearElementoPersonaje(doc, personaje, nick);
 	                    rootElement.replaceChild(nuevoElemento, personajeExistente);
 	                    reemplazado = true;
@@ -440,14 +431,20 @@ public class XMLStorage implements I_Storage {
 	            }
 
 	            if (!reemplazado) {
-	                // Agregar nuevo personaje si no existe
 	                Element nuevoElemento = crearElementoPersonaje(doc, personaje, nick);
 	                rootElement.appendChild(nuevoElemento);
 	            }
 	        }
 
-	        writeDoc(doc, "personajes_jugadores");
-	        System.out.println("Personajes guardados correctamente en el archivo 'personajes_jugadores.xml'.");
+	        // Guardar el documento en el archivo XML
+	        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+	        Transformer transformer = transformerFactory.newTransformer();
+	        transformer.setOutputProperty(OutputKeys.INDENT, "yes"); // para que quede bonito
+	        DOMSource source = new DOMSource(doc);
+	        StreamResult result = new StreamResult(file);
+	        transformer.transform(source, result);
+
+	        System.out.println("Personajes guardados correctamente en 'personajes_jugadores.xml'.");
 	        return true;
 
 	    } catch (Exception e) {
@@ -456,6 +453,7 @@ public class XMLStorage implements I_Storage {
 	        return false;
 	    }
 	}
+	
 	private Element crearElementoPersonaje(Document doc, Personaje personaje, String nick) {
 	    Element personajeElement = doc.createElement("personaje");
 
@@ -644,7 +642,7 @@ public class XMLStorage implements I_Storage {
 	        NodeList nodeList = doc.getElementsByTagName("personaje");
 	        boolean eliminado = false;
 
-	        for (int i = 0; i < nodeList.getLength(); i++) {
+	        for (int i = nodeList.getLength() - 1; i >= 0; i--) { // recorrer al revés por seguridad al eliminar nodos
 	            Node node = nodeList.item(i);
 	            if (node.getNodeType() == Node.ELEMENT_NODE) {
 	                Element personajeElement = (Element) node;
@@ -655,14 +653,13 @@ public class XMLStorage implements I_Storage {
 	                if (jugadorNick.equals(nick) && nombrePersonaje.equals(personaje.getNombre())) {
 	                    personajeElement.getParentNode().removeChild(personajeElement);
 	                    eliminado = true;
-	                    break; // salir del bucle después de eliminar el personaje
 	                }
 	            }
 	        }
 
 	        if (eliminado) {
-	            writeDoc(doc, "personajes_jugadores");
-	            System.out.println("Personaje '" + personaje.getNombre() + "' del usuario '" + nick + "' eliminado correctamente.");
+	            guardarDocumentoXML(doc, "personajes_jugadores"); // usa el nuevo método si no usas writeDoc
+	            System.out.println("Personaje(s) con nombre '" + personaje.getNombre() + "' del usuario '" + nick + "' eliminado(s) correctamente.");
 	            return "Se ha eliminado correctamente";
 	        } else {
 	            return "No se encontró el personaje a eliminar";
@@ -671,6 +668,49 @@ public class XMLStorage implements I_Storage {
 	        System.err.println("Error al eliminar personaje del usuario: " + e.getMessage());
 	        e.printStackTrace();
 	        return "No se pudo eliminar";
+	    }
+	}
+	
+	@Override
+	public String actualizarPersonajeUsuario(String nick, Personaje personajeActualizado) {
+	    try {
+	        Document doc = getDoc("personajes_jugadores");
+	        if (doc == null) {
+	            return "No se pudo actualizar el personaje";
+	        }
+
+	        NodeList nodeList = doc.getElementsByTagName("personaje");
+	        boolean actualizado = false;
+
+	        for (int i = 0; i < nodeList.getLength(); i++) {
+	            Node node = nodeList.item(i);
+	            if (node.getNodeType() == Node.ELEMENT_NODE) {
+	                Element personajeElement = (Element) node;
+
+	                String jugadorNick = personajeElement.getElementsByTagName("jugador").item(0).getTextContent();
+	                String nombrePersonaje = personajeElement.getElementsByTagName("nombre").item(0).getTextContent();
+
+	                if (jugadorNick.equals(nick) && nombrePersonaje.equals(personajeActualizado.getNombre())) {
+	                    Element nuevoElemento = crearElementoPersonaje(doc, personajeActualizado, nick);
+	                    personajeElement.getParentNode().replaceChild(nuevoElemento, personajeElement);
+	                    actualizado = true;
+	                    break;
+	                }
+	            }
+	        }
+
+	        if (actualizado) {
+	            guardarDocumentoXML(doc, "personajes_jugadores"); // usa esto en lugar de writeDoc
+	            System.out.println("Personaje '" + personajeActualizado.getNombre() + "' actualizado correctamente.");
+	            return "Personaje actualizado correctamente";
+	        } else {
+	            return "No se encontró el personaje a actualizar";
+	        }
+
+	    } catch (Exception e) {
+	        System.err.println("Error al actualizar personaje del usuario: " + e.getMessage());
+	        e.printStackTrace();
+	        return "No se pudo actualizar el personaje";
 	    }
 	}
 
@@ -1239,17 +1279,18 @@ public class XMLStorage implements I_Storage {
 		    }
 		    return null; // Si no se encuentra un desafío para el usuario
 	}
-
-	// Helper method to find a user by ID
-	private Usuario findUsuarioById(List<Usuario> usuarios, UUID id) {
-		for (Usuario usuario : usuarios) {
-			if (usuario.getUserId().equals(id)) {
-				return usuario;
-			}
-		}
-		return null;
-	}
+//
+//	// Helper method to find a user by ID
+//	private Usuario findUsuarioById(List<Usuario> usuarios, UUID id) {
+//		for (Usuario usuario : usuarios) {
+//			if (usuario.getUserId().equals(id)) {
+//				return usuario;
+//			}
+//		}
+//		return null;
+//	}
 	
+	// REVISAR
 	private Jugador crearJugadorDesdeUsuario(UUID id, List<Usuario> usuarios) {
 	    for (Usuario usuario : usuarios) {
 	        if (usuario.getUserId().toString() == id.toString()) {
@@ -1863,164 +1904,165 @@ public class XMLStorage implements I_Storage {
 		return 0;
 	}
 
-	// Setters
+	// REVISAR - Setters
 
-	public void setVoluntadCazador(int voluntad) {
-		String fileNameTipoPersonajes = "tipos_personajes";
-		Document doc = getDoc(fileNameTipoPersonajes);
-		NodeList cazadorList = doc.getElementsByTagName("Cazador");
-		if (cazadorList.getLength() > 0) {
-			Element cazadorElement = (Element) cazadorList.item(0);
-			setTextContent(doc, cazadorElement, "Voluntad", voluntad);
-			writeDoc(doc, fileNameTipoPersonajes);
-		}
-	}
+	private void guardarDocumentoXML(Document doc, String fileName) {
+        try {
+            TransformerFactory factory = TransformerFactory.newInstance();
+            Transformer transformer = factory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(new File(getFilePath(fileName)));
+            transformer.transform(source, result);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-	public void setRabiaLicantropo(int rabia) {
-		String fileNameTipoPersonajes = "tipos_personajes";
-		Document doc = getDoc(fileNameTipoPersonajes);
-		NodeList licantropoList = doc.getElementsByTagName("Licantropo");
-		if (licantropoList.getLength() > 0) {
-			Element licantropoElement = (Element) licantropoList.item(0);
-			setTextContent(doc, licantropoElement, "Rabia", rabia);
-			writeDoc(doc, fileNameTipoPersonajes);
-		}
-	}
+    public void setVoluntadCazador(int voluntad) {
+        Document doc = getDoc("tipos_personajes");
+        NodeList list = doc.getElementsByTagName("Cazador");
+        if (list.getLength() > 0) {
+            Element e = (Element) list.item(0);
+            setTextContent(doc, e, "Voluntad", voluntad);
+            guardarDocumentoXML(doc, "tipos_personajes");
+        }
+    }
 
-	public void setPesoLicantropo(int peso) {
-		String fileNameTipoPersonajes = "tipos_personajes";
-		Document doc = getDoc(fileNameTipoPersonajes);
-		NodeList licantropoList = doc.getElementsByTagName("Licantropo");
-		if (licantropoList.getLength() > 0) {
-			Element licantropoElement = (Element) licantropoList.item(0);
-			setTextContent(doc, licantropoElement, "Peso", peso);
-			writeDoc(doc, fileNameTipoPersonajes);
-		}
-	}
+    public void setRabiaLicantropo(int rabia) {
+        Document doc = getDoc("tipos_personajes");
+        NodeList list = doc.getElementsByTagName("Licantropo");
+        if (list.getLength() > 0) {
+            Element e = (Element) list.item(0);
+            setTextContent(doc, e, "Rabia", rabia);
+            guardarDocumentoXML(doc, "tipos_personajes");
+        }
+    }
 
-	public void setPuntosdeSangreVampiro(int puntosSangre) {
-		String fileNameTipoPersonajes = "tipos_personajes";
-		Document doc = getDoc(fileNameTipoPersonajes);
-		NodeList vampiroList = doc.getElementsByTagName("Vampiro");
-		if (vampiroList.getLength() > 0) {
-			Element vampiroElement = (Element) vampiroList.item(0);
-			setTextContent(doc, vampiroElement, "PuntosSangre", puntosSangre);
-			writeDoc(doc, fileNameTipoPersonajes);
-		}
-	}
+    public void setPesoLicantropo(int peso) {
+        Document doc = getDoc("tipos_personajes");
+        NodeList list = doc.getElementsByTagName("Licantropo");
+        if (list.getLength() > 0) {
+            Element e = (Element) list.item(0);
+            setTextContent(doc, e, "Peso", peso);
+            guardarDocumentoXML(doc, "tipos_personajes");
+        }
+    }
 
-	public void setEdadVampiro(int edad) {
-		String fileNameTipoPersonajes = "tipos_personajes";
-		Document doc = getDoc(fileNameTipoPersonajes);
-		NodeList vampiroList = doc.getElementsByTagName("Vampiro");
-		if (vampiroList.getLength() > 0) {
-			Element vampiroElement = (Element) vampiroList.item(0);
-			setTextContent(doc, vampiroElement, "Edad", edad);
-			writeDoc(doc, fileNameTipoPersonajes);
-		}
-	}
+    public void setPuntosdeSangreVampiro(int puntosSangre) {
+        Document doc = getDoc("tipos_personajes");
+        NodeList list = doc.getElementsByTagName("Vampiro");
+        if (list.getLength() > 0) {
+            Element e = (Element) list.item(0);
+            setTextContent(doc, e, "PuntosSangre", puntosSangre);
+            guardarDocumentoXML(doc, "tipos_personajes");
+        }
+    }
 
-	// Setters for Lists (more complex - consider how you want to update the list)
+    public void setEdadVampiro(int edad) {
+        Document doc = getDoc("tipos_personajes");
+        NodeList list = doc.getElementsByTagName("Vampiro");
+        if (list.getLength() > 0) {
+            Element e = (Element) list.item(0);
+            setTextContent(doc, e, "Edad", edad);
+            guardarDocumentoXML(doc, "tipos_personajes");
+        }
+    }
 
-	public void setTalentosCazador(List<Talento> talentos) {
-		String fileNameTipoPersonajes = "tipos_personajes";
-		Document doc = getDoc(fileNameTipoPersonajes);
-		NodeList cazadorList = doc.getElementsByTagName("Cazador");
-		if (cazadorList.getLength() > 0) {
-			Element cazadorElement = (Element) cazadorList.item(0);
-			NodeList talentosList = cazadorElement.getElementsByTagName("Talentos");
-			Element talentosElement = null;
+    public void setTalentosCazador(List<Talento> talentos) {
+        Document doc = getDoc("tipos_personajes");
+        NodeList list = doc.getElementsByTagName("Cazador");
+        if (list.getLength() > 0) {
+            Element cazador = (Element) list.item(0);
+            Element talentosElement;
 
-			if (talentosList.getLength() > 0) {
-				talentosElement = (Element) talentosList.item(0);
-				// Remove existing talentos
-				NodeList talentNodes = talentosElement.getElementsByTagName("Talento");
-				for (int i = talentNodes.getLength() - 1; i >= 0; i--) {
-					talentosElement.removeChild(talentNodes.item(i));
-				}
-			} else {
-				talentosElement = doc.createElement("Talentos");
-				cazadorElement.appendChild(talentosElement);
-			}
+            NodeList container = cazador.getElementsByTagName("Talentos");
+            if (container.getLength() > 0) {
+                talentosElement = (Element) container.item(0);
+                NodeList nodes = talentosElement.getElementsByTagName("Talento");
+                for (int i = nodes.getLength() - 1; i >= 0; i--) {
+                    talentosElement.removeChild(nodes.item(i));
+                }
+            } else {
+                talentosElement = doc.createElement("Talentos");
+                cazador.appendChild(talentosElement);
+            }
 
-			// Add new talentos
-			for (Talento talento : talentos) {
-				Element talentoElement = doc.createElement("Talento");
-				setTextContent(doc, talentoElement, "Nombre", talento.getNombre());
-				setTextContent(doc, talentoElement, "Ataque", talento.getAtaque());
-				setTextContent(doc, talentoElement, "Defensa", talento.getDefensa());
-				setTextContent(doc, talentoElement, "CostoVoluntad", talento.getCostoVoluntad());
-				talentosElement.appendChild(talentoElement);
-			}
-			writeDoc(doc, fileNameTipoPersonajes);
-		}
-	}
+            for (Talento t : talentos) {
+                Element e = doc.createElement("Talento");
+                setTextContent(doc, e, "Nombre", t.getNombre());
+                setTextContent(doc, e, "Ataque", t.getAtaque());
+                setTextContent(doc, e, "Defensa", t.getDefensa());
+                setTextContent(doc, e, "CostoVoluntad", t.getCostoVoluntad());
+                talentosElement.appendChild(e);
+            }
 
-	public void setDonesLicantropo(List<Don> dones) {
-		String fileNameTipoPersonajes = "tipos_personajes";
-		Document doc = getDoc(fileNameTipoPersonajes);
-		NodeList licantropoList = doc.getElementsByTagName("Licantropo");
-		if (licantropoList.getLength() > 0) {
-			Element licantropoElement = (Element) licantropoList.item(0);
-			NodeList donesList = licantropoElement.getElementsByTagName("Dones");
-			Element donesElement = null;
+            guardarDocumentoXML(doc, "tipos_personajes");
+        }
+    }
 
-			if (donesList.getLength() > 0) {
-				donesElement = (Element) donesList.item(0);
-				// Remove existing dones
-				NodeList donNodes = donesElement.getElementsByTagName("Don");
-				for (int i = donNodes.getLength() - 1; i >= 0; i--) {
-					donesElement.removeChild(donNodes.item(i));
-				}
-			} else {
-				donesElement = doc.createElement("Dones");
-				licantropoElement.appendChild(donesElement);
-			}
+    public void setDonesLicantropo(List<Don> dones) {
+        Document doc = getDoc("tipos_personajes");
+        NodeList list = doc.getElementsByTagName("Licantropo");
+        if (list.getLength() > 0) {
+            Element licantropo = (Element) list.item(0);
+            Element donesElement;
 
-			// Add new dones
-			for (Don don : dones) {
-				Element donElement = doc.createElement("Don");
-				setTextContent(doc, donElement, "Nombre", don.getNombre());
-				setTextContent(doc, donElement, "Ataque", don.getAtaque());
-				setTextContent(doc, donElement, "Defensa", don.getDefensa());
-				setTextContent(doc, donElement, "RabiaMinima", don.getRabiaMinima());
-				donesElement.appendChild(donElement);
-			}
-			writeDoc(doc, fileNameTipoPersonajes);
-		}
-	}
+            NodeList container = licantropo.getElementsByTagName("Dones");
+            if (container.getLength() > 0) {
+                donesElement = (Element) container.item(0);
+                NodeList nodes = donesElement.getElementsByTagName("Don");
+                for (int i = nodes.getLength() - 1; i >= 0; i--) {
+                    donesElement.removeChild(nodes.item(i));
+                }
+            } else {
+                donesElement = doc.createElement("Dones");
+                licantropo.appendChild(donesElement);
+            }
 
-	public void setDisciplinasVampiro(List<Disciplina> disciplinas) {
-		String fileNameTipoPersonajes = "tipos_personajes";
-		Document doc = getDoc(fileNameTipoPersonajes);
-		NodeList vampiroList = doc.getElementsByTagName("Vampiro");
-		if (vampiroList.getLength() > 0) {
-			Element vampiroElement = (Element) vampiroList.item(0);
-			NodeList disciplinasList = vampiroElement.getElementsByTagName("Disciplinas");
-			Element disciplinasElement = null;
+            for (Don d : dones) {
+                Element e = doc.createElement("Don");
+                setTextContent(doc, e, "Nombre", d.getNombre());
+                setTextContent(doc, e, "Ataque", d.getAtaque());
+                setTextContent(doc, e, "Defensa", d.getDefensa());
+                setTextContent(doc, e, "RabiaMinima", d.getRabiaMinima());
+                donesElement.appendChild(e);
+            }
 
-			if (disciplinasList.getLength() > 0) {
-				disciplinasElement = (Element) disciplinasList.item(0);
-				// Remove existing disciplinas
-				NodeList disciplinaNodes = disciplinasElement.getElementsByTagName("Disciplina");
-				for (int i = disciplinaNodes.getLength() - 1; i >= 0; i--) {
-					disciplinasElement.removeChild(disciplinaNodes.item(i));
-				}
-			} else {
-				disciplinasElement = doc.createElement("Disciplinas");
-				vampiroElement.appendChild(disciplinasElement);
-			}
+            guardarDocumentoXML(doc, "tipos_personajes");
+        }
+    }
 
-			// Add new disciplinas
-			for (Disciplina disciplina : disciplinas) {
-				Element disciplinaElement = doc.createElement("Disciplina");
-				setTextContent(doc, disciplinaElement, "Nombre", disciplina.getNombre());
-				setTextContent(doc, disciplinaElement, "Ataque", disciplina.getAtaque());
-				setTextContent(doc, disciplinaElement, "Defensa", disciplina.getDefensa());
-				setTextContent(doc, disciplinaElement, "CostoSangre", disciplina.obtenerCostoSangre());
-				disciplinasElement.appendChild(disciplinaElement);
-			}
-			writeDoc(doc, fileNameTipoPersonajes);
-		}
-	}
+    public void setDisciplinasVampiro(List<Disciplina> disciplinas) {
+        Document doc = getDoc("tipos_personajes");
+        NodeList list = doc.getElementsByTagName("Vampiro");
+        if (list.getLength() > 0) {
+            Element vampiro = (Element) list.item(0);
+            Element disciplinasElement;
+
+            NodeList container = vampiro.getElementsByTagName("Disciplinas");
+            if (container.getLength() > 0) {
+                disciplinasElement = (Element) container.item(0);
+                NodeList nodes = disciplinasElement.getElementsByTagName("Disciplina");
+                for (int i = nodes.getLength() - 1; i >= 0; i--) {
+                    disciplinasElement.removeChild(nodes.item(i));
+                }
+            } else {
+                disciplinasElement = doc.createElement("Disciplinas");
+                vampiro.appendChild(disciplinasElement);
+            }
+
+            for (Disciplina d : disciplinas) {
+                Element e = doc.createElement("Disciplina");
+                setTextContent(doc, e, "Nombre", d.getNombre());
+                setTextContent(doc, e, "Ataque", d.getAtaque());
+                setTextContent(doc, e, "Defensa", d.getDefensa());
+                setTextContent(doc, e, "CostoSangre", d.obtenerCostoSangre());
+                disciplinasElement.appendChild(e);
+            }
+
+            guardarDocumentoXML(doc, "tipos_personajes");
+        }
+    }
+
 }

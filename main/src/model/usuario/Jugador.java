@@ -430,7 +430,7 @@ public class Jugador extends Usuario {
     		    
     		    // Equipar la armadura
     		    p.equiparArmadura(armadurasDisponibles.get(opcion - 1)); //Se resta 1 porque el numero mostrado no corresponde con su numero de la lista
-                
+    		    this.fileManager.actualizarPersonajesUsuario(this.getNick(), p);
             } else {
                 interfaz.mostrar("⚠️ Selección de personaje invalida.");
             }
