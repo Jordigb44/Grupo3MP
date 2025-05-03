@@ -6,6 +6,8 @@ import model.personaje.habilidad.Arma;
 import model.personaje.habilidad.Armadura;
 import model.personaje.habilidad.Debilidad;
 import model.personaje.habilidad.Fortaleza;
+import model.personaje.habilidad.Talento;
+import ui.A_Interfaz;
 
 	public class Personaje implements I_Personaje{
 		
@@ -24,6 +26,7 @@ import model.personaje.habilidad.Fortaleza;
 	    private Fortaleza fortalezaActiva;
 	    private List<Debilidad> debilidades;
 	    private Debilidad debilidadActiva;
+	    private A_Interfaz interfaz; //PREGUNTAR JORDI
 		
 
 	    //CONSTRUCTORES
@@ -112,8 +115,8 @@ import model.personaje.habilidad.Fortaleza;
 			return this.getArmaduraActiva();
 		}
 
-	    // METODOS (COMBATE) (REVISAR )
-	    public void atacar(Personaje objetivo) {
+	    // METODOS (COMBATE) (REVISAR)
+	    public void atacar(Personaje objetivo) { //NO SE USA EN NINGUN LADO
 	    	if (armaActiva != null && !armaActiva.isEmpty()) {
 	            for (Arma arma : armaActiva) {
 	                int dano = arma.getAtaque();
@@ -192,11 +195,53 @@ import model.personaje.habilidad.Fortaleza;
 	  	}
 	  	
 	  	public void setFortalezaActiva() {
-	  		//TODO
+	  		// Mostrar lista de fortalezas
+		    this.interfaz.mostrar("Selecciona una fortaleza:");
+		    for (int i = 0; i < fortalezas.size(); i++) {
+		        Fortaleza f = fortalezas.get(i);
+		        this.interfaz.mostrar((i + 1) + ". " + f.getNombre() + "(nivel: " + f.getNivel() + ")");
+		    }
+
+		    // Seleccionar fortaleza
+		    int opcion = -1;
+		    while (opcion < 1 || opcion > fortalezas.size()) {
+		        this.interfaz.mostrar("Introduce el número de la fortaleza que deseas activar:");
+		        try {
+		            opcion = Integer.parseInt(this.interfaz.pedirEntrada());
+		            if (opcion < 1 || opcion > fortalezas.size()) {
+		                this.interfaz.mostrar("Opción inválida. Intenta nuevamente.");
+		            }
+		        } catch (NumberFormatException e) {
+		            this.interfaz.mostrar("Entrada no válida. Debes ingresar un número.");
+		        }
+		    }
+
+		    this.fortalezaActiva = fortalezas.get(opcion - 1);
 	  	}
 	  	
 	  	public void setDebilidadActiva() {
-	  		//TODO
+	  		// Mostrar lista de debilidades
+		    this.interfaz.mostrar("Selecciona una debilidad:");
+		    for (int i = 0; i < debilidades.size(); i++) {
+		        Debilidad d = debilidades.get(i);
+		        this.interfaz.mostrar((i + 1) + ". " + d.getNombre() + "(nivel: " + d.getNivel() + ")");
+		    }
+
+		    // Seleccionar debilidad
+		    int opcion = -1;
+		    while (opcion < 1 || opcion > debilidades.size()) {
+		        this.interfaz.mostrar("Introduce el número de la debilidad que deseas activar:");
+		        try {
+		            opcion = Integer.parseInt(this.interfaz.pedirEntrada());
+		            if (opcion < 1 || opcion > debilidades.size()) {
+		                this.interfaz.mostrar("Opción inválida. Intenta nuevamente.");
+		            }
+		        } catch (NumberFormatException e) {
+		            this.interfaz.mostrar("Entrada no válida. Debes ingresar un número.");
+		        }
+		    }
+
+		    this.debilidadActiva = debilidades.get(opcion - 1);
 	  	}
 	  	
 	  	public Fortaleza getFortalezaActiva() {

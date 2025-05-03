@@ -55,13 +55,7 @@ public class Cazador extends Personaje {
 		return this.talentos;
 	}
 	
-	/**
-	 * Se esta pasando en Rondas un Talento que en teoria es el activo
-	 * pero me da la sensacion que no se pregunta cual de ellos.
-	 * 
-	 * POSIBLE SOLUCION (tambien añadimos el atributo talentoActivo):
-	 */
-	public void setTalentoActivo() { // Es suado por OPERADOR - Para editar un Desafio antes de aprobarlo. Lo setea a ese Desafio NO AL TIPO.
+	public void setTalentoActivo() { // Es usado por OPERADOR - Para editar un Desafio antes de aprobarlo. Lo setea a ese Desafio NO AL TIPO.
 	    // Mostrar lista de talentos
 	    this.interfaz.mostrar("Selecciona un talento:");
 	    for (int i = 0; i < talentos.size(); i++) {
