@@ -7,6 +7,7 @@ import model.Sistema;
 import model.usuario.Jugador;
 import model.usuario.Usuario;
 import storage.FileManager;
+import ui.A_Interfaz;
 
 public class Desafio implements I_Desafio {
     private UUID desafioId;
@@ -32,17 +33,7 @@ public class Desafio implements I_Desafio {
             this.estado = desafioCargado.getEstado();
         }
     }
-
-    public void Aceptar(Desafio d) {
-        this.estado = E_EstadoDesafio.ACEPTADO;
-        
-        // Solo necesitas un método para guardar el desafío actualizado
-        fileManager.guardarDesafio(this);
-
-        Combate combate = new Combate(d);
-        combate.iniciarCombate();
-    }
-
+    
     public String Desafiar(Jugador desafiante, Jugador desafiado, int oroApostado) {
         if (oroApostado <= 0 || oroApostado > desafiante.getOro()) {
             return "No se pudo crear desafio";
@@ -58,13 +49,21 @@ public class Desafio implements I_Desafio {
         return "Se creo correctamente el desafio";
     }
 
-    public void Rechazar() {
-        this.estado = E_EstadoDesafio.RECHAZADO;
-        int penalizacion = (int) Math.ceil(oroApostado * 0.10);
-        desafiado.restarOro(penalizacion);
-        desafiante.sumarOro(penalizacion);
+    public void Aceptar(Desafio d) {
+    	this.estado = E_EstadoDesafio.ACEPTADO;
+        this.fileManager.actualizarEstadoDesafio(desafioId, E_EstadoDesafio.ACEPTADO);
 
-        fileManager.guardarDesafio(this);
+        Combate combate = new Combate(d);
+        combate.iniciarCombate();
+    }
+
+    public void Rechazar(A_Interfaz interfaz1) {
+    	int penalizacion = (int) Math.ceil(oroApostado * 0.10);
+    	desafiado.restarOro(penalizacion, interfaz1);
+    	desafiante.sumarOro(penalizacion);
+    	
+    	this.estado = E_EstadoDesafio.RECHAZADO;
+    	this.fileManager.actualizarEstadoDesafio(desafioId, E_EstadoDesafio.RECHAZADO);
     }
 
     // Método para cargar un desafío por su ID

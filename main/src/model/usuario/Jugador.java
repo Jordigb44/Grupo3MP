@@ -50,7 +50,7 @@ public class Jugador extends Usuario {
         if (this.desafio != null) {
             this.desafio.setFileManager(this.fileManager);
             this.interfaz.mostrar("=== Tienes un desafío nuevo ===");
-            this.interfaz.mostrar("Desafiante: " + this.desafio.getDesafiante());
+            this.interfaz.mostrar("Desafiante: " + this.desafio.getDesafiante().getNick());
             this.interfaz.mostrar("Oro apostado: " + this.desafio.getOroApostado());
             this.interfaz.mostrar("¿Quieres aceptar el Desafío?:");
             this.interfaz.mostrar("1. Si");
@@ -60,14 +60,15 @@ public class Jugador extends Usuario {
             String opcion = this.interfaz.pedirEntrada();
 
             switch (opcion) {
-                case "1":
-                    this.desafio.Aceptar(desafio);
-                    break;
-
-                case "2":
-                    this.desafio.Rechazar();
-                    break;
-
+	            case "1":
+	            	this.interfaz.mostrar("✅ Has aceptado el desafío.");
+	                this.desafio.Aceptar(desafio);
+	                break;
+	
+	            case "2":
+	            	this.interfaz.mostrar("❌ Has rechazado el desafío.");
+	                this.desafio.Rechazar(this.interfaz);
+	                break;
                 case "3":
                     return; // Opción para volver atrás al menú anterior
                 default:
@@ -430,6 +431,35 @@ public class Jugador extends Usuario {
     		    
     		    // Equipar la armadura
     		    p.equiparArmadura(armadurasDisponibles.get(opcion - 1)); //Se resta 1 porque el numero mostrado no corresponde con su numero de la lista
+    		    
+    		    System.out.println("Nombre: " + p.getNombre());
+    		    System.out.println("Oro: " + p.getOro());
+    		    // Armas
+    		    System.out.println("Armas:");
+    		    for (Arma arma : p.getArmas()) {
+    		        System.out.println(" - " + arma.getNombre());
+    		    }
+    		    // Armaduras
+    		    System.out.println("Armaduras:");
+    		    for (Armadura armadura : p.getArmaduras()) {
+    		        System.out.println(" - " + armadura.getNombre());
+    		    }
+    		    // Fortalezas
+    		    System.out.println("Fortalezas:");
+    		    for (Fortaleza fortaleza : p.getFortalezas()) {
+    		        System.out.println(" - " + fortaleza.getNombre());
+    		    }
+    		    // Debilidades
+    		    System.out.println("Debilidades:");
+    		    for (Debilidad debilidad : p.getDebilidades()) {
+    		        System.out.println(" - " + debilidad.getNombre());
+    		    }
+    		    // Esbirros
+    		    System.out.println("Esbirros:");
+    		    for (Esbirro esbirro : p.getEsbirros()) {
+    		        System.out.println(" - " + esbirro.getNombre());
+    		    }
+    		    
     		    this.fileManager.actualizarPersonajesUsuario(this.getNick(), p);
             } else {
                 interfaz.mostrar("⚠️ Selección de personaje invalida.");
@@ -646,24 +676,24 @@ public class Jugador extends Usuario {
         this.oro += cantidad;
     }
 
-    public void restarOro(int penalizacion) {
+    public void restarOro(int penalizacion, A_Interfaz interfaz1) {
         if (penalizacion > this.oro) {
             this.oro = 0;
-            interfaz.mostrar("Se ha deducido todo tu oro disponible");
+            interfaz1.mostrar("Se ha deducido todo tu oro disponible");
         } else {
             this.oro -= penalizacion;
-            interfaz.mostrar("Se ha deducido " + penalizacion + " de oro");
+            interfaz1.mostrar("Se ha deducido " + penalizacion + " de oro");
         }
     }
 
-    public void aceptarDesafio(Desafio desafio) {
+    public void aceptarDesafio(Desafio desafio, A_Interfaz interfaz1) {
         this.desafio = desafio;
-        interfaz.mostrar("Desafío aceptado. Desafiante: "+ this.desafio.getDesafiante() + " Vs Desafiado: " + this.desafio.getDesafiado());
+        interfaz1.mostrar("Desafío aceptado. Desafiante: "+ this.desafio.getDesafiante() + " Vs Desafiado: " + this.desafio.getDesafiado());
     }
 
-    public void rechazarDesafio() {
+    public void rechazarDesafio(A_Interfaz interfaz1) {
         this.desafio = null;
-        interfaz.mostrar("Desafío rechazado. Desafiante: "+ this.desafio.getDesafiante() + " Vs Desafiado: " + this.desafio.getDesafiado());
+        interfaz1.mostrar("Desafío rechazado. Desafiante: "+ this.desafio.getDesafiante() + " Vs Desafiado: " + this.desafio.getDesafiado());
     }
     
     public void consultarRankingGeneral() {

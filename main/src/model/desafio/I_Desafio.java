@@ -1,6 +1,7 @@
 package model.desafio;
 
 import model.usuario.Jugador;
+import ui.A_Interfaz;
 
 public interface I_Desafio {
     
@@ -25,5 +26,5 @@ public interface I_Desafio {
     /**
      * Rechaza un desafío, aplicando una penalización al jugador desafiado.
      */
-    void Rechazar();
+    void Rechazar(A_Interfaz interfaz1);
 }
