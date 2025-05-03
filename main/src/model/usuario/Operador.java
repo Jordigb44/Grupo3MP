@@ -219,13 +219,15 @@ public class Operador extends Usuario {
                     
                 case "2":
                     // Ver desafíos aprobados
-                    this.instanceInterface.mostrar("Funcionalidad no implementada. Presione Enter para continuar...");
+                	this.instanceInterface.mostrar(this.getMenuDesafiosAprobados());
+                    this.instanceInterface.mostrar("Presione Enter para continuar...");
                     this.instanceInterface.pedirEntrada();
                     break;
                     
                 case "3":
                     // Ver desafíos rechazados
-                    this.instanceInterface.mostrar("Funcionalidad no implementada. Presione Enter para continuar...");
+                	this.instanceInterface.mostrar(this.getMenuDesafiosRechazados());
+                    this.instanceInterface.mostrar("Presione Enter para continuar...");
                     this.instanceInterface.pedirEntrada();
                     break;
                     
@@ -450,6 +452,44 @@ public class Operador extends Usuario {
         menu.append("0. Volver\n");
         menu.append("Seleccione un desafío para validar: ");
         
+        return menu.toString();
+    }
+    
+    public String getMenuDesafiosAprobados() {
+        List<Desafio> desafios = fileManager.cargarDesafiosAceptados(usuarios);
+        
+        StringBuilder menu = new StringBuilder();
+        menu.append("=== DESAFÍOS APROBADOS ===\n");
+        
+        if (desafios.isEmpty()) {
+            menu.append("No hay desafíos aceptados.\n");
+        } else {
+            for (int i = 0; i < desafios.size(); i++) {
+                Desafio d = desafios.get(i);
+                menu.append((i + 1) + ". Desafío: " + d.getDesafiante().getNick() + 
+                        " vs " + d.getDesafiado().getNick() + 
+                        " - Oro: " + d.getOroApostado() + "\n");
+            }
+        }      
+        return menu.toString();
+    }
+    
+    public String getMenuDesafiosRechazados() {
+        List<Desafio> desafios = fileManager.cargarDesafiosRechazados(usuarios);
+        
+        StringBuilder menu = new StringBuilder();
+        menu.append("=== DESAFÍOS RECHAZADOS ===\n");
+        
+        if (desafios.isEmpty()) {
+            menu.append("No hay desafíos rechazados.\n");
+        } else {
+            for (int i = 0; i < desafios.size(); i++) {
+                Desafio d = desafios.get(i);
+                menu.append((i + 1) + ". Desafío: " + d.getDesafiante().getNick() + 
+                        " vs " + d.getDesafiado().getNick() + 
+                        " - Oro: " + d.getOroApostado() + "\n");
+            }
+        }      
         return menu.toString();
     }
 

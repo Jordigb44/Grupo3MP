@@ -328,7 +328,7 @@ public class FileManager {
      */
     public List<Desafio> cargarDesafiosPendientes(List<Usuario> usuarios) {
         List<Desafio> desafios = cargarDesafios(usuarios);
-        System.out.println("Desafios cargados: "+desafios);
+//        System.out.println("Desafios cargados: "+desafios);
         List<Desafio> desafiosPendientes = new ArrayList<>();
         
         for (Desafio desafio : desafios) {
@@ -342,6 +342,52 @@ public class FileManager {
         
         return desafiosPendientes;
     }
+    
+    /**
+     * Loads all pending challenges.
+     * 
+     * @return List of pending challenges
+     */
+    public List<Desafio> cargarDesafiosAceptados(List<Usuario> usuarios) {
+        List<Desafio> desafios = cargarDesafios(usuarios);
+//        System.out.println("Desafios cargados: "+desafios);
+        List<Desafio> desafiosPendientes = new ArrayList<>();
+        
+        for (Desafio desafio : desafios) {
+            if (desafio.getEstado() != null) {
+                // Agregar el desafío pendiente a la lista
+                if (E_EstadoDesafio.ACEPTADO.equals(desafio.getEstado())) {
+                    desafiosPendientes.add(desafio);
+                }
+            }
+        }
+        
+        return desafiosPendientes;
+    }
+    
+    /**
+     * Loads all pending challenges.
+     * 
+     * @return List of pending challenges
+     */
+    public List<Desafio> cargarDesafiosRechazados(List<Usuario> usuarios) {
+        List<Desafio> desafios = cargarDesafios(usuarios);
+//        System.out.println("Desafios cargados: "+desafios);
+        List<Desafio> desafiosPendientes = new ArrayList<>();
+        
+        for (Desafio desafio : desafios) {
+            if (desafio.getEstado() != null) {
+                // Agregar el desafío pendiente a la lista
+                if (E_EstadoDesafio.RECHAZADO.equals(desafio.getEstado())) {
+                    desafiosPendientes.add(desafio);
+                }
+            }
+        }
+        
+        return desafiosPendientes;
+    }
+    
+    
     /**
      * Loads all active players.
      * 
