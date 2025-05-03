@@ -383,92 +383,41 @@ public class Jugador extends Usuario {
             return;
         }
 
+        // Mostrar lista de personajes
         interfaz.mostrar("Selecciona un personaje:");
         for (int i = 0; i < personajes.size(); i++) {
             interfaz.mostrar((i + 1) + ". " + personajes.get(i).getNombre());
         }
 
+        // Seleccionar personaje
         String selPers = interfaz.pedirEntrada();
         try {
             int idxPers = Integer.parseInt(selPers) - 1;
             if (idxPers >= 0 && idxPers < personajes.size()) {
                 Personaje p = personajes.get(idxPers);
-                List<Armadura> armaduras = p.getArmaduras();
-
-                if (armaduras.isEmpty()) {
-                    interfaz.mostrar("⚠️ Este personaje no tiene armaduras.");
+                
+                // Obtener armaduras del sistema
+                List<Armadura> armadurasDisponibles = fileManager.cargarArmaduras(); 
+                
+                if (armadurasDisponibles.isEmpty()) {
+                    interfaz.mostrar("⚠️ No hay armaduras disponibles en el sistema.");
                     return;
                 }
 
-                // Mostrar lista de armaduras
-                interfaz.mostrar("Selecciona una armadura:");
-                for (int i = 0; i < armaduras.size(); i++) {
-                	Armadura a = armaduras.get(i);
-    		        interfaz.mostrar((i + 1) + ". " + a.getNombre() + "(defensa: " + a.getDefensa() + ")");
+                // Mostrar lista de armaduras disponibles
+                interfaz.mostrar("Selecciona una armadura para " + p.getNombre() + ":");
+                for (int i = 0; i < armadurasDisponibles.size(); i++) {
+                    Armadura a = armadurasDisponibles.get(i);
+                    interfaz.mostrar((i + 1) + ". " + a.getNombre() + " (defensa: " + a.getDefensa() + ")");
                 }
 
-    		    // Seleccionar armadura
-    		    int opcion = -1;
-    		    while (opcion < 1 || opcion > armaduras.size()) {
-    		        interfaz.mostrar("Introduce el numero de la armadura que deseas activar:");
-    		        try {
-    		            opcion = Integer.parseInt(interfaz.pedirEntrada());
-    		            if (opcion < 1 || opcion > armaduras.size()) {
-    		                interfaz.mostrar("Opcion invalida. Intenta nuevamente.");
-    		            }
-    		        } catch (NumberFormatException e) {
-    		            interfaz.mostrar("Entrada no valida. Debes ingresar un numero.");
-    		        }
-    		    }
-    		    
-    		    // Equipar la armadura
-    		    p.equiparArmadura(armaduras.get(opcion - 1)); //Se resta 1 porque el numero mostrado no corresponde con su numero de la lista
-                
-            } else {
-                interfaz.mostrar("⚠️ Selección de personaje invalida.");
-            }
-        } catch (NumberFormatException e) {
-            interfaz.mostrar("⚠️ Entrada invalida.");
-        }
-    }
-
-    public void equiparArmaAPersonaje() {
-        if (personajes.isEmpty()) {
-            interfaz.mostrar("⚠️ No tienes personajes.");
-            return;
-        }
-
-        interfaz.mostrar("Selecciona un personaje:");
-        for (int i = 0; i < personajes.size(); i++) {
-            interfaz.mostrar((i + 1) + ". " + personajes.get(i).getNombre());
-        }
-
-        String selP = interfaz.pedirEntrada();
-        try {
-            int idxP = Integer.parseInt(selP) - 1;
-            if (idxP >= 0 && idxP < personajes.size()) {
-                Personaje p = personajes.get(idxP);
-                List<Arma> armas = p.getArmas();
-
-                if (armas.isEmpty()) {
-                    interfaz.mostrar("⚠️ Este personaje no tiene armas.");
-                    return;
-                }
-                
-                // Mostrar lista de armas
-                interfaz.mostrar("Selecciona un arma:");
-                for (int i = 0; i < armas.size(); i++) {
-                    Arma a = armas.get(i);
-                    interfaz.mostrar((i + 1) + ". " + a.getNombre() + " (ataque: " + a.getAtaque() + ", manos: " + a.getManos() + ")");
-                }
-
-                // Seleccionar primer arma
-                int opcion1 = -1;
-                while (opcion1 < 1 || opcion1 > armas.size()) {
-                    interfaz.mostrar("Introduce el número del arma que deseas activar:");
+                // Seleccionar armadura
+                int opcion = -1;
+                while (opcion < 1 || opcion > armadurasDisponibles.size()) {
+                    interfaz.mostrar("Introduce el número de la armadura que deseas equipar:");
                     try {
-                        opcion1 = Integer.parseInt(interfaz.pedirEntrada());
-                        if (opcion1 < 1 || opcion1 > armas.size()) {
+                        opcion = Integer.parseInt(interfaz.pedirEntrada());
+                        if (opcion < 1 || opcion > armadurasDisponibles.size()) {
                             interfaz.mostrar("Opción inválida. Intenta nuevamente.");
                         }
                     } catch (NumberFormatException e) {
@@ -476,61 +425,88 @@ public class Jugador extends Usuario {
                     }
                 }
 
-                // Equipar el primer arma
-                Arma armaSeleccionada1 = armas.get(opcion1 - 1);
-                p.equiparArma(armaSeleccionada1);
-
-                // Si es de una mano, preguntar si quiere una segunda
-                if (armaSeleccionada1.getManos() == 1) {
-                    // Filtrar armas de una mano excluyendo la ya seleccionada
-                    List<Arma> armasUnaMano = new ArrayList<>();
-                    for (int i = 0; i < armas.size(); i++) {
-                        Arma a = armas.get(i);
-                        if (a.getManos() == 1 && i != (opcion1 - 1)) {
-                            armasUnaMano.add(a);
-                        }
-                    }
-
-                    // Si hay otras armas de una mano disponibles
-                    if (!armasUnaMano.isEmpty()) {
-                        interfaz.mostrar("¿Quieres seleccionar una segunda arma de una mano? (si/no)");
-                        String respuesta = interfaz.pedirEntrada();
-                        if (respuesta.equalsIgnoreCase("si")) {
-                            interfaz.mostrar("Selecciona una segunda arma de una mano:");
-                            for (int i = 0; i < armasUnaMano.size(); i++) {
-                                Arma a = armasUnaMano.get(i);
-                                interfaz.mostrar((i + 1) + ". " + a.getNombre() + " (ataque: " + a.getAtaque() + ", manos: " + a.getManos() + ")");
-                            }
-
-                            int opcion2 = -1;
-                            while (opcion2 < 1 || opcion2 > armasUnaMano.size()) {
-                                interfaz.mostrar("Introduce el número de la segunda arma:");
-                                try {
-                                    opcion2 = Integer.parseInt(interfaz.pedirEntrada());
-                                    if (opcion2 < 1 || opcion2 > armasUnaMano.size()) {
-                                        interfaz.mostrar("Opción inválida. Intenta nuevamente.");
-                                    }
-                                } catch (NumberFormatException e) {
-                                    interfaz.mostrar("Entrada no válida. Debes ingresar un número.");
-                                }
-                            }
-
-                            // Equipar segunda arma
-                            Arma armaSeleccionada2 = armasUnaMano.get(opcion2 - 1);
-                            p.equiparArma(armaSeleccionada2);
-                        }
-                    } else {
-                        interfaz.mostrar("No hay más armas de una mano disponibles para equipar.");
-                    }
-                }
+                // Equipar la armadura
+                Armadura armaduraSeleccionada = armadurasDisponibles.get(opcion - 1);
+                p.equiparArmadura(armaduraSeleccionada);
                 
+                // Mensaje de confirmación
+                interfaz.mostrar("✅ ¡" + armaduraSeleccionada.getNombre() + " equipada con éxito a " + 
+                                p.getNombre() + "! Defensa: +" + armaduraSeleccionada.getDefensa());
+                fileManager.guardarPersonaje(p);
+                
+                interfaz.mostrar("Estado actual de " + p.getNombre() + ":");
+                interfaz.mostrar("- Armadura: " + (p.getArmaduraActiva() != null ? p.getArmaduraActiva().getNombre() : "Ninguna"));
+                interfaz.mostrar("- Defensa total: " + p.getArmaduraActiva().getDefensa());
+               
             } else {
-                interfaz.mostrar("⚠️ Selección de personaje invalida.");
+                interfaz.mostrar("⚠️ Selección de personaje inválida.");
             }
         } catch (NumberFormatException e) {
-            interfaz.mostrar("⚠️ Entrada invalida.");
+            interfaz.mostrar("⚠️ Entrada inválida. Debes ingresar un número.");
         }
     }
+
+    public void equiparArmaAPersonaje() {
+    if (personajes.isEmpty()) {
+        interfaz.mostrar("⚠️ No tienes personajes.");
+        return;
+    }
+
+    interfaz.mostrar("Selecciona un personaje:");
+    for (int i = 0; i < personajes.size(); i++) {
+        interfaz.mostrar((i + 1) + ". " + personajes.get(i).getNombre());
+    }
+
+    String selP = interfaz.pedirEntrada();
+    try {
+        int idxP = Integer.parseInt(selP) - 1;
+        if (idxP >= 0 && idxP < personajes.size()) {
+            Personaje p = personajes.get(idxP);
+            
+            // Obtenemos todas las armas disponibles
+            List<Arma> armasDisponibles = fileManager.cargarArmas(); // Método de FileManager
+            
+            if (armasDisponibles.isEmpty()) {
+                interfaz.mostrar("⚠️ No hay armas disponibles en el sistema.");
+                return;
+            }
+            
+            // Mostrar lista de armas disponibles
+            interfaz.mostrar("Selecciona un arma para equipar:");
+            for (int i = 0; i < armasDisponibles.size(); i++) {
+                Arma a = armasDisponibles.get(i);
+                interfaz.mostrar((i + 1) + ". " + a.getNombre() + " (ataque: " + a.getAtaque() + ", manos: " + a.getManos() + ")");
+            }
+
+            // Seleccionar arma
+            int opcion = -1;
+            while (opcion < 1 || opcion > armasDisponibles.size()) {
+                interfaz.mostrar("Introduce el número del arma que deseas equipar:");
+                try {
+                    opcion = Integer.parseInt(interfaz.pedirEntrada());
+                    if (opcion < 1 || opcion > armasDisponibles.size()) {
+                        interfaz.mostrar("Opción inválida. Intenta nuevamente.");
+                    }
+                } catch (NumberFormatException e) {
+                    interfaz.mostrar("Entrada no válida. Debes ingresar un número.");
+                }
+            }
+
+            // Equipar el arma seleccionada
+            Arma armaSeleccionada = armasDisponibles.get(opcion - 1);
+            p.equiparArma(armaSeleccionada);
+            
+            // Mensaje de confirmación
+            interfaz.mostrar("✅ ¡" + armaSeleccionada.getNombre() + " equipada con éxito a " + 
+                          p.getNombre() + "! Ataque: +" + armaSeleccionada.getAtaque());
+ 
+        } else {
+            interfaz.mostrar("⚠️ Selección de personaje inválida.");
+        }
+    } catch (NumberFormatException e) {
+        interfaz.mostrar("⚠️ Entrada inválida.");
+    }
+}
     
     public void crearDesafioMenu() {
         while (true) {
