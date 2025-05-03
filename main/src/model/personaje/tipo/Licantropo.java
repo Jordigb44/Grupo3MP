@@ -69,7 +69,6 @@ public class Licantropo extends Personaje {
 	}
 
 	public int getRabia() {
-		
-		return rabia;
+		return this.rabia;
 	}
 }

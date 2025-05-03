@@ -26,11 +26,11 @@ public class Vampiro extends Personaje {
 	}
 
     //METODOS
-    public Vampiro getVampiro() {
+    public Vampiro getVampiro() { //NO SE USA EN NINGUN LADO
     	return this;
     }
     
-    protected void resetPuntosSangre() {
+    protected void resetPuntosSangre() { //NO SE USA EN NINGUN LADO?
         this.puntosSangre = 10;
     }
 
