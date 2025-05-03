@@ -54,6 +54,7 @@ public class Desafio implements I_Desafio {
         this.fileManager.actualizarEstadoDesafio(desafioId, E_EstadoDesafio.ACEPTADO);
 
         Combate combate = new Combate(d);
+        System.out.println("Comabte creado");
         combate.iniciarCombate();
     }
 
