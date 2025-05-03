@@ -1,6 +1,9 @@
 package model.usuario;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+
 import model.personaje.*;
 import storage.FileManager;
 import storage.XMLStorage;
@@ -21,21 +24,24 @@ public class Jugador extends Usuario {
     private Usuario usuario;
     private List<Usuario> usuarios;
    
-    
     public Jugador(Usuario usuario, List<Personaje> personajes, Desafio desafio) {
-        super(usuario);
+        super(usuario.getUserId(), usuario.getNick(), usuario.getNombre(), usuario.getPassword(), usuario.getRol(), usuario.getEstado(), usuario.getOro(), usuario.getPuntos());
         this.personajes = personajes;
         this.desafio = desafio;
     }
+    
     public void setUsuarios(List<Usuario> usuarios) {	
+    	System.out.println(">>ORO set_usuarios: "+this.getOro());
     	this.usuarios = usuarios;
     }
 
 	public void setInterfaz(A_Interfaz interfaz) {
+		System.out.println(">>ORO set_interfaz: "+this.getOro());
     	this.interfaz = interfaz;    	
     }
 	
     public void setFileManger(FileManager fileManager) {
+    	System.out.println(">>ORO set_filemanager: "+this.getOro());
     	this.fileManager = fileManager;    	
     }
 
@@ -75,6 +81,7 @@ public class Jugador extends Usuario {
 
     public void getMenu() {
         String opcion = " ";
+        this.interfaz.mostrar(">>ORO: "+this.getOro());
 
         do {
             this.interfaz.mostrar("=== MENÚ DE JUGADOR ===");
@@ -115,6 +122,7 @@ public class Jugador extends Usuario {
                     break;
 
                 case "5":
+                	crearDesafioMenu();
                     // getMenuInicioDesafio(this.desafio);
                     break;
 
@@ -525,6 +533,80 @@ public class Jugador extends Usuario {
             }
         } catch (NumberFormatException e) {
             interfaz.mostrar("⚠️ Entrada invalida.");
+        }
+    }
+    
+    public void crearDesafioMenu() {
+        while (true) {
+            try {
+                this.interfaz.mostrar("=== Crear Desafío ===");
+                this.interfaz.mostrar("Introduce el nick del jugador a desafiar (o 0 para volver):");
+                String nickContrincante = this.interfaz.pedirEntrada();
+
+                if (nickContrincante.equals("0")) {
+                    return; // Volver al menú anterior
+                }
+
+                if (nickContrincante.equalsIgnoreCase(this.nick)) {
+                    this.interfaz.mostrar("No puedes desafiarte a ti mismo.");
+                    continue;
+                }
+
+                // Buscar contrincante en this.usuarios
+                Jugador desafiado = null;
+                for (Usuario usuario : this.usuarios) {
+                    if (usuario.getNick().equalsIgnoreCase(nickContrincante)) {
+                    	desafiado = new Jugador(usuario, this.fileManager.cargarPersonajesUsuario(usuario.nick), this.fileManager.cargarDesafioUsuario(usuario.nick));
+                        break;
+                    }
+                }
+
+                if (desafiado == null) {
+                    this.interfaz.mostrar("El jugador indicado no existe o no es un jugador válido.");
+                    continue;
+                }
+
+                // Pedir oro a apostar
+                int oroApostado = 0;
+                while (true) {
+                    this.interfaz.mostrar("Introduce la cantidad de oro a apostar (mayor a 0 y hasta " + this.oro + ") o 0 para volver:");
+                    try {
+                        oroApostado = Integer.parseInt(this.interfaz.pedirEntrada());
+                        if (oroApostado == 0) {
+                            return; // Volver
+                        }
+                        if (oroApostado > 0 && oroApostado <= this.oro) {
+                            break;
+                        } else {
+                            this.interfaz.mostrar("Cantidad inválida.");
+                        }
+                    } catch (NumberFormatException e) {
+                        this.interfaz.mostrar("Introduce un número válido.");
+                    }
+                }
+
+                // Crear y configurar desafío
+                Desafio desafio = new Desafio();
+                desafio.setDesafioId(UUID.randomUUID());
+                desafio.setDesafiante(this);
+                desafio.setDesafiado(desafiado);
+                desafio.setOroApostado(oroApostado);
+                desafio.setFechaDesafio(LocalDateTime.now());
+                desafio.setEstado(E_EstadoDesafio.PENDIENTE);
+
+                // Guardar el desafío
+                String resultado = this.fileManager.guardarDesafio(desafio);
+                this.interfaz.mostrar(resultado);
+                this.interfaz.mostrar("Presiona Enter para continuar...");
+                this.interfaz.pedirEntrada();
+                return;
+
+            } catch (Exception e) {
+                this.interfaz.mostrar("Error al crear desafío: " + e.getMessage());
+                e.printStackTrace();
+                this.interfaz.mostrar("Presiona Enter para continuar...");
+                this.interfaz.pedirEntrada();
+            }
         }
     }
 

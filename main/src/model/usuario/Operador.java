@@ -30,23 +30,7 @@ public class Operador extends Usuario {
      * @param usuario     Usuario base para el operador
      */
     public Operador(A_Interfaz interfaz, FileManager fileManager, Usuario usuario) {
-        super(usuario);
-        this.fileManager = fileManager;
-        this.instanceInterface = interfaz;
-        this.usuarios = this.fileManager.cargarUsuarios();
-    }
-
-    /**
-     * Constructor completo para crear un nuevo operador.
-     * 
-     * @param interfaz    Interfaz para interactuar con el usuario
-     * @param fileManager Gestor de archivos para persistencia
-     * @param nick        Nickname del operador
-     * @param nombre      Nombre completo del operador
-     * @param password    Contraseña del operador
-     */
-    public Operador(A_Interfaz interfaz, FileManager fileManager, String nick, String nombre, String password) {
-        super(nick, nombre, password, "operador", "activo", 0, 0); // Asumiendo valores iniciales de 0 para oro y puntos
+        super(usuario.getUserId(), usuario.getNick(), usuario.getNombre(), usuario.getPassword(), usuario.getRol(), usuario.getEstado(), usuario.getOro(), usuario.getPuntos());
         this.fileManager = fileManager;
         this.instanceInterface = interfaz;
         this.usuarios = this.fileManager.cargarUsuarios();

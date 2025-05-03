@@ -27,9 +27,12 @@ public class Usuario implements I_Usuario {
     protected static FileManager fileManager;
 
     // Constructor
-    public Usuario(String nick, String nombre, String password, String rol, String estado, Integer oro, Integer puntos) {
+    public Usuario(UUID userId, String nick, String nombre, String password, String rol, String estado, Integer oro, Integer puntos) {
         this.fecha = LocalDateTime.now();
-        this.userId = UUID.randomUUID();
+        if (userId == null) {
+        	this.userId = UUID.randomUUID();
+        }
+        this.userId = userId;
         this.nick = nick;
         this.nombre = nombre;
         this.password = password;
@@ -37,25 +40,7 @@ public class Usuario implements I_Usuario {
         this.estado = estado;
         this.oro = oro;
         this.puntos = puntos;
-//		this.personajes = personajes;
     }
-
-	public Usuario(Usuario usuario) { // Constructor alternativo
-		this.fecha = usuario.getFecha();
-        this.userId = usuario.getUserId();
-        this.nick = usuario.getNick();
-        this.nombre = usuario.getNombre();
-        this.password = usuario.getPassword();
-        this.rol = usuario.getRol();
-        this.estado = usuario.getEstado();
-        this.oro = usuario.getOro();
-        this.puntos = usuario.getPuntos();
-//		this.personajes = usuario.getPersonajes();
-	}
-
-//	private List<Personaje> getPersonajes() {
-//		return this.personajes;
-//	}
 
 	// Implementación de los métodos de la interfaz
     public LocalDateTime getFecha() {

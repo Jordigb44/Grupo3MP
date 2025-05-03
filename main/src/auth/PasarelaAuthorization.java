@@ -67,13 +67,25 @@ public class PasarelaAuthorization {
         	this.interfaz.limpiarPantalla();
         	return null;
         }
-        this.badCredential = 0; // Reinicia el contador de intentos fallidos
-        this.interfaz.mostrar("✅ Inicio de sesión exitoso. ¡Bienvenido, " + nick + "!");
-        // Si la autenticación fue exitosa, obtenemos y mostramos las notificaciones
-        Usuario usuarioAutenticado = (Usuario) resultado;
-        mostrarNotificaciones(usuarioAutenticado);
-        
-        return usuarioAutenticado; // <-- Retorna el objeto Usuario autenticado
+        try {
+            this.badCredential = 0; // Reinicia el contador de intentos fallidos
+            // Si la autenticación fue exitosa, obtenemos y mostramos las notificaciones
+            Usuario usuarioAutenticado = (Usuario) resultado;
+            this.interfaz.mostrar("✅ Inicio de sesión exitoso. ¡Bienvenido, " + usuarioAutenticado.getNick()+ " - "+ usuarioAutenticado.getOro() + "!");
+            mostrarNotificaciones(usuarioAutenticado);
+            return usuarioAutenticado; // <-- Retorna el objeto Usuario autenticado
+
+        } catch (Exception e) {
+            // Aquí puedes manejar la excepción que pueda ocurrir dentro del bloque try
+            this.interfaz.mostrar("❌ Usuario o contraseña incorrecto, intenta de nuevo en 2 segundos. ❌\n");
+            try {
+                Thread.sleep(2000); // Espera 2 segundos antes de limpiar la pantalla
+            } catch (InterruptedException e1) {
+                e1.printStackTrace(); // Manejo básico de error
+            }
+            this.interfaz.limpiarPantalla();
+            return null;
+        }
     }
 
     // Método para registrar un usuario
@@ -86,7 +98,7 @@ public class PasarelaAuthorization {
         this.interfaz.mostrar("Por favor, introduce una contraseña:");
         String contraseña = this.interfaz.pedirEntrada();
         
-        Usuario nuevoUsuario = new Usuario(nick, nombre, contraseña, null, null, 0, 0); // Crea un nuevo usuario
+        Usuario nuevoUsuario = new Usuario(null, nick, nombre, contraseña, null, null, 0, 0); // Crea un nuevo usuario
         String resultado = this.auth.guardarUsuario(nuevoUsuario);
         if (resultado.equals("Usuario guardado correctamente.")) {
             this.interfaz.mostrar("✅ " + resultado + " ¡Bienvenido, " + nick + "!");

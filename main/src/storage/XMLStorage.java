@@ -253,20 +253,21 @@ public class XMLStorage implements I_Storage {
 				if (node.getNodeType() == Node.ELEMENT_NODE) {
 					Element element = (Element) node;
 					// System.out.println("Procesando usuario #" + (i+1));
-
+					String idString = element.getElementsByTagName("id").item(0).getTextContent();
+					UUID id = UUID.fromString(idString);
 					String nick = element.getElementsByTagName("nick").item(0).getTextContent();
 					String nombre = element.getElementsByTagName("nombre").item(0).getTextContent();
 					String password = element.getElementsByTagName("password").item(0).getTextContent();
 					String rol = element.getElementsByTagName("rol").item(0).getTextContent();
 					String estado = element.getElementsByTagName("estado").item(0).getTextContent();
 					String oroStr = element.getElementsByTagName("oro").item(0).getTextContent();
-					Integer oro = oroStr != null && !oroStr.isEmpty() ? Integer.parseInt(oroStr) : 0;
+					Integer oro = Integer.parseInt(oroStr);
 					String puntosStr = element.getElementsByTagName("puntos").item(0).getTextContent();
-					Integer puntos = puntosStr != null && !puntosStr.isEmpty() ? Integer.parseInt(puntosStr) : 0;
+					Integer puntos = Integer.parseInt(puntosStr);
 
-					// System.out.println("Datos obtenidos: Nick=" + nick + ", Nombre=" + nombre);
-
+//					System.out.println("Datos obtenidos: Nick=" + nick + ", Nombre=" + nombre);
 					Usuario usuario = new Usuario(
+							id,
 							nick,
 							nombre,
 							password,
@@ -287,7 +288,7 @@ public class XMLStorage implements I_Storage {
 					// System.out.println("Usuario añadido a la lista");
 				}
 			}
-			// System.out.println("Total de usuarios cargados: " + usuarios.size());
+//			System.out.println("Total de usuarios cargados: " + usuarios.size());
 		} catch (Exception e) {
 			// System.out.println("Error al cargar usuarios: " + e.getMessage());
 			e.printStackTrace();

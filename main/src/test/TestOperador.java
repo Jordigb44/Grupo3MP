@@ -31,7 +31,7 @@ public class TestOperador {
             FileManager fileManager = new FileManager(new XMLStorage("./"));
             
             // Crear un operador para las pruebas
-            Usuario usuario = new Usuario("admin", "Administrador", "password123", "operador", "activo", 100, 50);
+            Usuario usuario = new Usuario(null, "admin", "Administrador", "password123", "operador", "activo", 100, 50);
             Operador operador = new Operador(interfaz, fileManager, usuario);
             System.out.println("Operador creado correctamente");
             

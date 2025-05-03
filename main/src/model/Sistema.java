@@ -63,9 +63,11 @@ public class Sistema {
 		        	this.fileManager.guardarUsuario(operador); // guardamos copia actual del usuario
 		            break;
 		        case "jugador":
+		        	this.interfaz.mostrar("->Usuario "+this.usuario.getNick()+" - "+this.usuario.getOro());
 		        	Jugador jugador = new Jugador(this.usuario, 
 		        									this.fileManager.cargarPersonajesUsuario(this.usuario.getNick()), // personajes
-		        									null); // desafio
+		        									this.fileManager.cargarDesafioUsuario(usuario.getNick())); // desafio
+		        	this.interfaz.mostrar("->Jugador "+jugador.getNick()+" - "+jugador.getOro());
 		        		jugador.setUsuarios(this.usuarios);
 		        		jugador.setInterfaz(this.interfaz);
 		        		jugador.setFileManger(this.fileManager);
