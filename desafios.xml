@@ -1,41 +1,80 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <desafios>
-  <desafio>
-    <id>f0cb6af3-73dd-42b0-b50e-414c41e698a4</id>
-    <fecha>2025-05-03T17:58:11.846641</fecha>
-    <desafiante>f0e6c0c3-46a6-44f8-902d-dab5d0fbcd13</desafiante>
-    <desafiado>029fca74-5995-49a7-b2e3-76757bc44ea9</desafiado>
-    <oroApostado>5</oroApostado>
-    <estado>PENDIENTE</estado>
-    <personajeDesafiante>
-      <personaje>
-        <nombre>1</nombre>
-        <oro>0</oro>
-        <arma>Daga</arma>
-        <armadura>Cota de Malla</armadura>
-        <fortaleza>Velocidad Sobrenatural</fortaleza>
-        <debilidad>Debilidad a la Luz Solar</debilidad>
-        <esbirro>Lobo Guardián</esbirro>
-      </personaje>
-    </personajeDesafiante>
-  </desafio>
-  <desafio>
-    <id>bd51c441-82a3-4bf8-a867-0723a0ecb6d1</id>
-    <fecha>2025-05-03T19:42:55.128591400</fecha>
-    <desafiante>029fca74-5995-49a7-b2e3-76757bc44ea9</desafiante>
-    <desafiado>f0e6c0c3-46a6-44f8-902d-dab5d0fbcd13</desafiado>
-    <oroApostado>10</oroApostado>
-    <estado>PENDIENTE</estado>
-    <personajeDesafiante>
-      <personaje>
-        <nombre>hunter</nombre>
-        <oro>0</oro>
-        <arma>Ronroneo mortal</arma>
-        <armadura>Cota de Malla</armadura>
-        <fortaleza>Fuerza Incrementada</fortaleza>
-        <debilidad>Vulnerabilidad a las Flechas</debilidad>
-        <esbirro>Demonio Menor</esbirro>
-      </personaje>
-    </personajeDesafiante>
-  </desafio>
+      
+    <desafio>
+            
+        <id>f0cb6af3-73dd-42b0-b50e-414c41e698a4</id>
+            
+        <fecha>2025-05-03T17:58:11.846641</fecha>
+            
+        <desafiante>f0e6c0c3-46a6-44f8-902d-dab5d0fbcd13</desafiante>
+            
+        <desafiado>029fca74-5995-49a7-b2e3-76757bc44ea9</desafiado>
+            
+        <oroApostado>5</oroApostado>
+            
+        <estado>VALIDADO</estado>
+            
+        <personajeDesafiante>
+                  
+            <personaje>
+                        
+                <nombre>1</nombre>
+                        
+                <oro>0</oro>
+                        
+                <arma>Daga</arma>
+                        
+                <armadura>Cota de Malla</armadura>
+                        
+                <fortaleza>Velocidad Sobrenatural</fortaleza>
+                        
+                <debilidad>Debilidad a la Luz Solar</debilidad>
+                        
+                <esbirro>Lobo Guardián</esbirro>
+                      
+            </personaje>
+                
+        </personajeDesafiante>
+          
+    </desafio>
+      
+    <desafio>
+            
+        <id>bd51c441-82a3-4bf8-a867-0723a0ecb6d1</id>
+            
+        <fecha>2025-05-03T19:42:55.128591400</fecha>
+            
+        <desafiante>029fca74-5995-49a7-b2e3-76757bc44ea9</desafiante>
+            
+        <desafiado>f0e6c0c3-46a6-44f8-902d-dab5d0fbcd13</desafiado>
+            
+        <oroApostado>10</oroApostado>
+            
+        <estado>PENDIENTE</estado>
+            
+        <personajeDesafiante>
+                  
+            <personaje>
+                        
+                <nombre>hunter</nombre>
+                        
+                <oro>0</oro>
+                        
+                <arma>Ronroneo mortal</arma>
+                        
+                <armadura>Cota de Malla</armadura>
+                        
+                <fortaleza>Fuerza Incrementada</fortaleza>
+                        
+                <debilidad>Vulnerabilidad a las Flechas</debilidad>
+                        
+                <esbirro>Demonio Menor</esbirro>
+                      
+            </personaje>
+                
+        </personajeDesafiante>
+          
+    </desafio>
+    
 </desafios>

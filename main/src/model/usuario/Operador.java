@@ -1,6 +1,8 @@
 package model.usuario;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 import model.desafio.Desafio;
 import model.desafio.E_EstadoDesafio;
@@ -490,7 +492,7 @@ public class Operador extends Usuario {
         }
         
         desafio.setEstado(E_EstadoDesafio.VALIDADO);
-        fileManager.guardarDesafio(desafio);
+        fileManager.actualizarEstadoDesafio(desafio.getDesafioId(), desafio.getEstado());
         
         return "Desafío validado correctamente.";
     }

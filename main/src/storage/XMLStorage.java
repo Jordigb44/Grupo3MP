@@ -965,6 +965,58 @@ public class XMLStorage implements I_Storage {
 		}
 		return null;
 	}
+	
+	public String actualizarEstadoDesafio(UUID desafioId, E_EstadoDesafio nuevoEstado) {
+	    try {
+	        File file = new File(getFilePath("desafios"));
+	        if (!file.exists()) {
+	            return "⚠️ Archivo de desafíos no encontrado.";
+	        }
+
+	        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+	        DocumentBuilder builder = factory.newDocumentBuilder();
+	        Document doc = builder.parse(file);
+	        doc.getDocumentElement().normalize();
+
+	        NodeList nodeList = doc.getElementsByTagName("desafio");
+
+	        boolean encontrado = false;
+	        for (int i = 0; i < nodeList.getLength(); i++) {
+	            Element desafioElement = (Element) nodeList.item(i);
+	            String id = desafioElement.getElementsByTagName("id").item(0).getTextContent();
+	            if (id.equals(desafioId.toString())) {
+	                // Actualizar estado
+	                Element estadoElement = (Element) desafioElement.getElementsByTagName("estado").item(0);
+	                estadoElement.setTextContent(nuevoEstado.toString());
+	                encontrado = true;
+	                break;
+	            }
+	        }
+
+	        if (!encontrado) {
+	            return "❌ Desafío con ID " + desafioId + " no encontrado.";
+	        }
+
+	        // Guardar cambios en el archivo
+	        Transformer transformer = TransformerFactory.newInstance().newTransformer();
+	        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+	        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+	        DOMSource source = new DOMSource(doc);
+	        StreamResult result = new StreamResult(file);
+	        transformer.transform(source, result);
+
+	        return "✅ Estado del desafío actualizado correctamente.";
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return "❌ Error al actualizar estado del desafío: " + e.getMessage();
+	    }
+	}
+
+	private Element createElement(Document doc, String tag, String value) {
+	    Element element = doc.createElement(tag);
+	    element.setTextContent(value);
+	    return element;
+	}
 
 	@Override
 	public String guardarDesafio(Desafio desafio) {

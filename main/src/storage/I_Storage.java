@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.UUID;
 import model.desafio.Combate;
 import model.desafio.Desafio;
+import model.desafio.E_EstadoDesafio;
 import model.personaje.Esbirro;
 import model.personaje.Personaje;
 import model.personaje.habilidad.Arma;
@@ -170,6 +171,8 @@ public interface I_Storage {
 	int getEdadVampiro();
 
 	String actualizarPersonajeUsuario(String nick, Personaje personajeActualizado);
+
+	String actualizarEstadoDesafio(UUID desafioId, E_EstadoDesafio nuevoEstado);
 
 
 

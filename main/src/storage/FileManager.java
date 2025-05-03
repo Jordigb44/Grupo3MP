@@ -147,6 +147,11 @@ public class FileManager {
         return this.storage.guardarDesafio(desafio);
     }
 
+    public String actualizarEstadoDesafio(UUID desafioId, E_EstadoDesafio nuevoEstado) {
+        return this.storage.actualizarEstadoDesafio(desafioId, nuevoEstado);
+    }
+
+    
     /**
      * Carga todos los desafíos desde el almacenamiento.
      *
@@ -202,17 +207,7 @@ public class FileManager {
     public void deleteNotificacion(Usuario usuario) {
         this.storage.deleteNotificacion(usuario);
     }
-
-    /**
-     * Actualiza un desafío existente en el almacenamiento.
-     *
-     * @param desafio el desafío a actualizar
-     * @return un mensaje indicando el resultado de la operación
-     */
-    public String actualizarDesafio(Desafio desafio) {
-        return this.storage.guardarDesafio(desafio);
-    }
-
+    
     /**
      * Carga un desafío específico usando su UUID.
      *
