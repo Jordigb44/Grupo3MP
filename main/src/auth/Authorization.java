@@ -41,22 +41,26 @@ public class Authorization {
     public Object checkPassword(String nick, String contraseña) {
         // Lógica para verificar la contraseña
         Object resultado = verificarCredenciales(nick, contraseña);
-        if ("Contraseña incorrecta.".equals(resultado)) {
-        	return resultado;
-        }
         return resultado;
     }
     
     private Object verificarCredenciales(String nick, String contraseña) {
-        // Implementación real para verificar credenciales
-        // Aquí deberías usar el fileManager para cargar usuarios y verificar credenciales
         List<Usuario> usuarios = this.fileManager.cargarUsuarios();
+        
         for (Usuario u : usuarios) {
-            if (u.getNick().equals(nick) && u.getPassword().equals(contraseña)) {
-                return u;
+            if (u.getNick().equals(nick)) {
+                if (!u.getPassword().equals(contraseña)) {
+                    return "Contraseña incorrecta.";
+                }
+                if ("Baja".equalsIgnoreCase(u.getEstado())) {
+                    return "Este usuario está dado de baja.";
+                }
+                System.out.println(u.getEstado());
+                return u; // Credenciales correctas y usuario no bloqueado
             }
         }
-        return "Contraseña incorrecta.";
+
+        return "Usuario no encontrado.";
     }
     
     // Método para guardar un nuevo usuario

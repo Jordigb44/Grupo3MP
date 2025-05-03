@@ -325,55 +325,6 @@ public class FileManager {
         // Save the updated list
         guardarPersonajes(personajes);
     }
-	
-    public List<Jugador> cargarJugadoresSinBloquear(List<Usuario> usuarios) {
-        List<Jugador> jugadores = new ArrayList<>();
-
-        for (Usuario usuario : usuarios) {
-                Jugador jugador = (Jugador) usuario;
-
-                // Verificar si el usuario está bloqueado o no, y agregarlo a la lista correspondiente
-                if (!"bloqueado".equals(usuario.getEstado())) {
-                    // Cargar personajes del jugador
-                    List<Personaje> personajes = cargarPersonajesUsuario(jugador.getNick());
-                    jugador.setPersonajes(personajes);
-
-                    // Cargar desafío del jugador
-                    Desafio desafio = this.storage.cargarDesafioUsuario(jugador.getNick());
-                    jugador.setDesafio(desafio);
-
-                    // Agregar jugador a la lista de jugadores sin bloquear
-                    jugadores.add(jugador);
-                } else {
-                    // Si el usuario está bloqueado, puedes hacer algo diferente, como agregarlo a otra lista
-                    // Jugador bloqueado
-                }
-        }
-
-        return jugadores;
-    }
-
-    public List<Jugador> cargarJugadoresBloqueados(List<Usuario> usuarios) {
-        List<Jugador> jugadoresBloqueados = new ArrayList<>();
-
-        for (Usuario usuario : usuarios) {
-            if ("bloqueado".equals(usuario.getEstado()) && usuario instanceof Jugador) {
-                Jugador jugador = (Jugador) usuario;
-
-                // Cargar personajes del jugador
-                List<Personaje> personajes = cargarPersonajesUsuario(jugador.getNick());
-                jugador.setPersonajes(personajes);
-
-                // Cargar desafío del jugador
-                Desafio desafio = cargarDesafioUsuario(jugador.getNick());
-                jugador.setDesafio(desafio);
-
-                jugadoresBloqueados.add(jugador);
-            }
-        }
-
-        return jugadoresBloqueados;
-    }
     
     /**
      * Loads all pending challenges.
@@ -407,13 +358,31 @@ public class FileManager {
                 // Crear un nuevo Jugador a partir del Usuario
                 List<Personaje> personajes = cargarPersonajesUsuario(usuario.getNick());
                 Desafio desafio = this.storage.cargarDesafioUsuario(usuario.getNick());
-                Jugador jugador = new Jugador(usuario, personajes, );
+                Jugador jugador = new Jugador(usuario, personajes, desafio);
                 jugadoresActivos.add(jugador);
             }
         }
         
         return jugadoresActivos;
     }
+    
+    public List<Jugador> cargarJugadoresBloqueados() {
+        List<Usuario> usuarios = cargarUsuarios();
+        List<Jugador> jugadoresActivos = new ArrayList<>();
+        
+        for (Usuario usuario : usuarios) {
+            if ("bloqueado".equals(usuario.getEstado()) && "jugador".equals(usuario.getRol())) {
+                // Crear un nuevo Jugador a partir del Usuario
+                List<Personaje> personajes = cargarPersonajesUsuario(usuario.getNick());
+                Desafio desafio = this.storage.cargarDesafioUsuario(usuario.getNick());
+                Jugador jugador = new Jugador(usuario, personajes, desafio);
+                jugadoresActivos.add(jugador);
+            }
+        }
+        
+        return jugadoresActivos;
+    }
+    
     /**
      * Loads all available weapons.
      * 

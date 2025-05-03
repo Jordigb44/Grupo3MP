@@ -186,7 +186,7 @@ public class TestOperador {
                 
                 try {
                     int index = Integer.parseInt(indice);
-                    List<Jugador> jugadores = fileManager.cargarJugadoresSinBloquear(fileManager.cargarUsuarios());
+                    List<Jugador> jugadores = fileManager.cargarJugadoresActivos();
                     
                     if (index > 0 && index <= jugadores.size()) {
                         Jugador jugador = jugadores.get(index - 1);
@@ -211,7 +211,7 @@ public class TestOperador {
                 
                 try {
                     int index = Integer.parseInt(indice);
-                    List<Jugador> jugadores = fileManager.cargarJugadoresBloqueados(fileManager.cargarUsuarios());
+                    List<Jugador> jugadores = fileManager.cargarJugadoresBloqueados();
                     
                     if (index > 0 && index <= jugadores.size()) {
                         Jugador jugador = jugadores.get(index - 1);
