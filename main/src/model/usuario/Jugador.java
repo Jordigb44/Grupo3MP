@@ -43,7 +43,7 @@ public class Jugador extends Usuario {
         return this;
     }
     
-    public void getDesafioMenu() {
+    public void getMenuInicioDesafio() {
         if (this.desafio != null) {
             this.desafio.setFileManager(this.fileManager);
             this.interfaz.mostrar("=== Tienes un desafío nuevo ===");
@@ -72,6 +72,73 @@ public class Jugador extends Usuario {
             }
         }
     }
+    public void getNuevoDesafioMenu(List<Jugador> todosLosJugadores) {
+    this.interfaz.mostrar("=== Crear Nuevo Desafío ===");
+
+    // Mostrar lista de posibles jugadores a desafiar (excluyendo a sí mismo)
+    this.interfaz.mostrar("Selecciona un jugador para desafiar:");
+    int index = 1;
+    List<Jugador> posiblesDesafiados = new ArrayList<>();
+    for (Jugador j : todosLosJugadores) {
+        if (!j.equals(this)) {
+            this.interfaz.mostrar(index + ". " + j.getNick());
+            posiblesDesafiados.add(j);
+            index++;
+        }
+    }
+
+    // Selección del jugador
+    String seleccion = this.interfaz.pedirEntrada();
+    int elegido;
+    try {
+        elegido = Integer.parseInt(seleccion);
+        if (elegido < 1 || elegido > posiblesDesafiados.size()) {
+            this.interfaz.mostrar("⚠️ Opción fuera de rango.");
+            return;
+        }
+    } catch (NumberFormatException e) {
+        this.interfaz.mostrar("⚠️ Entrada inválida.");
+        return;
+    }
+
+    Jugador jugadorDesafiado = posiblesDesafiados.get(elegido - 1);
+
+    // Ingreso de oro apostado
+    this.interfaz.mostrar("¿Cuánto oro deseas apostar?");
+    int oroApostado;
+    try {
+        oroApostado = Integer.parseInt(this.interfaz.pedirEntrada());
+        if (oroApostado <= 0 || oroApostado > this.oro) {
+            this.interfaz.mostrar("⚠️ Apuesta inválida. Verifica tu cantidad de oro.");
+            return;
+        }
+    } catch (NumberFormatException e) {
+        this.interfaz.mostrar("⚠️ Valor no válido.");
+        return;
+    }
+
+    // Confirmación
+    this.interfaz.mostrar("Vas a desafiar a '" + jugadorDesafiado.getNick() + "' por " + oroApostado + " de oro.");
+    this.interfaz.mostrar("¿Deseas continuar?");
+    this.interfaz.mostrar("1. Sí");
+    this.interfaz.mostrar("2. No");
+
+    String confirmacion = this.interfaz.pedirEntrada();
+    if ("1".equals(confirmacion)) {
+        Desafio desafio = new Desafio();
+        desafio.setDesafiante(this);
+        desafio.setDesafiado(jugadorDesafiado);
+        desafio.setOroApostado(oroApostado);
+        desafio.setFileManager(this.fileManager);
+
+        this.fileManager.guardarDesafio(desafio);
+        this.interfaz.mostrar("✅ Desafío enviado con éxito.");
+    } else {
+        this.interfaz.mostrar("Desafío cancelado.");
+    }
+}
+
+
 
     public void getMenu() {
         String opcion = " ";
@@ -115,11 +182,11 @@ public class Jugador extends Usuario {
                     break;
 
                 case "5":
-                    // getMenuInicioDesafio(this.desafio);
+                    getMenuInicioDesafio();
                     break;
 
                 case "6":
-                    consultarRankingGeneral();
+                    consultaRankingGeneral();
                     break;
 
                 case "7":
@@ -168,199 +235,81 @@ public class Jugador extends Usuario {
         return personajes.get(0);
     }
     
-    // --- REVISAR
     public void agregarPersonaje() {
-        try {
-            List<String> tiposDisponibles = null;
-            try {
-                tiposDisponibles = this.fileManager.getTiposPersonajes();
-            } catch (Exception e) {
-                this.interfaz.mostrar("Error al obtener tipos de personajes: " + e.getMessage());
-                e.printStackTrace();
-                return;
-            }
-
-            String tipo = "";
-            boolean tipoValido = false;
-
-            while (!tipoValido) {
-                this.interfaz.mostrar("Ingrese el tipo de personaje (" + String.join("/", tiposDisponibles) + "):");
-                tipo = this.interfaz.pedirEntrada().trim().toLowerCase();
-
-                if (tiposDisponibles.contains(tipo)) {
-                    tipoValido = true;
-                } else {
-                    this.interfaz.mostrar("Tipo de personaje no válido. Intenta nuevamente.");
-                }
-            }
-
-            this.interfaz.mostrar("Ingrese el nombre del nuevo personaje:");
-            String nombre = this.interfaz.pedirEntrada();
-
-            List<Arma> armas = new ArrayList<>();
-            List<Armadura> armaduras = new ArrayList<>();
-            List<Esbirro> esbirros = new ArrayList<>();
-            List<Fortaleza> fortalezas = new ArrayList<>();
-            List<Debilidad> debilidades = new ArrayList<>();
-
-            try {
-                armas = seleccionarArmas();
-                armaduras = seleccionarArmaduras();
-                esbirros = seleccionarEsbirros();
-                fortalezas = seleccionarFortalezas();
-                debilidades = seleccionarDebilidades();
-            } catch (Exception e) {
-                this.interfaz.mostrar("Error al seleccionar atributos del personaje: " + e.getMessage());
-                e.printStackTrace();
-                return;
-            }
-
-            List<Arma> armaActiva = armas.isEmpty() ? new ArrayList<>() : List.of(armas.get(0));
-            Armadura armaduraActiva = armaduras.isEmpty() ? null : armaduras.get(0);
-
-            Personaje nuevo = null;
-            try {
-                Builder builder = new Builder(this.fileManager, this.interfaz, tipo, nombre, armaActiva, armaduraActiva, armas, armaduras, esbirros, fortalezas, debilidades);
-                nuevo = builder.getPersonaje();
-            	this.interfaz.mostrar("Personaje: " + nuevo.getNombre() + " (Tipo: " + this.getClass().getSimpleName() + ")");
-            } catch (Exception e) {
-                this.interfaz.mostrar("Error al construir el personaje: " + e.getMessage());
-                e.printStackTrace();
-                return;
-            }
-         // ⚠️ Asegura que la lista no sea null
-            if (this.personajes == null) {
-                this.personajes = new ArrayList<>();
-            }
-            this.personajes.add(nuevo);
-            if (this.fileManager.guardarPersonajesUsuario(this.nick, this.personajes)) {
-            	this.interfaz.mostrar("Personaje agregado exitosamente: " + nombre);            	
-            } else {
-                this.interfaz.mostrar("No se pudo agregar el personaje");
-            } 
-            
-
-        } catch (Exception e) {
-            this.interfaz.mostrar("Error inesperado al agregar el personaje: " + e.getMessage());
-            e.printStackTrace();
-        }
-    }
-    private List<Arma> seleccionarArmas() {
-        List<Arma> disponibles = fileManager.cargarArmas();
-        List<Arma> seleccionadas = new ArrayList<>();
-
-        interfaz.mostrar("Seleccione armas disponibles (separadas por coma):");
-        for (int i = 0; i < disponibles.size(); i++) {
-            Arma arma = disponibles.get(i);
-            interfaz.mostrar(i + ". " + arma.getNombre() + " (Ataque: " + arma.getAtaque() + ", Manos: " + arma.getManos() + ")");
+    try {
+        List<String> tiposDisponibles = fileManager.getTiposPersonajes();
+        if (tiposDisponibles == null || tiposDisponibles.isEmpty()) {
+            interfaz.mostrar("No hay tipos de personaje disponibles.");
+            return;
         }
 
-        String entrada = interfaz.pedirEntrada();
-        for (String indiceStr : entrada.split(",")) {
+        String tipo = "";
+        while (true) {
+            interfaz.mostrar("Seleccione el tipo de personaje (" + String.join("/", tiposDisponibles) + "):");
+            tipo = interfaz.pedirEntrada().trim().toLowerCase();
+            if (tiposDisponibles.contains(tipo)) break;
+            interfaz.mostrar("Tipo inválido. Intente de nuevo.");
+        }
+
+        interfaz.mostrar("Ingrese el nombre del nuevo personaje:");
+        String nombre = interfaz.pedirEntrada().trim();
+
+        Builder builder = new Builder(fileManager, interfaz, tipo, nombre,new ArrayList<>(), null,new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
+        Personaje nuevo = builder.getPersonaje();
+
+        List<Arma> armasDisponibles = fileManager.cargarArmas();
+        if (!armasDisponibles.isEmpty()) {
+            interfaz.mostrar("Seleccione un arma para equipar (índice o vacío para ninguna):");
+            for (int i = 0; i < armasDisponibles.size(); i++) {
+                Arma a = armasDisponibles.get(i);
+                interfaz.mostrar(i + ". " + a.getNombre() + " (Ataque: " + a.getAtaque() + ")");
+            }
+            String entrada = interfaz.pedirEntrada().trim();
             try {
-                int idx = Integer.parseInt(indiceStr.trim());
-                if (idx >= 0 && idx < disponibles.size()) {
-                    seleccionadas.add(disponibles.get(idx));
+                if (!entrada.isEmpty()) {
+                    int idx = Integer.parseInt(entrada);
+                    if (idx >= 0 && idx < armasDisponibles.size()) {
+                        nuevo.equiparArma(armasDisponibles.get(idx));
+                    }
                 }
             } catch (NumberFormatException ignored) {}
         }
 
-        return seleccionadas;
-    }
-
-    private List<Armadura> seleccionarArmaduras() {
-        List<Armadura> disponibles = fileManager.cargarArmaduras();
-        List<Armadura> seleccionadas = new ArrayList<>();
-
-        interfaz.mostrar("Seleccione armaduras disponibles (separadas por coma):");
-        for (int i = 0; i < disponibles.size(); i++) {
-            Armadura a = disponibles.get(i);
-            interfaz.mostrar(i + ". " + a.getNombre() + " (Defensa: " + a.getDefensa() + ")");
-        }
-
-        String entrada = interfaz.pedirEntrada();
-        for (String indiceStr : entrada.split(",")) {
+        List<Armadura> armadurasDisponibles = fileManager.cargarArmaduras();
+        if (!armadurasDisponibles.isEmpty()) {
+            interfaz.mostrar("Seleccione una armadura para equipar (índice o vacío para ninguna):");
+            for (int i = 0; i < armadurasDisponibles.size(); i++) {
+                Armadura a = armadurasDisponibles.get(i);
+                interfaz.mostrar(i + ". " + a.getNombre() + " (Defensa: " + a.getDefensa() + ")");
+            }
+            String entrada = interfaz.pedirEntrada().trim();
             try {
-                int idx = Integer.parseInt(indiceStr.trim());
-                if (idx >= 0 && idx < disponibles.size()) {
-                    seleccionadas.add(disponibles.get(idx));
+                if (!entrada.isEmpty()) {
+                    int idx = Integer.parseInt(entrada);
+                    if (idx >= 0 && idx < armadurasDisponibles.size()) {
+                        nuevo.equiparArmadura(armadurasDisponibles.get(idx));
+                    }
                 }
             } catch (NumberFormatException ignored) {}
         }
 
-        return seleccionadas;
+        if (personajes == null) personajes = new ArrayList<>();
+        personajes.add(nuevo);
+
+        if (fileManager.guardarPersonajesUsuario(nick, personajes)) {
+            interfaz.mostrar("✅ Personaje '" + nombre + "' creado exitosamente.");
+        } else {
+            interfaz.mostrar("❌ No se pudo guardar el personaje.");
+        }
+
+    } catch (Exception e) {
+        interfaz.mostrar("⚠️ Error al agregar personaje: " + e.getMessage());
+        e.printStackTrace();
     }
+}
 
-    private List<Esbirro> seleccionarEsbirros() {
-        List<Esbirro> disponibles = fileManager.cargarEsbirrosDisponibles();
-        List<Esbirro> seleccionados = new ArrayList<>();
 
-        interfaz.mostrar("Seleccione esbirros disponibles (separados por coma):");
-        for (int i = 0; i < disponibles.size(); i++) {
-            Esbirro e = disponibles.get(i);
-            interfaz.mostrar(i + ". " + e.getNombre());
-        }
-
-        String entrada = interfaz.pedirEntrada();
-        for (String indiceStr : entrada.split(",")) {
-            try {
-                int idx = Integer.parseInt(indiceStr.trim());
-                if (idx >= 0 && idx < disponibles.size()) {
-                    seleccionados.add(disponibles.get(idx));
-                }
-            } catch (NumberFormatException ignored) {}
-        }
-
-        return seleccionados;
-    }
-
-    private List<Fortaleza> seleccionarFortalezas() {
-        List<Fortaleza> disponibles = fileManager.cargarFortalezasDisponibles();
-        List<Fortaleza> seleccionadas = new ArrayList<>();
-
-        interfaz.mostrar("Seleccione fortalezas disponibles (separadas por coma):");
-        for (int i = 0; i < disponibles.size(); i++) {
-            Fortaleza f = disponibles.get(i);
-            interfaz.mostrar(i + ". " + f.getNombre() + " (Nivel: " + f.getNivel() + ")");
-        }
-
-        String entrada = interfaz.pedirEntrada();
-        for (String indiceStr : entrada.split(",")) {
-            try {
-                int idx = Integer.parseInt(indiceStr.trim());
-                if (idx >= 0 && idx < disponibles.size()) {
-                    seleccionadas.add(disponibles.get(idx));
-                }
-            } catch (NumberFormatException ignored) {}
-        }
-
-        return seleccionadas;
-    }
-
-    private List<Debilidad> seleccionarDebilidades() {
-        List<Debilidad> disponibles = fileManager.cargarDebilidadesDisponibles();
-        List<Debilidad> seleccionadas = new ArrayList<>();
-
-        interfaz.mostrar("Seleccione debilidades disponibles (separadas por coma):");
-        for (int i = 0; i < disponibles.size(); i++) {
-            Debilidad d = disponibles.get(i);
-            interfaz.mostrar(i + ". " + d.getNombre() + " (Nivel: " + d.getNivel() + ")");
-        }
-
-        String entrada = interfaz.pedirEntrada();
-        for (String indiceStr : entrada.split(",")) {
-            try {
-                int idx = Integer.parseInt(indiceStr.trim());
-                if (idx >= 0 && idx < disponibles.size()) {
-                    seleccionadas.add(disponibles.get(idx));
-                }
-            } catch (NumberFormatException ignored) {}
-        }
-
-        return seleccionadas;
-    }
     
-    // --- FIN Revisar ----
 
     public void borrarPersonaje(Personaje personaje) {
         if (personaje != null && this.personajes.contains(personaje)) {
@@ -616,15 +565,12 @@ public class Jugador extends Usuario {
         interfaz.mostrar("Desafío rechazado. Desafiante: "+ this.desafio.getDesafiante() + " Vs Desafiado: " + this.desafio.getDesafiado());
     }
     
-    public void consultarRankingGeneral() {
-        try {
-            Ranking ranking = new Ranking(this.usuarios, this.interfaz);
-            // Muestra el ranking
-            ranking.consultarRanking(usuarios);
-
-        } catch (Exception e) {
-            System.out.println("Error al consultar el ranking general: " + e.getMessage());
-            e.printStackTrace();
+    
+    public void consultaRankingGeneral() {
+        List<Ranking> rankings = fileManager.cargarRanking();
+        if (rankings != null && !rankings.isEmpty()) {
+            Ranking ranking;
+            ranking.consultarRanking();            
         }
     }
 
