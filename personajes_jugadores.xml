@@ -20,4 +20,14 @@
     <esbirro>Lobo Guardián</esbirro>
     <oro>0</oro>
   </personaje>
+  <personaje>
+    <jugador>adam</jugador>
+    <nombre>hunter</nombre>
+    <arma>Ronroneo mortal</arma>
+    <armadura>Cota de Malla</armadura>
+    <fortaleza>Fuerza Incrementada</fortaleza>
+    <debilidad>Vulnerabilidad a las Flechas</debilidad>
+    <esbirro>Demonio Menor</esbirro>
+    <oro>0</oro>
+  </personaje>
 </personajes>

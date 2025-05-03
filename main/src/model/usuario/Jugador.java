@@ -411,40 +411,35 @@ public class Jugador extends Usuario {
                     interfaz.mostrar((i + 1) + ". " + a.getNombre() + " (defensa: " + a.getDefensa() + ")");
                 }
 
-                // Seleccionar armadura
-                int opcion = -1;
-                while (opcion < 1 || opcion > armadurasDisponibles.size()) {
-                    interfaz.mostrar("Introduce el número de la armadura que deseas equipar:");
-                    try {
-                        opcion = Integer.parseInt(interfaz.pedirEntrada());
-                        if (opcion < 1 || opcion > armadurasDisponibles.size()) {
-                            interfaz.mostrar("Opción inválida. Intenta nuevamente.");
-                        }
-                    } catch (NumberFormatException e) {
-                        interfaz.mostrar("Entrada no válida. Debes ingresar un número.");
-                    }
-                }
 
-                // Equipar la armadura
-                Armadura armaduraSeleccionada = armadurasDisponibles.get(opcion - 1);
-                p.equiparArmadura(armaduraSeleccionada);
+
+
+    		    // Seleccionar armadura
+    		    int opcion = -1;
+    		    while (opcion < 1 || opcion > armadurasDisponibles.size()) {
+    		        interfaz.mostrar("Introduce el numero de la armadura que deseas activar:");
+    		        try {
+    		            opcion = Integer.parseInt(interfaz.pedirEntrada());
+    		            if (opcion < 1 || opcion > armadurasDisponibles.size()) {
+    		                interfaz.mostrar("Opcion invalida. Intenta nuevamente.");
+    		            }
+    		        } catch (NumberFormatException e) {
+    		            interfaz.mostrar("Entrada no valida. Debes ingresar un numero.");
+    		        }
+    		    }
+    		    
+    		    // Equipar la armadura
+    		    p.equiparArmadura(armadurasDisponibles.get(opcion - 1)); //Se resta 1 porque el numero mostrado no corresponde con su numero de la lista
                 
-                // Mensaje de confirmación
-                interfaz.mostrar("✅ ¡" + armaduraSeleccionada.getNombre() + " equipada con éxito a " + 
-                                p.getNombre() + "! Defensa: +" + armaduraSeleccionada.getDefensa());
-                fileManager.guardarPersonaje(p);
-                
-                interfaz.mostrar("Estado actual de " + p.getNombre() + ":");
-                interfaz.mostrar("- Armadura: " + (p.getArmaduraActiva() != null ? p.getArmaduraActiva().getNombre() : "Ninguna"));
-                interfaz.mostrar("- Defensa total: " + p.getArmaduraActiva().getDefensa());
-               
             } else {
-                interfaz.mostrar("⚠️ Selección de personaje inválida.");
+                interfaz.mostrar("⚠️ Selección de personaje invalida.");
             }
         } catch (NumberFormatException e) {
-            interfaz.mostrar("⚠️ Entrada inválida. Debes ingresar un número.");
+            interfaz.mostrar("⚠️ Entrada invalida.");
         }
     }
+            
+            
 
     public void equiparArmaAPersonaje() {
     if (personajes.isEmpty()) {
