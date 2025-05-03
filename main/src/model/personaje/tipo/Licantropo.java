@@ -19,11 +19,13 @@ public class Licantropo extends Personaje {
     private String estado;
     private FileManager fileManager;
     private A_Interfaz interfaz;
+	private String tipo;
 
     //CONSTRUCTOR
     public Licantropo(FileManager fileManager, A_Interfaz interfaz, Personaje personaje) {
 		super(personaje);
 		this.fileManager = fileManager;
+		this.tipo = "licantropo";
     	this.dones = this.fileManager.getDonesLicantropo();
     	this.rabia = this.fileManager.getRabiaLicantropo(); //Empiezan con 0 y se suma cuando pierde salud
     	this.peso = this.fileManager.getPesoLicantropo();
@@ -45,6 +47,10 @@ public class Licantropo extends Personaje {
         	this.altura -= Math.round((0.5 + Math.random() * 0.5) * 10) / 10.0f;
         	this.peso -= (int)(Math.random() * 21) + 90;
         }
+    }
+    
+    public String getTipo() {
+    	return this.tipo;
     }
 
     protected void resetRabia() { //Empiezan el combate con rabia 0

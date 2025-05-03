@@ -28,12 +28,15 @@ public class Builder {
 	    try {
 	        switch (tipo.toLowerCase()) {
 	            case "vampiro":
+	            	personaje.setTipo("vampiro");
 	                this.personaje = new Vampiro(this.fileManager, this.interfaz, this.personaje);
 	                break;
 	            case "cazador":
+	            	personaje.setTipo("cazador");
 	                this.personaje = new Cazador(this.fileManager, this.interfaz, this.personaje);
 	                break;
 	            case "licantropo":
+	            	personaje.setTipo("licantropo");
 	                this.personaje = new Licantropo(this.fileManager, this.interfaz, this.personaje);
 	                break;
 	            default:

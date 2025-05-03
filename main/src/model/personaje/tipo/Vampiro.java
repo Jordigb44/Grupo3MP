@@ -17,11 +17,13 @@ public class Vampiro extends Personaje {
     private List<Disciplina> disciplinas;
     private FileManager fileManager;
     private A_Interfaz interfaz;
+	private String tipo;
 
     //CONSTRUCTOR
     public Vampiro(FileManager fileManager, A_Interfaz interfaz, Personaje personaje) {
     	super(personaje);
         this.fileManager = fileManager;
+        this.tipo = "vampiro";
     	this.disciplinas = this.fileManager.getDisciplinasVampiro();
     	this.puntosSangre = this.fileManager.getPuntosdeSangreVampiro(); //Por defecto, tienen 10 puntos de sangre
     	this.edad = this.fileManager.getEdadVampiro();
@@ -35,7 +37,10 @@ public class Vampiro extends Personaje {
     protected void resetPuntosSangre() { //NO SE USA EN NINGUN LADO?
         this.puntosSangre = 10;
     }
-
+    
+    public String getTipo() {
+    	return this.tipo;
+    }
     /**
      * Maximo 10 puntos de sangre. Aumentan 4 puntos de sangre si el ataque tiene éxito.
      */

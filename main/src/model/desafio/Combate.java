@@ -2,8 +2,11 @@ package model.desafio;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
+import model.personaje.Personaje;
 import model.usuario.Jugador;
+import storage.FileManager;
 
 public class Combate {
     private Desafio desafio; 
@@ -17,11 +20,22 @@ public class Combate {
          this.rondas = new ArrayList<>();
     }
     
-    public void iniciarCombate() {
+    public void iniciarCombate(FileManager fileManager) {
         Jugador desafiante = this.desafio.getDesafiante();
         Jugador desafiando = this.desafio.getDesafiado();
+        UUID desafioId = this.desafio.getDesafioId();
+        int salud = 0;
+        String tipo = fileManager.obtenerTipoDePersonajeDesafiantePorDesafioId(desafioId);
+        System.out.println(tipo);
+        salud = fileManager.getSaludPorTipoNombre(tipo);
+        System.out.println(salud);
+        
+        int personajesSaludDesafiante = salud;
+        int personajesSaludDesafiado = 0; // TODO: Cuando inicia el combate o antes, el desafiante debe de elegir con que personaje quiere combatir
+        System.out.println(personajesSaludDesafiante);
+        System.out.println(personajesSaludDesafiado);
 
-        while (desafiante.getPersonaje().getSalud() > 0 && desafiando.getPersonaje().getSalud() > 0) {
+        while (personajesSaludDesafiante > 0 && personajesSaludDesafiado > 0) {
             Rondas ronda = new Rondas(desafiante, desafiando);
             ronda.iniciarRonda();
             this.rondas.add(ronda);
@@ -39,8 +53,8 @@ public class Combate {
 
         actualizarRanking();
     }
-    
-    public Desafio getDesafio() {
+
+	public Desafio getDesafio() {
     	return this.desafio;
     }
     

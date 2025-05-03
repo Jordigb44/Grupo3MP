@@ -18,12 +18,14 @@ public class Cazador extends Personaje {
     private FileManager fileManager;
     private A_Interfaz interfaz;
     private Talento talentoActivo; //Para seleccionar el talentoActivo
+	private String tipo;
 
     //CONSTRUCTOR
     public Cazador(FileManager fileManager, A_Interfaz interfaz, Personaje personaje) {
 		super(personaje);
 		this.fileManager = fileManager;
 		this.interfaz = interfaz;
+		this.tipo = "cazador";
     	this.talentos = this.fileManager.getTalentosCazador();
     	this.voluntad = this.fileManager.getVoluntadCazador(); //Empiezan partida con 3 y el valor esta entre 0 y 3
 	}
@@ -53,6 +55,10 @@ public class Cazador extends Personaje {
 
 	public List<Talento> getTalentos() {
 		return this.talentos;
+	}
+	
+	public String getTipo() {
+		return this.tipo;
 	}
 	
 	public void setTalentoActivo() { // Es usado por OPERADOR - Para editar un Desafio antes de aprobarlo. Lo setea a ese Desafio NO AL TIPO.

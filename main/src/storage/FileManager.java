@@ -117,6 +117,10 @@ public class FileManager {
     public List<Personaje> cargarPersonajes() {
         return this.storage.cargarPersonajes();
     }
+    
+    public int cargarSaludPorNombre(String nombrePersonaje) {
+        return this.storage.cargarSaludPorNombre(nombrePersonaje);
+    }
 
     /**
      * Guarda un combate en el almacenamiento.
@@ -478,6 +482,10 @@ public class FileManager {
         return this.storage.cargarFortalezas();
     }
     
+    public String obtenerTipoDePersonajeDesafiantePorDesafioId(UUID desafioId) {
+    	return this.storage.obtenerTipoDePersonajeDesafiantePorDesafioId(desafioId);
+    }
+    
     /**
      * Loads all available weaknesses.
      * 
@@ -498,6 +506,10 @@ public class FileManager {
     
     public List<String> getTiposPersonajes() {
     	return this.storage.getTiposPersonajes();
+    }
+    
+    public int getSaludPorTipoNombre(String nombreTipo) {
+    	return this.storage.getSaludPorTipoNombre(nombreTipo);
     }
 
 	public String actualizarPersonajesUsuario(String nick, Personaje personaje) {

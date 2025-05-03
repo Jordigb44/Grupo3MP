@@ -454,6 +454,35 @@ public class XMLStorage implements I_Storage {
 	    }
 	}
 	
+	public int cargarSaludPorNombre(String nombrePersonaje) {
+	    try {
+	        // Obtener la lista de personajes usando el método cargarPersonajes()
+	        List<Personaje> personajes = cargarPersonajes();  // Método que carga los personajes desde el XML
+	        
+	        if (personajes == null || personajes.isEmpty()) {
+	            System.out.println("No se encontraron personajes.");
+	            return -1;  // Si no hay personajes cargados, retornamos -1
+	        }
+
+	        // Recorrer la lista de personajes
+	        for (Personaje personaje : personajes) {
+	            // Comparar el nombre del personaje
+	            if (personaje.getNombre().equals(nombrePersonaje)) {
+	                // Retornar la salud del personaje encontrado
+	                return personaje.getSalud();
+	            }
+	        }
+
+	        // Si no se encuentra el personaje, retornar un valor de error
+	        System.out.println("Personaje no encontrado.");
+	        return -1;
+	        
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return -1;  // Si hay algún error, devolver -1
+	    }
+	}
+	
 	private Element crearElementoPersonaje(Document doc, Personaje personaje, String nick) {
 	    Element personajeElement = doc.createElement("personaje");
 
@@ -630,6 +659,106 @@ public class XMLStorage implements I_Storage {
 	        e.printStackTrace();
 	    }
 	    return personajes;
+	}
+	
+	public boolean actualizarOroPersonaje(String nick, String nombrePersonaje, int nuevoOro) {
+	    try {
+	        Document doc = getDoc("personajes_jugadores");
+	        if (doc == null) return false;
+
+	        NodeList personajes = doc.getElementsByTagName("personaje");
+	        for (int i = 0; i < personajes.getLength(); i++) {
+	            Element personaje = (Element) personajes.item(i);
+	            String jugador = personaje.getElementsByTagName("jugador").item(0).getTextContent();
+	            String nombre = personaje.getElementsByTagName("nombre").item(0).getTextContent();
+
+	            if (jugador.equals(nick) && nombre.equals(nombrePersonaje)) {
+	                personaje.getElementsByTagName("oro").item(0).setTextContent(String.valueOf(nuevoOro));
+	                
+	                // Guardar directamente el documento sin usar guardarDoc
+	                TransformerFactory transformerFactory = TransformerFactory.newInstance();
+	                Transformer transformer = transformerFactory.newTransformer();
+	                transformer.setOutputProperty(OutputKeys.INDENT, "yes"); // para que el archivo quede legible
+
+	                DOMSource source = new DOMSource(doc);
+	                StreamResult result = new StreamResult(new File(getFilePath("personajes_jugadores")));
+	                transformer.transform(source, result);
+	                
+	                return true;
+	            }
+	        }
+
+	        return false;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	}
+	
+	public boolean actualizarArmasPersonaje(String nick, String nombrePersonaje, List<Arma> armas) {
+	    return actualizarListaElemento(nick, nombrePersonaje, armas, "arma");
+	}
+	
+	public boolean actualizarArmadurasPersonaje(String nick, String nombrePersonaje, List<Armadura> armaduras) {
+	    return actualizarListaElemento(nick, nombrePersonaje, armaduras, "armadura");
+	}
+	
+	public boolean actualizarFortalezasPersonaje(String nick, String nombrePersonaje, List<Fortaleza> fortalezas) {
+	    return actualizarListaElemento(nick, nombrePersonaje, fortalezas, "fortaleza");
+	}
+	
+	public boolean actualizarDebilidadesPersonaje(String nick, String nombrePersonaje, List<Debilidad> debilidades) {
+	    return actualizarListaElemento(nick, nombrePersonaje, debilidades, "debilidad");
+	}
+	
+	public boolean actualizarEsbirrosPersonaje(String nick, String nombrePersonaje, List<Esbirro> esbirros) {
+	    return actualizarListaElemento(nick, nombrePersonaje, esbirros, "esbirro");
+	}
+	
+	private boolean actualizarListaElemento(String nick, String nombrePersonaje, List<?> elementos, String tag) {
+	    try {
+	        Document doc = getDoc("personajes_jugadores");
+	        if (doc == null) return false;
+
+	        NodeList personajes = doc.getElementsByTagName("personaje");
+	        for (int i = 0; i < personajes.getLength(); i++) {
+	            Element personaje = (Element) personajes.item(i);
+	            String jugador = personaje.getElementsByTagName("jugador").item(0).getTextContent();
+	            String nombre = personaje.getElementsByTagName("nombre").item(0).getTextContent();
+
+	            if (jugador.equals(nick) && nombre.equals(nombrePersonaje)) {
+	                limpiarNodos(personaje, tag);
+
+	                for (Object obj : elementos) {
+	                    Element elem = doc.createElement(tag);
+	                    elem.setTextContent(obj.toString());
+	                    personaje.appendChild(elem);
+	                }
+
+	                // Guardar directamente el documento
+	                TransformerFactory transformerFactory = TransformerFactory.newInstance();
+	                Transformer transformer = transformerFactory.newTransformer();
+	                transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+
+	                DOMSource source = new DOMSource(doc);
+	                StreamResult result = new StreamResult(new File(getFilePath("personajes_jugadores")));
+	                transformer.transform(source, result);
+
+	                return true;
+	            }
+	        }
+
+	        return false;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return false;
+	    }
+	}
+	private void limpiarNodos(Element parent, String tag) {
+	    NodeList nodos = parent.getElementsByTagName(tag);
+	    while (nodos.getLength() > 0) {
+	        parent.removeChild(nodos.item(0));
+	    }
 	}
 	
 	public String eliminarPersonajeUsuario(String nick, Personaje personaje) {
@@ -1117,6 +1246,11 @@ public class XMLStorage implements I_Storage {
 	    Element nombre = doc.createElement("nombre");
 	    nombre.setTextContent(personaje.getNombre());
 	    personajeElement.appendChild(nombre);
+	    
+	 // Nombre del salud
+	    Element tipo = doc.createElement("salud");
+	    tipo.setTextContent(String.valueOf(cargarSaludPorNombre(personaje.getNombre())));
+	    personajeElement.appendChild(tipo);
 
 	    // Oro
 	    Element oro = doc.createElement("oro");
@@ -1243,6 +1377,52 @@ public class XMLStorage implements I_Storage {
 			e.printStackTrace();
 			return null;
 		}
+	}
+	
+	public String obtenerTipoDePersonajeDesafiantePorDesafioId(UUID desafioId) {
+	    try {
+	        String rutaArchivo = getFilePath("desafios");
+	        File file = new File(rutaArchivo);
+
+	        if (!file.exists()) {
+	            System.out.println("Archivo no encontrado");
+	            return null;
+	        }
+
+	        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+	        DocumentBuilder builder = factory.newDocumentBuilder();
+	        Document doc = builder.parse(file);
+
+	        NodeList listaDesafios = doc.getElementsByTagName("desafio");
+
+	        for (int i = 0; i < listaDesafios.getLength(); i++) {
+	            Element desafioElement = (Element) listaDesafios.item(i);
+	            String idText = desafioElement.getElementsByTagName("id").item(0).getTextContent();
+
+	            if (desafioId.equals(UUID.fromString(idText))) {
+	                NodeList personajeDesafianteList = desafioElement.getElementsByTagName("personajeDesafiante");
+	                if (personajeDesafianteList.getLength() > 0) {
+	                    Element personajeElement = (Element) ((Element) personajeDesafianteList.item(0))
+	                            .getElementsByTagName("personaje").item(0);
+
+	                    // Verifica si existe la etiqueta <tipo>
+	                    NodeList tipoList = personajeElement.getElementsByTagName("esbirro");
+	                    if (tipoList.getLength() > 0) {
+	                        return tipoList.item(0).getTextContent();
+	                    } else {
+	                        System.out.println("El nodo <tipo> no existe en este personaje.");
+	                        return null;
+	                    }
+	                }
+	            }
+	        }
+
+	        System.out.println("Desafío no encontrado con ID: " + desafioId);
+	        return null;
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        return null;
+	    }
 	}
 	
 	public Jugador crearJugadorDesdeUsuario1(UUID id, List<Usuario> usuarios) {
@@ -1826,6 +2006,61 @@ public class XMLStorage implements I_Storage {
 	        e.printStackTrace();
 	    }
 	    return tipos;
+	}
+	
+	public int getSaludPorTipoNombre(String nombreTipo) {
+	    try {
+//	        System.out.println("Buscando salud total para: " + nombreTipo);
+	        String fileNameTipoPersonajes = "personajes";
+	        Document doc = getDoc(fileNameTipoPersonajes);
+
+	        Element root = doc.getDocumentElement();
+	        NodeList personajes = root.getElementsByTagName("personaje");
+//	        System.out.println("Cantidad de personajes encontrados: " + personajes.getLength());
+
+	        for (int i = 0; i < personajes.getLength(); i++) {
+	            Node personajeNode = personajes.item(i);
+	            if (personajeNode.getNodeType() == Node.ELEMENT_NODE) {
+	                Element personajeElement = (Element) personajeNode;
+
+	                // Salud del personaje actual
+	                String saludPersonajeText = personajeElement.getElementsByTagName("salud").item(0).getTextContent();
+	                int saludPersonaje = Integer.parseInt(saludPersonajeText);
+
+	                // Nombre del personaje
+	                String nombre = personajeElement.getElementsByTagName("nombre").item(0).getTextContent().toLowerCase();
+//	                System.out.println("Comparando con personaje: " + nombre);
+
+	                if (nombre.equals(nombreTipo.toLowerCase())) {
+//	                    System.out.println("¡Match con personaje! Salud: " + saludPersonaje);
+	                    return saludPersonaje;
+	                }
+
+	                // Buscar esbirros y comparar nombre
+	                NodeList esbirros = personajeElement.getElementsByTagName("esbirro");
+	                for (int j = 0; j < esbirros.getLength(); j++) {
+	                    Element esbirro = (Element) esbirros.item(j);
+	                    String nombreEsbirro = esbirro.getElementsByTagName("nombre").item(0).getTextContent().toLowerCase();
+//	                    System.out.println("Comparando con esbirro: " + nombreEsbirro);
+
+	                    if (nombreEsbirro.equals(nombreTipo.toLowerCase())) {
+	                        String saludEsbirroText = esbirro.getElementsByTagName("salud").item(0).getTextContent();
+	                        int saludEsbirro = Integer.parseInt(saludEsbirroText);
+	                        int totalSalud = saludPersonaje + saludEsbirro;
+//	                        System.out.println("¡Match con esbirro! Salud personaje + esbirro: " + totalSalud);
+	                        return totalSalud;
+	                    }
+	                }
+	            }
+	        }
+
+//	        System.out.println("No se encontró personaje ni esbirro con ese nombre.");
+	    } catch (Exception e) {
+//	        System.out.println("Error al obtener la salud: " + e.getMessage());
+	        e.printStackTrace();
+	    }
+
+	    return 0;
 	}
 
 	public List<Talento> getTalentosCazador() {

@@ -28,12 +28,14 @@ import ui.A_Interfaz;
 	    private List<Debilidad> debilidades;
 	    private Debilidad debilidadActiva;
 	    private A_Interfaz interfaz; //PREGUNTAR JORDI
+		private String tipo;
 		
 
 	    //CONSTRUCTORES
 		public Personaje(String nombre, List<Arma> armaActiva, Armadura armaduraActiva, List<Arma> armas, List<Armadura> armaduras, List<Esbirro> esbirros, List<Fortaleza> fortalezas, List<Debilidad> debilidades) {
 			this.uuid = UUID.randomUUID(); // Generar un nuevo UUID
 			this.nombre = nombre;
+			this.tipo = "personaje";
 			this.salud = 100;
 			this.oro = 0;
 			this.armas = armas;
@@ -79,6 +81,13 @@ import ui.A_Interfaz;
 	            this.armaActiva.remove(arma);
 	        }
 	        
+	    }
+	    public void setTipo(String tipo) {
+	    	this.tipo = tipo;
+	    }
+	    
+	    public void getTipo(String tipo) {
+	    	this.tipo = tipo;
 	    }
 
 	    public List<Arma> getArmas() {
@@ -277,5 +286,9 @@ import ui.A_Interfaz;
 				return null;
 			}
 			return this.uuid.toString().toCharArray();
+		}
+
+		public String getTipo() {
+			return this.tipo;
 		}
 	}

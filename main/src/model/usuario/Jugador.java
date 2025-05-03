@@ -50,7 +50,7 @@ public class Jugador extends Usuario {
         if (this.desafio != null) {
             this.desafio.setFileManager(this.fileManager);
             this.interfaz.mostrar("=== Tienes un desafío nuevo ===");
-            this.interfaz.mostrar("Desafiante: " + this.desafio.getDesafiado().getNick());
+            this.interfaz.mostrar("Desafiante: " + this.desafio.getDesafiante().getNick());
             this.interfaz.mostrar("Oro apostado: " + this.desafio.getOroApostado());
             this.interfaz.mostrar("¿Quieres aceptar el Desafío?:");
             this.interfaz.mostrar("1. Si");
@@ -165,6 +165,12 @@ public class Jugador extends Usuario {
     public List<Personaje> getPersonajes() {
         return this.personajes;
     }
+    
+    public int getSaludPersonaje(Personaje personaje) {
+        int saludTotal = this.fileManager.cargarSaludPorNombre(personaje.getNombre());  // Asumimos que Personaje tiene el método getSalud()
+        System.out.println("Salud total personajes: "+saludTotal);
+        return saludTotal;
+    }
 
     public Personaje getPersonaje() {
         if (this.personajes == null || this.personajes.isEmpty()) {
@@ -172,6 +178,7 @@ public class Jugador extends Usuario {
         }
         return this.personajes.get(0);
     }
+    
     
     // --- REVISAR
     public void agregarPersonaje() {

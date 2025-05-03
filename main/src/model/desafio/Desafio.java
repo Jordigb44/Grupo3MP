@@ -1,9 +1,11 @@
 package model.desafio;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 import model.Sistema;
+import model.personaje.Personaje;
 import model.usuario.Jugador;
 import model.usuario.Usuario;
 import storage.FileManager;
@@ -55,7 +57,7 @@ public class Desafio implements I_Desafio {
 
         Combate combate = new Combate(d);
         System.out.println("Comabte creado");
-        combate.iniciarCombate();
+        combate.iniciarCombate(this.fileManager);
     }
 
     public void Rechazar(A_Interfaz interfaz1) {

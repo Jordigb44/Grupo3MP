@@ -174,6 +174,12 @@ public interface I_Storage {
 
 	String actualizarEstadoDesafio(UUID desafioId, E_EstadoDesafio nuevoEstado);
 
+	int cargarSaludPorNombre(String nombrePersonaje);
+
+	int getSaludPorTipoNombre(String nombreTipo);
+
+	String obtenerTipoDePersonajeDesafiantePorDesafioId(UUID desafioId);
+
 
 
 }
