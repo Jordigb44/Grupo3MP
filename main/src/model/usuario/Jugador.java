@@ -180,7 +180,7 @@ public class Jugador extends Usuario {
             Armadura armaduraActiva = armaduras.isEmpty() ? null : armaduras.get(0);
 
             // Crear personaje usando el Builder
-            Builder builder = new Builder(fileManager, tipo, nombre, armaActiva, armaduraActiva, armas, armaduras, esbirros, fortalezas, debilidades);
+            Builder builder = new Builder(fileManager, this.interfaz, tipo, nombre, armaActiva, armaduraActiva, armas, armaduras, esbirros, fortalezas, debilidades);
             Personaje nuevo = builder.getPersonaje();
 
             this.personajes.add(nuevo);

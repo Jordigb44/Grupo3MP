@@ -15,10 +15,5 @@ public enum E_EstadoDesafio {
     public String getEstado() {
         return estado;
     }
-
-    @Override
-    public String toString() {
-        return estado;
-    }
 }
 

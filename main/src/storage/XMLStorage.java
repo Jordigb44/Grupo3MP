@@ -303,12 +303,11 @@ public class XMLStorage implements I_Storage {
 			Element rootElement = doc.createElement("personajes");
 			doc.appendChild(rootElement);
 
-			// Crear elementos para cada personaje
 			for (Personaje personaje : personajes) {
 				Element personajeElement = doc.createElement("personaje");
 				rootElement.appendChild(personajeElement);
 
-				// Añadir detalles del personaje
+				// ID y nombre
 				Element idElement = doc.createElement("id");
 				idElement.appendChild(doc.createTextNode(String.valueOf(personaje.getId())));
 				personajeElement.appendChild(idElement);
@@ -316,9 +315,68 @@ public class XMLStorage implements I_Storage {
 				Element nombreElement = doc.createElement("nombre");
 				nombreElement.appendChild(doc.createTextNode(personaje.getNombre()));
 				personajeElement.appendChild(nombreElement);
-			}
 
-			// TODO:
+				// Oro
+				Element oroElement = doc.createElement("oro");
+				oroElement.appendChild(doc.createTextNode(String.valueOf(personaje.getOro())));
+				personajeElement.appendChild(oroElement);
+
+				// Salud
+				Element saludElement = doc.createElement("salud");
+				saludElement.appendChild(doc.createTextNode(String.valueOf(personaje.getSalud())));
+				personajeElement.appendChild(saludElement);
+
+				// Armas
+				for (Arma arma : personaje.getArmas()) {
+					Element armaElement = doc.createElement("arma");
+					armaElement.appendChild(doc.createTextNode(arma.getNombre()));
+					personajeElement.appendChild(armaElement);
+				}
+
+				// Armaduras
+				for (Armadura armadura : personaje.getArmaduras()) {
+					Element armaduraElement = doc.createElement("armadura");
+					armaduraElement.appendChild(doc.createTextNode(armadura.getNombre()));
+					personajeElement.appendChild(armaduraElement);
+				}
+
+				// Fortalezas
+				for (Fortaleza fortaleza : personaje.getFortalezas()) {
+					Element fortalezaElement = doc.createElement("fortaleza");
+					fortalezaElement.appendChild(doc.createTextNode(fortaleza.getNombre()));
+					personajeElement.appendChild(fortalezaElement);
+				}
+
+				// Debilidades
+				for (Debilidad debilidad : personaje.getDebilidades()) {
+					Element debilidadElement = doc.createElement("debilidad");
+					debilidadElement.appendChild(doc.createTextNode(debilidad.getNombre()));
+					personajeElement.appendChild(debilidadElement);
+				}
+
+				// Esbirros
+				for (Esbirro esbirro : personaje.getEsbirros()) {
+				    Element esbirroElement = doc.createElement("esbirro");
+
+				    // Tipo del esbirro
+				    Element tipoElement = doc.createElement("tipo");
+				    tipoElement.appendChild(doc.createTextNode(esbirro.getTipo()));
+				    esbirroElement.appendChild(tipoElement);
+
+				    // Nombre del esbirro
+				    Element nombreElement1 = doc.createElement("nombre");
+				    nombreElement1.appendChild(doc.createTextNode(esbirro.getNombre()));
+				    esbirroElement.appendChild(nombreElement1);
+
+				    // Salud del esbirro
+				    Element saludElement1 = doc.createElement("salud");
+				    saludElement1.appendChild(doc.createTextNode(String.valueOf(esbirro.getSalud())));
+				    esbirroElement.appendChild(saludElement1);
+
+				    // Añadir el esbirro al personaje
+				    personajeElement.appendChild(esbirroElement);
+				}
+			}
 
 			// Guardar el XML en el archivo
 			File file = new File(getFilePath("personajes"));
@@ -326,13 +384,13 @@ public class XMLStorage implements I_Storage {
 				file.createNewFile();
 			}
 
-			// Escribir cambios en el archivo XML
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			transformer.setOutputProperty(OutputKeys.METHOD, "xml");
 			transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
 			transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+
 			DOMSource source = new DOMSource(doc);
 			StreamResult result = new StreamResult(file);
 			transformer.transform(source, result);
@@ -481,128 +539,122 @@ public class XMLStorage implements I_Storage {
 
 	@Override
 	public List<Personaje> cargarPersonajes() {
-		List<Personaje> personajes = new ArrayList<>();
-		try {
-			File file = new File(getFilePath("personajes"));
-			if (file.exists()) {
-				DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-				DocumentBuilder builder = factory.newDocumentBuilder();
-				Document doc = builder.parse(file);
+	    List<Personaje> personajes = new ArrayList<>();
+	    try {
+	        File file = new File(getFilePath("personajes"));
+	        if (file.exists()) {
+	            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+	            DocumentBuilder builder = factory.newDocumentBuilder();
+	            Document doc = builder.parse(file);
 
-				// Normalize the document
-				doc.normalize();
+	            // Normalizar el documento
+	            doc.normalize();
 
-				NodeList nodeList = doc.getElementsByTagName("personaje");
-				for (int i = 0; i < nodeList.getLength(); i++) {
-					Node node = nodeList.item(i);
-					if (node.getNodeType() == Node.ELEMENT_NODE) {
-						Element personajeElement = (Element) node;
+	            NodeList nodeList = doc.getElementsByTagName("personaje");
+	            for (int i = 0; i < nodeList.getLength(); i++) {
+	                Node node = nodeList.item(i);
+	                if (node.getNodeType() == Node.ELEMENT_NODE) {
+	                    Element personajeElement = (Element) node;
 
-						// Obtener atributos básicos del personaje
-						String nombre = personajeElement.getElementsByTagName("nombre").item(0).getTextContent();
-						String tipo = personajeElement.getElementsByTagName("tipo").item(0).getTextContent();
+	                    // Obtener atributos básicos del personaje
+	                    String nombre = getTextValue(personajeElement, "nombre");
+	                    String tipo = getTextValue(personajeElement, "tipo");
 
-						// Cargar armas para este personaje
-						List<Arma> armas = new ArrayList<>();
-						NodeList armasNodes = personajeElement.getElementsByTagName("arma");
-						for (int j = 0; j < armasNodes.getLength(); j++) {
-							String nombreArma = armasNodes.item(j).getTextContent();
-							// Buscar el arma en la lista de armas disponibles
-							for (Arma arma : cargarArmas()) {
-								if (arma.getNombre().equals(nombreArma)) {
-									armas.add(arma);
-									break;
-								}
-							}
-						}
+	                    // Cargar armas para este personaje
+	                    List<Arma> armas = new ArrayList<>();
+	                    NodeList armasNodes = personajeElement.getElementsByTagName("arma");
+	                    for (int j = 0; j < armasNodes.getLength(); j++) {
+	                        String nombreArma = armasNodes.item(j).getTextContent();
+	                        for (Arma arma : cargarArmas()) {
+	                            if (arma.getNombre().equals(nombreArma)) {
+	                                armas.add(arma);
+	                                break;
+	                            }
+	                        }
+	                    }
 
-						// Cargar armaduras para este personaje
-						List<Armadura> armaduras = new ArrayList<>();
-						Armadura armaduraActiva = null;
-						NodeList armadurasNodes = personajeElement.getElementsByTagName("armadura");
-						for (int j = 0; j < armadurasNodes.getLength(); j++) {
-							String nombreArmadura = armadurasNodes.item(j).getTextContent();
-							// Buscar la armadura en la lista de armaduras disponibles
-							for (Armadura armadura : cargarArmaduras()) {
-								if (armadura.getNombre().equals(nombreArmadura)) {
-									armaduras.add(armadura);
-									// La primera armadura se establece como activa
-									if (armaduraActiva == null) {
-										armaduraActiva = armadura;
-									}
-									break;
-								}
-							}
-						}
+	                    // Cargar armaduras para este personaje
+	                    List<Armadura> armaduras = new ArrayList<>();
+	                    Armadura armaduraActiva = null;
+	                    NodeList armadurasNodes = personajeElement.getElementsByTagName("armadura");
+	                    for (int j = 0; j < armadurasNodes.getLength(); j++) {
+	                        String nombreArmadura = armadurasNodes.item(j).getTextContent();
+	                        for (Armadura armadura : cargarArmaduras()) {
+	                            if (armadura.getNombre().equals(nombreArmadura)) {
+	                                armaduras.add(armadura);
+	                                if (armaduraActiva == null) {
+	                                    armaduraActiva = armadura;
+	                                }
+	                                break;
+	                            }
+	                        }
+	                    }
 
-						// Cargar fortalezas para este personaje
-						List<Fortaleza> fortalezas = new ArrayList<>();
-						NodeList fortalezasNodes = personajeElement.getElementsByTagName("fortaleza");
-						for (int j = 0; j < fortalezasNodes.getLength(); j++) {
-							String nombreFortaleza = fortalezasNodes.item(j).getTextContent();
-							for (Fortaleza fortaleza : cargarFortalezas()) {
-								if (fortaleza.getNombre().equals(nombreFortaleza)) {
-									fortalezas.add(fortaleza);
-									break;
-								}
-							}
-						}
+	                    // Cargar fortalezas
+	                    List<Fortaleza> fortalezas = new ArrayList<>();
+	                    NodeList fortalezasNodes = personajeElement.getElementsByTagName("fortaleza");
+	                    for (int j = 0; j < fortalezasNodes.getLength(); j++) {
+	                        String nombreFortaleza = fortalezasNodes.item(j).getTextContent();
+	                        for (Fortaleza fortaleza : cargarFortalezas()) {
+	                            if (fortaleza.getNombre().equals(nombreFortaleza)) {
+	                                fortalezas.add(fortaleza);
+	                                break;
+	                            }
+	                        }
+	                    }
 
-						// Cargar debilidades para este personaje
-						List<Debilidad> debilidades = new ArrayList<>();
-						NodeList debilidadesNodes = personajeElement.getElementsByTagName("debilidad");
-						for (int j = 0; j < debilidadesNodes.getLength(); j++) {
-							String nombreDebilidad = debilidadesNodes.item(j).getTextContent();
-							for (Debilidad debilidad : cargarDebilidades()) {
-								if (debilidad.getNombre().equals(nombreDebilidad)) {
-									debilidades.add(debilidad);
-									break;
-								}
-							}
-						}
+	                    // Cargar debilidades
+	                    List<Debilidad> debilidades = new ArrayList<>();
+	                    NodeList debilidadesNodes = personajeElement.getElementsByTagName("debilidad");
+	                    for (int j = 0; j < debilidadesNodes.getLength(); j++) {
+	                        String nombreDebilidad = debilidadesNodes.item(j).getTextContent();
+	                        for (Debilidad debilidad : cargarDebilidades()) {
+	                            if (debilidad.getNombre().equals(nombreDebilidad)) {
+	                                debilidades.add(debilidad);
+	                                break;
+	                            }
+	                        }
+	                    }
 
-						// Cargar esbirros para este personaje
-						List<Esbirro> esbirros = new ArrayList<>();
-						NodeList esbirrosNodes = personajeElement.getElementsByTagName("esbirro");
-						for (int j = 0; j < esbirrosNodes.getLength(); j++) {
-							String nombreEsbirro = esbirrosNodes.item(j).getTextContent();
-							for (Esbirro esbirro : cargarEsbirros()) {
-								if (esbirro.getNombre().equals(nombreEsbirro)) {
-									esbirros.add(esbirro);
-									break;
-								}
-							}
-						}
+	                    // Cargar esbirros
+	                    List<Esbirro> esbirros = new ArrayList<>();
+	                    NodeList esbirrosNodes = personajeElement.getElementsByTagName("esbirro");
+	                    for (int j = 0; j < esbirrosNodes.getLength(); j++) {
+	                        String nombreEsbirro = esbirrosNodes.item(j).getTextContent();
+	                        for (Esbirro esbirro : cargarEsbirros()) {
+	                            if (esbirro.getNombre().equals(nombreEsbirro)) {
+	                                esbirros.add(esbirro);
+	                                break;
+	                            }
+	                        }
+	                    }
 
-						// Definir arma activa (asumimos que la primera arma es la activa)
-						List<Arma> armaActiva = new ArrayList<>();
-						if (!armas.isEmpty()) {
-							armaActiva.add(armas.get(0));
-						}
+	                    // Definir arma activa (asumimos que la primera arma es la activa)
+	                    List<Arma> armaActiva = new ArrayList<>();
+	                    if (!armas.isEmpty()) {
+	                        armaActiva.add(armas.get(0));
+	                    }
 
-						// Crear un nuevo personaje usando el constructor adecuado
-						Personaje personaje = new Personaje(nombre, armaActiva, armaduraActiva, armas, armaduras, esbirros, fortalezas, debilidades);
+	                    // Crear un nuevo personaje
+	                    Personaje personaje = new Personaje(nombre, armaActiva, armaduraActiva, armas, armaduras, esbirros, fortalezas, debilidades);
 
-						// Si hay información sobre oro y salud, actualizar esos valores
-						if (personajeElement.getElementsByTagName("oro").getLength() > 0) {
-							int oro = Integer.parseInt(personajeElement.getElementsByTagName("oro").item(0).getTextContent());
-							for (int j = 0; j < oro; j++) {
-								personaje.sumarOro(1); // Sumamos de uno en uno porque no hay método para establecer directamente
-							}
-						}
+	                    // Cargar oro si existe
+	                    if (personajeElement.getElementsByTagName("oro").getLength() > 0) {
+	                        int oro = Integer.parseInt(personajeElement.getElementsByTagName("oro").item(0).getTextContent());
+	                        personaje.setOro(oro);
+	                    }
 
-						// Añadir el personaje a la lista
-						personajes.add(personaje);
-					}
-				}
-			} else {
-				System.out.println("Archivo de personajes no encontrado en: " + getFilePath("personajes"));
-			}
-		} catch (Exception e) {
-			System.err.println("Error al cargar personajes: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return personajes;
+	                    personajes.add(personaje);
+	                }
+	            }
+	        } else {
+	            System.out.println("Archivo de personajes no encontrado en: " + getFilePath("personajes"));
+	        }
+	    } catch (Exception e) {
+	        System.err.println("Error al cargar personajes: " + e.getMessage());
+	        e.printStackTrace();
+	    }
+	    return personajes;
 	}
 
 	@Override
@@ -742,7 +794,6 @@ public class XMLStorage implements I_Storage {
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 
-			// Create new document if file doesn't exist or is empty
 			if (!file.exists() || file.length() == 0) {
 				doc = builder.newDocument();
 				Element rootElement = doc.createElement("desafios");
@@ -755,22 +806,20 @@ public class XMLStorage implements I_Storage {
 
 			Element root = doc.getDocumentElement();
 
-			// Comprobar si ya existe un desafío con este ID
+			// Eliminar desafío existente con el mismo ID, si lo hay
 			NodeList desafioNodes = doc.getElementsByTagName("desafio");
 			for (int i = 0; i < desafioNodes.getLength(); i++) {
 				Element existingDesafio = (Element) desafioNodes.item(i);
 				String existingId = existingDesafio.getElementsByTagName("id").item(0).getTextContent();
 				if (existingId.equals(desafio.getDesafioId().toString())) {
-					// Si ya existe, eliminarlo para actualizarlo
 					root.removeChild(existingDesafio);
 					break;
 				}
 			}
 
-			// Create challenge element
+			// Crear <desafio>
 			Element desafioElement = doc.createElement("desafio");
 
-			// Add challenge attributes
 			Element idElement = doc.createElement("id");
 			idElement.appendChild(doc.createTextNode(desafio.getDesafioId().toString()));
 			desafioElement.appendChild(idElement);
@@ -795,10 +844,22 @@ public class XMLStorage implements I_Storage {
 			estadoElement.appendChild(doc.createTextNode(desafio.getEstado().toString()));
 			desafioElement.appendChild(estadoElement);
 
-			// Add challenge to XML
+			// Guardar siempre el personaje del desafiante
+			Element personajeDesafianteWrapper = doc.createElement("personajeDesafiante");
+			personajeDesafianteWrapper.appendChild(convertirPersonajeEnElemento(doc, desafio.getDesafiante().getPersonaje()));
+			desafioElement.appendChild(personajeDesafianteWrapper);
+
+			// Guardar el personaje del desafiado solo si el desafío está aceptado
+			if (desafio.getEstado() == E_EstadoDesafio.ACEPTADO) {
+				Element personajeDesafiadoWrapper = doc.createElement("personajeDesafiado");
+				personajeDesafiadoWrapper.appendChild(convertirPersonajeEnElemento(doc, desafio.getDesafiado().getPersonaje()));
+				desafioElement.appendChild(personajeDesafiadoWrapper);
+			}
+
+			// Agregar el desafío al XML
 			root.appendChild(desafioElement);
 
-			// Write changes to XML file
+			// Guardar el documento
 			TransformerFactory transformerFactory = TransformerFactory.newInstance();
 			Transformer transformer = transformerFactory.newTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
@@ -815,6 +876,57 @@ public class XMLStorage implements I_Storage {
 			e.printStackTrace();
 			return "Error al guardar el desafío: " + e.getMessage();
 		}
+	}
+	
+	public Element convertirPersonajeEnElemento(Document doc, Personaje personaje) {
+	    Element personajeElement = doc.createElement("personaje");
+
+	    // Nombre del personaje
+	    Element nombre = doc.createElement("nombre");
+	    nombre.setTextContent(personaje.getNombre());
+	    personajeElement.appendChild(nombre);
+
+	    // Oro
+	    Element oro = doc.createElement("oro");
+	    oro.setTextContent(String.valueOf(personaje.getOro()));
+	    personajeElement.appendChild(oro);
+
+	    // Armas
+	    for (Arma arma : personaje.getArmas()) {
+	        Element armaElement = doc.createElement("arma");
+	        armaElement.setTextContent(arma.getNombre());
+	        personajeElement.appendChild(armaElement);
+	    }
+
+	    // Armaduras
+	    for (Armadura armadura : personaje.getArmaduras()) {
+	        Element armaduraElement = doc.createElement("armadura");
+	        armaduraElement.setTextContent(armadura.getNombre());
+	        personajeElement.appendChild(armaduraElement);
+	    }
+
+	    // Fortaleza
+	    for (Fortaleza fortaleza : personaje.getFortalezas()) {
+	        Element fortalezaElement = doc.createElement("fortaleza");
+	        fortalezaElement.setTextContent(fortaleza.getNombre());
+	        personajeElement.appendChild(fortalezaElement);
+	    }
+
+	    // Debilidad
+	    for (Debilidad debilidad : personaje.getDebilidades()) {
+	        Element debilidadElement = doc.createElement("debilidad");
+	        debilidadElement.setTextContent(debilidad.getNombre());
+	        personajeElement.appendChild(debilidadElement);
+	    }
+
+	    // Esbirros
+	    for (Esbirro esbirro : personaje.getEsbirros()) {
+	        Element esbirroElement = doc.createElement("esbirro");
+	        esbirroElement.setTextContent(esbirro.getNombre());
+	        personajeElement.appendChild(esbirroElement);
+	    }
+
+	    return personajeElement;
 	}
 
 	@Override
@@ -903,179 +1015,104 @@ public class XMLStorage implements I_Storage {
 
 	@Override
 	public List<Desafio> cargarDesafios() {
-		System.out.println("Intentando cargar desafíos");
-		List<Desafio> desafios = new ArrayList<>();
-		try {
-			String rutaArchivo = getFilePath("desafios");
-			System.out.println("Buscando archivo en: " + rutaArchivo);
-			File file = new File(rutaArchivo);
+		    List<Desafio> desafios = new ArrayList<>();
+		    try {
+		        String rutaArchivo = getFilePath("desafios");
+		        System.out.println("Buscando archivo en: " + rutaArchivo);
+		        File file = new File(rutaArchivo);
 
-			if (!file.exists()) {
-				System.out.println("El archivo de desafíos no existe");
-				return desafios;
-			}
+		        if (!file.exists()) {
+		            System.out.println("El archivo de desafíos no existe");
+		            return desafios;
+		        }
 
-			System.out.println("El archivo existe, procediendo a leerlo");
-			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse(file);
+		        System.out.println("El archivo existe, procediendo a leerlo");
+		        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		        DocumentBuilder builder = factory.newDocumentBuilder();
+		        Document doc = builder.parse(file);
 
-			System.out.println("Archivo XML parseado correctamente");
-			NodeList nodeList = doc.getElementsByTagName("desafio");
-			System.out.println("Número de desafíos encontrados: " + nodeList.getLength());
+		        System.out.println("Archivo XML parseado correctamente");
+		        NodeList nodeList = doc.getElementsByTagName("desafio");
+		        System.out.println("Número de desafíos encontrados: " + nodeList.getLength());
 
-			// Get list of all users to match IDs
-			List<Usuario> usuarios = cargarUsuarios();
+		        // Get list of all users to match IDs
+		        List<Usuario> usuarios = cargarUsuarios();
 
-			for (int i = 0; i < nodeList.getLength(); i++) {
-				Node node = nodeList.item(i);
-				if (node.getNodeType() == Node.ELEMENT_NODE) {
-					Element element = (Element) node;
-					System.out.println("Procesando desafío #" + (i+1));
+		        for (int i = 0; i < nodeList.getLength(); i++) {
+		            Node node = nodeList.item(i);
+		            if (node.getNodeType() == Node.ELEMENT_NODE) {
+		                Element element = (Element) node;
+		                System.out.println("Procesando desafío #" + (i+1));
 
-					// Extract challenge data
-					String idText = element.getElementsByTagName("id").item(0).getTextContent();
-					String desafianteId = element.getElementsByTagName("desafiante").item(0).getTextContent();
-					String desafiadoId = element.getElementsByTagName("desafiado").item(0).getTextContent();
-					int oroApostado = Integer.parseInt(element.getElementsByTagName("oroApostado").item(0).getTextContent());
-					String estadoText = element.getElementsByTagName("estado").item(0).getTextContent();
-					String fechaText = element.getElementsByTagName("fecha").item(0).getTextContent();
+		                // Extract challenge data
+		                String idText = element.getElementsByTagName("id").item(0).getTextContent();
+		                String desafianteId = element.getElementsByTagName("desafiante").item(0).getTextContent();
+		                String desafiadoId = element.getElementsByTagName("desafiado").item(0).getTextContent();
+		                int oroApostado = Integer.parseInt(element.getElementsByTagName("oroApostado").item(0).getTextContent());
+		                String estadoText = element.getElementsByTagName("estado").item(0).getTextContent();
+		                String fechaText = element.getElementsByTagName("fecha").item(0).getTextContent();
 
-					System.out.println("Datos obtenidos: ID=" + idText + ", Oro=" + oroApostado);
+		                System.out.println("Datos obtenidos: ID=" + idText + ", Oro=" + oroApostado);
 
-					// Find users by ID
-					Jugador desafiante = (Jugador) findUsuarioById(usuarios, UUID.fromString(desafianteId));
-					Jugador desafiado = (Jugador) findUsuarioById(usuarios, UUID.fromString(desafiadoId));
+		                // Find users by ID
+		                Jugador desafiante = (Jugador) findUsuarioById(usuarios, UUID.fromString(desafianteId));
+		                Jugador desafiado = (Jugador) findUsuarioById(usuarios, UUID.fromString(desafiadoId));
 
-					if (desafiante == null || desafiado == null) {
-						System.out.println("No se encontró el usuario desafiante o desafiado, saltando este desafío");
-						continue;
-					}
+		                if (desafiante == null || desafiado == null) {
+		                    System.out.println("No se encontró el usuario desafiante o desafiado, saltando este desafío");
+		                    continue;
+		                }
 
-					// Find matching E_EstadoDesafio enum value by string
-					E_EstadoDesafio estado = null;
-					for (E_EstadoDesafio e : E_EstadoDesafio.values()) {
-						if (e.toString().equals(estadoText)) {
-							estado = e;
-							break;
-						}
-					}
+		                // Find matching E_EstadoDesafio enum value by string
+		                E_EstadoDesafio estado = obtenerEstadoDesafio(estadoText);
+		                if (estado == null) {
+		                    System.out.println("Estado no válido: " + estadoText + ", saltando este desafío");
+		                    continue;
+		                }
 
-					if (estado == null) {
-						System.out.println("Estado no válido: " + estadoText + ", saltando este desafío");
-						continue;
-					}
-
-					// Create challenge object
-					Desafio desafio = new Desafio();
-					desafio.setDesafioId(UUID.fromString(idText));
-					desafio.setDesafiante(desafiante);
-					desafio.setDesafiado(desafiado);
-					desafio.setOroApostado(oroApostado);
-					// Asumimos que el método para establecer estado es setEstado()
-					desafio.setEstado(estado);
-					// Asumimos que necesitamos un método para establecer la fecha
-					desafio.setFechaDesafio(LocalDateTime.parse(fechaText));
-
-					desafios.add(desafio);
-					System.out.println("Desafío añadido a la lista");
-				}
-			}
-			System.out.println("Total de desafíos cargados: " + desafios.size());
-		} catch (Exception e) {
-			System.out.println("Error al cargar desafíos: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return desafios;
-	}
-	
-	public Desafio cargarDesafiosUsuario(String nick) {
-	    System.out.println("Intentando cargar desafíos para el usuario: " + nick);
-	    Desafio desafio = null;
-	    try {
-	        String rutaArchivo = getFilePath("desafios");
-	        System.out.println("Buscando archivo en: " + rutaArchivo);
-	        File file = new File(rutaArchivo);
-
-	        if (!file.exists()) {
-	            System.out.println("El archivo de desafíos no existe");
-	            return desafio;
-	        }
-
-	        System.out.println("El archivo existe, procediendo a leerlo");
-	        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-	        DocumentBuilder builder = factory.newDocumentBuilder();
-	        Document doc = builder.parse(file);
-
-	        System.out.println("Archivo XML parseado correctamente");
-	        NodeList nodeList = doc.getElementsByTagName("desafio");
-	        System.out.println("Número de desafíos encontrados: " + nodeList.getLength());
-
-	        // Get list of all users to match IDs
-	        List<Usuario> usuarios = cargarUsuarios();
-
-	        for (int i = 0; i < nodeList.getLength(); i++) {
-	            Node node = nodeList.item(i);
-	            if (node.getNodeType() == Node.ELEMENT_NODE) {
-	                Element element = (Element) node;
-	                System.out.println("Procesando desafío #" + (i + 1));
-
-	                // Extract challenge data
-	                String idText = element.getElementsByTagName("id").item(0).getTextContent();
-	                String desafianteId = element.getElementsByTagName("desafiante").item(0).getTextContent();
-	                String desafiadoId = element.getElementsByTagName("desafiado").item(0).getTextContent();
-	                int oroApostado = Integer.parseInt(element.getElementsByTagName("oroApostado").item(0).getTextContent());
-	                String estadoText = element.getElementsByTagName("estado").item(0).getTextContent();
-	                String fechaText = element.getElementsByTagName("fecha").item(0).getTextContent();
-
-	                System.out.println("Datos obtenidos: ID=" + idText + ", Oro=" + oroApostado);
-
-	                // Find users by ID
-	                Jugador desafiante = (Jugador) findUsuarioById(usuarios, UUID.fromString(desafianteId));
-	                Jugador desafiado = (Jugador) findUsuarioById(usuarios, UUID.fromString(desafiadoId));
-
-	                if (desafiante == null || desafiado == null) {
-	                    System.out.println("No se encontró el usuario desafiante o desafiado, saltando este desafío");
-	                    continue;
-	                }
-
-	                // Find matching E_EstadoDesafio enum value by string
-	                E_EstadoDesafio estado = null;
-	                for (E_EstadoDesafio e : E_EstadoDesafio.values()) {
-	                    if (e.toString().equals(estadoText)) {
-	                        estado = e;
-	                        break;
-	                    }
-	                }
-
-	                if (estado == null) {
-	                    System.out.println("Estado no válido: " + estadoText + ", saltando este desafío");
-	                    continue;
-	                }
-
-	                // Create challenge object
-	                
-
-	                // Filter challenges by user nickname
-	                if (desafiante.getNick().equals(nick) || desafiado.getNick().equals(nick)) {
-	                	desafio = new Desafio();
+		                // Create challenge object
+		                Desafio desafio = new Desafio();
 		                desafio.setDesafioId(UUID.fromString(idText));
 		                desafio.setDesafiante(desafiante);
 		                desafio.setDesafiado(desafiado);
 		                desafio.setOroApostado(oroApostado);
 		                desafio.setEstado(estado);
 		                desafio.setFechaDesafio(LocalDateTime.parse(fechaText));
-	                    System.out.println("Desafío añadido a la lista para el usuario: " + nick);
-	                } else {
-	                    System.out.println("Desafío no corresponde al usuario: " + nick);
-	                }
-	            }
+
+		                desafios.add(desafio);
+		                System.out.println("Desafío añadido a la lista");
+		            }
+		        }
+		    } catch (Exception e) {
+		        System.out.println("Error al cargar desafíos: " + e.getMessage());
+		        e.printStackTrace();
+		    }
+		    return desafios;
+		}
+	
+	private E_EstadoDesafio obtenerEstadoDesafio(String estadoText) {
+	    // Recorremos todos los valores del enum E_EstadoDesafio
+	    for (E_EstadoDesafio estado : E_EstadoDesafio.values()) {
+	        // Comparamos el valor de la cadena con el nombre del enum (estado.toString())
+	        if (estado.toString().equals(estadoText)) {
+	            return estado; // Si encontramos una coincidencia, devolvemos el enum correspondiente
 	        }
-	    } catch (Exception e) {
-	        System.out.println("Error al cargar desafíos para el usuario " + nick + ": " + e.getMessage());
-	        e.printStackTrace();
 	    }
-	    return desafio;
+	    // Si no encontramos una coincidencia, devolvemos null o podrías lanzar una excepción, depende de lo que desees hacer
+	    System.out.println("Estado no válido: " + estadoText);
+	    return null; // Retorna null si el estado no es válido
+	}
+	
+	public Desafio cargarDesafioUsuario(String nick) {
+		    System.out.println("Intentando cargar desafíos para el usuario: " + nick);
+		    List<Desafio> todosDesafios = cargarDesafios();
+		    
+		    for (Desafio desafio : todosDesafios) {
+		        if (desafio.getDesafiante().getNick().equals(nick) || desafio.getDesafiado().getNick().equals(nick)) {
+		            return desafio; // Devuelve el primer desafío que le corresponde al usuario
+		        }
+		    }
+		    return null; // Si no se encuentra un desafío para el usuario
 	}
 
 	// Helper method to find a user by ID
@@ -1788,11 +1825,5 @@ public class XMLStorage implements I_Storage {
 			}
 			writeDoc(doc, fileNameTipoPersonajes);
 		}
-	}
-
-	@Override
-	public Desafio cargarDesafioUsuario(String nick) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

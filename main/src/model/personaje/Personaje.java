@@ -147,10 +147,14 @@ import model.personaje.habilidad.Fortaleza;
 	        return oro;
 	    }
 
+	    public void setOro(int oro) {
+	    	this.oro = oro;
+	    }
+
 	    public void sumarOro(int oro) {
 	        this.oro += oro;
 	    }
-
+	    
 	    public void restarOro(int oro) {
 	        this.oro -= oro;
 	        if (this.oro < 0) {
