@@ -13,8 +13,8 @@ public interface I_Usuario {
     String password = null;
     String rol = null;
     String estado = null;
-    Integer oro = null;
-    Integer puntos = null;
+    int oro = 0;
+    int puntos = 0;
 
     // Methods
     List<Object> getUser();

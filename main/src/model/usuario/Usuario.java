@@ -27,7 +27,7 @@ public class Usuario implements I_Usuario {
     protected static FileManager fileManager;
 
     // Constructor
-    public Usuario(UUID userId, String nick, String nombre, String password, String rol, String estado, Integer oro, Integer puntos) {
+    public Usuario(UUID userId, String nick, String nombre, String password, String rol, String estado, int oro, Integer puntos) {
         this.fecha = LocalDateTime.now();
         if (userId == null) {
         	this.userId = UUID.randomUUID();
@@ -106,15 +106,15 @@ public class Usuario implements I_Usuario {
         this.tipo = tipo;
     }
     
-    public Integer getOro() {
+    public int getOro() {
         return this.oro;
     }
 
-    public void setOro(Integer oro) {
+    public void setOro(int oro) {
         this.oro = oro;
     }
 
-    public Integer getPuntos() {
+    public int getPuntos() {
         return this.puntos;
     }
 

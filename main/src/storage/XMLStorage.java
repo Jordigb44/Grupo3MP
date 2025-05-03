@@ -140,7 +140,7 @@ public class XMLStorage implements I_Storage {
 			usuarioElement.appendChild(oroElement);
 
 			Element puntosElement = doc.createElement("puntos");
-			puntosElement.appendChild(doc.createTextNode(usuario.getPuntos() != null ? usuario.getPuntos().toString() : "0"));
+			puntosElement.appendChild(doc.createTextNode(String.valueOf(usuario.getPuntos())));
 			usuarioElement.appendChild(puntosElement);
 
 			// Agregar el nuevo nodo al root

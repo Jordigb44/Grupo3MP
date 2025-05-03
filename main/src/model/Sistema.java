@@ -63,10 +63,13 @@ public class Sistema {
 		        	this.fileManager.guardarUsuario(operador); // guardamos copia actual del usuario
 		            break;
 		        case "jugador":
-		        	this.interfaz.mostrar("->Usuario "+this.usuario.getNick()+" - "+this.usuario.getOro());
-		        	Jugador jugador = new Jugador(this.usuario.getUserId(), this.usuario.getNick(), this.usuario.getNombre(), this.usuario.getPassword(), this.usuario.getRol(), this.usuario.getEstado(), 20, this.usuario.getPuntos(), 
+		        	int oro = this.usuario.getOro(); // NO BORRAR
+		        	int puntos = this.usuario.getPuntos(); // NO BORRAR
+		        	Jugador jugador = new Jugador(this.usuario.getUserId(), this.usuario.getNick(), this.usuario.getNombre(), this.usuario.getPassword(), this.usuario.getRol(), this.usuario.getEstado(), this.usuario.getOro(), this.usuario.getPuntos(), 
 		        		    this.fileManager.cargarPersonajesUsuario(this.usuario.getNick()),
 		        		    this.fileManager.cargarDesafioUsuario(this.usuario.getNick()));
+		        	jugador.setOro(oro); // NO BORRAR
+		        	jugador.setPuntos(puntos); // NO BORRAR
 		        	this.interfaz.mostrar("->Jugador "+jugador.getNick()+" - "+jugador.getOro());
 		        		jugador.setUsuarios(this.usuarios);
 		        		jugador.setInterfaz(this.interfaz);

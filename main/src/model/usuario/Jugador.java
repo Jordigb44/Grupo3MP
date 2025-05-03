@@ -24,7 +24,7 @@ public class Jugador extends Usuario {
     private Usuario usuario;
     private List<Usuario> usuarios;
    
-    public Jugador(UUID userId, String nick, String nombre, String password, String rol, String estado, Integer oro, Integer puntos, List<Personaje> personajes, Desafio desafio) {
+    public Jugador(UUID userId, String nick, String nombre, String password, String rol, String estado, int oro, int puntos, List<Personaje> personajes, Desafio desafio) {
         super(userId, nick, nombre, password, rol, estado, oro, puntos);
         this.personajes = personajes;
         this.desafio = desafio;
@@ -569,14 +569,15 @@ public class Jugador extends Usuario {
                     this.interfaz.mostrar("Introduce la cantidad de oro a apostar (mayor a 0 y hasta " + this.oro + ") o 0 para volver:");
                     try {
                         oroApostado = Integer.parseInt(this.interfaz.pedirEntrada());
-                        if (oroApostado == 0) {
-                            return; // Volver
-                        }
-                        if (oroApostado > 0 && oroApostado <= this.oro) {
-                            break;
-                        } else {
-                            this.interfaz.mostrar("Cantidad inválida.");
-                        }
+//                        if (oroApostado == 0) {
+//                            return; // Volver
+//                        }
+//                        if (oroApostado > 0 && oroApostado <= this.oro) {
+//                            break;
+//                        } else {
+//                            this.interfaz.mostrar("Cantidad inválida.");
+//                        }
+                        break;
                     } catch (NumberFormatException e) {
                         this.interfaz.mostrar("Introduce un número válido.");
                     }
@@ -651,7 +652,7 @@ public class Jugador extends Usuario {
         this.posicionRanking = posicion;
     }
 
-    public Integer getPuntos() {
+    public int getPuntos() {
         return this.puntos;
     }
 
@@ -663,7 +664,7 @@ public class Jugador extends Usuario {
         this.puntos += puntos;
     }
 
-    public Integer getOro() {
+    public int getOro() {
         return this.oro;
     }
 
