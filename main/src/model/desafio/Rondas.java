@@ -3,8 +3,10 @@ package model.desafio;
 import java.util.Random;
 
 import model.personaje.Personaje;
+import model.personaje.habilidad.Debilidad;
 import model.personaje.habilidad.Disciplina;
 import model.personaje.habilidad.Don;
+import model.personaje.habilidad.Fortaleza;
 import model.personaje.habilidad.Talento;
 import model.personaje.tipo.Cazador;
 import model.personaje.tipo.Licantropo;
@@ -26,6 +28,7 @@ public class Rondas {
 	 public void iniciarRonda() {
 	        Personaje p1 = Desafiante.getPersonaje();
 	        Personaje p2 = Desafiando.getPersonaje();
+	        
 
 	        int ataqueP1 = calcularPotencialAtaque(p1);
 	        int ataqueP2 = calcularPotencialAtaque(p2);
@@ -166,8 +169,25 @@ public class Rondas {
 	        }
 	    }
 	    private int calcularModificadorFortalezaDebilidad(Personaje personaje) {
-	        return 0;
+	        int modificador = 0;
+
+	        // Verificar fortalezas activas
+	        for (Fortaleza f : personaje.getFortalezas()) {
+	           
+	                modificador += f.getNivel(); // Se suma el valor de la fortaleza
+	            
+	        }
+
+	        // Verificar debilidades activas
+	        for (Debilidad d : personaje.getDebilidades()) {
+	           
+	                modificador -= d.getNivel(); // Se resta el valor de la debilidad
+	            
+	        }
+
+	        return modificador;
 	    }
+
 	   
 
 	public String getResultado() {
