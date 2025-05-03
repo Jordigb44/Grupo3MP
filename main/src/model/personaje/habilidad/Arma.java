@@ -9,36 +9,31 @@ public class Arma {
     public Arma(String nombre, int ataque, int manos) {
         this.nombre = nombre;
         this.ataque = ataque;
-        this.manos = manos;
+        this.manos = manos; //1 o 2
     }
 
     // Getters y Setters
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre) { //NO SE USA EN NINGUN LADO
         this.nombre = nombre;
     }
 
     public int getAtaque() {
-        return ataque;
+        return this.ataque;
     }
 
-    public void setAtaque(int ataque) {
+    public void setAtaque(int ataque) { //NO SE USA EN NINGUN LADO
         this.ataque = ataque;
     }
 
     public int getManos() {
-        return manos;
+        return this.manos;
     }
 
-    public void setManos(int manos) {
+    public void setManos(int manos) { //NO SE USA EN NINGUN LADO
         this.manos = manos;
     }
-
-	public int getDano() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }

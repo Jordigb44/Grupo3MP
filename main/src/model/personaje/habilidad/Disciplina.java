@@ -21,10 +21,10 @@ public class Disciplina {
 
     //METODOS
     public int obtenerCostoSangre() {
-        return costoSangre;
+        return this.costoSangre;
     }
 
-    public void aplicarEfecto(Vampiro usuario, Personaje objetivo) {
+    public void aplicarEfecto(Vampiro usuario, Personaje objetivo) { //?TECNICAMENTE NO HACE FALTA QUE NOS PASEMOS COMO PARAMETRO
         objetivo.recibirDano(this.ataque);
     }
 

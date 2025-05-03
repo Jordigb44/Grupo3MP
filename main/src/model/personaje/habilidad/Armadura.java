@@ -15,7 +15,7 @@ public class Armadura {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre) { //NO SE USA EN NINGUN LADO
         this.nombre = nombre;
     }
 
@@ -23,7 +23,7 @@ public class Armadura {
         return defensa;
     }
 
-    public void setDefensa(int defensa) {
+    public void setDefensa(int defensa) { //NO SE USA EN NINGUN LADO
         this.defensa = defensa;
     }
 }

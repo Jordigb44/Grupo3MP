@@ -8,6 +8,8 @@ import model.personaje.habilidad.Debilidad;
 import model.personaje.habilidad.Fortaleza;
 
 	public class Personaje implements I_Personaje{
+		
+		//ATRIBUTOS
 		private UUID uuid; // Añadir esta declaración a la clase
 	    private String nombre;
 	    private int salud;
@@ -22,6 +24,7 @@ import model.personaje.habilidad.Fortaleza;
 	    private List<Debilidad> debilidades;
 		
 
+	    //CONSTRUCTORES
 		public Personaje(String nombre, List<Arma> armaActiva, Armadura armaduraActiva, List<Arma> armas, List<Armadura> armaduras, List<Esbirro> esbirros, List<Fortaleza> fortalezas, List<Debilidad> debilidades) {
 			this.uuid = UUID.randomUUID(); // Generar un nuevo UUID
 			this.nombre = nombre;
@@ -48,19 +51,19 @@ import model.personaje.habilidad.Fortaleza;
 			this.debilidades = personaje.getDebilidades();
 		}
 
-	    // Métodos de Armas
+	    // METODOS (ARMAS)
 		public String equiparArma(Arma arma) {
 		    int manosOcupadas = 0;
 
 		    for (Arma a : this.armaActiva) {
-		        manosOcupadas += a.getManos(); // Asumiendo que Arma tiene un método getManos() que retorna 1 o 2
+		        manosOcupadas += a.getManos();
 		    }
 
 		    if (manosOcupadas + arma.getManos() <= 2) {
 		        this.armaActiva.add(arma);
 		        return "Se agrego el arma.";
 		    } else {
-		        return "NO se pudo agrego el arma.";
+		        return "No se pudo agrego el arma.";
 		    }
 		}
 
@@ -74,7 +77,7 @@ import model.personaje.habilidad.Fortaleza;
 	        return armas;
 	    }
 
-	    // Métodos de Armaduras
+	    // METODOS (ARMADURAS)
 	    public void equiparArmadura(Armadura armadura) {
 	        this.armaduraActiva = armadura;
 	    }
