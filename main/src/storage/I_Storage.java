@@ -66,7 +66,7 @@ public interface I_Storage {
     
     List<String> getTiposPersonajes();
     
-    String eliminarPersonajesUsuario(String nick);
+	String eliminarPersonajeUsuario(String nick, Personaje personaje);
 
     /**
      * Guarda un combate.
@@ -168,4 +168,5 @@ public interface I_Storage {
 	int getPuntosdeSangreVampiro();
 
 	int getEdadVampiro();
+
 }
