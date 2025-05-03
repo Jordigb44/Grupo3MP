@@ -231,6 +231,13 @@ public class Operador extends Usuario {
                     this.instanceInterface.pedirEntrada();
                     break;
                     
+                case "4":
+                    // Ver desafíos rechazados
+                	this.instanceInterface.mostrar(this.getMenuDesafiosValidados());
+                    this.instanceInterface.mostrar("Presione Enter para continuar...");
+                    this.instanceInterface.pedirEntrada();
+                    break;
+                    
                 case "0":
                     volver = true;
                     break;
@@ -492,6 +499,26 @@ public class Operador extends Usuario {
         }      
         return menu.toString();
     }
+    
+    public String getMenuDesafiosValidados() {
+        List<Desafio> desafios = fileManager.cargarDesafiosValidados(usuarios);
+        
+        StringBuilder menu = new StringBuilder();
+        menu.append("=== DESAFÍOS VALIDADOS ===\n");
+        
+        if (desafios.isEmpty()) {
+            menu.append("No hay desafíos validados.\n");
+        } else {
+            for (int i = 0; i < desafios.size(); i++) {
+                Desafio d = desafios.get(i);
+                menu.append((i + 1) + ". Desafío: " + d.getDesafiante().getNick() + 
+                        " vs " + d.getDesafiado().getNick() + 
+                        " - Oro: " + d.getOroApostado() + "\n");
+            }
+        }      
+        return menu.toString();
+    }
+
 
     /**
      * Selecciona un desafío de la lista.
@@ -548,6 +575,7 @@ public class Operador extends Usuario {
         menu.append("1. Ver desafíos pendientes\n");
         menu.append("2. Ver desafíos aprobados\n");
         menu.append("3. Ver desafíos rechazados\n");
+        menu.append("4. Ver desafíos validados\n");
         menu.append("0. Volver\n");
         menu.append("Seleccione una opción: ");
         

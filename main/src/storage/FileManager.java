@@ -387,6 +387,28 @@ public class FileManager {
         return desafiosPendientes;
     }
     
+    /**
+     * Loads all pending challenges.
+     * 
+     * @return List of pending challenges
+     */
+    public List<Desafio> cargarDesafiosValidados(List<Usuario> usuarios) {
+        List<Desafio> desafios = cargarDesafios(usuarios);
+//        System.out.println("Desafios cargados: "+desafios);
+        List<Desafio> desafiosPendientes = new ArrayList<>();
+        
+        for (Desafio desafio : desafios) {
+            if (desafio.getEstado() != null) {
+                // Agregar el desafío pendiente a la lista
+                if (E_EstadoDesafio.VALIDADO.equals(desafio.getEstado())) {
+                    desafiosPendientes.add(desafio);
+                }
+            }
+        }
+        
+        return desafiosPendientes;
+    }
+    
     
     /**
      * Loads all active players.
