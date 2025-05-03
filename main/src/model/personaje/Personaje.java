@@ -1,5 +1,6 @@
 package model.personaje;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import model.personaje.habilidad.Arma;
@@ -40,6 +41,7 @@ import ui.A_Interfaz;
 			this.esbirros = esbirros;
 			this.fortalezas = fortalezas;
 			this.debilidades = debilidades;
+			this.armaActiva = new ArrayList<>();
 		}
 		
 		public Personaje(Personaje personaje) {

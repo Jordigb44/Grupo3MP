@@ -27,7 +27,11 @@ public class Usuario implements I_Usuario {
     protected static FileManager fileManager;
 
     // Constructor
-    public Usuario(UUID userId, String nick, String nombre, String password, String rol, String estado, int oro, Integer puntos) {
+
+    
+
+    public Usuario(UUID userId, String nick, String nombre, String password, String rol, String estado, int oro, int puntos) {
+
         this.fecha = LocalDateTime.now();
         if (userId == null) {
         	this.userId = UUID.randomUUID();
