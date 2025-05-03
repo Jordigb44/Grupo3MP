@@ -7,6 +7,7 @@ import model.personaje.Personaje;
 import model.personaje.habilidad.Don;
 import model.personaje.habilidad.Talento;
 import storage.FileManager;
+import ui.A_Interfaz;
 
 public class Licantropo extends Personaje {
 
@@ -17,9 +18,10 @@ public class Licantropo extends Personaje {
     private int peso; //En kg
     private String estado;
     private FileManager fileManager;
+    private A_Interfaz interfaz;
 
     //CONSTRUCTOR
-    public Licantropo(FileManager fileManager, Personaje personaje) {
+    public Licantropo(FileManager fileManager, A_Interfaz interfaz, Personaje personaje) {
 		super(personaje);
 		this.fileManager = fileManager;
     	this.dones = this.fileManager.getDonesLicantropo();

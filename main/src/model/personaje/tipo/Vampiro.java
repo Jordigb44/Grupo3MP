@@ -7,6 +7,7 @@ import model.personaje.Personaje;
 import model.personaje.habilidad.Disciplina;
 import model.personaje.habilidad.Don;
 import storage.FileManager;
+import ui.A_Interfaz;
 
 public class Vampiro extends Personaje {
 
@@ -15,9 +16,10 @@ public class Vampiro extends Personaje {
     private int edad;
     private List<Disciplina> disciplinas;
     private FileManager fileManager;
+    private A_Interfaz interfaz;
 
     //CONSTRUCTOR
-    public Vampiro(FileManager fileManager, Personaje personaje) {
+    public Vampiro(FileManager fileManager, A_Interfaz interfaz, Personaje personaje) {
     	super(personaje);
         this.fileManager = fileManager;
     	this.disciplinas = this.fileManager.getDisciplinasVampiro();

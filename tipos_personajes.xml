@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TipoPersonajes>
+    <Cazador>
+        <Voluntad>10</Voluntad>
+        <Talentos>
+            <Talento>
+                <Nombre>Sigilo</Nombre>
+                <Ataque>3</Ataque>
+                <Defensa>2</Defensa>
+                <CostoVoluntad>1</CostoVoluntad>
+            </Talento>
+            <Talento>
+                <Nombre>Supervivencia</Nombre>
+                <Ataque>2</Ataque>
+                <Defensa>3</Defensa>
+                <CostoVoluntad>2</CostoVoluntad>
+            </Talento>
+        </Talentos>
+    </Cazador>
+
+    <Licantropo>
+        <Rabia>5</Rabia>
+        <Dones>
+            <Don>
+                <Nombre>Oído del Lobo</Nombre>
+                <Ataque>1</Ataque>
+                <Defensa>2</Defensa>
+                <RabiaMinima>1</RabiaMinima>
+            </Don>
+            <Don>
+                <Nombre>Fuerza de Gaia</Nombre>
+                <Ataque>4</Ataque>
+                <Defensa>1</Defensa>
+                <RabiaMinima>3</RabiaMinima>
+            </Don>
+        </Dones>
+        <Altura>1.85</Altura>
+        <Peso>90</Peso>
+        <Estado>Transformado</Estado>
+    </Licantropo>
+
+    <Vampiro>
+        <PuntosSangre>7</PuntosSangre>
+        <Edad>150</Edad>
+        <Disciplinas>
+            <Disciplina>
+                <Nombre>Dominación</Nombre>
+                <Ataque>2</Ataque>
+                <Defensa>1</Defensa>
+                <CostoSangre>2</CostoSangre>
+            </Disciplina>
+            <Disciplina>
+                <Nombre>Ofuscación</Nombre>
+                <Ataque>3</Ataque>
+                <Defensa>2</Defensa>
+                <CostoSangre>1</CostoSangre>
+            </Disciplina>
+        </Disciplinas>
+    </Vampiro>
+</TipoPersonajes>
