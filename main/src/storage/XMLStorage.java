@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -1461,7 +1463,7 @@ public class XMLStorage implements I_Storage {
 					int nivel = Integer.parseInt(esbirroElement.getElementsByTagName("nivel").item(0).getTextContent());
 
 					// Crear el objeto Esbirro
-					Esbirro esbirro = new Esbirro(nombre, tipo, nivel);
+					Esbirro esbirro = new Esbirro(tipo, nombre, nivel);
 					esbirros.add(esbirro);
 				}
 			}
@@ -1475,7 +1477,7 @@ public class XMLStorage implements I_Storage {
 	// methods of each personal type
 	private Document getDoc(String filename) {
 		try {
-			File file = new File(filename);
+			File file = new File(this.getFilePath(filename));
 			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
 			Document doc = builder.parse(file);
@@ -1523,6 +1525,33 @@ public class XMLStorage implements I_Storage {
 	}
 
 	// Getters
+	
+	public List<String> getTiposPersonajes() {
+	    List<String> tipos = new ArrayList<>();
+	    try {
+	        String fileNameTipoPersonajes = "tipos_personajes";
+	        Document doc = getDoc(fileNameTipoPersonajes); // Método para obtener el Document (lo asumo ya implementado)
+	        
+	        // Obtener todas las etiquetas de tipo de personaje
+	        NodeList tipoPersonajesList = doc.getElementsByTagName("*"); // Aquí obtenemos todas las etiquetas
+
+	        for (int i = 0; i < tipoPersonajesList.getLength(); i++) {
+	            Node node = tipoPersonajesList.item(i);
+	            if (node.getNodeType() == Node.ELEMENT_NODE) {
+	                // Añadir solo las etiquetas de tipo de personaje (que no sean las sub-etiquetas como Voluntad, Talentos, etc.)
+	                tipos.add(node.getNodeName());
+	            }
+	        }
+
+	        // Eliminar duplicados, en caso de que haya elementos repetidos
+	        tipos = tipos.stream().distinct().collect(Collectors.toList());
+	        
+	    } catch (Exception e) {
+	        System.out.println("Error al obtener los tipos de personajes: " + e.getMessage());
+	        e.printStackTrace();
+	    }
+	    return tipos;
+	}
 
 	public List<Talento> getTalentosCazador() {
 		String fileNameTipoPersonajes = "tipos_personajes";
