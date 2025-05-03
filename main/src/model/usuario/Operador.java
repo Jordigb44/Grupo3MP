@@ -1,6 +1,7 @@
 package model.usuario;
 
 import java.util.List;
+
 import model.desafio.Desafio;
 import model.desafio.E_EstadoDesafio;
 import model.personaje.Esbirro;
@@ -428,49 +429,26 @@ public class Operador extends Usuario {
      * @return Menú de desafíos pendientes
      */
     public String getMenuAprobarDesafios() {
-        // Cargar los desafíos pendientes
         List<Desafio> desafios = fileManager.cargarDesafiosPendientes(usuarios);
         
         StringBuilder menu = new StringBuilder();
         menu.append("=== DESAFÍOS PENDIENTES DE VALIDACIÓN ===\n");
         
-        // Verificar si no hay desafíos pendientes
         if (desafios.isEmpty()) {
             menu.append("No hay desafíos pendientes de validación.\n");
         } else {
-            // Recorrer la lista de desafíos pendientes
             for (int i = 0; i < desafios.size(); i++) {
                 Desafio d = desafios.get(i);
-
-                // Obtener los UUID de desafiante y desafiado
-                String desafianteId = d.getDesafiante().getUserId().toString();
-                String desafiadoId = d.getDesafiado().getUserId().toString();
-                
-                // Obtener los nombres de los usuarios a partir de sus UUIDs
-                String desafianteNombre = getUsuarioNombrePorId(desafianteId);
-                String desafiadoNombre = getUsuarioNombrePorId(desafiadoId);
-
-                // Agregar información del desafío al menú
-                menu.append((i + 1) + ". Desafío: " + desafianteNombre + " vs " + desafiadoNombre + 
-                            " - Oro: " + d.getOroApostado() + "\n");
+                menu.append((i + 1) + ". Desafío: " + d.getDesafiante().getNick() + 
+                        " vs " + d.getDesafiado().getNick() + 
+                        " - Oro: " + d.getOroApostado() + "\n");
             }
         }
         
-        // Agregar opción para volver al menú anterior
         menu.append("0. Volver\n");
         menu.append("Seleccione un desafío para validar: ");
         
         return menu.toString();
-    }
-
-    // Método para obtener el nombre del usuario a partir de su UUID
-    private String getUsuarioNombrePorId(String userId) {
-        for (Usuario usuario : usuarios) {
-            if (usuario.getUserId().toString().equals(userId)) {
-                return usuario.getNombre(); // Devolver el nombre del usuario
-            }
-        }
-        return "Desconocido"; // Si no se encuentra al usuario, devolver "Desconocido"
     }
 
     /**
