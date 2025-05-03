@@ -90,46 +90,56 @@ public class PasarelaAuthorization {
     // Método para mostrar el menú de sesión
     public Usuario menuSesion() {
         Usuario usuario = null;
-        while (usuario == null) { // Repite hasta que se obtenga un usuario válido
+        int intentosFallidos = 0;
+
+        while (usuario == null) {
             this.interfaz.mostrar("=== BIENVENIDO A LA PASARELA DE AUTORIZACIÓN ===");
             this.interfaz.mostrar("Por favor, selecciona una opción:");
             this.interfaz.mostrar("1. Iniciar sesión");
             this.interfaz.mostrar("2. Registrarse");
             this.interfaz.mostrar("3. Salir");
             this.interfaz.mostrar("==============================================");
-            String opcion = this.interfaz.pedirEntrada();
+            String opcion = this.interfaz.pedirEntrada().trim();
 
             switch (opcion) {
                 case "1":
-                    usuario = iniciarSesion(); // Intenta iniciar sesión
+                    usuario = iniciarSesion();
                     if (usuario != null) {
-                        // Si inició sesión bien, pedir el rol
                         this.interfaz.mostrar("¿Qué rol desea usar?");
                         this.interfaz.mostrar("1. Administrador");
                         this.interfaz.mostrar("2. Jugador");
                         String tipoUsuario = this.interfaz.pedirEntrada();
-                        
                         if (tipoUsuario.equals("1")) {
-                        	usuario.setTipo("operador");
+                            usuario.setTipo("operador");
                         } else if (tipoUsuario.equals("2")) {
-                        	usuario.setTipo("jugador");
+                            usuario.setTipo("jugador");
                         } else {
                             this.interfaz.mostrar("⚠️ Rol no válido. Se canceló la selección.");
                         }
                     }
+                    intentosFallidos = 0; // reiniciar si hubo éxito
                     break;
+
                 case "2":
-                    usuario = registrarUsuario(); // Intenta registrar un usuario
-                    menuSesion(); // Ir a menu de inicio de sesión
+                    usuario = registrarUsuario();
+                    intentosFallidos = 0; // reiniciar si hubo éxito
+                    break;
+
                 case "3":
                     this.interfaz.mostrar("👋 ¡Gracias por usar el sistema! Hasta pronto.");
-                    return null; // Devuelve null para indicar que el usuario ha salido
+                    return null;
+
                 default:
-                    this.interfaz.mostrar("⚠️ Opción no válida. Por favor, intenta de nuevo.");
+                    intentosFallidos++;
+                    this.interfaz.mostrar("⚠️ Opción no válida. Intentos restantes: " + (3 - intentosFallidos));
+                    if (intentosFallidos >= 3) {
+                        this.interfaz.mostrar("🚫 Demasiados intentos inválidos.");
+                        return null;
+                    }
                     break;
             }
         }
-        return usuario; // Devuelve el usuario autenticado o registrado
+        return usuario;
     }
     
  // Método para obtener el usuario por su nick

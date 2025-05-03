@@ -20,25 +20,30 @@ public class Builder {
 	private A_Interfaz interfaz;
 	
 	//CONSTRUCTOR
-    public Builder(FileManager fileManager, A_Interfaz interfaz, String tipo, String nombre, List<Arma> armaActiva, Armadura armaduraActiva, List<Arma> armas, List<Armadura> armaduras, List<Esbirro> esbirros, List<Fortaleza> fortalezas, List<Debilidad> debilidades) {
-        this.fileManager = fileManager;
-        this.interfaz = interfaz;
-    	this.personaje = new Personaje(nombre, armaActiva, armaduraActiva, armas, armaduras, esbirros, fortalezas, debilidades);
-        
-    	switch (tipo.toLowerCase()) {
-        case "vampiro":
-	            this.personaje = new Vampiro(this.fileManager, this.interfaz, this.personaje);
-	            break;
-	        case "cazador":
-	            this.personaje = new Cazador(this.fileManager, this.interfaz, this.personaje);
-	            break;
-	        case "licantropo":
-	            this.personaje = new Licantropo(this.fileManager, this.interfaz, this.personaje);
-	            break;
-	        default:
-	            throw new IllegalArgumentException("Tipo de personaje no reconocido: " + tipo);
+	public Builder(FileManager fileManager, A_Interfaz interfaz, String tipo, String nombre, List<Arma> armaActiva, Armadura armaduraActiva, List<Arma> armas, List<Armadura> armaduras, List<Esbirro> esbirros, List<Fortaleza> fortalezas, List<Debilidad> debilidades) {
+	    this.fileManager = fileManager;
+	    this.interfaz = interfaz;
+	    this.personaje = new Personaje(nombre, armaActiva, armaduraActiva, armas, armaduras, esbirros, fortalezas, debilidades);
+
+	    try {
+	        switch (tipo.toLowerCase()) {
+	            case "vampiro":
+	                this.personaje = new Vampiro(this.fileManager, this.interfaz, this.personaje);
+	                break;
+	            case "cazador":
+	                this.personaje = new Cazador(this.fileManager, this.interfaz, this.personaje);
+	                break;
+	            case "licantropo":
+	                this.personaje = new Licantropo(this.fileManager, this.interfaz, this.personaje);
+	                break;
+	            default:
+	                throw new IllegalArgumentException("Tipo de personaje no reconocido: " + tipo);
+	        }
+	    } catch (Exception e) {
+	        this.interfaz.mostrar("BUILDER ERROR - Error al construir personaje: " + e.getMessage());
+	        e.printStackTrace();
 	    }
-    }
+	}
     
     public Personaje getPersonaje() {
         return this.personaje;

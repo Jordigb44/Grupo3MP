@@ -56,11 +56,17 @@ public interface I_Storage {
      */
     List<Personaje> cargarPersonajesUsuario(String nick);
     
+    boolean guardarPersonajesUsuario(String nick, List<Personaje> personajes);
+    
     /**
      * Carga todos los personajes almacenados.
      * @return Lista de personajes.
      */
     List<Personaje> cargarPersonajes();
+    
+    List<String> getTiposPersonajes();
+    
+    String eliminarPersonajesUsuario(String nick);
 
     /**
      * Guarda un combate.

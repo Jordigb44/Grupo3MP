@@ -112,7 +112,7 @@ import ui.A_Interfaz;
 	    }
 	    
 	    public Armadura getArmaduraActiva() {
-			return this.getArmaduraActiva();
+			return this.armaduraActiva;
 		}
 
 	    // METODOS (COMBATE) (REVISAR)

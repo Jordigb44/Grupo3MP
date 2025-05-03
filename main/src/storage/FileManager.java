@@ -96,6 +96,14 @@ public class FileManager {
     public List<Personaje> cargarPersonajesUsuario(String nick) {
         return this.storage.cargarPersonajesUsuario(nick);
     }
+    
+    public String eliminarPersonajesUsuario(String nick, Personaje personaje) {
+    	return this.storage.eliminarPersonajeUsuario(nick, personaje);
+    }
+    
+    public boolean guardarPersonajesUsuario(String nick, List<Personaje> personajes) {
+    	return this.storage.guardarPersonajesUsuario(nick, personajes);
+    }
 
     /**
      * Carga todos los personajes desde el almacenamiento.
@@ -439,6 +447,10 @@ public class FileManager {
      */
     public List<Esbirro> cargarEsbirrosDisponibles() {
         return this.storage.cargarEsbirros();
+    }
+    
+    public List<String> getTiposPersonajes() {
+    	return this.storage.getTiposPersonajes();
     }
     
 }
