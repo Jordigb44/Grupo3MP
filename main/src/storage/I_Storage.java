@@ -169,6 +169,8 @@ public interface I_Storage {
 
 	int getEdadVampiro();
 
+	String actualizarPersonajeUsuario(String nick, Personaje personajeActualizado);
+
 
 
 }

@@ -1148,8 +1148,8 @@ public class XMLStorage implements I_Storage {
 						String fechaText = element.getElementsByTagName("fecha").item(0).getTextContent();
 
 						// Find users by ID
-						Jugador desafiante = crearJugadorDesdeUsuario(UUID.fromString(desafianteId), usuarios);
-						Jugador desafiado = crearJugadorDesdeUsuario(UUID.fromString(desafiadoId), usuarios);
+						Jugador desafiante = crearJugadorDesdeUsuario1(UUID.fromString(desafianteId), usuarios);
+						Jugador desafiado = crearJugadorDesdeUsuario1(UUID.fromString(desafiadoId), usuarios);
 
 						if (desafiante == null || desafiado == null) {
 							System.out.println("No se encontró el usuario desafiante o desafiado");
@@ -1192,6 +1192,21 @@ public class XMLStorage implements I_Storage {
 			return null;
 		}
 	}
+	
+	public Jugador crearJugadorDesdeUsuario1(UUID id, List<Usuario> usuarios) {
+	    for (Usuario usuario : usuarios) {
+	        if (usuario.getUserId().equals(id)) {
+	            if (usuario instanceof Jugador) {
+	                return (Jugador) usuario;
+	            } else {
+	                System.out.println("⚠️ Usuario con ID " + id + " encontrado pero no es un Jugador.");
+	                return null;
+	            }
+	        }
+	    }
+	    System.out.println("❌ No se encontró un Usuario con ID: " + id);
+	    return null;
+	}
 
 	@Override
 	public List<Desafio> cargarDesafios(List<Usuario> usuarios) {
@@ -1224,11 +1239,12 @@ public class XMLStorage implements I_Storage {
 	                String fechaText = element.getElementsByTagName("fecha").item(0).getTextContent();
 
 	                // Buscar los usuarios usando sus UUIDs
-	                Jugador desafiante = (Jugador) crearJugadorDesdeUsuario(UUID.fromString(desafianteId), usuarios);
-	                Jugador desafiado = (Jugador) crearJugadorDesdeUsuario(UUID.fromString(desafiadoId), usuarios);
+	                Jugador desafiante = crearJugadorDesdeUsuario(UUID.fromString(desafianteId), usuarios);
+	                Jugador desafiado = crearJugadorDesdeUsuario(UUID.fromString(desafiadoId), usuarios);
 
 	                if (desafiante == null || desafiado == null) {
-	                    continue;  // Si no se encuentran los jugadores, saltar este desafío
+	                    System.out.println("⚠️ Desafío omitido por usuarios no válidos.");
+	                    continue;
 	                }
 
 	                // Obtener el estado del desafío, pero este ya no será un filtro
@@ -1293,9 +1309,7 @@ public class XMLStorage implements I_Storage {
 	// REVISAR
 	private Jugador crearJugadorDesdeUsuario(UUID id, List<Usuario> usuarios) {
 	    for (Usuario usuario : usuarios) {
-	        if (usuario.getUserId().toString() == id.toString()) {
-	            List<Personaje> personajes = cargarPersonajesUsuario(usuario.getNick());
-	            Desafio desafio = cargarDesafioUsuario(usuario.getNick(), usuarios);
+	    	if (usuario.getUserId().equals(id)) {
 
 	            return new Jugador(
 	                usuario.getUserId(),
@@ -1306,8 +1320,8 @@ public class XMLStorage implements I_Storage {
 	                usuario.getEstado(),
 	                usuario.getOro(),
 	                usuario.getPuntos(),
-	                personajes,
-	                desafio
+	                null,
+	                null
 	            );
 	        }
 	    }

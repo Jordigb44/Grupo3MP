@@ -338,11 +338,6 @@ public class FileManager {
         
         for (Desafio desafio : desafios) {
             if (desafio.getEstado() != null) {
-                // Depuración: imprime detalles de la comparación
-                System.out.println("Comparando estados:");
-                System.out.println(" - E_EstadoDesafio.PENDIENTE: " + E_EstadoDesafio.PENDIENTE);
-                System.out.println(" - desafio.getEstado(): " + desafio.getEstado());
-
                 // Agregar el desafío pendiente a la lista
                 if (E_EstadoDesafio.PENDIENTE.equals(desafio.getEstado())) {
                     desafiosPendientes.add(desafio);
@@ -441,5 +436,9 @@ public class FileManager {
     public List<String> getTiposPersonajes() {
     	return this.storage.getTiposPersonajes();
     }
+
+	public String actualizarPersonajesUsuario(String nick, Personaje personaje) {
+		return this.storage.actualizarPersonajeUsuario(nick, personaje);
+	}
     
 }
