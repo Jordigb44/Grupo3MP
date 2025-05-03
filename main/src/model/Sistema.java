@@ -70,7 +70,7 @@ public class Sistema {
 		        		    this.fileManager.cargarDesafioUsuario(this.usuario.getNick(), usuarios));
 		        	jugador.setOro(oro); // NO BORRAR
 		        	jugador.setPuntos(puntos); // NO BORRAR
-		        	this.interfaz.mostrar("->Jugador "+jugador.getNick()+" - "+jugador.getOro());
+//		        	this.interfaz.mostrar("->Jugador "+jugador.getNick()+" - "+jugador.getOro());
 		        		jugador.setUsuarios(this.usuarios);
 		        		jugador.setInterfaz(this.interfaz);
 		        		jugador.setFileManger(this.fileManager);
