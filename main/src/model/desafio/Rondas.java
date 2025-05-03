@@ -72,7 +72,7 @@ public class Rondas {
 	    private int calcularPotencialAtaque(Personaje personaje) {
 	        int poderBase = personaje.getPoder();
 	        int equipoAtaque = personaje.getArmaActiva() != null ? personaje.getAtaqueArmasActivas() : 0;
-	        int modificador = calcularModificadorFortalezaDebilidad(personaje);
+	        int modificador = calcularModificadorFortalezaDebilidad(personaje); //TODO
 
 	        if (personaje instanceof Vampiro) {
 	            Vampiro vampiro = (Vampiro) personaje;
@@ -102,7 +102,11 @@ public class Rondas {
 
 	            return poderBase + equipoAtaque + extra + lican.getRabia() + modificador;
 
-	        } else if (personaje instanceof Cazador) {
+	        } else if (personaje instanceof Cazador) { 
+	        	/**
+	        	 * Su poder (atributo de Personaje) + el valor de ataque de su Talento + el valor
+	        	 * de ataque de su equipo activo + su voluntad actual.
+	        	 */
 	            Cazador cazador = (Cazador) personaje;
 	            Talento talento = cazador.getTalentoActivo();
 	            int extra = 0;

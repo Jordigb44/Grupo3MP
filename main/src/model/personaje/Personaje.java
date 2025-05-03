@@ -21,7 +21,9 @@ import model.personaje.habilidad.Fortaleza;
 	    private Armadura armaduraActiva;
 	    private List<Esbirro> esbirros;
 	    private List<Fortaleza> fortalezas;
+	    private Fortaleza fortalezaActiva;
 	    private List<Debilidad> debilidades;
+	    private Debilidad debilidadActiva;
 		
 
 	    //CONSTRUCTORES
@@ -76,6 +78,20 @@ import model.personaje.habilidad.Fortaleza;
 	    public List<Arma> getArmas() {
 	        return armas;
 	    }
+	    
+	    public List<Arma> getArmaActiva() { 
+			return this.armaActiva;
+		}
+		
+		public int getAtaqueArmasActivas() {
+		    int ataqueTotal = 0;
+		    
+		    for (Arma arma : this.armaActiva) {
+		        ataqueTotal += arma.getAtaque(); // Se asume que Arma tiene un método getAtaque()
+		    }
+
+		    return ataqueTotal;
+		}
 
 	    // METODOS (ARMADURAS)
 	    public void equiparArmadura(Armadura armadura) {
@@ -91,8 +107,12 @@ import model.personaje.habilidad.Fortaleza;
 	    public List<Armadura> getArmaduras() {
 	        return armaduras;
 	    }
+	    
+	    public Armadura getArmaduraActiva() {
+			return this.getArmaduraActiva();
+		}
 
-	    // Combate (REVISAR )
+	    // METODOS (COMBATE) (REVISAR )
 	    public void atacar(Personaje objetivo) {
 	    	if (armaActiva != null && !armaActiva.isEmpty()) {
 	            for (Arma arma : armaActiva) {
@@ -131,7 +151,7 @@ import model.personaje.habilidad.Fortaleza;
 	        }
 	    }
 	    
-	    // Esbirros
+	    // METODOS (ESBIRRO)
 	    public void agregarEsbirro(Esbirro esbirro) {
 	        this.esbirros.add(esbirro);
 	    }
@@ -142,7 +162,7 @@ import model.personaje.habilidad.Fortaleza;
 	    	return this.esbirros;
 	    }
 	    
-	    // Oro
+	    // METODOS (ORO)
 	    public int getOro() {
 	        return oro;
 	    }
@@ -157,13 +177,38 @@ import model.personaje.habilidad.Fortaleza;
 	            this.oro = 0;
 	        }
 	    }
+	    
+	    //METODOS (FORTALEZAS Y DEBILIDADES)
+	  	public List<Fortaleza> getFortalezas() {
+	  		return this.fortalezas;
+	  	}
+	  		
+	  	public List<Debilidad> getDebilidades() {
+	  		return this.debilidades;
+	  	}
+	  	
+	  	public void setFortalezaActiva() {
+	  		//TODO
+	  	}
+	  	
+	  	public void setDebilidadActiva() {
+	  		//TODO
+	  	}
+	  	
+	  	public Fortaleza getFortalezaActiva() {
+	  		return this.fortalezaActiva;
+	  	}
+	  	
+	  	public Debilidad getDebilidadActiva() {
+	  		return this.debilidadActiva;
+	  	}
 
-	    // Getters adicionales si quieres
+	    // GETTER ADICIONALES
 		public UUID getUUID() {
 			return this.uuid;
 		}
 		
-		public void setUUID(UUID uuid) {
+		public void setUUID(UUID uuid) { //NO SE USA EN NINGUN LADO
 			this.uuid = uuid;
 		}
 		
@@ -181,31 +226,4 @@ import model.personaje.habilidad.Fortaleza;
 			}
 			return this.uuid.toString().toCharArray();
 		}
-		
-		public List<Arma> getArmaActiva() { 
-			return this.armaActiva;
-		}
-		
-		public int getAtaqueArmasActivas() {
-		    int ataqueTotal = 0;
-		    
-		    for (Arma arma : this.armaActiva) {
-		        ataqueTotal += arma.getAtaque(); // Se asume que Arma tiene un método getAtaque()
-		    }
-
-		    return ataqueTotal;
-		}
-		
-		public Armadura getArmaduraActiva() {
-			return this.getArmaduraActiva();
-		}
-		
-		public List<Fortaleza> getFortalezas() {
-			return this.fortalezas;
-		}
-		
-		public List<Debilidad> getDebilidades() {
-			return this.debilidades;
-		}
-		
 	}
