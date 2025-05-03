@@ -109,7 +109,7 @@ import model.personaje.habilidad.Fortaleza;
 	    }
 	    
 	    public Armadura getArmaduraActiva() {
-			return this.getArmaduraActiva();
+			return this.armaduraActiva;
 		}
 
 	    // METODOS (COMBATE) (REVISAR )

@@ -43,26 +43,34 @@ public class Jugador extends Usuario {
     }
     
     public void getDesafioMenu() {
-    	if (this.desafio !=  null) {
-    		this.desafio.setFileManager(this.fileManager);
-    		this.interfaz.mostrar("=== Tienes un desafio nuevo ===");
-            this.interfaz.mostrar("Desafiante: "+ this.desafio.getDesafiante());
-            this.interfaz.mostrar("Oro apostado: "+ this.desafio.getOroApostado());
-            this.interfaz.mostrar("¿Quieres aceptar el Desafio?:");
+        if (this.desafio != null) {
+            this.desafio.setFileManager(this.fileManager);
+            this.interfaz.mostrar("=== Tienes un desafío nuevo ===");
+            this.interfaz.mostrar("Desafiante: " + this.desafio.getDesafiante());
+            this.interfaz.mostrar("Oro apostado: " + this.desafio.getOroApostado());
+            this.interfaz.mostrar("¿Quieres aceptar el Desafío?:");
             this.interfaz.mostrar("1. Si");
             this.interfaz.mostrar("2. No");
+            this.interfaz.mostrar("3. Volver atrás");
+
             String opcion = this.interfaz.pedirEntrada();
 
             switch (opcion) {
                 case "1":
-                	this.desafio.Aceptar(desafio);
+                    this.desafio.Aceptar(desafio);
                     break;
+
+                case "2":
+                    this.desafio.Rechazar();
+                    break;
+
+                case "3":
+                    return; // Opción para volver atrás al menú anterior
                 default:
-                	this.desafio.Rechazar();
-                	break;
+                    this.interfaz.mostrar("⚠️ Opción no válida.");
             }
-    	}
-	}
+        }
+    }
 
     public void getMenu() {
         String opcion = " ";
@@ -113,16 +121,14 @@ public class Jugador extends Usuario {
                     equiparArmaduraAPersonaje();
                     break;
 
-
                 case "4":
                     equiparArmaAPersonaje();
                     break;
 
+                case "5":
+                    // getMenuInicioDesafio(this.desafio);
+                    break;
 
-//                case "5":
-//                    getMenuInicioDesafio(this.desafio);
-//                    break;
-//
                 case "6":
                     consultarRankingGeneral();
                     break;
@@ -134,16 +140,12 @@ public class Jugador extends Usuario {
                 case "8":
                     interfaz.mostrar("Saliendo del menú...");
                     break;
-
                 default:
                     interfaz.mostrar("Opción no válida.");
             }
 
         } while (!opcion.equals("8"));
     }
-
-
-
 
 
     public List<Personaje> getPersonajes() {
@@ -160,34 +162,78 @@ public class Jugador extends Usuario {
     // --- REVISAR
     public void agregarPersonaje() {
         try {
-            this.interfaz.mostrar("Ingrese el tipo de personaje (vampiro/licantropo/cazador):");
-            String tipo = this.interfaz.pedirEntrada().trim().toLowerCase();
+            List<String> tiposDisponibles = null;
+            try {
+                tiposDisponibles = this.fileManager.getTiposPersonajes();
+            } catch (Exception e) {
+                this.interfaz.mostrar("Error al obtener tipos de personajes: " + e.getMessage());
+                e.printStackTrace();
+                return;
+            }
+
+            String tipo = "";
+            boolean tipoValido = false;
+
+            while (!tipoValido) {
+                this.interfaz.mostrar("Ingrese el tipo de personaje (" + String.join("/", tiposDisponibles) + "):");
+                tipo = this.interfaz.pedirEntrada().trim().toLowerCase();
+
+                if (tiposDisponibles.contains(tipo)) {
+                    tipoValido = true;
+                } else {
+                    this.interfaz.mostrar("Tipo de personaje no válido. Intenta nuevamente.");
+                }
+            }
 
             this.interfaz.mostrar("Ingrese el nombre del nuevo personaje:");
             String nombre = this.interfaz.pedirEntrada();
 
-            // Simulación de selección de elementos
-            List<Arma> armas = seleccionarArmas();
-            List<Armadura> armaduras = seleccionarArmaduras();
-            List<Esbirro> esbirros = seleccionarEsbirros();
-            List<Fortaleza> fortalezas = seleccionarFortalezas();
-            List<Debilidad> debilidades = seleccionarDebilidades();
+            List<Arma> armas = new ArrayList<>();
+            List<Armadura> armaduras = new ArrayList<>();
+            List<Esbirro> esbirros = new ArrayList<>();
+            List<Fortaleza> fortalezas = new ArrayList<>();
+            List<Debilidad> debilidades = new ArrayList<>();
 
-            // Establecer arma activa como la primera si existe
+            try {
+                armas = seleccionarArmas();
+                armaduras = seleccionarArmaduras();
+                esbirros = seleccionarEsbirros();
+                fortalezas = seleccionarFortalezas();
+                debilidades = seleccionarDebilidades();
+            } catch (Exception e) {
+                this.interfaz.mostrar("Error al seleccionar atributos del personaje: " + e.getMessage());
+                e.printStackTrace();
+                return;
+            }
+
             List<Arma> armaActiva = armas.isEmpty() ? new ArrayList<>() : List.of(armas.get(0));
-
-            // Establecer armadura activa como la primera si existe
             Armadura armaduraActiva = armaduras.isEmpty() ? null : armaduras.get(0);
 
-            // Crear personaje usando el Builder
-            Builder builder = new Builder(fileManager, this.interfaz, tipo, nombre, armaActiva, armaduraActiva, armas, armaduras, esbirros, fortalezas, debilidades);
-            Personaje nuevo = builder.getPersonaje();
-
+            Personaje nuevo = null;
+            try {
+                Builder builder = new Builder(this.fileManager, this.interfaz, tipo, nombre, armaActiva, armaduraActiva, armas, armaduras, esbirros, fortalezas, debilidades);
+                nuevo = builder.getPersonaje();
+            	this.interfaz.mostrar("Personaje: " + nuevo.getNombre() + " (Tipo: " + this.getClass().getSimpleName() + ")");
+            } catch (Exception e) {
+                this.interfaz.mostrar("Error al construir el personaje: " + e.getMessage());
+                e.printStackTrace();
+                return;
+            }
+         // ⚠️ Asegura que la lista no sea null
+            if (this.personajes == null) {
+                this.personajes = new ArrayList<>();
+            }
             this.personajes.add(nuevo);
-            this.interfaz.mostrar("✅ Personaje agregado exitosamente: " + nombre);
+            if (this.fileManager.guardarPersonajesUsuario(this.nick, this.personajes)) {
+            	this.interfaz.mostrar("Personaje agregado exitosamente: " + nombre);            	
+            } else {
+                this.interfaz.mostrar("No se pudo agregar el personaje");
+            } 
+            
 
         } catch (Exception e) {
-            this.interfaz.mostrar("⚠️ Error al crear el personaje: " + e.getMessage());
+            this.interfaz.mostrar("Error inesperado al agregar el personaje: " + e.getMessage());
+            e.printStackTrace();
         }
     }
     private List<Arma> seleccionarArmas() {

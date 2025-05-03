@@ -32,12 +32,12 @@ public class Sistema {
         // Inicializa FileManager si no está ya inicializado
         if (this.fileManager == null) {
             this.fileManager = new FileManager(new XMLStorage(parentDir));
-            System.out.println("FileManager inicializado.");
+//            System.out.println("FileManager inicializado.");
         }
         // Inicializa Interfaz si no está ya inicializado
         if (this.interfaz == null) {
             this.interfaz = new A_Interfaz();
-            System.out.println("PasarelaAuthoritation inicializada.");
+//            System.out.println("PasarelaAuthoritation inicializada.");
         }
         // Inicializa Interfaz si no está ya inicializado
         if (this.notificationInterna == null) {
@@ -47,7 +47,7 @@ public class Sistema {
         // Inicializa PasarelaAuthoritation si no está ya inicializado
         if (this.pasarelaAuthorization == null) {
         	this.pasarelaAuthorization = new PasarelaAuthorization(this.fileManager, this.interfaz, this.notificationInterna);
-        	System.out.println("PasarelaAuthoritation inicializada.");
+//        	System.out.println("PasarelaAuthoritation inicializada.");
         }
         
         this.usuarios = this.fileManager.cargarUsuarios();
@@ -55,28 +55,29 @@ public class Sistema {
         // Llama al menú de sesión
         this.usuario = pasarelaAuthorization.menuSesion();
         
-        
-        switch (usuario.getTipo()) {
-	        case "operador":
-	        	Operador operador = new Operador(interfaz, fileManager, this.usuario);
-	        	operador.getMenu();
-	        	this.fileManager.guardarUsuario(operador); // guardamos copia actual del usuario
-	            break;
-	        case "jugador":
-	        	Jugador jugador = new Jugador(this.usuario, 
-	        									null, // personajes
-	        									null, // desafio
-	        									getJugadores()); // usuarios
-	        		jugador.setInterfaz(interfaz);
-	        		jugador.setFileManger(fileManager);
-	        	
-	        		jugador.getDesafioMenu();
-	        		jugador.getMenu();
-	        		this.fileManager.guardarUsuario(jugador); // guardamos copia actual del usuario
-	        default:
-	            System.out.println("Cerrando aplicación...");
-	            break;
-	    }        
+        if (this.usuario !=  null) {
+	        switch (usuario.getTipo()) {
+		        case "operador":
+		        	Operador operador = new Operador(interfaz, fileManager, this.usuario);
+		        	operador.getMenu();
+		        	this.fileManager.guardarUsuario(operador); // guardamos copia actual del usuario
+		            break;
+		        case "jugador":
+		        	Jugador jugador = new Jugador(this.usuario, 
+		        									null, // personajes
+		        									null, // desafio
+		        									getJugadores()); // usuarios
+		        		jugador.setInterfaz(interfaz);
+		        		jugador.setFileManger(fileManager);
+		        	
+		        		jugador.getDesafioMenu();
+		        		jugador.getMenu();
+		        		this.fileManager.guardarUsuario(jugador); // guardamos copia actual del usuario
+		        default:
+		            break;
+		    }
+        }
+    	this.interfaz.mostrar("Cerrando aplicación...");
     }
 
     // Método para obtener la instancia de FileManager
