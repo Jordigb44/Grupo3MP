@@ -128,7 +128,7 @@ public class XMLStorage implements I_Storage {
 			usuarioElement.appendChild(rolElement);
 
 			Element estadoElement = doc.createElement("estado");
-			estadoElement.appendChild(doc.createTextNode(usuario.getEstado() != null ? usuario.getEstado() : ""));
+			estadoElement.appendChild(doc.createTextNode(usuario.getEstado() != null ? usuario.getEstado() : "activo"));
 			usuarioElement.appendChild(estadoElement);
 
 			Element fechaElement = doc.createElement("fecha");

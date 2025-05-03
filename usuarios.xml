@@ -33,4 +33,15 @@
     <oro>20</oro>
     <puntos>0</puntos>
   </usuario>
+  <usuario>
+    <id>d8dd8586-87db-4ef5-8b59-cf7c94e4d2d6</id>
+    <nick>a</nick>
+    <nombre>a</nombre>
+    <password>a</password>
+    <rol/>
+    <estado/>
+    <fecha>2025-05-03T17:40:25.712184</fecha>
+    <oro>0</oro>
+    <puntos>0</puntos>
+  </usuario>
 </usuarios>
