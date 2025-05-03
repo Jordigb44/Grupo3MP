@@ -64,11 +64,11 @@ public class Sistema {
 		            break;
 		        case "jugador":
 		        	Jugador jugador = new Jugador(this.usuario, 
-		        									null, // personajes
-		        									null, // desafio
-		        									getJugadores()); // usuarios
-		        		jugador.setInterfaz(interfaz);
-		        		jugador.setFileManger(fileManager);
+		        									this.fileManager.cargarPersonajesUsuario(this.usuario.getNick()), // personajes
+		        									null); // desafio
+		        		jugador.setUsuarios(this.usuarios);
+		        		jugador.setInterfaz(this.interfaz);
+		        		jugador.setFileManger(this.fileManager);
 		        	
 		        		jugador.getDesafioMenu();
 		        		jugador.getMenu();

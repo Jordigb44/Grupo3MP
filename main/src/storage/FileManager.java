@@ -97,6 +97,10 @@ public class FileManager {
         return this.storage.cargarPersonajesUsuario(nick);
     }
     
+    public Desafio cargarDesafioUsuario(String nick) {
+        return this.storage.cargarDesafioUsuario(nick);
+    }
+    
     public String eliminarPersonajesUsuario(String nick, Personaje personaje) {
     	return this.storage.eliminarPersonajeUsuario(nick, personaje);
     }
@@ -323,25 +327,30 @@ public class FileManager {
     }
 	
     public List<Jugador> cargarJugadoresSinBloquear(List<Usuario> usuarios) {
-        List<Jugador> jugadoresSinBloquear = new ArrayList<>();
+        List<Jugador> jugadores = new ArrayList<>();
 
         for (Usuario usuario : usuarios) {
-            if (!"bloqueado".equals(usuario.getEstado()) && usuario instanceof Jugador) {
                 Jugador jugador = (Jugador) usuario;
 
-                // Cargar personajes del jugador
-                List<Personaje> personajes = cargarPersonajesUsuario(jugador.getNick());
-                jugador.setPersonajes(personajes);
+                // Verificar si el usuario está bloqueado o no, y agregarlo a la lista correspondiente
+                if (!"bloqueado".equals(usuario.getEstado())) {
+                    // Cargar personajes del jugador
+                    List<Personaje> personajes = cargarPersonajesUsuario(jugador.getNick());
+                    jugador.setPersonajes(personajes);
 
-                // Cargar desafío del jugador
-                Desafio desafio = this.storage.cargarDesafioUsuario(jugador.getNick());
-                jugador.setDesafio(desafio);
+                    // Cargar desafío del jugador
+                    Desafio desafio = this.storage.cargarDesafioUsuario(jugador.getNick());
+                    jugador.setDesafio(desafio);
 
-                jugadoresSinBloquear.add(jugador);
-            }
+                    // Agregar jugador a la lista de jugadores sin bloquear
+                    jugadores.add(jugador);
+                } else {
+                    // Si el usuario está bloqueado, puedes hacer algo diferente, como agregarlo a otra lista
+                    // Jugador bloqueado
+                }
         }
 
-        return jugadoresSinBloquear;
+        return jugadores;
     }
 
     public List<Jugador> cargarJugadoresBloqueados(List<Usuario> usuarios) {
@@ -356,7 +365,7 @@ public class FileManager {
                 jugador.setPersonajes(personajes);
 
                 // Cargar desafío del jugador
-                Desafio desafio = this.storage.cargarDesafioUsuario(jugador.getNick());
+                Desafio desafio = cargarDesafioUsuario(jugador.getNick());
                 jugador.setDesafio(desafio);
 
                 jugadoresBloqueados.add(jugador);
@@ -397,7 +406,8 @@ public class FileManager {
             if ("activo".equals(usuario.getEstado()) && "jugador".equals(usuario.getRol())) {
                 // Crear un nuevo Jugador a partir del Usuario
                 List<Personaje> personajes = cargarPersonajesUsuario(usuario.getNick());
-                Jugador jugador = new Jugador(usuario, personajes, null, usuarios);
+                Desafio desafio = this.storage.cargarDesafioUsuario(usuario.getNick());
+                Jugador jugador = new Jugador(usuario, personajes, );
                 jugadoresActivos.add(jugador);
             }
         }

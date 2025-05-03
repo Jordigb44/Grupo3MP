@@ -22,18 +22,19 @@ public class Jugador extends Usuario {
     private List<Usuario> usuarios;
    
     
-    public Jugador(Usuario usuario, List<Personaje> personajes, Desafio desafio, List<Usuario> usuarios) {
+    public Jugador(Usuario usuario, List<Personaje> personajes, Desafio desafio) {
         super(usuario);
         this.personajes = personajes;
         this.desafio = desafio;
-        this.usuarios = usuarios;
     }
-
+    public void setUsuarios(List<Usuario> usuarios) {	
+    	this.usuarios = usuarios;
+    }
 
 	public void setInterfaz(A_Interfaz interfaz) {
     	this.interfaz = interfaz;    	
     }
-    
+	
     public void setFileManger(FileManager fileManager) {
     	this.fileManager = fileManager;    	
     }
@@ -94,27 +95,15 @@ public class Jugador extends Usuario {
                     break;
 
                 case "2":
+                	this.personajes = fileManager.cargarPersonajesUsuario(this.nick);
+                	if (this.personajes == null) {
+                	    this.personajes = new ArrayList<>();
+                	}
                     if (personajes.isEmpty()) {
                         interfaz.mostrar("⚠️ No tienes personajes para borrar.");
                         break;
                     }
-
-                    interfaz.mostrar("Seleccione el número del personaje a borrar:");
-                    for (int i = 0; i < personajes.size(); i++) {
-                        interfaz.mostrar((i + 1) + ". " + personajes.get(i).getNombre());
-                    }
-
-                    String sel = interfaz.pedirEntrada();
-                    try {
-                        int idx = Integer.parseInt(sel) - 1;
-                        if (idx >= 0 && idx < personajes.size()) {
-                            borrarPersonaje(personajes.get(idx));
-                        } else {
-                            interfaz.mostrar("⚠️ Selección inválida.");
-                        }
-                    } catch (NumberFormatException e) {
-                        interfaz.mostrar("⚠️ Entrada no válida.");
-                    }
+                    borrarPersonaje();
                     break;
 
                 case "3":
@@ -146,6 +135,26 @@ public class Jugador extends Usuario {
 
         } while (!opcion.equals("8"));
     }
+
+
+	public void borrarPersonaje() {
+		interfaz.mostrar("Seleccione el número del personaje a borrar:");
+		for (int i = 0; i < this.personajes.size(); i++) {
+			this.interfaz.mostrar((i + 1) + ". " + this.personajes.get(i).getNombre());
+		}
+
+		String sel = this.interfaz.pedirEntrada();
+		try {
+		    int idx = Integer.parseInt(sel) - 1;
+		    if (idx >= 0 && idx < this.personajes.size()) {
+		        borrarPersonaje(this.personajes.get(idx));
+		    } else {
+		    	this.interfaz.mostrar("⚠️ Selección inválida.");
+		    }
+		} catch (NumberFormatException e) {
+			this.interfaz.mostrar("⚠️ Entrada no válida.");
+		}
+	}
 
 
     public List<Personaje> getPersonajes() {
@@ -356,6 +365,7 @@ public class Jugador extends Usuario {
     public void borrarPersonaje(Personaje personaje) {
         if (personaje != null && this.personajes.contains(personaje)) {
             this.personajes.remove(personaje);
+            this.fileManager.eliminarPersonajesUsuario(nick, personaje);
             interfaz.mostrar("✅ Personaje borrado exitosamente");
         } else {
             this.interfaz.mostrar("⚠️ No hay personajes disponibles que borrar");

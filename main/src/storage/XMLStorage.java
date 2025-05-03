@@ -507,10 +507,10 @@ public class XMLStorage implements I_Storage {
 	public List<Personaje> cargarPersonajesUsuario(String nick) {
 	    List<Personaje> personajes = new ArrayList<>();
 	    try {
-	        // Obtener el documento XML usando el método getDoc
-	        Document doc = getDoc("personajes");
+	        // Obtener el documento XML desde el archivo "personajes_jugadores.xml"
+	        Document doc = getDoc("personajes_jugadores");
 	        if (doc == null) {
-	            System.out.println("Archivo de personajes no encontrado en: " + getFilePath("personajes"));
+	            System.out.println("Archivo de personajes no encontrado en: " + getFilePath("personajes_jugadores"));
 	            return personajes;
 	        }
 
