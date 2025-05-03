@@ -358,7 +358,8 @@ public class FileManager {
                 // Crear un nuevo Jugador a partir del Usuario
                 List<Personaje> personajes = cargarPersonajesUsuario(usuario.getNick());
                 Desafio desafio = this.storage.cargarDesafioUsuario(usuario.getNick());
-                Jugador jugador = new Jugador(usuario, personajes, desafio);
+                Jugador jugador = new Jugador(usuario.getUserId(), usuario.getNick(), usuario.getNombre(), usuario.getPassword(), usuario.getRol(), usuario.getEstado(), usuario.getOro(), usuario.getPuntos()
+, personajes, desafio);
                 jugadoresActivos.add(jugador);
             }
         }
@@ -375,7 +376,8 @@ public class FileManager {
                 // Crear un nuevo Jugador a partir del Usuario
                 List<Personaje> personajes = cargarPersonajesUsuario(usuario.getNick());
                 Desafio desafio = this.storage.cargarDesafioUsuario(usuario.getNick());
-                Jugador jugador = new Jugador(usuario, personajes, desafio);
+                Jugador jugador = new Jugador(usuario.getUserId(), usuario.getNick(), usuario.getNombre(), usuario.getPassword(), usuario.getRol(), usuario.getEstado(), usuario.getOro(), usuario.getPuntos()
+, personajes, desafio);
                 jugadoresActivos.add(jugador);
             }
         }

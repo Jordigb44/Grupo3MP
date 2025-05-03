@@ -136,7 +136,7 @@ public class XMLStorage implements I_Storage {
 			usuarioElement.appendChild(fechaElement);
 
 			Element oroElement = doc.createElement("oro");
-			oroElement.appendChild(doc.createTextNode(usuario.getOro() != null ? usuario.getOro().toString() : "0"));
+			oroElement.appendChild(doc.createTextNode(String.valueOf(usuario.getOro())));
 			usuarioElement.appendChild(oroElement);
 
 			Element puntosElement = doc.createElement("puntos");

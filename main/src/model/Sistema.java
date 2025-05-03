@@ -64,9 +64,9 @@ public class Sistema {
 		            break;
 		        case "jugador":
 		        	this.interfaz.mostrar("->Usuario "+this.usuario.getNick()+" - "+this.usuario.getOro());
-		        	Jugador jugador = new Jugador(this.usuario, 
-		        									this.fileManager.cargarPersonajesUsuario(this.usuario.getNick()), // personajes
-		        									this.fileManager.cargarDesafioUsuario(usuario.getNick())); // desafio
+		        	Jugador jugador = new Jugador(this.usuario.getUserId(), this.usuario.getNick(), this.usuario.getNombre(), this.usuario.getPassword(), this.usuario.getRol(), this.usuario.getEstado(), 20, this.usuario.getPuntos(), 
+		        		    this.fileManager.cargarPersonajesUsuario(this.usuario.getNick()),
+		        		    this.fileManager.cargarDesafioUsuario(this.usuario.getNick()));
 		        	this.interfaz.mostrar("->Jugador "+jugador.getNick()+" - "+jugador.getOro());
 		        		jugador.setUsuarios(this.usuarios);
 		        		jugador.setInterfaz(this.interfaz);

@@ -24,24 +24,21 @@ public class Jugador extends Usuario {
     private Usuario usuario;
     private List<Usuario> usuarios;
    
-    public Jugador(Usuario usuario, List<Personaje> personajes, Desafio desafio) {
-        super(usuario.getUserId(), usuario.getNick(), usuario.getNombre(), usuario.getPassword(), usuario.getRol(), usuario.getEstado(), usuario.getOro(), usuario.getPuntos());
+    public Jugador(UUID userId, String nick, String nombre, String password, String rol, String estado, Integer oro, Integer puntos, List<Personaje> personajes, Desafio desafio) {
+        super(userId, nick, nombre, password, rol, estado, oro, puntos);
         this.personajes = personajes;
         this.desafio = desafio;
     }
     
     public void setUsuarios(List<Usuario> usuarios) {	
-    	System.out.println(">>ORO set_usuarios: "+this.getOro());
     	this.usuarios = usuarios;
     }
 
 	public void setInterfaz(A_Interfaz interfaz) {
-		System.out.println(">>ORO set_interfaz: "+this.getOro());
     	this.interfaz = interfaz;    	
     }
 	
     public void setFileManger(FileManager fileManager) {
-    	System.out.println(">>ORO set_filemanager: "+this.getOro());
     	this.fileManager = fileManager;    	
     }
 
@@ -81,7 +78,6 @@ public class Jugador extends Usuario {
 
     public void getMenu() {
         String opcion = " ";
-        this.interfaz.mostrar(">>ORO: "+this.getOro());
 
         do {
             this.interfaz.mostrar("=== MENÚ DE JUGADOR ===");
@@ -556,7 +552,8 @@ public class Jugador extends Usuario {
                 Jugador desafiado = null;
                 for (Usuario usuario : this.usuarios) {
                     if (usuario.getNick().equalsIgnoreCase(nickContrincante)) {
-                    	desafiado = new Jugador(usuario, this.fileManager.cargarPersonajesUsuario(usuario.nick), this.fileManager.cargarDesafioUsuario(usuario.nick));
+                    	desafiado = new Jugador(usuario.getUserId(), usuario.getNick(), usuario.getNombre(), usuario.getPassword(), usuario.getRol(), usuario.getEstado(), usuario.getOro(), usuario.getPuntos()
+, this.fileManager.cargarPersonajesUsuario(usuario.nick), this.fileManager.cargarDesafioUsuario(usuario.nick));
                         break;
                     }
                 }
