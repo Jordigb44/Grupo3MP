@@ -205,16 +205,43 @@ public class Operador extends Usuario {
             
             switch (option) {
                 case "1":
-                    // Ver desafíos pendientes
-                    this.instanceInterface.mostrar(this.getMenuAprobarDesafios());
-                    Desafio desafioSeleccionado = this.seleccionarDesafio();
-                    
-                    if (desafioSeleccionado != null) {
-                        String resultado = this.validarDesafio(desafioSeleccionado);
-                        this.instanceInterface.mostrar(resultado);
-                        this.instanceInterface.mostrar("Presione Enter para continuar...");
-                        this.instanceInterface.pedirEntrada();
-                    }
+                	// Ver desafíos pendientes
+                	this.instanceInterface.mostrar(this.getMenuAprobarDesafios());
+                	Desafio desafioSeleccionado = this.seleccionarDesafio();
+
+                	if (desafioSeleccionado != null) {
+                	    boolean continuar = true;
+                	    while (continuar) {
+                	        this.instanceInterface.mostrar("Desafío seleccionado:\n" + desafioSeleccionado.toString());
+                	        this.instanceInterface.mostrar("¿Qué desea hacer?");
+                	        this.instanceInterface.mostrar("1. Aceptar desafío");
+                	        this.instanceInterface.mostrar("2. Rechazar desafío");
+                	        this.instanceInterface.mostrar("3. Volver");
+
+                	        String opcion = this.instanceInterface.pedirEntrada();
+
+                	        switch (opcion) {
+                	            case "1":
+                	                String resultadoAceptado = this.validarDesafio(desafioSeleccionado); // Aquí asumo que acepta el desafío
+                	                this.instanceInterface.mostrar("Resultado:\n" + resultadoAceptado);
+                	                continuar = false;
+                	                break;
+                	            case "2":
+                	                this.rechazarDesafio(desafioSeleccionado); // Suponiendo que tenés este método
+                	                this.instanceInterface.mostrar("Desafío rechazado.");
+                	                continuar = false;
+                	                break;
+                	            case "3":
+                	                continuar = false;
+                	                break;
+                	            default:
+                	                this.instanceInterface.mostrar("Opción inválida. Intente nuevamente.");
+                	        }
+                	    }
+
+                	    this.instanceInterface.mostrar("Presione Enter para continuar...");
+                	    this.instanceInterface.pedirEntrada();
+                	}
                     break;
                     
                 case "2":
@@ -559,6 +586,17 @@ public class Operador extends Usuario {
         }
         
         desafio.setEstado(E_EstadoDesafio.VALIDADO);
+        fileManager.actualizarEstadoDesafio(desafio.getDesafioId(), desafio.getEstado());
+        
+        return "Desafío validado correctamente.";
+    }
+    
+    public String rechazarDesafio(Desafio desafio) {
+        if (desafio == null) {
+            return "Error: Desafío no encontrado.";
+        }
+        
+        desafio.setEstado(E_EstadoDesafio.RECHAZADO);
         fileManager.actualizarEstadoDesafio(desafio.getDesafioId(), desafio.getEstado());
         
         return "Desafío validado correctamente.";
