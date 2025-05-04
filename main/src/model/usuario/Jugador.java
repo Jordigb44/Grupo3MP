@@ -268,7 +268,7 @@ public class Jugador extends Usuario {
         List<Arma> disponibles = fileManager.cargarArmas();
         List<Arma> seleccionadas = new ArrayList<>();
 
-        interfaz.mostrar("Seleccione armas disponibles (separadas por coma sin espacios):");
+        interfaz.mostrar("Seleccione armas para el inventario (separadas por coma sin espacios):");
         for (int i = 0; i < disponibles.size(); i++) {
             Arma arma = disponibles.get(i);
             interfaz.mostrar(i + ". " + arma.getNombre() + " (Ataque: " + arma.getAtaque() + ", Manos: " + arma.getManos() + ")");
@@ -291,7 +291,7 @@ public class Jugador extends Usuario {
         List<Armadura> disponibles = fileManager.cargarArmaduras();
         List<Armadura> seleccionadas = new ArrayList<>();
 
-        interfaz.mostrar("Seleccione armaduras disponibles (separadas por coma sin espacios):");
+        interfaz.mostrar("Seleccione armaduras para el inventario (separadas por coma sin espacios):");
         for (int i = 0; i < disponibles.size(); i++) {
             Armadura a = disponibles.get(i);
             interfaz.mostrar(i + ". " + a.getNombre() + " (Defensa: " + a.getDefensa() + ")");
