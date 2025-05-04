@@ -27,7 +27,7 @@ import ui.A_Interfaz;
 	    private Fortaleza fortalezaActiva;
 	    private List<Debilidad> debilidades;
 	    private Debilidad debilidadActiva;
-	    private A_Interfaz interfaz; //PREGUNTAR JORDI
+	    private A_Interfaz interfaz;
 		private String tipo;
 		
 
@@ -61,7 +61,7 @@ import ui.A_Interfaz;
 		}
 
 	    // METODOS (ARMAS)
-		public String equiparArma(Arma arma) {
+		public void equiparArma(Arma arma) {
 		    int manosOcupadas = 0;
 
 		    for (Arma a : this.armaActiva) {
@@ -70,18 +70,19 @@ import ui.A_Interfaz;
 
 		    if (manosOcupadas + arma.getManos() <= 2) {
 		        this.armaActiva.add(arma);
-		        return "Se agrego el arma.";
-		    } else {
-		        return "No se pudo agrego el arma.";
+		    }
+		}
+		
+		public void desequiparArma(Arma arma) {
+		    if (this.armaActiva == arma) {
+		        this.armaActiva.remove(arma);
 		    }
 		}
 
-	    public void desequiparArma(Arma arma) {
-	        if (this.armaActiva == arma) {
-	            this.armaActiva.remove(arma);
-	        }
-	        
-	    }
+		public void eliminarArmasActivas() {
+			this.armaActiva.clear();
+		}
+		
 	    public void setTipo(String tipo) {
 	    	this.tipo = tipo;
 	    }
