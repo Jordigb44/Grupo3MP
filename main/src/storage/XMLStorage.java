@@ -695,8 +695,8 @@ public class XMLStorage implements I_Storage {
 	    }
 	}
 	
-	public boolean actualizarArmasPersonaje(String nick, String nombrePersonaje, List<Arma> armas) {
-	    return actualizarListaElemento(nick, nombrePersonaje, armas, "arma");
+	public void actualizarArmaActivaJugador(String nick, String nombrePersonaje, List<Arma> armas) {
+	    actualizarListaElemento(nick, nombrePersonaje, armas, "arma_activa");
 	}
 	
 	public boolean actualizarArmadurasPersonaje(String nick, String nombrePersonaje, List<Armadura> armaduras) {

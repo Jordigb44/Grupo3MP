@@ -180,6 +180,8 @@ public interface I_Storage {
 
 	String obtenerTipoDePersonajeDesafiantePorDesafioId(UUID desafioId);
 
+	void actualizarArmaActivaJugador(String nick, String nombrePersonaje, List<Arma> armas);
+
 
 
 }

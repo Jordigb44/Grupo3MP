@@ -174,6 +174,10 @@ public class FileManager {
         return this.storage.cargarArmas();
     }
 
+    public void actualizarArmaActivaJugador(String nick, String nombrePersonaje, List<Arma> armas) {
+    	this.storage.actualizarArmaActivaJugador(nick, nombrePersonaje, armas);
+    }
+    
     /**
      * Carga todas las armaduras disponibles desde el almacenamiento.
      *
