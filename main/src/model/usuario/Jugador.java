@@ -47,8 +47,8 @@ public class Jugador extends Usuario {
     }
     
     public void getDesafioMenu() {
-        if (this.desafio != null) {
-            this.desafio.setFileManager(this.fileManager);
+    	if (this.desafio != null && this.desafio.getDesafiado().getNick().equals(this.getNick())) {
+    		this.desafio.setFileManager(this.fileManager);
             this.interfaz.mostrar("=== Tienes un desafío nuevo ===");
             this.interfaz.mostrar("Desafiante: " + this.desafio.getDesafiante().getNick());
             this.interfaz.mostrar("Oro apostado: " + this.desafio.getOroApostado());
