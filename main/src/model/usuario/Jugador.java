@@ -47,7 +47,7 @@ public class Jugador extends Usuario {
     }
     
     public void getDesafioMenu() {
-    	if (this.desafio != null && this.desafio.getDesafiado().getNick().equals(this.getNick())) {
+    	if (this.desafio != null && this.desafio.getDesafiado().getNick().equals(this.getNick()) && this.desafio.getEstado().equals("VALIDADO")) {
     		this.desafio.setFileManager(this.fileManager);
             this.interfaz.mostrar("=== Tienes un desafío nuevo ===");
             this.interfaz.mostrar("Desafiante: " + this.desafio.getDesafiante().getNick());
@@ -559,6 +559,7 @@ public class Jugador extends Usuario {
                 // Equipar el primer arma
                 Arma armaSeleccionada1 = armasDisponibles.get(opcion1 - 1);
                 p.equiparArma(armaSeleccionada1);
+                this.fileManager.actualizarArmaActivaJugador(this.getNick(), p.getNombre(), p.getArmas());
 
                 // Si es de una mano, preguntar si quiere una segunda
                 if (armaSeleccionada1.getManos() == 1) {
