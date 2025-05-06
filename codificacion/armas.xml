@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<armas>
+    <arma>
+        <nombre>Espada Larga</nombre>
+        <ataque>25</ataque>
+        <manos>2</manos>
+    </arma>
+    <arma>
+        <nombre>Daga</nombre>
+        <ataque>15</ataque>
+        <manos>1</manos>
+    </arma>
+    <arma>
+        <nombre>Hacha de Batalla</nombre>
+        <ataque>30</ataque>
+        <manos>2</manos>
+    </arma>
+    <arma>
+        <nombre>Gato arañoso</nombre>
+        <ataque>10</ataque>
+        <manos>1</manos>
+    </arma>
+    <arma>
+        <nombre>Bigotes de furia</nombre>
+        <ataque>15</ataque>
+        <manos>1</manos>
+    </arma>
+    <arma>
+        <nombre>Ronroneo mortal</nombre>
+        <ataque>12</ataque>
+        <manos>1</manos>
+    </arma>
+    <arma>
+        <nombre>Bate de béisbol</nombre>
+        <ataque>10</ataque>
+        <manos>1</manos>
+    </arma>
+    <arma>
+        <nombre>Bomba nuclear</nombre>
+        <ataque>70</ataque>
+        <manos>2</manos>
+    </arma>
+</armas>

@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<personajes>
+      
+    <personaje>
+            
+        <id>46fce7a4-19f1-4b90-81b5-a7a2af6e5e29</id>
+            
+        <nombre>Alucard</nombre>
+            
+        <salud>100</salud>
+            
+        <oro>0</oro>
+            
+        <poder>0</poder>
+            
+        <armas/>
+            
+        <armaActiva/>
+            
+        <armaduras/>
+            
+        <armaduraActiva/>
+            
+        <esbirros/>
+            
+        <fortalezas/>
+            
+        <debilidades/>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>3f09f657-2121-4a8f-b847-2f07f26d4b23</id>
+            
+        <nombre>Fenrir</nombre>
+            
+        <salud>100</salud>
+            
+        <oro>0</oro>
+            
+        <poder>0</poder>
+            
+        <armas/>
+            
+        <armaActiva/>
+            
+        <armaduras/>
+            
+        <armaduraActiva/>
+            
+        <esbirros/>
+            
+        <fortalezas/>
+            
+        <debilidades/>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>6a7f0cad-6bed-44ae-87ac-3802b16f22b0</id>
+            
+        <nombre>Van Helsing</nombre>
+            
+        <salud>100</salud>
+            
+        <oro>0</oro>
+            
+        <poder>0</poder>
+            
+        <armas/>
+            
+        <armaActiva/>
+            
+        <armaduras/>
+            
+        <armaduraActiva/>
+            
+        <esbirros/>
+            
+        <fortalezas/>
+            
+        <debilidades/>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>7b558fcc-6d91-45f1-ad0c-a4457b86f7f9</id>
+            
+        <nombre>Drácula</nombre>
+            
+        <salud>100</salud>
+            
+        <oro>0</oro>
+            
+        <poder>0</poder>
+            
+        <armas/>
+            
+        <armaActiva/>
+            
+        <armaduras/>
+            
+        <armaduraActiva/>
+            
+        <esbirros/>
+            
+        <fortalezas/>
+            
+        <debilidades/>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>c9d0a0aa-cfe3-4a59-89cd-b51ae137e625</id>
+            
+        <nombre>Eva Cazadora</nombre>
+            
+        <salud>100</salud>
+            
+        <oro>0</oro>
+            
+        <poder>0</poder>
+            
+        <armas/>
+            
+        <armaActiva/>
+            
+        <armaduras/>
+            
+        <armaduraActiva/>
+            
+        <esbirros/>
+            
+        <fortalezas/>
+            
+        <debilidades/>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>d26d2c13-1f8b-4dce-ae51-2f6571a842be</id>
+            
+        <nombre>Luna Plateada</nombre>
+            
+        <salud>100</salud>
+            
+        <oro>0</oro>
+            
+        <poder>0</poder>
+            
+        <armas/>
+            
+        <armaActiva/>
+            
+        <armaduras/>
+            
+        <armaduraActiva/>
+            
+        <esbirros/>
+            
+        <fortalezas/>
+            
+        <debilidades/>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>1bc1985c-2268-415c-a206-b8b4dd6d08e9</id>
+            
+        <nombre>Alucard</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>b7b38027-6517-427a-92d0-0db75b845ac1</id>
+            
+        <nombre>Fenrir</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>7e3e3966-f1b0-4be9-b5ef-879ed795c0bf</id>
+            
+        <nombre>Van Helsing</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>30891bd8-76f9-40b7-ba89-70fd88a798af</id>
+            
+        <nombre>Drácula</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>6de3dd7e-8bfd-443d-a608-07b681a6d9a8</id>
+            
+        <nombre>Eva Cazadora</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>6658bcfc-8a47-4253-b146-e9df59b7b781</id>
+            
+        <nombre>Luna Plateada</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>a7f72bee-9424-40f0-a752-f004f26cf6a9</id>
+            
+        <nombre>1</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+            
+        <arma>Daga</arma>
+            
+        <arma>Espada Larga</arma>
+            
+        <armadura>Cota de Malla</armadura>
+            
+        <fortaleza>Velocidad Sobrenatural</fortaleza>
+            
+        <debilidad>Debilidad a la Luz Solar</debilidad>
+            
+        <esbirro>
+                  
+            <tipo>Licántropo</tipo>
+                  
+            <nombre>Lobo Guardián</nombre>
+                  
+            <salud>1</salud>
+                
+        </esbirro>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>533045c7-9ed1-449f-9553-7c3eaa91e5ce</id>
+            
+        <nombre>Alucard</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>b79de2fb-8921-4425-80c4-7aba112e121c</id>
+            
+        <nombre>Fenrir</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>9e1bf9c2-04fb-494d-922d-736fe82ac1f7</id>
+            
+        <nombre>Van Helsing</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>c0124c1a-5693-4685-bb98-c6e184d452ff</id>
+            
+        <nombre>Drácula</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>2c06be43-d5ff-43a6-a936-dd5cd2ed9edd</id>
+            
+        <nombre>Eva Cazadora</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>ac0ca0ec-d2e6-4093-938b-b7f81482068c</id>
+            
+        <nombre>Luna Plateada</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>9be91b6e-f42d-4b9a-92e7-068de8c07df2</id>
+            
+        <nombre>Alucard</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>0ae03820-7deb-4122-9f37-bc322c154ace</id>
+            
+        <nombre>Fenrir</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>63d35f33-6777-47d6-b4cf-7a98af866487</id>
+            
+        <nombre>Van Helsing</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>83150b7d-cb9c-4262-a509-0afdbd232c94</id>
+            
+        <nombre>Drácula</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>d7b7cba9-e8d3-4036-b37c-4c73eb566bcd</id>
+            
+        <nombre>Eva Cazadora</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>0ca89f77-1e71-4517-9ca1-3843fca01a33</id>
+            
+        <nombre>Luna Plateada</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>ba3185a4-7829-411b-b46d-4177d66336ac</id>
+            
+        <nombre>1</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+            
+        <arma>Daga</arma>
+            
+        <arma>Espada Larga</arma>
+            
+        <armadura>Cota de Malla</armadura>
+            
+        <fortaleza>Velocidad Sobrenatural</fortaleza>
+            
+        <debilidad>Debilidad a la Luz Solar</debilidad>
+          
+    </personaje>
+      
+    <personaje>
+            
+        <id>652d9766-1d1c-49a6-8bcb-475425687f69</id>
+            
+        <nombre>1</nombre>
+            
+        <oro>0</oro>
+            
+        <salud>100</salud>
+            
+        <armadura>Cota de Malla</armadura>
+            
+        <fortaleza>Velocidad Sobrenatural</fortaleza>
+            
+        <debilidad>Debilidad a la Luz Solar</debilidad>
+            
+        <esbirro>
+                  
+            <tipo>Licántropo</tipo>
+                  
+            <nombre>Lobo Guardián</nombre>
+                  
+            <salud>1</salud>
+                
+        </esbirro>
+          
+    </personaje>
+    
+    <personaje>
+        <id>177b2628-2ab9-4693-b5f1-d9ee02741416</id>
+        <nombre>Alucard</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>693f5321-7878-40a5-a297-0b4760473ca2</id>
+        <nombre>Fenrir</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>80f45b18-84f0-4647-af4b-b39c800a9322</id>
+        <nombre>Van Helsing</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>be70cfc9-1b68-4a50-bfe6-0bd3e632b7d6</id>
+        <nombre>Drácula</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>80e7cc9a-e234-4ae6-9eb8-335c1f132bdf</id>
+        <nombre>Eva Cazadora</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>73938892-43cc-4a8d-a57d-feac61d2f945</id>
+        <nombre>Luna Plateada</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>66c5de8c-8145-438f-adcd-97f2f1baf3be</id>
+        <nombre>Alucard</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>7856adc1-69a9-4a70-8f47-87cda049ffe2</id>
+        <nombre>Fenrir</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>71ab11eb-4b9d-486c-841f-5ca1a907bd00</id>
+        <nombre>Van Helsing</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>f1801ca6-8cad-44cf-a36c-9df989713730</id>
+        <nombre>Drácula</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>afcce9f2-7392-44dd-86af-de382e3c1532</id>
+        <nombre>Eva Cazadora</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>d83e1319-c585-47b5-8d8c-a17f62648e08</id>
+        <nombre>Luna Plateada</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>0a420c7b-2e69-4540-9d9d-a581b7db2094</id>
+        <nombre>1</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+        <arma>Daga</arma>
+        <arma>Espada Larga</arma>
+        <armadura>Cota de Malla</armadura>
+        <fortaleza>Velocidad Sobrenatural</fortaleza>
+        <debilidad>Debilidad a la Luz Solar</debilidad>
+    </personaje>
+    <personaje>
+        <id>4758da3a-7733-4a75-9d20-24adf6085784</id>
+        <nombre>Alucard</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>ad37022d-889a-4157-b1d1-a9d9b6e41657</id>
+        <nombre>Fenrir</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>1f8d54e3-f86e-4521-aa76-5b688647779b</id>
+        <nombre>Van Helsing</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>9f2c17f6-0fce-42f4-b451-aae210ff5d55</id>
+        <nombre>Drácula</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>f03c3f14-61c2-41ec-b99f-7ebcb6eee232</id>
+        <nombre>Eva Cazadora</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>6de25ea0-5a96-4920-924c-95624af1fce0</id>
+        <nombre>Luna Plateada</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>d264fe21-dd53-4e96-88b2-48cc455f1e7d</id>
+        <nombre>Alucard</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>807bf876-31d6-430e-9554-d8e1f9a31e84</id>
+        <nombre>Fenrir</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>97555647-3dd2-4b69-8e9e-3792fbd638b1</id>
+        <nombre>Van Helsing</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>a513b61f-74ff-43d9-b049-feb1bec64fba</id>
+        <nombre>Drácula</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>517a579c-c7c5-4a68-b196-acba48ac0577</id>
+        <nombre>Eva Cazadora</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>af445b30-08c4-4b42-83e7-4e2dc118bb05</id>
+        <nombre>Luna Plateada</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+    </personaje>
+    <personaje>
+        <id>16bb567b-50c4-44ab-bd44-9e8f8bee2319</id>
+        <nombre>1</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+        <arma>Daga</arma>
+        <arma>Espada Larga</arma>
+        <armadura>Cota de Malla</armadura>
+        <fortaleza>Velocidad Sobrenatural</fortaleza>
+        <debilidad>Debilidad a la Luz Solar</debilidad>
+    </personaje>
+    <personaje>
+        <id>bfd7e7bd-d189-4e84-a9fb-f240b24cd1ea</id>
+        <nombre>1</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+        <armadura>Cota de Malla</armadura>
+        <fortaleza>Velocidad Sobrenatural</fortaleza>
+        <debilidad>Debilidad a la Luz Solar</debilidad>
+    </personaje>
+    <personaje>
+        <id>c49d672c-b131-4115-af87-87cef728273d</id>
+        <nombre>1</nombre>
+        <oro>0</oro>
+        <salud>100</salud>
+        <armadura>Cota de Malla</armadura>
+        <fortaleza>Velocidad Sobrenatural</fortaleza>
+        <debilidad>Debilidad a la Luz Solar</debilidad>
+        <esbirro>
+            <tipo>Licántropo</tipo>
+            <nombre>Lobo Guardián</nombre>
+            <salud>1</salud>
+        </esbirro>
+    </personaje>
+</personajes>

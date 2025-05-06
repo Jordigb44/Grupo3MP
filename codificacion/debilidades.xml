@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<debilidades>
+    <debilidad>
+        <nombre>Vulnerabilidad a la Plata</nombre>
+        <nivel>3</nivel>
+    </debilidad>
+    <debilidad>
+        <nombre>Debilidad a la Luz Solar</nombre>
+        <nivel>2</nivel>
+    </debilidad>
+    <debilidad>
+        <nombre>Fragilidad a las Espadas</nombre>
+        <nivel>2</nivel>
+    </debilidad>
+    <debilidad>
+        <nombre>Vulnerabilidad a las Flechas</nombre>
+        <nivel>3</nivel>
+    </debilidad>
+    <debilidad>
+        <nombre>Debilidad a las Armaduras Pesadas</nombre>
+        <nivel>1</nivel>
+    </debilidad>
+    <!-- Más debilidades -->
+</debilidades>

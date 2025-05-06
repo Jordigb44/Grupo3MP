@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<personajes>
+                
+    
+    
+    <personaje>
+        <jugador>jordi</jugador>
+        <nombre>1</nombre>
+        <arma>Daga</arma>
+        <armadura>Cota de Malla</armadura>
+        <fortaleza>Velocidad Sobrenatural</fortaleza>
+        <debilidad>Debilidad a la Luz Solar</debilidad>
+        <esbirro>Lobo Guardián</esbirro>
+        <oro>0</oro>
+    </personaje>
+                
+    
+    
+    
+    <personaje>
+                        
+        
+        <jugador>jordi</jugador>
+                        
+        
+        <nombre>l1</nombre>
+                        
+        
+        <arma>Daga</arma>
+                        
+        
+        <armadura>Cota de Malla</armadura>
+                        
+        
+        <fortaleza>Velocidad Sobrenatural</fortaleza>
+                        
+        
+        <debilidad>Debilidad a la Luz Solar</debilidad>
+                        
+        
+        <esbirro>Lobo Guardián</esbirro>
+                        
+        
+        <oro>0</oro>
+                    
+    
+    </personaje>
+                
+    
+    
+    
+    <personaje>
+                                
+        
+        
+        <jugador>adam</jugador>
+                                
+        
+        
+        <nombre>hunter</nombre>
+                                
+        
+        
+        <arma>Ronroneo mortal</arma>
+                                
+        
+        
+        <armadura>Cota de Malla</armadura>
+                                
+        
+        
+        <fortaleza>Fuerza Incrementada</fortaleza>
+                                
+        
+        
+        <debilidad>Vulnerabilidad a las Flechas</debilidad>
+                                
+        
+        
+        <esbirro>Demonio Menor</esbirro>
+                                
+        
+        
+        <oro>0</oro>
+                            
+    
+    
+    </personaje>
+                
+    
+    
+    
+    <personaje>
+                                
+        
+        
+        <jugador>yago</jugador>
+                                
+        
+        
+        <nombre>dracula3</nombre>
+                                
+        
+        
+        <arma>Espada Larga</arma>
+                                
+        
+        
+        <arma>Daga</arma>
+                                
+        
+        
+        <arma>Hacha de Batalla</arma>
+                                
+        
+        
+        <arma>Bigotes de furia</arma>
+                                
+        
+        
+        <arma>Ronroneo mortal</arma>
+                                
+        
+        
+        <arma>Bate de béisbol</arma>
+                                
+        
+        
+        <armadura>Armadura de Cuero</armadura>
+                                
+        
+        
+        <armadura>Cota de Malla</armadura>
+                                
+        
+        
+        <armadura>Armadura de plástico</armadura>
+                                
+        
+        
+        <armadura>Casco de jinete</armadura>
+                                
+        
+        
+        <fortaleza>Invisibilidad</fortaleza>
+                                
+        
+        
+        <debilidad>Debilidad a la Luz Solar</debilidad>
+                                
+        
+        
+        <esbirro>Cazador de Ofertas</esbirro>
+                                
+        
+        
+        <oro>0</oro>
+                            
+    
+    
+    </personaje>
+            	
+
+
+
+</personajes>

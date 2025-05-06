@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<armaduras>
+    <armadura>
+        <nombre>Armadura de Cuero</nombre>
+        <defensa>10</defensa>
+    </armadura>
+    <armadura>
+        <nombre>Cota de Malla</nombre>
+        <defensa>20</defensa>
+    </armadura>
+    <armadura>
+        <nombre>Armadura de Placas</nombre>
+        <defensa>30</defensa>
+    </armadura>
+    <armadura>
+        <nombre>Armadura de ganchillo</nombre>
+        <defensa>5</defensa>
+    </armadura>
+    <armadura>
+        <nombre>Armadura de plástico</nombre>
+        <defensa>13</defensa>
+    </armadura>
+    <armadura>
+        <nombre>Casco de jinete</nombre>
+        <defensa>15</defensa>
+    </armadura>
+    <!-- Más armaduras -->
+</armaduras>
