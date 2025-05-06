@@ -5,14 +5,13 @@ import org.junit.jupiter.api.Test;
 import storage.FileManager;
 import storage.XMLStorage; // Asegúrate de que esta clase exista
 
-import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class authTest {
+public class usuarioTest {
 
     private FileManager fileManager;
     private Authorization authorization;
