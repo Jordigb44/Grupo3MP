@@ -8,9 +8,10 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 import model.usuario.Jugador;
 import storage.FileManager;
+import storage.XMLStorage;
 import ui.A_Interfaz;
 
-class DesafioTest {
+class desafioTest {
 
     private Desafio desafio;
     private Jugador desafiante;
@@ -26,8 +27,8 @@ class DesafioTest {
         desafiado = new Jugador(UUID.randomUUID(), "Jugador2", "Nombre2", "pass2",
                 "Jugador", "Activo", 100, 0, null, null);
 
-        fileManager = new FileManagerTest(); // Usamos una implementación de prueba
-        interfaz = new InterfazTest(); // Implementación simple para testing
+        fileManager = new FileManager(new XMLStorage("./data"));
+        interfaz = new A_Interfaz();
 
         desafio = new Desafio();
         desafio.setFileManager(fileManager);
@@ -78,43 +79,4 @@ class DesafioTest {
         assertEquals(fecha, desafio.getFecha());
     }
 
-}
-
-// Implementación de FileManager para testing
-class FileManagerTest extends FileManager {
-    private Desafio desafioACargar;
-
-    public void setDesafioACargar(Desafio desafio) {
-        this.desafioACargar = desafio;
-    }
-
-    @Override
-    public Desafio cargarDesafio(UUID desafioId) {
-        return desafioACargar;
-    }
-
-    @Override
-    public String guardarDesafio(Desafio desafio) {
-        // Simplemente no hacer nada para testing
-        return null;
-    }
-
-    @Override
-    public String actualizarEstadoDesafio(UUID desafioId, E_EstadoDesafio estado) {
-        // Simplemente no hacer nada para testing
-        return null;
-    }
-}
-
-// Implementación simple de interfaz para testing
-class InterfazTest extends A_Interfaz {
-    @Override
-    public void mostrar(String mensaje) {
-        System.out.println(mensaje);
-    }
-
-    @Override
-    public String pedirEntrada() {
-        return "";
-    }
 }
