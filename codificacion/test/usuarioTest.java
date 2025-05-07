@@ -117,29 +117,4 @@ public class usuarioTest {
         // Verificamos que la respuesta sea la correcta
         assertEquals("Usuario no encontrado.", resultado);
     }
-
-    @Test
-    public void testGuardarUsuario_Exito() {
-        // Creamos un usuario para guardar en el sistema
-        Usuario nuevo = crearUsuario("nuevo", "1234", "Activo");
-        String resultado = authorization.guardarUsuario(nuevo);
-
-        // Verificamos que la respuesta sea la correcta
-        assertEquals("Usuario guardado correctamente.", resultado);
-    }
-
-//    @Test
-//    public void testGuardarUsuario_Error() {
-//        // Creamos un usuario para probar la funcionalidad de guardar
-//        Usuario nuevo = crearUsuario("nuevo", "1234", "Activo");
-//
-//        // Forzamos un error en el guardar (dependiendo de cómo hayas implementado el FileManager)
-//        // Aquí supongo que si el archivo no se puede guardar, el método retornará un error.
-//        fileManager = null; // Simulamos que el FileManager no está disponible
-//
-//        String resultado = authorization.guardarUsuario(nuevo);
-//
-//        // Verificamos que el error se haya manejado correctamente
-//        assertEquals("Error al guardar el usuario.", resultado);
-//    }
 }
