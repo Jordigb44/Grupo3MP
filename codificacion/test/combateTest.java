@@ -16,7 +16,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import storage.XMLStorage;
 
-class CombateTest {
+class combateTest {
 
     private Combate combate;
     private Desafio desafio;
