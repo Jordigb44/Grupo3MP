@@ -14,6 +14,7 @@ import storage.FileManager;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import storage.XMLStorage;
 
 class CombateTest {
 
@@ -36,7 +37,7 @@ class CombateTest {
         desafio.setOroApostado(50);
         desafio.setEstado(E_EstadoDesafio.PENDIENTE);
 
-        fileManager = new FileManager(); // Asumiendo que FileManager tiene un constructor público
+        fileManager = new FileManager(new XMLStorage("./")); // Asumiendo que FileManager tiene un constructor público
 
         combate = new Combate(desafio);
     }
