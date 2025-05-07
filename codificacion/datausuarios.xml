@@ -55,4 +55,48 @@
     <oro>100</oro>
     <puntos>50</puntos>
   </usuario>
+  <usuario>
+    <id>4e40c110-de78-4c4a-b5c7-c36d7006478b</id>
+    <nick>player3</nick>
+    <nombre>Player Three</nombre>
+    <password>pass789</password>
+    <rol>jugador</rol>
+    <estado>activo</estado>
+    <fecha>2025-05-07T12:12:35.043778200</fecha>
+    <oro>0</oro>
+    <puntos>0</puntos>
+  </usuario>
+  <usuario>
+    <id>21e015c7-d639-4435-a4e8-7de9a6963827</id>
+    <nick>player4</nick>
+    <nombre>Player Four</nombre>
+    <password>pass012</password>
+    <rol>jugador</rol>
+    <estado>activo</estado>
+    <fecha>2025-05-07T12:12:35.043778200</fecha>
+    <oro>0</oro>
+    <puntos>0</puntos>
+  </usuario>
+  <usuario>
+    <id>e3d916c9-5ade-4351-b84f-cfd7572371e2</id>
+    <nick>blockedPlayer</nick>
+    <nombre>Blocked Player</nombre>
+    <password>pass123</password>
+    <rol>jugador</rol>
+    <estado>activo</estado>
+    <fecha>2025-05-07T12:13:40.705120</fecha>
+    <oro>0</oro>
+    <puntos>0</puntos>
+  </usuario>
+  <usuario>
+    <id>10bcded3-e905-41cb-ae11-e5649919e980</id>
+    <nick>testPlayer</nick>
+    <nombre>Test Player</nombre>
+    <password>pass123</password>
+    <rol>jugador</rol>
+    <estado>bloqueado</estado>
+    <fecha>2025-05-07T12:13:40.846360900</fecha>
+    <oro>0</oro>
+    <puntos>0</puntos>
+  </usuario>
 </usuarios>
