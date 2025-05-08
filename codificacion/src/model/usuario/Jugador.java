@@ -47,10 +47,14 @@ public class Jugador extends Usuario {
     }
     
     public void getDesafioMenu() {
+        if (this.desafio == null || this.desafio.getDesafiado() == null || this.desafio.getEstado() == null) {
+            return;
+        }
+
         boolean esDesafiado = this.desafio.getDesafiado().getNick().equals(this.getNick());
-        boolean estaPendiente = this.desafio.getEstado().toString().equals("PENDIENTE");
-        if (estaPendiente) {
-            System.out.println("desafio");
+        boolean estaPendiente = this.desafio.getEstado() == E_EstadoDesafio.PENDIENTE;
+
+        if (esDesafiado && estaPendiente) {
     		this.desafio.setFileManager(this.fileManager);
             this.interfaz.mostrar("=== Tienes un desafío nuevo ===");
             this.interfaz.mostrar("Desafiante: " + this.desafio.getDesafiante().getNick());
@@ -63,10 +67,112 @@ public class Jugador extends Usuario {
             String opcion = this.interfaz.pedirEntrada();
 
             switch (opcion) {
-	            case "1":
-	            	this.interfaz.mostrar("✅ Has aceptado el desafío.");
-	                this.desafio.Aceptar(desafio);
-	                break;
+                case "1":
+                    // 1. Primero, mostrar los personajes disponibles y pedir selección
+                    this.interfaz.mostrar("🎮 ¿Con qué personaje quieres combatir?");
+                    // Mostrar los personajes disponibles de forma legible
+                    StringBuilder listaPersonajes = new StringBuilder("📋 Personajes disponibles:\n");
+                    List<Personaje> personajes = this.getPersonajes();
+                    for (int i = 0; i < personajes.size(); i++) {
+                        Personaje p = personajes.get(i);
+                        listaPersonajes.append(String.format("%d. %s (❤️ Salud: %d)",
+                                i + 1,
+                                p.getNombre(),
+                                p.getSalud()
+                        ));
+
+                        // Mostrar armas equipadas si las tiene
+                        if (!p.getArmaActiva().isEmpty()) {
+                            listaPersonajes.append(" ⚔️ Armas: ");
+                            for (Arma arma : p.getArmaActiva()) {
+                                listaPersonajes.append(arma.getNombre()).append(" ");
+                            }
+                        }
+
+                        // Mostrar armadura si la tiene
+                        if (p.getArmaduraActiva() != null) {
+                            listaPersonajes.append(" 🛡️ Armadura: ")
+                                    .append(p.getArmaduraActiva().getNombre());
+                        }
+
+                        listaPersonajes.append("\n");
+                    }
+
+                    this.interfaz.mostrar(listaPersonajes.toString());
+                    this.interfaz.mostrar("Selecciona el número del personaje:");
+                    String seleccionPersonaje = this.interfaz.pedirEntrada();
+
+                    // Validar la selección del personaje
+                    Personaje personajeSeleccionado = null;
+                    try {
+                        int indice = Integer.parseInt(seleccionPersonaje) - 1;
+                        if (indice >= 0 && indice < this.getPersonajes().size()) {
+                            personajeSeleccionado = this.getPersonajes().get(indice);
+                        } else {
+                            this.interfaz.mostrar("⚠️ Selección inválida");
+                            break;
+                        }
+                    } catch (NumberFormatException e) {
+                        this.interfaz.mostrar("⚠️ Por favor, ingresa un número válido");
+                        break;
+                    }
+
+                    // 2. Iniciar el combate
+                    this.interfaz.mostrar("\n⚔️ ¡Comienza el combate!\n");
+
+                    // Inicializar variables del combate
+                    int numRonda = 1;
+                    int vidaRestante = personajeSeleccionado.getSalud();
+                    boolean combateEnCurso = true;
+                    boolean hasGanado = false;
+
+                    // 3. Simular las rondas de combate
+                    try {
+                        while (combateEnCurso && vidaRestante > 0) {
+                            this.interfaz.mostrar("------------------------");
+                            this.interfaz.mostrar("🗡️ Ronda " + numRonda);
+
+                            // Calcular y mostrar el daño
+                            int daño = (int)(Math.random() * 20) + 1; // Daño aleatorio entre 1 y 20
+                            vidaRestante -= daño;
+
+                            this.interfaz.mostrar("💥 Daño causado: " + daño);
+                            this.interfaz.mostrar("❤️ Salud restante: " + Math.max(0, vidaRestante));
+
+                            Thread.sleep(1000); // Pausa dramática de 1 segundo
+
+                            // Verificar si el combate debe continuar
+                            if (vidaRestante <= 0) {
+                                combateEnCurso = false;
+                                hasGanado = true;
+                            }
+
+                            numRonda++;
+                        }
+                    } catch (InterruptedException e) {
+                        this.interfaz.mostrar("⚠️ El combate fue interrumpido");
+                        break;
+                    }
+
+                    // 4. Mostrar resultado final
+                    this.interfaz.mostrar("\n🏆 Resultado del combate:");
+                    int oroGanado = hasGanado ? 100 : 0;
+                    int oroPerdido = hasGanado ? 0 : 50;
+
+                    if (hasGanado) {
+                        this.interfaz.mostrar("¡Victoria! 🎉");
+                        this.sumarOro(oroGanado);
+                        this.interfaz.mostrar("Has ganado " + oroGanado + " de oro");
+                    } else {
+                        this.interfaz.mostrar("Has sido derrotado... 😢");
+                        this.restarOro(oroPerdido, this.interfaz);
+                        this.interfaz.mostrar("Has perdido " + oroPerdido + " de oro");
+                    }
+                    this.interfaz.mostrar("Oro total: " + this.getOro());
+
+                    // Actualizar el estado del desafío
+                    this.desafio.Aceptar(this.desafio);
+                    break;
 	
 	            case "2":
 	            	this.interfaz.mostrar("❌ Has rechazado el desafío.");
@@ -662,68 +768,72 @@ public class Jugador extends Usuario {
     public void crearDesafioMenu() {
         while (true) {
             try {
-                this.interfaz.mostrar("=== Crear Desafío ===");
-                this.interfaz.mostrar("Introduce el nick del jugador a desafiar (o 0 para volver):");
-                String nickContrincante = this.interfaz.pedirEntrada();
 
-                if (nickContrincante.equals("0")) {
-                    return; // Volver al menú anterior
-                }
+                if (this.getEstado().equals("bloqueado")){this.interfaz.mostrar("No puede desafiar, esta bloqueado"); return;}
+                else {
+                    this.interfaz.mostrar("=== Crear Desafío ===");
+                    this.interfaz.mostrar("Introduce el nick del jugador a desafiar (o 0 para volver):");
+                    String nickContrincante = this.interfaz.pedirEntrada();
 
-                if (nickContrincante.equalsIgnoreCase(this.nick)) {
-                    this.interfaz.mostrar("No puedes desafiarte a ti mismo.");
-                    continue;
-                }
-
-                // Buscar contrincante en this.usuarios
-                Jugador desafiado = null;
-                for (Usuario usuario : this.usuarios) {
-                    if (usuario.getNick().equalsIgnoreCase(nickContrincante)) {
-                    	desafiado = new Jugador(usuario.getUserId(), usuario.getNick(), usuario.getNombre(), usuario.getPassword(), usuario.getRol(), usuario.getEstado(), usuario.getOro(), usuario.getPuntos()
-, this.fileManager.cargarPersonajesUsuario(usuario.nick), this.fileManager.cargarDesafioUsuario(usuario.nick, usuarios));
-                        break;
+                    if (nickContrincante.equals("0")) {
+                        return; // Volver al menú anterior
                     }
-                }
 
-                if (desafiado == null) {
-                    this.interfaz.mostrar("El jugador indicado no existe o no es un jugador válido.");
-                    continue;
-                }
+                    if (nickContrincante.equalsIgnoreCase(this.nick)) {
+                        this.interfaz.mostrar("No puedes desafiarte a ti mismo.");
+                        continue;
+                    }
 
-                // Pedir oro a apostar
-                int oroApostado = 0;
-                while (true) {
-                    this.interfaz.mostrar("Introduce la cantidad de oro a apostar (mayor a 0 y hasta " + this.oro + ") o 0 para volver:");
-                    try {
-                        oroApostado = Integer.parseInt(this.interfaz.pedirEntrada());
-                        if (oroApostado == 0) {
-                            return; // Volver
-                        }
-                        if (oroApostado > 0 && oroApostado <= this.oro) {
+                    // Buscar contrincante en this.usuarios
+                    Jugador desafiado = null;
+                    for (Usuario usuario : this.usuarios) {
+                        if (usuario.getNick().equalsIgnoreCase(nickContrincante)) {
+                            desafiado = new Jugador(usuario.getUserId(), usuario.getNick(), usuario.getNombre(), usuario.getPassword(), usuario.getRol(), usuario.getEstado(), usuario.getOro(), usuario.getPuntos()
+                                    , this.fileManager.cargarPersonajesUsuario(usuario.nick), this.fileManager.cargarDesafioUsuario(usuario.nick, usuarios));
                             break;
-                        } else {
-                            this.interfaz.mostrar("Cantidad inválida.");
-                      }
-                    } catch (NumberFormatException e) {
-                        this.interfaz.mostrar("Introduce un número válido.");
+                        }
                     }
+
+                    if (desafiado == null) {
+                        this.interfaz.mostrar("El jugador indicado no existe o no es un jugador válido.");
+                        continue;
+                    }
+
+                    // Pedir oro a apostar
+                    int oroApostado = 0;
+                    while (true) {
+                        this.interfaz.mostrar("Introduce la cantidad de oro a apostar (mayor a 0 y hasta " + this.oro + ") o 0 para volver:");
+                        try {
+                            oroApostado = Integer.parseInt(this.interfaz.pedirEntrada());
+                            if (oroApostado == 0) {
+                                return; // Volver
+                            }
+                            if (oroApostado > 0 && oroApostado <= this.oro) {
+                                break;
+                            } else {
+                                this.interfaz.mostrar("Cantidad inválida.");
+                            }
+                        } catch (NumberFormatException e) {
+                            this.interfaz.mostrar("Introduce un número válido.");
+                        }
+                    }
+
+                    // Crear y configurar desafío
+                    Desafio desafio = new Desafio();
+                    desafio.setDesafioId(UUID.randomUUID());
+                    desafio.setDesafiante(this);
+                    desafio.setDesafiado(desafiado);
+                    desafio.setOroApostado(oroApostado);
+                    desafio.setFechaDesafio(LocalDateTime.now());
+                    desafio.setEstado(E_EstadoDesafio.PENDIENTE);
+
+                    // Guardar el desafío
+                    String resultado = this.fileManager.guardarDesafio(desafio);
+                    this.interfaz.mostrar(resultado);
+                    this.interfaz.mostrar("Presiona Enter para continuar...");
+                    this.interfaz.pedirEntrada();
+                    return;
                 }
-
-                // Crear y configurar desafío
-                Desafio desafio = new Desafio();
-                desafio.setDesafioId(UUID.randomUUID());
-                desafio.setDesafiante(this);
-                desafio.setDesafiado(desafiado);
-                desafio.setOroApostado(oroApostado);
-                desafio.setFechaDesafio(LocalDateTime.now());
-                desafio.setEstado(E_EstadoDesafio.PENDIENTE);
-
-                // Guardar el desafío
-                String resultado = this.fileManager.guardarDesafio(desafio);
-                this.interfaz.mostrar(resultado);
-                this.interfaz.mostrar("Presiona Enter para continuar...");
-                this.interfaz.pedirEntrada();
-                return;
 
             } catch (Exception e) {
                 this.interfaz.mostrar("Error al crear desafío: " + e.getMessage());
