@@ -1,0 +1,51 @@
+name: Java CI for codificacion project
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Create output folders
+      working-directory: codificacion
+      run: |
+        mkdir -p out/production
+        mkdir -p out/test
+
+    - name: Compile production code
+      working-directory: codificacion
+      run: |
+        find src -name "*.java" > sources.txt
+        javac -d out/production @sources.txt
+
+    - name: Compile test code
+      working-directory: codificacion
+      run: |
+        find test -name "*.java" > test_sources.txt
+        javac -d out/test -cp out/production @test_sources.txt
+
+    - name: Download JUnit Console Launcher
+      working-directory: codificacion
+      run: |
+        curl -L -o junit-console.jar https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.12.1/junit-platform-console-standalone-1.12.1.jar
+
+    - name: Run tests
+      working-directory: codificacion
+      run: |
+        java -jar junit-console.jar \
+          -cp "out/production:out/test" \
+          --scan-class-path
