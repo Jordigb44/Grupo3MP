@@ -35,8 +35,9 @@ jobs:
     - name: Compile test code
       working-directory: codificacion
       run: |
+        curl -L -o junit-console.jar https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.12.1/junit-platform-console-standalone-1.12.1.jar
         find test -name "*.java" > test_sources.txt
-        javac -d out/test -cp out/production @test_sources.txt
+        javac -d out/test -cp "out/production:junit-console.jar" @test_sources.txt
 
     - name: Download JUnit Console Launcher
       working-directory: codificacion
