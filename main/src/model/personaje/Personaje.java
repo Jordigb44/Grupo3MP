@@ -60,6 +60,15 @@ import ui.A_Interfaz;
 			this.debilidades = personaje.getDebilidades();
 		}
 
+		//METODOS (BUILDER)
+		public void setTipo(String tipo) {
+	    	this.tipo = tipo;
+	    }
+	    
+	    public void getTipo(String tipo) {
+	    	this.tipo = tipo;
+	    }
+	    
 	    // METODOS (ARMAS)
 		public void equiparArma(Arma arma) {
 		    int manosOcupadas = 0;
@@ -82,14 +91,6 @@ import ui.A_Interfaz;
 		public void eliminarArmasActivas() {
 			this.armaActiva.clear();
 		}
-		
-	    public void setTipo(String tipo) {
-	    	this.tipo = tipo;
-	    }
-	    
-	    public void getTipo(String tipo) {
-	    	this.tipo = tipo;
-	    }
 
 	    public List<Arma> getArmas() {
 	        return armas;
