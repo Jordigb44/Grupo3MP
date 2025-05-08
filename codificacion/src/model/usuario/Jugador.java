@@ -47,7 +47,10 @@ public class Jugador extends Usuario {
     }
     
     public void getDesafioMenu() {
-    	if (this.desafio != null && this.desafio.getDesafiado().getNick().equals(this.getNick()) && this.desafio.getEstado().equals("VALIDADO")) {
+        boolean esDesafiado = this.desafio.getDesafiado().getNick().equals(this.getNick());
+        boolean estaPendiente = this.desafio.getEstado().toString().equals("PENDIENTE");
+        if (estaPendiente) {
+            System.out.println("desafio");
     		this.desafio.setFileManager(this.fileManager);
             this.interfaz.mostrar("=== Tienes un desafío nuevo ===");
             this.interfaz.mostrar("Desafiante: " + this.desafio.getDesafiante().getNick());
